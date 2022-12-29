@@ -1,5 +1,7 @@
 # Flutter Json Widgets
 
+[![github pages](https://github.com/rodydavis/flutter_json_widgets/actions/workflows/main.yml/badge.svg)](https://github.com/rodydavis/flutter_json_widgets/actions/workflows/main.yml)
+
 This goal of this project is to provide a way to create Flutter widgets with JSON. 
 
 > This includes reading and writing to JSON from classes that represent widgets or other helpers classes and enums.
