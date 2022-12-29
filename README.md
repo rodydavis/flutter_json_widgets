@@ -4,13 +4,19 @@
 
 This goal of this project is to provide a way to create Flutter widgets with JSON. 
 
-> This includes reading and writing to JSON from classes that represent widgets or other helpers classes and enums.
+> This includes reading and writing to JSON from classes that represent widgets or other helper classes and enums.
 
 This does not depend on the flutter sdk for the core classes and can be used in places like the server, command line and dart2js.
+
+[Online Editor](https://rodydavis.github.io/flutter_json_widgets/)
 
 ## Implementation
 
 This package relies on another package called [freezed](https://pub.dev/packages/freezed) to generate the classes, enums and especially the unions that make it very helpful for parsing.
+
+## Supported Widgets
+
+There are a lot, and more coming soon. List coming soon.
 
 ## Example
 
