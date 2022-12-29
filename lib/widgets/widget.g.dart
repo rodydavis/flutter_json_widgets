@@ -106,6 +106,42 @@ Map<String, dynamic> _$$SizedBoxToJson(_$SizedBox instance) =>
       'runtimeType': instance.$type,
     };
 
+_$SizedBoxExpanded _$$SizedBoxExpandedFromJson(Map<String, dynamic> json) =>
+    _$SizedBoxExpanded(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$SizedBoxExpandedToJson(_$SizedBoxExpanded instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$SizedBoxShrink _$$SizedBoxShrinkFromJson(Map<String, dynamic> json) =>
+    _$SizedBoxShrink(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$SizedBoxShrinkToJson(_$SizedBoxShrink instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
 _$Container _$$ContainerFromJson(Map<String, dynamic> json) => _$Container(
       key: json['key'] == null
           ? null

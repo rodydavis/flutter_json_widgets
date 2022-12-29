@@ -71,6 +71,16 @@ class Widget with _$Widget {
     Widget? child,
   }) = SizedBox;
 
+  const factory Widget.sizedBoxExpanded({
+    Key? key,
+    Widget? child,
+  }) = SizedBoxExpanded;
+
+  const factory Widget.sizedBoxShrink({
+    Key? key,
+    Widget? child,
+  }) = SizedBoxShrink;
+
   const factory Widget.container({
     Key? key,
     Alignment? alignment,
@@ -815,16 +825,4 @@ class Widget with _$Widget {
   }) = DataTable;
 
   factory Widget.fromJson(Map<String, Object?> json) => _$WidgetFromJson(json);
-}
-
-extension SizedBoxUtils on SizedBox {
-  SizedBox expand() => const  SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-      );
-
-  SizedBox shrink() => const SizedBox(
-        width: 0,
-        height: 0,
-      );
 }

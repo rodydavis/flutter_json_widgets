@@ -18,7 +18,7 @@ class DataCell with _$DataCell {
     Callback? onTapCancel,
   }) = _DataCell;
 
-  static DataCell empty = DataCell(const SizedBox().shrink());
+  static const DataCell empty = DataCell(SizedBoxShrink());
 
   factory DataCell.fromJson(Map<String, Object?> json) =>
       _$DataCellFromJson(json);
