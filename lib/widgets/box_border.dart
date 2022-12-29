@@ -14,6 +14,10 @@ class BoxBorder with _$BoxBorder {
     @Default(BorderSide.none) BorderSide left,
   }) = Border;
 
+  const factory BoxBorder.outlined({
+    @Default(BorderSide.none) BorderSide side,
+  }) = OutlinedBorder;
+
   const factory BoxBorder.directional({
     @Default(BorderSide.none) BorderSide top,
     @Default(BorderSide.none) BorderSide start,

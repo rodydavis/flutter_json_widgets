@@ -18,6 +18,8 @@ BoxBorder _$BoxBorderFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'border':
       return Border.fromJson(json);
+    case 'outlined':
+      return OutlinedBorder.fromJson(json);
     case 'directional':
       return BorderDirectional.fromJson(json);
 
@@ -29,13 +31,12 @@ BoxBorder _$BoxBorderFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BoxBorder {
-  BorderSide get top => throw _privateConstructorUsedError;
-  BorderSide get bottom => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(BorderSide top, BorderSide right,
             BorderSide bottom, BorderSide left)
         border,
+    required TResult Function(BorderSide side) outlined,
     required TResult Function(
             BorderSide top, BorderSide start, BorderSide end, BorderSide bottom)
         directional,
@@ -46,6 +47,7 @@ mixin _$BoxBorder {
     TResult? Function(BorderSide top, BorderSide right, BorderSide bottom,
             BorderSide left)?
         border,
+    TResult? Function(BorderSide side)? outlined,
     TResult? Function(BorderSide top, BorderSide start, BorderSide end,
             BorderSide bottom)?
         directional,
@@ -56,6 +58,7 @@ mixin _$BoxBorder {
     TResult Function(BorderSide top, BorderSide right, BorderSide bottom,
             BorderSide left)?
         border,
+    TResult Function(BorderSide side)? outlined,
     TResult Function(BorderSide top, BorderSide start, BorderSide end,
             BorderSide bottom)?
         directional,
@@ -65,37 +68,32 @@ mixin _$BoxBorder {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Border value) border,
+    required TResult Function(OutlinedBorder value) outlined,
     required TResult Function(BorderDirectional value) directional,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Border value)? border,
+    TResult? Function(OutlinedBorder value)? outlined,
     TResult? Function(BorderDirectional value)? directional,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Border value)? border,
+    TResult Function(OutlinedBorder value)? outlined,
     TResult Function(BorderDirectional value)? directional,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $BoxBorderCopyWith<BoxBorder> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $BoxBorderCopyWith<$Res> {
   factory $BoxBorderCopyWith(BoxBorder value, $Res Function(BoxBorder) then) =
       _$BoxBorderCopyWithImpl<$Res, BoxBorder>;
-  @useResult
-  $Res call({BorderSide top, BorderSide bottom});
-
-  $BorderSideCopyWith<$Res> get top;
-  $BorderSideCopyWith<$Res> get bottom;
 }
 
 /// @nodoc
@@ -107,55 +105,18 @@ class _$BoxBorderCopyWithImpl<$Res, $Val extends BoxBorder>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? top = null,
-    Object? bottom = null,
-  }) {
-    return _then(_value.copyWith(
-      top: null == top
-          ? _value.top
-          : top // ignore: cast_nullable_to_non_nullable
-              as BorderSide,
-      bottom: null == bottom
-          ? _value.bottom
-          : bottom // ignore: cast_nullable_to_non_nullable
-              as BorderSide,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $BorderSideCopyWith<$Res> get top {
-    return $BorderSideCopyWith<$Res>(_value.top, (value) {
-      return _then(_value.copyWith(top: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $BorderSideCopyWith<$Res> get bottom {
-    return $BorderSideCopyWith<$Res>(_value.bottom, (value) {
-      return _then(_value.copyWith(bottom: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$BorderCopyWith<$Res> implements $BoxBorderCopyWith<$Res> {
+abstract class _$$BorderCopyWith<$Res> {
   factory _$$BorderCopyWith(_$Border value, $Res Function(_$Border) then) =
       __$$BorderCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
       {BorderSide top, BorderSide right, BorderSide bottom, BorderSide left});
 
-  @override
   $BorderSideCopyWith<$Res> get top;
   $BorderSideCopyWith<$Res> get right;
-  @override
   $BorderSideCopyWith<$Res> get bottom;
   $BorderSideCopyWith<$Res> get left;
 }
@@ -197,9 +158,25 @@ class __$$BorderCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
+  $BorderSideCopyWith<$Res> get top {
+    return $BorderSideCopyWith<$Res>(_value.top, (value) {
+      return _then(_value.copyWith(top: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $BorderSideCopyWith<$Res> get right {
     return $BorderSideCopyWith<$Res>(_value.right, (value) {
       return _then(_value.copyWith(right: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BorderSideCopyWith<$Res> get bottom {
+    return $BorderSideCopyWith<$Res>(_value.bottom, (value) {
+      return _then(_value.copyWith(bottom: value));
     });
   }
 
@@ -274,6 +251,7 @@ class _$Border implements Border {
     required TResult Function(BorderSide top, BorderSide right,
             BorderSide bottom, BorderSide left)
         border,
+    required TResult Function(BorderSide side) outlined,
     required TResult Function(
             BorderSide top, BorderSide start, BorderSide end, BorderSide bottom)
         directional,
@@ -287,6 +265,7 @@ class _$Border implements Border {
     TResult? Function(BorderSide top, BorderSide right, BorderSide bottom,
             BorderSide left)?
         border,
+    TResult? Function(BorderSide side)? outlined,
     TResult? Function(BorderSide top, BorderSide start, BorderSide end,
             BorderSide bottom)?
         directional,
@@ -300,6 +279,7 @@ class _$Border implements Border {
     TResult Function(BorderSide top, BorderSide right, BorderSide bottom,
             BorderSide left)?
         border,
+    TResult Function(BorderSide side)? outlined,
     TResult Function(BorderSide top, BorderSide start, BorderSide end,
             BorderSide bottom)?
         directional,
@@ -315,6 +295,7 @@ class _$Border implements Border {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Border value) border,
+    required TResult Function(OutlinedBorder value) outlined,
     required TResult Function(BorderDirectional value) directional,
   }) {
     return border(this);
@@ -324,6 +305,7 @@ class _$Border implements Border {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Border value)? border,
+    TResult? Function(OutlinedBorder value)? outlined,
     TResult? Function(BorderDirectional value)? directional,
   }) {
     return border?.call(this);
@@ -333,6 +315,7 @@ class _$Border implements Border {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Border value)? border,
+    TResult Function(OutlinedBorder value)? outlined,
     TResult Function(BorderDirectional value)? directional,
     required TResult orElse(),
   }) {
@@ -359,34 +342,207 @@ abstract class Border implements BoxBorder {
 
   factory Border.fromJson(Map<String, dynamic> json) = _$Border.fromJson;
 
-  @override
   BorderSide get top;
   BorderSide get right;
-  @override
   BorderSide get bottom;
   BorderSide get left;
-  @override
   @JsonKey(ignore: true)
   _$$BorderCopyWith<_$Border> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$BorderDirectionalCopyWith<$Res>
-    implements $BoxBorderCopyWith<$Res> {
+abstract class _$$OutlinedBorderCopyWith<$Res> {
+  factory _$$OutlinedBorderCopyWith(
+          _$OutlinedBorder value, $Res Function(_$OutlinedBorder) then) =
+      __$$OutlinedBorderCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BorderSide side});
+
+  $BorderSideCopyWith<$Res> get side;
+}
+
+/// @nodoc
+class __$$OutlinedBorderCopyWithImpl<$Res>
+    extends _$BoxBorderCopyWithImpl<$Res, _$OutlinedBorder>
+    implements _$$OutlinedBorderCopyWith<$Res> {
+  __$$OutlinedBorderCopyWithImpl(
+      _$OutlinedBorder _value, $Res Function(_$OutlinedBorder) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? side = null,
+  }) {
+    return _then(_$OutlinedBorder(
+      side: null == side
+          ? _value.side
+          : side // ignore: cast_nullable_to_non_nullable
+              as BorderSide,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BorderSideCopyWith<$Res> get side {
+    return $BorderSideCopyWith<$Res>(_value.side, (value) {
+      return _then(_value.copyWith(side: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$OutlinedBorder implements OutlinedBorder {
+  const _$OutlinedBorder({this.side = BorderSide.none, final String? $type})
+      : $type = $type ?? 'outlined';
+
+  factory _$OutlinedBorder.fromJson(Map<String, dynamic> json) =>
+      _$$OutlinedBorderFromJson(json);
+
+  @override
+  @JsonKey()
+  final BorderSide side;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'BoxBorder.outlined(side: $side)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OutlinedBorder &&
+            (identical(other.side, side) || other.side == side));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, side);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OutlinedBorderCopyWith<_$OutlinedBorder> get copyWith =>
+      __$$OutlinedBorderCopyWithImpl<_$OutlinedBorder>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BorderSide top, BorderSide right,
+            BorderSide bottom, BorderSide left)
+        border,
+    required TResult Function(BorderSide side) outlined,
+    required TResult Function(
+            BorderSide top, BorderSide start, BorderSide end, BorderSide bottom)
+        directional,
+  }) {
+    return outlined(side);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BorderSide top, BorderSide right, BorderSide bottom,
+            BorderSide left)?
+        border,
+    TResult? Function(BorderSide side)? outlined,
+    TResult? Function(BorderSide top, BorderSide start, BorderSide end,
+            BorderSide bottom)?
+        directional,
+  }) {
+    return outlined?.call(side);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BorderSide top, BorderSide right, BorderSide bottom,
+            BorderSide left)?
+        border,
+    TResult Function(BorderSide side)? outlined,
+    TResult Function(BorderSide top, BorderSide start, BorderSide end,
+            BorderSide bottom)?
+        directional,
+    required TResult orElse(),
+  }) {
+    if (outlined != null) {
+      return outlined(side);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Border value) border,
+    required TResult Function(OutlinedBorder value) outlined,
+    required TResult Function(BorderDirectional value) directional,
+  }) {
+    return outlined(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Border value)? border,
+    TResult? Function(OutlinedBorder value)? outlined,
+    TResult? Function(BorderDirectional value)? directional,
+  }) {
+    return outlined?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Border value)? border,
+    TResult Function(OutlinedBorder value)? outlined,
+    TResult Function(BorderDirectional value)? directional,
+    required TResult orElse(),
+  }) {
+    if (outlined != null) {
+      return outlined(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$OutlinedBorderToJson(
+      this,
+    );
+  }
+}
+
+abstract class OutlinedBorder implements BoxBorder {
+  const factory OutlinedBorder({final BorderSide side}) = _$OutlinedBorder;
+
+  factory OutlinedBorder.fromJson(Map<String, dynamic> json) =
+      _$OutlinedBorder.fromJson;
+
+  BorderSide get side;
+  @JsonKey(ignore: true)
+  _$$OutlinedBorderCopyWith<_$OutlinedBorder> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$BorderDirectionalCopyWith<$Res> {
   factory _$$BorderDirectionalCopyWith(
           _$BorderDirectional value, $Res Function(_$BorderDirectional) then) =
       __$$BorderDirectionalCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
       {BorderSide top, BorderSide start, BorderSide end, BorderSide bottom});
 
-  @override
   $BorderSideCopyWith<$Res> get top;
   $BorderSideCopyWith<$Res> get start;
   $BorderSideCopyWith<$Res> get end;
-  @override
   $BorderSideCopyWith<$Res> get bottom;
 }
 
@@ -428,6 +584,14 @@ class __$$BorderDirectionalCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
+  $BorderSideCopyWith<$Res> get top {
+    return $BorderSideCopyWith<$Res>(_value.top, (value) {
+      return _then(_value.copyWith(top: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $BorderSideCopyWith<$Res> get start {
     return $BorderSideCopyWith<$Res>(_value.start, (value) {
       return _then(_value.copyWith(start: value));
@@ -439,6 +603,14 @@ class __$$BorderDirectionalCopyWithImpl<$Res>
   $BorderSideCopyWith<$Res> get end {
     return $BorderSideCopyWith<$Res>(_value.end, (value) {
       return _then(_value.copyWith(end: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BorderSideCopyWith<$Res> get bottom {
+    return $BorderSideCopyWith<$Res>(_value.bottom, (value) {
+      return _then(_value.copyWith(bottom: value));
     });
   }
 }
@@ -505,6 +677,7 @@ class _$BorderDirectional implements BorderDirectional {
     required TResult Function(BorderSide top, BorderSide right,
             BorderSide bottom, BorderSide left)
         border,
+    required TResult Function(BorderSide side) outlined,
     required TResult Function(
             BorderSide top, BorderSide start, BorderSide end, BorderSide bottom)
         directional,
@@ -518,6 +691,7 @@ class _$BorderDirectional implements BorderDirectional {
     TResult? Function(BorderSide top, BorderSide right, BorderSide bottom,
             BorderSide left)?
         border,
+    TResult? Function(BorderSide side)? outlined,
     TResult? Function(BorderSide top, BorderSide start, BorderSide end,
             BorderSide bottom)?
         directional,
@@ -531,6 +705,7 @@ class _$BorderDirectional implements BorderDirectional {
     TResult Function(BorderSide top, BorderSide right, BorderSide bottom,
             BorderSide left)?
         border,
+    TResult Function(BorderSide side)? outlined,
     TResult Function(BorderSide top, BorderSide start, BorderSide end,
             BorderSide bottom)?
         directional,
@@ -546,6 +721,7 @@ class _$BorderDirectional implements BorderDirectional {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Border value) border,
+    required TResult Function(OutlinedBorder value) outlined,
     required TResult Function(BorderDirectional value) directional,
   }) {
     return directional(this);
@@ -555,6 +731,7 @@ class _$BorderDirectional implements BorderDirectional {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Border value)? border,
+    TResult? Function(OutlinedBorder value)? outlined,
     TResult? Function(BorderDirectional value)? directional,
   }) {
     return directional?.call(this);
@@ -564,6 +741,7 @@ class _$BorderDirectional implements BorderDirectional {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Border value)? border,
+    TResult Function(OutlinedBorder value)? outlined,
     TResult Function(BorderDirectional value)? directional,
     required TResult orElse(),
   }) {
@@ -591,13 +769,10 @@ abstract class BorderDirectional implements BoxBorder {
   factory BorderDirectional.fromJson(Map<String, dynamic> json) =
       _$BorderDirectional.fromJson;
 
-  @override
   BorderSide get top;
   BorderSide get start;
   BorderSide get end;
-  @override
   BorderSide get bottom;
-  @override
   @JsonKey(ignore: true)
   _$$BorderDirectionalCopyWith<_$BorderDirectional> get copyWith =>
       throw _privateConstructorUsedError;

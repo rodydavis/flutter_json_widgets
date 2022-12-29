@@ -14,6 +14,10 @@ class BorderRadius with _$BorderRadius {
     @Default(Radius.zero) Radius bottomRight,
   }) = _BorderRadius;
 
+  const factory BorderRadius.all(
+    Radius radius,
+  ) = BorderRadiusAll;
+
   static const BorderRadius zero = BorderRadius();
 
   factory BorderRadius.fromJson(Map<String, Object?> json) =>

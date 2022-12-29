@@ -18,6 +18,12 @@ Color _$ColorFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'default':
       return _Color.fromJson(json);
+    case 'fromARGB':
+      return ColorARGB.fromJson(json);
+    case 'fromRGBO':
+      return ColorRGBO.fromJson(json);
+    case 'alphaBlend':
+      return ColorAlphaBlend.fromJson(json);
     case 'material':
       return MaterialColor.fromJson(json);
     case 'materialAccentColor':
@@ -94,6 +100,9 @@ mixin _$Color {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -132,6 +141,9 @@ mixin _$Color {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -169,6 +181,9 @@ mixin _$Color {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -207,6 +222,9 @@ mixin _$Color {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -246,6 +264,9 @@ mixin _$Color {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -283,6 +304,9 @@ mixin _$Color {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -408,6 +432,9 @@ class _$_Color implements _Color {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -449,6 +476,9 @@ class _$_Color implements _Color {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -489,6 +519,9 @@ class _$_Color implements _Color {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -533,6 +566,9 @@ class _$_Color implements _Color {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -575,6 +611,9 @@ class _$_Color implements _Color {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -615,6 +654,9 @@ class _$_Color implements _Color {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -671,6 +713,1167 @@ abstract class _Color implements Color {
   int get value;
   @JsonKey(ignore: true)
   _$$_ColorCopyWith<_$_Color> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ColorARGBCopyWith<$Res> {
+  factory _$$ColorARGBCopyWith(
+          _$ColorARGB value, $Res Function(_$ColorARGB) then) =
+      __$$ColorARGBCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int a, int r, int g, int b});
+}
+
+/// @nodoc
+class __$$ColorARGBCopyWithImpl<$Res>
+    extends _$ColorCopyWithImpl<$Res, _$ColorARGB>
+    implements _$$ColorARGBCopyWith<$Res> {
+  __$$ColorARGBCopyWithImpl(
+      _$ColorARGB _value, $Res Function(_$ColorARGB) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? a = null,
+    Object? r = null,
+    Object? g = null,
+    Object? b = null,
+  }) {
+    return _then(_$ColorARGB(
+      null == a
+          ? _value.a
+          : a // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == r
+          ? _value.r
+          : r // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == g
+          ? _value.g
+          : g // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == b
+          ? _value.b
+          : b // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ColorARGB implements ColorARGB {
+  const _$ColorARGB(this.a, this.r, this.g, this.b, {final String? $type})
+      : $type = $type ?? 'fromARGB';
+
+  factory _$ColorARGB.fromJson(Map<String, dynamic> json) =>
+      _$$ColorARGBFromJson(json);
+
+  @override
+  final int a;
+  @override
+  final int r;
+  @override
+  final int g;
+  @override
+  final int b;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Color.fromARGB(a: $a, r: $r, g: $g, b: $b)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ColorARGB &&
+            (identical(other.a, a) || other.a == a) &&
+            (identical(other.r, r) || other.r == r) &&
+            (identical(other.g, g) || other.g == g) &&
+            (identical(other.b, b) || other.b == b));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, a, r, g, b);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ColorARGBCopyWith<_$ColorARGB> get copyWith =>
+      __$$ColorARGBCopyWithImpl<_$ColorARGB>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
+    required TResult Function(int value, Map<int, Color> swatch) material,
+    required TResult Function(int value, Map<int, Color> swatch)
+        materialAccentColor,
+    required TResult Function() primary,
+    required TResult Function() onPrimary,
+    required TResult Function() primaryContainer,
+    required TResult Function() onPrimaryContainer,
+    required TResult Function() secondary,
+    required TResult Function() onSecondary,
+    required TResult Function() secondaryContainer,
+    required TResult Function() onSecondaryContainer,
+    required TResult Function() tertiary,
+    required TResult Function() onTertiary,
+    required TResult Function() tertiaryContainer,
+    required TResult Function() onTertiaryContainer,
+    required TResult Function() error,
+    required TResult Function() onError,
+    required TResult Function() errorContainer,
+    required TResult Function() onErrorContainer,
+    required TResult Function() outline,
+    required TResult Function() outlineVariant,
+    required TResult Function() background,
+    required TResult Function() onBackground,
+    required TResult Function() surface,
+    required TResult Function() onSurface,
+    required TResult Function() surfaceVariant,
+    required TResult Function() onSurfaceVariant,
+    required TResult Function() inverseSurface,
+    required TResult Function() onInverseSurface,
+    required TResult Function() inversePrimary,
+    required TResult Function() shadow,
+    required TResult Function() scrim,
+    required TResult Function() surfaceTint,
+  }) {
+    return fromARGB(a, r, g, b);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
+    TResult? Function(int value, Map<int, Color> swatch)? material,
+    TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
+    TResult? Function()? primary,
+    TResult? Function()? onPrimary,
+    TResult? Function()? primaryContainer,
+    TResult? Function()? onPrimaryContainer,
+    TResult? Function()? secondary,
+    TResult? Function()? onSecondary,
+    TResult? Function()? secondaryContainer,
+    TResult? Function()? onSecondaryContainer,
+    TResult? Function()? tertiary,
+    TResult? Function()? onTertiary,
+    TResult? Function()? tertiaryContainer,
+    TResult? Function()? onTertiaryContainer,
+    TResult? Function()? error,
+    TResult? Function()? onError,
+    TResult? Function()? errorContainer,
+    TResult? Function()? onErrorContainer,
+    TResult? Function()? outline,
+    TResult? Function()? outlineVariant,
+    TResult? Function()? background,
+    TResult? Function()? onBackground,
+    TResult? Function()? surface,
+    TResult? Function()? onSurface,
+    TResult? Function()? surfaceVariant,
+    TResult? Function()? onSurfaceVariant,
+    TResult? Function()? inverseSurface,
+    TResult? Function()? onInverseSurface,
+    TResult? Function()? inversePrimary,
+    TResult? Function()? shadow,
+    TResult? Function()? scrim,
+    TResult? Function()? surfaceTint,
+  }) {
+    return fromARGB?.call(a, r, g, b);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
+    TResult Function(int value, Map<int, Color> swatch)? material,
+    TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
+    TResult Function()? primary,
+    TResult Function()? onPrimary,
+    TResult Function()? primaryContainer,
+    TResult Function()? onPrimaryContainer,
+    TResult Function()? secondary,
+    TResult Function()? onSecondary,
+    TResult Function()? secondaryContainer,
+    TResult Function()? onSecondaryContainer,
+    TResult Function()? tertiary,
+    TResult Function()? onTertiary,
+    TResult Function()? tertiaryContainer,
+    TResult Function()? onTertiaryContainer,
+    TResult Function()? error,
+    TResult Function()? onError,
+    TResult Function()? errorContainer,
+    TResult Function()? onErrorContainer,
+    TResult Function()? outline,
+    TResult Function()? outlineVariant,
+    TResult Function()? background,
+    TResult Function()? onBackground,
+    TResult Function()? surface,
+    TResult Function()? onSurface,
+    TResult Function()? surfaceVariant,
+    TResult Function()? onSurfaceVariant,
+    TResult Function()? inverseSurface,
+    TResult Function()? onInverseSurface,
+    TResult Function()? inversePrimary,
+    TResult Function()? shadow,
+    TResult Function()? scrim,
+    TResult Function()? surfaceTint,
+    required TResult orElse(),
+  }) {
+    if (fromARGB != null) {
+      return fromARGB(a, r, g, b);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
+    required TResult Function(MaterialColor value) material,
+    required TResult Function(MaterialAccentColor value) materialAccentColor,
+    required TResult Function(PrimaryColor value) primary,
+    required TResult Function(OnPrimaryColor value) onPrimary,
+    required TResult Function(PrimaryContainerColor value) primaryContainer,
+    required TResult Function(OnPrimaryContainerColor value) onPrimaryContainer,
+    required TResult Function(SecondaryColor value) secondary,
+    required TResult Function(OnSecondaryColor value) onSecondary,
+    required TResult Function(SecondaryContainerColor value) secondaryContainer,
+    required TResult Function(OnSecondaryContainerColor value)
+        onSecondaryContainer,
+    required TResult Function(TertiaryColor value) tertiary,
+    required TResult Function(OnTertiaryColor value) onTertiary,
+    required TResult Function(TertiaryContainerColor value) tertiaryContainer,
+    required TResult Function(OnTertiaryContainerColor value)
+        onTertiaryContainer,
+    required TResult Function(ErrorColor value) error,
+    required TResult Function(OnErrorColor value) onError,
+    required TResult Function(ErrorContainerColor value) errorContainer,
+    required TResult Function(OnErrorContainerColor value) onErrorContainer,
+    required TResult Function(OutlineColor value) outline,
+    required TResult Function(OutlineVariantColor value) outlineVariant,
+    required TResult Function(BackgroundColor value) background,
+    required TResult Function(OnBackgroundColor value) onBackground,
+    required TResult Function(SurfaceColor value) surface,
+    required TResult Function(OnSurfaceColor value) onSurface,
+    required TResult Function(SurfaceVariantColor value) surfaceVariant,
+    required TResult Function(OnSurfaceVariantColor value) onSurfaceVariant,
+    required TResult Function(InverseSurfaceColor value) inverseSurface,
+    required TResult Function(OnInverseSurfaceColor value) onInverseSurface,
+    required TResult Function(InversePrimaryColor value) inversePrimary,
+    required TResult Function(ShadowColor value) shadow,
+    required TResult Function(ScrimColor value) scrim,
+    required TResult Function(SurfaceTintColor value) surfaceTint,
+  }) {
+    return fromARGB(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
+    TResult? Function(MaterialColor value)? material,
+    TResult? Function(MaterialAccentColor value)? materialAccentColor,
+    TResult? Function(PrimaryColor value)? primary,
+    TResult? Function(OnPrimaryColor value)? onPrimary,
+    TResult? Function(PrimaryContainerColor value)? primaryContainer,
+    TResult? Function(OnPrimaryContainerColor value)? onPrimaryContainer,
+    TResult? Function(SecondaryColor value)? secondary,
+    TResult? Function(OnSecondaryColor value)? onSecondary,
+    TResult? Function(SecondaryContainerColor value)? secondaryContainer,
+    TResult? Function(OnSecondaryContainerColor value)? onSecondaryContainer,
+    TResult? Function(TertiaryColor value)? tertiary,
+    TResult? Function(OnTertiaryColor value)? onTertiary,
+    TResult? Function(TertiaryContainerColor value)? tertiaryContainer,
+    TResult? Function(OnTertiaryContainerColor value)? onTertiaryContainer,
+    TResult? Function(ErrorColor value)? error,
+    TResult? Function(OnErrorColor value)? onError,
+    TResult? Function(ErrorContainerColor value)? errorContainer,
+    TResult? Function(OnErrorContainerColor value)? onErrorContainer,
+    TResult? Function(OutlineColor value)? outline,
+    TResult? Function(OutlineVariantColor value)? outlineVariant,
+    TResult? Function(BackgroundColor value)? background,
+    TResult? Function(OnBackgroundColor value)? onBackground,
+    TResult? Function(SurfaceColor value)? surface,
+    TResult? Function(OnSurfaceColor value)? onSurface,
+    TResult? Function(SurfaceVariantColor value)? surfaceVariant,
+    TResult? Function(OnSurfaceVariantColor value)? onSurfaceVariant,
+    TResult? Function(InverseSurfaceColor value)? inverseSurface,
+    TResult? Function(OnInverseSurfaceColor value)? onInverseSurface,
+    TResult? Function(InversePrimaryColor value)? inversePrimary,
+    TResult? Function(ShadowColor value)? shadow,
+    TResult? Function(ScrimColor value)? scrim,
+    TResult? Function(SurfaceTintColor value)? surfaceTint,
+  }) {
+    return fromARGB?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
+    TResult Function(MaterialColor value)? material,
+    TResult Function(MaterialAccentColor value)? materialAccentColor,
+    TResult Function(PrimaryColor value)? primary,
+    TResult Function(OnPrimaryColor value)? onPrimary,
+    TResult Function(PrimaryContainerColor value)? primaryContainer,
+    TResult Function(OnPrimaryContainerColor value)? onPrimaryContainer,
+    TResult Function(SecondaryColor value)? secondary,
+    TResult Function(OnSecondaryColor value)? onSecondary,
+    TResult Function(SecondaryContainerColor value)? secondaryContainer,
+    TResult Function(OnSecondaryContainerColor value)? onSecondaryContainer,
+    TResult Function(TertiaryColor value)? tertiary,
+    TResult Function(OnTertiaryColor value)? onTertiary,
+    TResult Function(TertiaryContainerColor value)? tertiaryContainer,
+    TResult Function(OnTertiaryContainerColor value)? onTertiaryContainer,
+    TResult Function(ErrorColor value)? error,
+    TResult Function(OnErrorColor value)? onError,
+    TResult Function(ErrorContainerColor value)? errorContainer,
+    TResult Function(OnErrorContainerColor value)? onErrorContainer,
+    TResult Function(OutlineColor value)? outline,
+    TResult Function(OutlineVariantColor value)? outlineVariant,
+    TResult Function(BackgroundColor value)? background,
+    TResult Function(OnBackgroundColor value)? onBackground,
+    TResult Function(SurfaceColor value)? surface,
+    TResult Function(OnSurfaceColor value)? onSurface,
+    TResult Function(SurfaceVariantColor value)? surfaceVariant,
+    TResult Function(OnSurfaceVariantColor value)? onSurfaceVariant,
+    TResult Function(InverseSurfaceColor value)? inverseSurface,
+    TResult Function(OnInverseSurfaceColor value)? onInverseSurface,
+    TResult Function(InversePrimaryColor value)? inversePrimary,
+    TResult Function(ShadowColor value)? shadow,
+    TResult Function(ScrimColor value)? scrim,
+    TResult Function(SurfaceTintColor value)? surfaceTint,
+    required TResult orElse(),
+  }) {
+    if (fromARGB != null) {
+      return fromARGB(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ColorARGBToJson(
+      this,
+    );
+  }
+}
+
+abstract class ColorARGB implements Color {
+  const factory ColorARGB(final int a, final int r, final int g, final int b) =
+      _$ColorARGB;
+
+  factory ColorARGB.fromJson(Map<String, dynamic> json) = _$ColorARGB.fromJson;
+
+  int get a;
+  int get r;
+  int get g;
+  int get b;
+  @JsonKey(ignore: true)
+  _$$ColorARGBCopyWith<_$ColorARGB> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ColorRGBOCopyWith<$Res> {
+  factory _$$ColorRGBOCopyWith(
+          _$ColorRGBO value, $Res Function(_$ColorRGBO) then) =
+      __$$ColorRGBOCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int r, int g, int b, double opacity});
+}
+
+/// @nodoc
+class __$$ColorRGBOCopyWithImpl<$Res>
+    extends _$ColorCopyWithImpl<$Res, _$ColorRGBO>
+    implements _$$ColorRGBOCopyWith<$Res> {
+  __$$ColorRGBOCopyWithImpl(
+      _$ColorRGBO _value, $Res Function(_$ColorRGBO) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? r = null,
+    Object? g = null,
+    Object? b = null,
+    Object? opacity = null,
+  }) {
+    return _then(_$ColorRGBO(
+      null == r
+          ? _value.r
+          : r // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == g
+          ? _value.g
+          : g // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == b
+          ? _value.b
+          : b // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == opacity
+          ? _value.opacity
+          : opacity // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ColorRGBO implements ColorRGBO {
+  const _$ColorRGBO(this.r, this.g, this.b, this.opacity, {final String? $type})
+      : $type = $type ?? 'fromRGBO';
+
+  factory _$ColorRGBO.fromJson(Map<String, dynamic> json) =>
+      _$$ColorRGBOFromJson(json);
+
+  @override
+  final int r;
+  @override
+  final int g;
+  @override
+  final int b;
+  @override
+  final double opacity;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Color.fromRGBO(r: $r, g: $g, b: $b, opacity: $opacity)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ColorRGBO &&
+            (identical(other.r, r) || other.r == r) &&
+            (identical(other.g, g) || other.g == g) &&
+            (identical(other.b, b) || other.b == b) &&
+            (identical(other.opacity, opacity) || other.opacity == opacity));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, r, g, b, opacity);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ColorRGBOCopyWith<_$ColorRGBO> get copyWith =>
+      __$$ColorRGBOCopyWithImpl<_$ColorRGBO>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
+    required TResult Function(int value, Map<int, Color> swatch) material,
+    required TResult Function(int value, Map<int, Color> swatch)
+        materialAccentColor,
+    required TResult Function() primary,
+    required TResult Function() onPrimary,
+    required TResult Function() primaryContainer,
+    required TResult Function() onPrimaryContainer,
+    required TResult Function() secondary,
+    required TResult Function() onSecondary,
+    required TResult Function() secondaryContainer,
+    required TResult Function() onSecondaryContainer,
+    required TResult Function() tertiary,
+    required TResult Function() onTertiary,
+    required TResult Function() tertiaryContainer,
+    required TResult Function() onTertiaryContainer,
+    required TResult Function() error,
+    required TResult Function() onError,
+    required TResult Function() errorContainer,
+    required TResult Function() onErrorContainer,
+    required TResult Function() outline,
+    required TResult Function() outlineVariant,
+    required TResult Function() background,
+    required TResult Function() onBackground,
+    required TResult Function() surface,
+    required TResult Function() onSurface,
+    required TResult Function() surfaceVariant,
+    required TResult Function() onSurfaceVariant,
+    required TResult Function() inverseSurface,
+    required TResult Function() onInverseSurface,
+    required TResult Function() inversePrimary,
+    required TResult Function() shadow,
+    required TResult Function() scrim,
+    required TResult Function() surfaceTint,
+  }) {
+    return fromRGBO(r, g, b, opacity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
+    TResult? Function(int value, Map<int, Color> swatch)? material,
+    TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
+    TResult? Function()? primary,
+    TResult? Function()? onPrimary,
+    TResult? Function()? primaryContainer,
+    TResult? Function()? onPrimaryContainer,
+    TResult? Function()? secondary,
+    TResult? Function()? onSecondary,
+    TResult? Function()? secondaryContainer,
+    TResult? Function()? onSecondaryContainer,
+    TResult? Function()? tertiary,
+    TResult? Function()? onTertiary,
+    TResult? Function()? tertiaryContainer,
+    TResult? Function()? onTertiaryContainer,
+    TResult? Function()? error,
+    TResult? Function()? onError,
+    TResult? Function()? errorContainer,
+    TResult? Function()? onErrorContainer,
+    TResult? Function()? outline,
+    TResult? Function()? outlineVariant,
+    TResult? Function()? background,
+    TResult? Function()? onBackground,
+    TResult? Function()? surface,
+    TResult? Function()? onSurface,
+    TResult? Function()? surfaceVariant,
+    TResult? Function()? onSurfaceVariant,
+    TResult? Function()? inverseSurface,
+    TResult? Function()? onInverseSurface,
+    TResult? Function()? inversePrimary,
+    TResult? Function()? shadow,
+    TResult? Function()? scrim,
+    TResult? Function()? surfaceTint,
+  }) {
+    return fromRGBO?.call(r, g, b, opacity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
+    TResult Function(int value, Map<int, Color> swatch)? material,
+    TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
+    TResult Function()? primary,
+    TResult Function()? onPrimary,
+    TResult Function()? primaryContainer,
+    TResult Function()? onPrimaryContainer,
+    TResult Function()? secondary,
+    TResult Function()? onSecondary,
+    TResult Function()? secondaryContainer,
+    TResult Function()? onSecondaryContainer,
+    TResult Function()? tertiary,
+    TResult Function()? onTertiary,
+    TResult Function()? tertiaryContainer,
+    TResult Function()? onTertiaryContainer,
+    TResult Function()? error,
+    TResult Function()? onError,
+    TResult Function()? errorContainer,
+    TResult Function()? onErrorContainer,
+    TResult Function()? outline,
+    TResult Function()? outlineVariant,
+    TResult Function()? background,
+    TResult Function()? onBackground,
+    TResult Function()? surface,
+    TResult Function()? onSurface,
+    TResult Function()? surfaceVariant,
+    TResult Function()? onSurfaceVariant,
+    TResult Function()? inverseSurface,
+    TResult Function()? onInverseSurface,
+    TResult Function()? inversePrimary,
+    TResult Function()? shadow,
+    TResult Function()? scrim,
+    TResult Function()? surfaceTint,
+    required TResult orElse(),
+  }) {
+    if (fromRGBO != null) {
+      return fromRGBO(r, g, b, opacity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
+    required TResult Function(MaterialColor value) material,
+    required TResult Function(MaterialAccentColor value) materialAccentColor,
+    required TResult Function(PrimaryColor value) primary,
+    required TResult Function(OnPrimaryColor value) onPrimary,
+    required TResult Function(PrimaryContainerColor value) primaryContainer,
+    required TResult Function(OnPrimaryContainerColor value) onPrimaryContainer,
+    required TResult Function(SecondaryColor value) secondary,
+    required TResult Function(OnSecondaryColor value) onSecondary,
+    required TResult Function(SecondaryContainerColor value) secondaryContainer,
+    required TResult Function(OnSecondaryContainerColor value)
+        onSecondaryContainer,
+    required TResult Function(TertiaryColor value) tertiary,
+    required TResult Function(OnTertiaryColor value) onTertiary,
+    required TResult Function(TertiaryContainerColor value) tertiaryContainer,
+    required TResult Function(OnTertiaryContainerColor value)
+        onTertiaryContainer,
+    required TResult Function(ErrorColor value) error,
+    required TResult Function(OnErrorColor value) onError,
+    required TResult Function(ErrorContainerColor value) errorContainer,
+    required TResult Function(OnErrorContainerColor value) onErrorContainer,
+    required TResult Function(OutlineColor value) outline,
+    required TResult Function(OutlineVariantColor value) outlineVariant,
+    required TResult Function(BackgroundColor value) background,
+    required TResult Function(OnBackgroundColor value) onBackground,
+    required TResult Function(SurfaceColor value) surface,
+    required TResult Function(OnSurfaceColor value) onSurface,
+    required TResult Function(SurfaceVariantColor value) surfaceVariant,
+    required TResult Function(OnSurfaceVariantColor value) onSurfaceVariant,
+    required TResult Function(InverseSurfaceColor value) inverseSurface,
+    required TResult Function(OnInverseSurfaceColor value) onInverseSurface,
+    required TResult Function(InversePrimaryColor value) inversePrimary,
+    required TResult Function(ShadowColor value) shadow,
+    required TResult Function(ScrimColor value) scrim,
+    required TResult Function(SurfaceTintColor value) surfaceTint,
+  }) {
+    return fromRGBO(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
+    TResult? Function(MaterialColor value)? material,
+    TResult? Function(MaterialAccentColor value)? materialAccentColor,
+    TResult? Function(PrimaryColor value)? primary,
+    TResult? Function(OnPrimaryColor value)? onPrimary,
+    TResult? Function(PrimaryContainerColor value)? primaryContainer,
+    TResult? Function(OnPrimaryContainerColor value)? onPrimaryContainer,
+    TResult? Function(SecondaryColor value)? secondary,
+    TResult? Function(OnSecondaryColor value)? onSecondary,
+    TResult? Function(SecondaryContainerColor value)? secondaryContainer,
+    TResult? Function(OnSecondaryContainerColor value)? onSecondaryContainer,
+    TResult? Function(TertiaryColor value)? tertiary,
+    TResult? Function(OnTertiaryColor value)? onTertiary,
+    TResult? Function(TertiaryContainerColor value)? tertiaryContainer,
+    TResult? Function(OnTertiaryContainerColor value)? onTertiaryContainer,
+    TResult? Function(ErrorColor value)? error,
+    TResult? Function(OnErrorColor value)? onError,
+    TResult? Function(ErrorContainerColor value)? errorContainer,
+    TResult? Function(OnErrorContainerColor value)? onErrorContainer,
+    TResult? Function(OutlineColor value)? outline,
+    TResult? Function(OutlineVariantColor value)? outlineVariant,
+    TResult? Function(BackgroundColor value)? background,
+    TResult? Function(OnBackgroundColor value)? onBackground,
+    TResult? Function(SurfaceColor value)? surface,
+    TResult? Function(OnSurfaceColor value)? onSurface,
+    TResult? Function(SurfaceVariantColor value)? surfaceVariant,
+    TResult? Function(OnSurfaceVariantColor value)? onSurfaceVariant,
+    TResult? Function(InverseSurfaceColor value)? inverseSurface,
+    TResult? Function(OnInverseSurfaceColor value)? onInverseSurface,
+    TResult? Function(InversePrimaryColor value)? inversePrimary,
+    TResult? Function(ShadowColor value)? shadow,
+    TResult? Function(ScrimColor value)? scrim,
+    TResult? Function(SurfaceTintColor value)? surfaceTint,
+  }) {
+    return fromRGBO?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
+    TResult Function(MaterialColor value)? material,
+    TResult Function(MaterialAccentColor value)? materialAccentColor,
+    TResult Function(PrimaryColor value)? primary,
+    TResult Function(OnPrimaryColor value)? onPrimary,
+    TResult Function(PrimaryContainerColor value)? primaryContainer,
+    TResult Function(OnPrimaryContainerColor value)? onPrimaryContainer,
+    TResult Function(SecondaryColor value)? secondary,
+    TResult Function(OnSecondaryColor value)? onSecondary,
+    TResult Function(SecondaryContainerColor value)? secondaryContainer,
+    TResult Function(OnSecondaryContainerColor value)? onSecondaryContainer,
+    TResult Function(TertiaryColor value)? tertiary,
+    TResult Function(OnTertiaryColor value)? onTertiary,
+    TResult Function(TertiaryContainerColor value)? tertiaryContainer,
+    TResult Function(OnTertiaryContainerColor value)? onTertiaryContainer,
+    TResult Function(ErrorColor value)? error,
+    TResult Function(OnErrorColor value)? onError,
+    TResult Function(ErrorContainerColor value)? errorContainer,
+    TResult Function(OnErrorContainerColor value)? onErrorContainer,
+    TResult Function(OutlineColor value)? outline,
+    TResult Function(OutlineVariantColor value)? outlineVariant,
+    TResult Function(BackgroundColor value)? background,
+    TResult Function(OnBackgroundColor value)? onBackground,
+    TResult Function(SurfaceColor value)? surface,
+    TResult Function(OnSurfaceColor value)? onSurface,
+    TResult Function(SurfaceVariantColor value)? surfaceVariant,
+    TResult Function(OnSurfaceVariantColor value)? onSurfaceVariant,
+    TResult Function(InverseSurfaceColor value)? inverseSurface,
+    TResult Function(OnInverseSurfaceColor value)? onInverseSurface,
+    TResult Function(InversePrimaryColor value)? inversePrimary,
+    TResult Function(ShadowColor value)? shadow,
+    TResult Function(ScrimColor value)? scrim,
+    TResult Function(SurfaceTintColor value)? surfaceTint,
+    required TResult orElse(),
+  }) {
+    if (fromRGBO != null) {
+      return fromRGBO(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ColorRGBOToJson(
+      this,
+    );
+  }
+}
+
+abstract class ColorRGBO implements Color {
+  const factory ColorRGBO(
+          final int r, final int g, final int b, final double opacity) =
+      _$ColorRGBO;
+
+  factory ColorRGBO.fromJson(Map<String, dynamic> json) = _$ColorRGBO.fromJson;
+
+  int get r;
+  int get g;
+  int get b;
+  double get opacity;
+  @JsonKey(ignore: true)
+  _$$ColorRGBOCopyWith<_$ColorRGBO> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ColorAlphaBlendCopyWith<$Res> {
+  factory _$$ColorAlphaBlendCopyWith(
+          _$ColorAlphaBlend value, $Res Function(_$ColorAlphaBlend) then) =
+      __$$ColorAlphaBlendCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Color foreground, Color background});
+
+  $ColorCopyWith<$Res> get foreground;
+  $ColorCopyWith<$Res> get background;
+}
+
+/// @nodoc
+class __$$ColorAlphaBlendCopyWithImpl<$Res>
+    extends _$ColorCopyWithImpl<$Res, _$ColorAlphaBlend>
+    implements _$$ColorAlphaBlendCopyWith<$Res> {
+  __$$ColorAlphaBlendCopyWithImpl(
+      _$ColorAlphaBlend _value, $Res Function(_$ColorAlphaBlend) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? foreground = null,
+    Object? background = null,
+  }) {
+    return _then(_$ColorAlphaBlend(
+      null == foreground
+          ? _value.foreground
+          : foreground // ignore: cast_nullable_to_non_nullable
+              as Color,
+      null == background
+          ? _value.background
+          : background // ignore: cast_nullable_to_non_nullable
+              as Color,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ColorCopyWith<$Res> get foreground {
+    return $ColorCopyWith<$Res>(_value.foreground, (value) {
+      return _then(_value.copyWith(foreground: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ColorCopyWith<$Res> get background {
+    return $ColorCopyWith<$Res>(_value.background, (value) {
+      return _then(_value.copyWith(background: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ColorAlphaBlend implements ColorAlphaBlend {
+  const _$ColorAlphaBlend(this.foreground, this.background,
+      {final String? $type})
+      : $type = $type ?? 'alphaBlend';
+
+  factory _$ColorAlphaBlend.fromJson(Map<String, dynamic> json) =>
+      _$$ColorAlphaBlendFromJson(json);
+
+  @override
+  final Color foreground;
+  @override
+  final Color background;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Color.alphaBlend(foreground: $foreground, background: $background)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ColorAlphaBlend &&
+            (identical(other.foreground, foreground) ||
+                other.foreground == foreground) &&
+            (identical(other.background, background) ||
+                other.background == background));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, foreground, background);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ColorAlphaBlendCopyWith<_$ColorAlphaBlend> get copyWith =>
+      __$$ColorAlphaBlendCopyWithImpl<_$ColorAlphaBlend>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
+    required TResult Function(int value, Map<int, Color> swatch) material,
+    required TResult Function(int value, Map<int, Color> swatch)
+        materialAccentColor,
+    required TResult Function() primary,
+    required TResult Function() onPrimary,
+    required TResult Function() primaryContainer,
+    required TResult Function() onPrimaryContainer,
+    required TResult Function() secondary,
+    required TResult Function() onSecondary,
+    required TResult Function() secondaryContainer,
+    required TResult Function() onSecondaryContainer,
+    required TResult Function() tertiary,
+    required TResult Function() onTertiary,
+    required TResult Function() tertiaryContainer,
+    required TResult Function() onTertiaryContainer,
+    required TResult Function() error,
+    required TResult Function() onError,
+    required TResult Function() errorContainer,
+    required TResult Function() onErrorContainer,
+    required TResult Function() outline,
+    required TResult Function() outlineVariant,
+    required TResult Function() background,
+    required TResult Function() onBackground,
+    required TResult Function() surface,
+    required TResult Function() onSurface,
+    required TResult Function() surfaceVariant,
+    required TResult Function() onSurfaceVariant,
+    required TResult Function() inverseSurface,
+    required TResult Function() onInverseSurface,
+    required TResult Function() inversePrimary,
+    required TResult Function() shadow,
+    required TResult Function() scrim,
+    required TResult Function() surfaceTint,
+  }) {
+    return alphaBlend(foreground, this.background);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
+    TResult? Function(int value, Map<int, Color> swatch)? material,
+    TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
+    TResult? Function()? primary,
+    TResult? Function()? onPrimary,
+    TResult? Function()? primaryContainer,
+    TResult? Function()? onPrimaryContainer,
+    TResult? Function()? secondary,
+    TResult? Function()? onSecondary,
+    TResult? Function()? secondaryContainer,
+    TResult? Function()? onSecondaryContainer,
+    TResult? Function()? tertiary,
+    TResult? Function()? onTertiary,
+    TResult? Function()? tertiaryContainer,
+    TResult? Function()? onTertiaryContainer,
+    TResult? Function()? error,
+    TResult? Function()? onError,
+    TResult? Function()? errorContainer,
+    TResult? Function()? onErrorContainer,
+    TResult? Function()? outline,
+    TResult? Function()? outlineVariant,
+    TResult? Function()? background,
+    TResult? Function()? onBackground,
+    TResult? Function()? surface,
+    TResult? Function()? onSurface,
+    TResult? Function()? surfaceVariant,
+    TResult? Function()? onSurfaceVariant,
+    TResult? Function()? inverseSurface,
+    TResult? Function()? onInverseSurface,
+    TResult? Function()? inversePrimary,
+    TResult? Function()? shadow,
+    TResult? Function()? scrim,
+    TResult? Function()? surfaceTint,
+  }) {
+    return alphaBlend?.call(foreground, this.background);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
+    TResult Function(int value, Map<int, Color> swatch)? material,
+    TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
+    TResult Function()? primary,
+    TResult Function()? onPrimary,
+    TResult Function()? primaryContainer,
+    TResult Function()? onPrimaryContainer,
+    TResult Function()? secondary,
+    TResult Function()? onSecondary,
+    TResult Function()? secondaryContainer,
+    TResult Function()? onSecondaryContainer,
+    TResult Function()? tertiary,
+    TResult Function()? onTertiary,
+    TResult Function()? tertiaryContainer,
+    TResult Function()? onTertiaryContainer,
+    TResult Function()? error,
+    TResult Function()? onError,
+    TResult Function()? errorContainer,
+    TResult Function()? onErrorContainer,
+    TResult Function()? outline,
+    TResult Function()? outlineVariant,
+    TResult Function()? background,
+    TResult Function()? onBackground,
+    TResult Function()? surface,
+    TResult Function()? onSurface,
+    TResult Function()? surfaceVariant,
+    TResult Function()? onSurfaceVariant,
+    TResult Function()? inverseSurface,
+    TResult Function()? onInverseSurface,
+    TResult Function()? inversePrimary,
+    TResult Function()? shadow,
+    TResult Function()? scrim,
+    TResult Function()? surfaceTint,
+    required TResult orElse(),
+  }) {
+    if (alphaBlend != null) {
+      return alphaBlend(foreground, this.background);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
+    required TResult Function(MaterialColor value) material,
+    required TResult Function(MaterialAccentColor value) materialAccentColor,
+    required TResult Function(PrimaryColor value) primary,
+    required TResult Function(OnPrimaryColor value) onPrimary,
+    required TResult Function(PrimaryContainerColor value) primaryContainer,
+    required TResult Function(OnPrimaryContainerColor value) onPrimaryContainer,
+    required TResult Function(SecondaryColor value) secondary,
+    required TResult Function(OnSecondaryColor value) onSecondary,
+    required TResult Function(SecondaryContainerColor value) secondaryContainer,
+    required TResult Function(OnSecondaryContainerColor value)
+        onSecondaryContainer,
+    required TResult Function(TertiaryColor value) tertiary,
+    required TResult Function(OnTertiaryColor value) onTertiary,
+    required TResult Function(TertiaryContainerColor value) tertiaryContainer,
+    required TResult Function(OnTertiaryContainerColor value)
+        onTertiaryContainer,
+    required TResult Function(ErrorColor value) error,
+    required TResult Function(OnErrorColor value) onError,
+    required TResult Function(ErrorContainerColor value) errorContainer,
+    required TResult Function(OnErrorContainerColor value) onErrorContainer,
+    required TResult Function(OutlineColor value) outline,
+    required TResult Function(OutlineVariantColor value) outlineVariant,
+    required TResult Function(BackgroundColor value) background,
+    required TResult Function(OnBackgroundColor value) onBackground,
+    required TResult Function(SurfaceColor value) surface,
+    required TResult Function(OnSurfaceColor value) onSurface,
+    required TResult Function(SurfaceVariantColor value) surfaceVariant,
+    required TResult Function(OnSurfaceVariantColor value) onSurfaceVariant,
+    required TResult Function(InverseSurfaceColor value) inverseSurface,
+    required TResult Function(OnInverseSurfaceColor value) onInverseSurface,
+    required TResult Function(InversePrimaryColor value) inversePrimary,
+    required TResult Function(ShadowColor value) shadow,
+    required TResult Function(ScrimColor value) scrim,
+    required TResult Function(SurfaceTintColor value) surfaceTint,
+  }) {
+    return alphaBlend(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
+    TResult? Function(MaterialColor value)? material,
+    TResult? Function(MaterialAccentColor value)? materialAccentColor,
+    TResult? Function(PrimaryColor value)? primary,
+    TResult? Function(OnPrimaryColor value)? onPrimary,
+    TResult? Function(PrimaryContainerColor value)? primaryContainer,
+    TResult? Function(OnPrimaryContainerColor value)? onPrimaryContainer,
+    TResult? Function(SecondaryColor value)? secondary,
+    TResult? Function(OnSecondaryColor value)? onSecondary,
+    TResult? Function(SecondaryContainerColor value)? secondaryContainer,
+    TResult? Function(OnSecondaryContainerColor value)? onSecondaryContainer,
+    TResult? Function(TertiaryColor value)? tertiary,
+    TResult? Function(OnTertiaryColor value)? onTertiary,
+    TResult? Function(TertiaryContainerColor value)? tertiaryContainer,
+    TResult? Function(OnTertiaryContainerColor value)? onTertiaryContainer,
+    TResult? Function(ErrorColor value)? error,
+    TResult? Function(OnErrorColor value)? onError,
+    TResult? Function(ErrorContainerColor value)? errorContainer,
+    TResult? Function(OnErrorContainerColor value)? onErrorContainer,
+    TResult? Function(OutlineColor value)? outline,
+    TResult? Function(OutlineVariantColor value)? outlineVariant,
+    TResult? Function(BackgroundColor value)? background,
+    TResult? Function(OnBackgroundColor value)? onBackground,
+    TResult? Function(SurfaceColor value)? surface,
+    TResult? Function(OnSurfaceColor value)? onSurface,
+    TResult? Function(SurfaceVariantColor value)? surfaceVariant,
+    TResult? Function(OnSurfaceVariantColor value)? onSurfaceVariant,
+    TResult? Function(InverseSurfaceColor value)? inverseSurface,
+    TResult? Function(OnInverseSurfaceColor value)? onInverseSurface,
+    TResult? Function(InversePrimaryColor value)? inversePrimary,
+    TResult? Function(ShadowColor value)? shadow,
+    TResult? Function(ScrimColor value)? scrim,
+    TResult? Function(SurfaceTintColor value)? surfaceTint,
+  }) {
+    return alphaBlend?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
+    TResult Function(MaterialColor value)? material,
+    TResult Function(MaterialAccentColor value)? materialAccentColor,
+    TResult Function(PrimaryColor value)? primary,
+    TResult Function(OnPrimaryColor value)? onPrimary,
+    TResult Function(PrimaryContainerColor value)? primaryContainer,
+    TResult Function(OnPrimaryContainerColor value)? onPrimaryContainer,
+    TResult Function(SecondaryColor value)? secondary,
+    TResult Function(OnSecondaryColor value)? onSecondary,
+    TResult Function(SecondaryContainerColor value)? secondaryContainer,
+    TResult Function(OnSecondaryContainerColor value)? onSecondaryContainer,
+    TResult Function(TertiaryColor value)? tertiary,
+    TResult Function(OnTertiaryColor value)? onTertiary,
+    TResult Function(TertiaryContainerColor value)? tertiaryContainer,
+    TResult Function(OnTertiaryContainerColor value)? onTertiaryContainer,
+    TResult Function(ErrorColor value)? error,
+    TResult Function(OnErrorColor value)? onError,
+    TResult Function(ErrorContainerColor value)? errorContainer,
+    TResult Function(OnErrorContainerColor value)? onErrorContainer,
+    TResult Function(OutlineColor value)? outline,
+    TResult Function(OutlineVariantColor value)? outlineVariant,
+    TResult Function(BackgroundColor value)? background,
+    TResult Function(OnBackgroundColor value)? onBackground,
+    TResult Function(SurfaceColor value)? surface,
+    TResult Function(OnSurfaceColor value)? onSurface,
+    TResult Function(SurfaceVariantColor value)? surfaceVariant,
+    TResult Function(OnSurfaceVariantColor value)? onSurfaceVariant,
+    TResult Function(InverseSurfaceColor value)? inverseSurface,
+    TResult Function(OnInverseSurfaceColor value)? onInverseSurface,
+    TResult Function(InversePrimaryColor value)? inversePrimary,
+    TResult Function(ShadowColor value)? shadow,
+    TResult Function(ScrimColor value)? scrim,
+    TResult Function(SurfaceTintColor value)? surfaceTint,
+    required TResult orElse(),
+  }) {
+    if (alphaBlend != null) {
+      return alphaBlend(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ColorAlphaBlendToJson(
+      this,
+    );
+  }
+}
+
+abstract class ColorAlphaBlend implements Color {
+  const factory ColorAlphaBlend(
+      final Color foreground, final Color background) = _$ColorAlphaBlend;
+
+  factory ColorAlphaBlend.fromJson(Map<String, dynamic> json) =
+      _$ColorAlphaBlend.fromJson;
+
+  Color get foreground;
+  Color get background;
+  @JsonKey(ignore: true)
+  _$$ColorAlphaBlendCopyWith<_$ColorAlphaBlend> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -763,6 +1966,9 @@ class _$MaterialColor implements MaterialColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -804,6 +2010,9 @@ class _$MaterialColor implements MaterialColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -844,6 +2053,9 @@ class _$MaterialColor implements MaterialColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -888,6 +2100,9 @@ class _$MaterialColor implements MaterialColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -930,6 +2145,9 @@ class _$MaterialColor implements MaterialColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -970,6 +2188,9 @@ class _$MaterialColor implements MaterialColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -1122,6 +2343,9 @@ class _$MaterialAccentColor implements MaterialAccentColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -1163,6 +2387,9 @@ class _$MaterialAccentColor implements MaterialAccentColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -1203,6 +2430,9 @@ class _$MaterialAccentColor implements MaterialAccentColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -1247,6 +2477,9 @@ class _$MaterialAccentColor implements MaterialAccentColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -1289,6 +2522,9 @@ class _$MaterialAccentColor implements MaterialAccentColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -1329,6 +2565,9 @@ class _$MaterialAccentColor implements MaterialAccentColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -1437,6 +2676,9 @@ class _$PrimaryColor implements PrimaryColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -1478,6 +2720,9 @@ class _$PrimaryColor implements PrimaryColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -1518,6 +2763,9 @@ class _$PrimaryColor implements PrimaryColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -1562,6 +2810,9 @@ class _$PrimaryColor implements PrimaryColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -1604,6 +2855,9 @@ class _$PrimaryColor implements PrimaryColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -1644,6 +2898,9 @@ class _$PrimaryColor implements PrimaryColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -1745,6 +3002,9 @@ class _$OnPrimaryColor implements OnPrimaryColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -1786,6 +3046,9 @@ class _$OnPrimaryColor implements OnPrimaryColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -1826,6 +3089,9 @@ class _$OnPrimaryColor implements OnPrimaryColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -1870,6 +3136,9 @@ class _$OnPrimaryColor implements OnPrimaryColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -1912,6 +3181,9 @@ class _$OnPrimaryColor implements OnPrimaryColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -1952,6 +3224,9 @@ class _$OnPrimaryColor implements OnPrimaryColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -2054,6 +3329,9 @@ class _$PrimaryContainerColor implements PrimaryContainerColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -2095,6 +3373,9 @@ class _$PrimaryContainerColor implements PrimaryContainerColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -2135,6 +3416,9 @@ class _$PrimaryContainerColor implements PrimaryContainerColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -2179,6 +3463,9 @@ class _$PrimaryContainerColor implements PrimaryContainerColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -2221,6 +3508,9 @@ class _$PrimaryContainerColor implements PrimaryContainerColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -2261,6 +3551,9 @@ class _$PrimaryContainerColor implements PrimaryContainerColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -2364,6 +3657,9 @@ class _$OnPrimaryContainerColor implements OnPrimaryContainerColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -2405,6 +3701,9 @@ class _$OnPrimaryContainerColor implements OnPrimaryContainerColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -2445,6 +3744,9 @@ class _$OnPrimaryContainerColor implements OnPrimaryContainerColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -2489,6 +3791,9 @@ class _$OnPrimaryContainerColor implements OnPrimaryContainerColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -2531,6 +3836,9 @@ class _$OnPrimaryContainerColor implements OnPrimaryContainerColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -2571,6 +3879,9 @@ class _$OnPrimaryContainerColor implements OnPrimaryContainerColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -2672,6 +3983,9 @@ class _$SecondaryColor implements SecondaryColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -2713,6 +4027,9 @@ class _$SecondaryColor implements SecondaryColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -2753,6 +4070,9 @@ class _$SecondaryColor implements SecondaryColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -2797,6 +4117,9 @@ class _$SecondaryColor implements SecondaryColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -2839,6 +4162,9 @@ class _$SecondaryColor implements SecondaryColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -2879,6 +4205,9 @@ class _$SecondaryColor implements SecondaryColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -2981,6 +4310,9 @@ class _$OnSecondaryColor implements OnSecondaryColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -3022,6 +4354,9 @@ class _$OnSecondaryColor implements OnSecondaryColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -3062,6 +4397,9 @@ class _$OnSecondaryColor implements OnSecondaryColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -3106,6 +4444,9 @@ class _$OnSecondaryColor implements OnSecondaryColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -3148,6 +4489,9 @@ class _$OnSecondaryColor implements OnSecondaryColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -3188,6 +4532,9 @@ class _$OnSecondaryColor implements OnSecondaryColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -3291,6 +4638,9 @@ class _$SecondaryContainerColor implements SecondaryContainerColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -3332,6 +4682,9 @@ class _$SecondaryContainerColor implements SecondaryContainerColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -3372,6 +4725,9 @@ class _$SecondaryContainerColor implements SecondaryContainerColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -3416,6 +4772,9 @@ class _$SecondaryContainerColor implements SecondaryContainerColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -3458,6 +4817,9 @@ class _$SecondaryContainerColor implements SecondaryContainerColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -3498,6 +4860,9 @@ class _$SecondaryContainerColor implements SecondaryContainerColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -3602,6 +4967,9 @@ class _$OnSecondaryContainerColor implements OnSecondaryContainerColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -3643,6 +5011,9 @@ class _$OnSecondaryContainerColor implements OnSecondaryContainerColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -3683,6 +5054,9 @@ class _$OnSecondaryContainerColor implements OnSecondaryContainerColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -3727,6 +5101,9 @@ class _$OnSecondaryContainerColor implements OnSecondaryContainerColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -3769,6 +5146,9 @@ class _$OnSecondaryContainerColor implements OnSecondaryContainerColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -3809,6 +5189,9 @@ class _$OnSecondaryContainerColor implements OnSecondaryContainerColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -3910,6 +5293,9 @@ class _$TertiaryColor implements TertiaryColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -3951,6 +5337,9 @@ class _$TertiaryColor implements TertiaryColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -3991,6 +5380,9 @@ class _$TertiaryColor implements TertiaryColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -4035,6 +5427,9 @@ class _$TertiaryColor implements TertiaryColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -4077,6 +5472,9 @@ class _$TertiaryColor implements TertiaryColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -4117,6 +5515,9 @@ class _$TertiaryColor implements TertiaryColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -4219,6 +5620,9 @@ class _$OnTertiaryColor implements OnTertiaryColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -4260,6 +5664,9 @@ class _$OnTertiaryColor implements OnTertiaryColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -4300,6 +5707,9 @@ class _$OnTertiaryColor implements OnTertiaryColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -4344,6 +5754,9 @@ class _$OnTertiaryColor implements OnTertiaryColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -4386,6 +5799,9 @@ class _$OnTertiaryColor implements OnTertiaryColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -4426,6 +5842,9 @@ class _$OnTertiaryColor implements OnTertiaryColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -4528,6 +5947,9 @@ class _$TertiaryContainerColor implements TertiaryContainerColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -4569,6 +5991,9 @@ class _$TertiaryContainerColor implements TertiaryContainerColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -4609,6 +6034,9 @@ class _$TertiaryContainerColor implements TertiaryContainerColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -4653,6 +6081,9 @@ class _$TertiaryContainerColor implements TertiaryContainerColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -4695,6 +6126,9 @@ class _$TertiaryContainerColor implements TertiaryContainerColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -4735,6 +6169,9 @@ class _$TertiaryContainerColor implements TertiaryContainerColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -4838,6 +6275,9 @@ class _$OnTertiaryContainerColor implements OnTertiaryContainerColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -4879,6 +6319,9 @@ class _$OnTertiaryContainerColor implements OnTertiaryContainerColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -4919,6 +6362,9 @@ class _$OnTertiaryContainerColor implements OnTertiaryContainerColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -4963,6 +6409,9 @@ class _$OnTertiaryContainerColor implements OnTertiaryContainerColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -5005,6 +6454,9 @@ class _$OnTertiaryContainerColor implements OnTertiaryContainerColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -5045,6 +6497,9 @@ class _$OnTertiaryContainerColor implements OnTertiaryContainerColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -5146,6 +6601,9 @@ class _$ErrorColor implements ErrorColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -5187,6 +6645,9 @@ class _$ErrorColor implements ErrorColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -5227,6 +6688,9 @@ class _$ErrorColor implements ErrorColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -5271,6 +6735,9 @@ class _$ErrorColor implements ErrorColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -5313,6 +6780,9 @@ class _$ErrorColor implements ErrorColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -5353,6 +6823,9 @@ class _$ErrorColor implements ErrorColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -5454,6 +6927,9 @@ class _$OnErrorColor implements OnErrorColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -5495,6 +6971,9 @@ class _$OnErrorColor implements OnErrorColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -5535,6 +7014,9 @@ class _$OnErrorColor implements OnErrorColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -5579,6 +7061,9 @@ class _$OnErrorColor implements OnErrorColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -5621,6 +7106,9 @@ class _$OnErrorColor implements OnErrorColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -5661,6 +7149,9 @@ class _$OnErrorColor implements OnErrorColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -5763,6 +7254,9 @@ class _$ErrorContainerColor implements ErrorContainerColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -5804,6 +7298,9 @@ class _$ErrorContainerColor implements ErrorContainerColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -5844,6 +7341,9 @@ class _$ErrorContainerColor implements ErrorContainerColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -5888,6 +7388,9 @@ class _$ErrorContainerColor implements ErrorContainerColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -5930,6 +7433,9 @@ class _$ErrorContainerColor implements ErrorContainerColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -5970,6 +7476,9 @@ class _$ErrorContainerColor implements ErrorContainerColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -6072,6 +7581,9 @@ class _$OnErrorContainerColor implements OnErrorContainerColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -6113,6 +7625,9 @@ class _$OnErrorContainerColor implements OnErrorContainerColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -6153,6 +7668,9 @@ class _$OnErrorContainerColor implements OnErrorContainerColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -6197,6 +7715,9 @@ class _$OnErrorContainerColor implements OnErrorContainerColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -6239,6 +7760,9 @@ class _$OnErrorContainerColor implements OnErrorContainerColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -6279,6 +7803,9 @@ class _$OnErrorContainerColor implements OnErrorContainerColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -6380,6 +7907,9 @@ class _$OutlineColor implements OutlineColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -6421,6 +7951,9 @@ class _$OutlineColor implements OutlineColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -6461,6 +7994,9 @@ class _$OutlineColor implements OutlineColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -6505,6 +8041,9 @@ class _$OutlineColor implements OutlineColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -6547,6 +8086,9 @@ class _$OutlineColor implements OutlineColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -6587,6 +8129,9 @@ class _$OutlineColor implements OutlineColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -6689,6 +8234,9 @@ class _$OutlineVariantColor implements OutlineVariantColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -6730,6 +8278,9 @@ class _$OutlineVariantColor implements OutlineVariantColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -6770,6 +8321,9 @@ class _$OutlineVariantColor implements OutlineVariantColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -6814,6 +8368,9 @@ class _$OutlineVariantColor implements OutlineVariantColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -6856,6 +8413,9 @@ class _$OutlineVariantColor implements OutlineVariantColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -6896,6 +8456,9 @@ class _$OutlineVariantColor implements OutlineVariantColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -6998,6 +8561,9 @@ class _$BackgroundColor implements BackgroundColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -7039,6 +8605,9 @@ class _$BackgroundColor implements BackgroundColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -7079,6 +8648,9 @@ class _$BackgroundColor implements BackgroundColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -7123,6 +8695,9 @@ class _$BackgroundColor implements BackgroundColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -7165,6 +8740,9 @@ class _$BackgroundColor implements BackgroundColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -7205,6 +8783,9 @@ class _$BackgroundColor implements BackgroundColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -7307,6 +8888,9 @@ class _$OnBackgroundColor implements OnBackgroundColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -7348,6 +8932,9 @@ class _$OnBackgroundColor implements OnBackgroundColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -7388,6 +8975,9 @@ class _$OnBackgroundColor implements OnBackgroundColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -7432,6 +9022,9 @@ class _$OnBackgroundColor implements OnBackgroundColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -7474,6 +9067,9 @@ class _$OnBackgroundColor implements OnBackgroundColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -7514,6 +9110,9 @@ class _$OnBackgroundColor implements OnBackgroundColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -7615,6 +9214,9 @@ class _$SurfaceColor implements SurfaceColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -7656,6 +9258,9 @@ class _$SurfaceColor implements SurfaceColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -7696,6 +9301,9 @@ class _$SurfaceColor implements SurfaceColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -7740,6 +9348,9 @@ class _$SurfaceColor implements SurfaceColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -7782,6 +9393,9 @@ class _$SurfaceColor implements SurfaceColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -7822,6 +9436,9 @@ class _$SurfaceColor implements SurfaceColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -7923,6 +9540,9 @@ class _$OnSurfaceColor implements OnSurfaceColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -7964,6 +9584,9 @@ class _$OnSurfaceColor implements OnSurfaceColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -8004,6 +9627,9 @@ class _$OnSurfaceColor implements OnSurfaceColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -8048,6 +9674,9 @@ class _$OnSurfaceColor implements OnSurfaceColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -8090,6 +9719,9 @@ class _$OnSurfaceColor implements OnSurfaceColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -8130,6 +9762,9 @@ class _$OnSurfaceColor implements OnSurfaceColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -8232,6 +9867,9 @@ class _$SurfaceVariantColor implements SurfaceVariantColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -8273,6 +9911,9 @@ class _$SurfaceVariantColor implements SurfaceVariantColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -8313,6 +9954,9 @@ class _$SurfaceVariantColor implements SurfaceVariantColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -8357,6 +10001,9 @@ class _$SurfaceVariantColor implements SurfaceVariantColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -8399,6 +10046,9 @@ class _$SurfaceVariantColor implements SurfaceVariantColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -8439,6 +10089,9 @@ class _$SurfaceVariantColor implements SurfaceVariantColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -8541,6 +10194,9 @@ class _$OnSurfaceVariantColor implements OnSurfaceVariantColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -8582,6 +10238,9 @@ class _$OnSurfaceVariantColor implements OnSurfaceVariantColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -8622,6 +10281,9 @@ class _$OnSurfaceVariantColor implements OnSurfaceVariantColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -8666,6 +10328,9 @@ class _$OnSurfaceVariantColor implements OnSurfaceVariantColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -8708,6 +10373,9 @@ class _$OnSurfaceVariantColor implements OnSurfaceVariantColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -8748,6 +10416,9 @@ class _$OnSurfaceVariantColor implements OnSurfaceVariantColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -8850,6 +10521,9 @@ class _$InverseSurfaceColor implements InverseSurfaceColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -8891,6 +10565,9 @@ class _$InverseSurfaceColor implements InverseSurfaceColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -8931,6 +10608,9 @@ class _$InverseSurfaceColor implements InverseSurfaceColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -8975,6 +10655,9 @@ class _$InverseSurfaceColor implements InverseSurfaceColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -9017,6 +10700,9 @@ class _$InverseSurfaceColor implements InverseSurfaceColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -9057,6 +10743,9 @@ class _$InverseSurfaceColor implements InverseSurfaceColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -9159,6 +10848,9 @@ class _$OnInverseSurfaceColor implements OnInverseSurfaceColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -9200,6 +10892,9 @@ class _$OnInverseSurfaceColor implements OnInverseSurfaceColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -9240,6 +10935,9 @@ class _$OnInverseSurfaceColor implements OnInverseSurfaceColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -9284,6 +10982,9 @@ class _$OnInverseSurfaceColor implements OnInverseSurfaceColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -9326,6 +11027,9 @@ class _$OnInverseSurfaceColor implements OnInverseSurfaceColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -9366,6 +11070,9 @@ class _$OnInverseSurfaceColor implements OnInverseSurfaceColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -9468,6 +11175,9 @@ class _$InversePrimaryColor implements InversePrimaryColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -9509,6 +11219,9 @@ class _$InversePrimaryColor implements InversePrimaryColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -9549,6 +11262,9 @@ class _$InversePrimaryColor implements InversePrimaryColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -9593,6 +11309,9 @@ class _$InversePrimaryColor implements InversePrimaryColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -9635,6 +11354,9 @@ class _$InversePrimaryColor implements InversePrimaryColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -9675,6 +11397,9 @@ class _$InversePrimaryColor implements InversePrimaryColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -9776,6 +11501,9 @@ class _$ShadowColor implements ShadowColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -9817,6 +11545,9 @@ class _$ShadowColor implements ShadowColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -9857,6 +11588,9 @@ class _$ShadowColor implements ShadowColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -9901,6 +11635,9 @@ class _$ShadowColor implements ShadowColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -9943,6 +11680,9 @@ class _$ShadowColor implements ShadowColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -9983,6 +11723,9 @@ class _$ShadowColor implements ShadowColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -10084,6 +11827,9 @@ class _$ScrimColor implements ScrimColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -10125,6 +11871,9 @@ class _$ScrimColor implements ScrimColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -10165,6 +11914,9 @@ class _$ScrimColor implements ScrimColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -10209,6 +11961,9 @@ class _$ScrimColor implements ScrimColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -10251,6 +12006,9 @@ class _$ScrimColor implements ScrimColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -10291,6 +12049,9 @@ class _$ScrimColor implements ScrimColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,
@@ -10393,6 +12154,9 @@ class _$SurfaceTintColor implements SurfaceTintColor {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(int value) $default, {
+    required TResult Function(int a, int r, int g, int b) fromARGB,
+    required TResult Function(int r, int g, int b, double opacity) fromRGBO,
+    required TResult Function(Color foreground, Color background) alphaBlend,
     required TResult Function(int value, Map<int, Color> swatch) material,
     required TResult Function(int value, Map<int, Color> swatch)
         materialAccentColor,
@@ -10434,6 +12198,9 @@ class _$SurfaceTintColor implements SurfaceTintColor {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int value)? $default, {
+    TResult? Function(int a, int r, int g, int b)? fromARGB,
+    TResult? Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult? Function(Color foreground, Color background)? alphaBlend,
     TResult? Function(int value, Map<int, Color> swatch)? material,
     TResult? Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult? Function()? primary,
@@ -10474,6 +12241,9 @@ class _$SurfaceTintColor implements SurfaceTintColor {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int value)? $default, {
+    TResult Function(int a, int r, int g, int b)? fromARGB,
+    TResult Function(int r, int g, int b, double opacity)? fromRGBO,
+    TResult Function(Color foreground, Color background)? alphaBlend,
     TResult Function(int value, Map<int, Color> swatch)? material,
     TResult Function(int value, Map<int, Color> swatch)? materialAccentColor,
     TResult Function()? primary,
@@ -10518,6 +12288,9 @@ class _$SurfaceTintColor implements SurfaceTintColor {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_Color value) $default, {
+    required TResult Function(ColorARGB value) fromARGB,
+    required TResult Function(ColorRGBO value) fromRGBO,
+    required TResult Function(ColorAlphaBlend value) alphaBlend,
     required TResult Function(MaterialColor value) material,
     required TResult Function(MaterialAccentColor value) materialAccentColor,
     required TResult Function(PrimaryColor value) primary,
@@ -10560,6 +12333,9 @@ class _$SurfaceTintColor implements SurfaceTintColor {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_Color value)? $default, {
+    TResult? Function(ColorARGB value)? fromARGB,
+    TResult? Function(ColorRGBO value)? fromRGBO,
+    TResult? Function(ColorAlphaBlend value)? alphaBlend,
     TResult? Function(MaterialColor value)? material,
     TResult? Function(MaterialAccentColor value)? materialAccentColor,
     TResult? Function(PrimaryColor value)? primary,
@@ -10600,6 +12376,9 @@ class _$SurfaceTintColor implements SurfaceTintColor {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_Color value)? $default, {
+    TResult Function(ColorARGB value)? fromARGB,
+    TResult Function(ColorRGBO value)? fromRGBO,
+    TResult Function(ColorAlphaBlend value)? alphaBlend,
     TResult Function(MaterialColor value)? material,
     TResult Function(MaterialAccentColor value)? materialAccentColor,
     TResult Function(PrimaryColor value)? primary,

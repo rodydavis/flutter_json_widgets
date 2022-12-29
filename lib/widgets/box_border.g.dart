@@ -30,6 +30,20 @@ Map<String, dynamic> _$$BorderToJson(_$Border instance) => <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
+_$OutlinedBorder _$$OutlinedBorderFromJson(Map<String, dynamic> json) =>
+    _$OutlinedBorder(
+      side: json['side'] == null
+          ? BorderSide.none
+          : BorderSide.fromJson(json['side'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$OutlinedBorderToJson(_$OutlinedBorder instance) =>
+    <String, dynamic>{
+      'side': instance.side,
+      'runtimeType': instance.$type,
+    };
+
 _$BorderDirectional _$$BorderDirectionalFromJson(Map<String, dynamic> json) =>
     _$BorderDirectional(
       top: json['top'] == null

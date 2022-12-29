@@ -20,6 +20,7 @@ _$_BorderRadius _$$_BorderRadiusFromJson(Map<String, dynamic> json) =>
       bottomRight: json['bottomRight'] == null
           ? Radius.zero
           : Radius.fromJson(json['bottomRight'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$_BorderRadiusToJson(_$_BorderRadius instance) =>
@@ -28,4 +29,17 @@ Map<String, dynamic> _$$_BorderRadiusToJson(_$_BorderRadius instance) =>
       'topRight': instance.topRight,
       'bottomLeft': instance.bottomLeft,
       'bottomRight': instance.bottomRight,
+      'runtimeType': instance.$type,
+    };
+
+_$BorderRadiusAll _$$BorderRadiusAllFromJson(Map<String, dynamic> json) =>
+    _$BorderRadiusAll(
+      Radius.fromJson(json['radius'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$BorderRadiusAllToJson(_$BorderRadiusAll instance) =>
+    <String, dynamic>{
+      'radius': instance.radius,
+      'runtimeType': instance.$type,
     };

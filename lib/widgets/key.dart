@@ -5,9 +5,9 @@ part 'key.g.dart';
 
 @freezed
 class Key with _$Key {
-  const factory Key.text({
-    required String value,
-  }) = ValueKey;
+  const factory Key.value({required String value}) = ValueKey;
+
+  const factory Key.unique() = UniqueKey;
 
   factory Key.fromJson(Map<String, Object?> json) => _$KeyFromJson(json);
 }

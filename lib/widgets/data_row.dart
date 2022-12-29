@@ -1,0 +1,35 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'callback.dart';
+import 'data_cell.dart';
+import 'key.dart';
+import 'material_state_property.dart';
+
+part 'data_row.freezed.dart';
+part 'data_row.g.dart';
+
+@freezed
+class DataRow with _$DataRow {
+  const factory DataRow({
+    Key? key,
+    @Default(false) bool selected,
+    Callback? onSelect,
+    Callback? onSelectDeselect,
+    Callback? onLongPress,
+    MaterialStateProperty? color,
+    required List<DataCell> cells,
+  }) = _DataRow;
+
+  const factory DataRow.byIndex({
+    int? index,
+    @Default(false) bool selected,
+    Callback? onSelect,
+    Callback? onSelectDeselect,
+    Callback? onLongPress,
+    MaterialStateProperty? color,
+    required List<DataCell> cells,
+  }) = DataRowByIndex;
+
+  factory DataRow.fromJson(Map<String, Object?> json) =>
+      _$DataRowFromJson(json);
+}

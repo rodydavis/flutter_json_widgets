@@ -16,6 +16,54 @@ Map<String, dynamic> _$$_ColorToJson(_$_Color instance) => <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
+_$ColorARGB _$$ColorARGBFromJson(Map<String, dynamic> json) => _$ColorARGB(
+      json['a'] as int,
+      json['r'] as int,
+      json['g'] as int,
+      json['b'] as int,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ColorARGBToJson(_$ColorARGB instance) =>
+    <String, dynamic>{
+      'a': instance.a,
+      'r': instance.r,
+      'g': instance.g,
+      'b': instance.b,
+      'runtimeType': instance.$type,
+    };
+
+_$ColorRGBO _$$ColorRGBOFromJson(Map<String, dynamic> json) => _$ColorRGBO(
+      json['r'] as int,
+      json['g'] as int,
+      json['b'] as int,
+      (json['opacity'] as num).toDouble(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ColorRGBOToJson(_$ColorRGBO instance) =>
+    <String, dynamic>{
+      'r': instance.r,
+      'g': instance.g,
+      'b': instance.b,
+      'opacity': instance.opacity,
+      'runtimeType': instance.$type,
+    };
+
+_$ColorAlphaBlend _$$ColorAlphaBlendFromJson(Map<String, dynamic> json) =>
+    _$ColorAlphaBlend(
+      Color.fromJson(json['foreground'] as Map<String, dynamic>),
+      Color.fromJson(json['background'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ColorAlphaBlendToJson(_$ColorAlphaBlend instance) =>
+    <String, dynamic>{
+      'foreground': instance.foreground,
+      'background': instance.background,
+      'runtimeType': instance.$type,
+    };
+
 _$MaterialColor _$$MaterialColorFromJson(Map<String, dynamic> json) =>
     _$MaterialColor(
       json['value'] as int,

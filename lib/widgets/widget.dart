@@ -2,9 +2,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'alignment.dart';
 import 'border_radius.dart';
+import 'border_side.dart';
+import 'box_border.dart';
 import 'box_constraints.dart';
 import 'color.dart';
 import 'curves.dart';
+import 'data_column.dart';
+import 'data_row.dart';
 import 'decoration.dart';
 import 'edge_insets.dart';
 import 'enums.dart';
@@ -15,6 +19,7 @@ import 'key.dart';
 import 'locale.dart';
 import 'matrix_4.dart';
 import 'mouse_cursor.dart';
+import 'offset.dart';
 import 'preferred_size_widget.dart';
 import 'radius.dart';
 import 'rect.dart';
@@ -22,12 +27,19 @@ import 'callback.dart';
 import 'scroll_physics.dart';
 import 'shadow.dart';
 import 'shape_border.dart';
+import 'size.dart';
+import 'sliver.dart';
+import 'sliver_child_delegate.dart';
 import 'sliver_grid_delegate.dart';
 import 'strut_style.dart';
+import 'table_column_width.dart';
+import 'table_row.dart';
 import 'text_height_behavior.dart';
 import 'text_style.dart';
 import 'theme_data.dart';
 import 'visual_density.dart';
+import 'table_border.dart';
+import 'material_state_property.dart';
 
 part 'widget.freezed.dart';
 part 'widget.g.dart';
@@ -641,5 +653,178 @@ class Widget with _$Widget {
     required Widget child,
   }) = InteractiveViewer;
 
+  const factory Widget.customScrollView({
+    Key? key,
+    @Default(Axis.vertical) Axis scrollDirection,
+    @Default(false) bool reverse,
+    bool? primary,
+    ScrollPhysics? physics,
+    @Default(false) bool shrinkWrap,
+    Key? center,
+    @Default(0.0) double anchor,
+    double? cacheExtent,
+    @Default([]) List<Sliver> slivers,
+    int? semanticChildCount,
+    @Default(ScrollViewKeyboardDismissBehavior.manual)
+        ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
+    String? restorationId,
+    @Default(Clip.hardEdge) Clip clipBehavior,
+  }) = CustomScrollView;
+
+  const factory Widget.listViewCustom({
+    Key? key,
+    @Default(Axis.vertical) Axis scrollDirection,
+    @Default(false) bool reverse,
+    bool? primary,
+    ScrollPhysics? physics,
+    @Default(false) bool shrinkWrap,
+    EdgeInsets? padding,
+    double? itemExtent,
+    Widget? prototypeItem,
+    required SliverChildDelegate childrenDelegate,
+    double? cacheExtent,
+    int? semanticChildCount,
+    @Default(ScrollViewKeyboardDismissBehavior.manual)
+        ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
+    String? restorationId,
+    @Default(Clip.hardEdge) Clip clipBehavior,
+  }) = ListViewCustom;
+
+  const factory Widget.safeArea({
+    Key? key,
+    @Default(true) bool left,
+    @Default(true) bool top,
+    @Default(true) bool right,
+    @Default(true) bool bottom,
+    @Default(EdgeInsets.zero) EdgeInsets minimum,
+    @Default(false) bool maintainBottomViewPadding,
+    required Widget child,
+  }) = SafeArea;
+
+  const factory Widget.offstage({
+    Key? key,
+    @Default(true) bool offstage,
+    Widget? child,
+  }) = Offstage;
+
+  const factory Widget.opacity({
+    Key? key,
+    required double opacity,
+    @Default(false) bool alwaysIncludeSemantics,
+    Widget? child,
+  }) = Opacity;
+
+  const factory Widget.nestedScrollView({
+    Key? key,
+    @Default(Axis.vertical) Axis scrollDirection,
+    @Default(false) bool reverse,
+    ScrollPhysics? physics,
+    required List<Sliver> slivers,
+    List<Sliver>? innerBoxIsScrolledSlivers,
+    required Widget body,
+    @Default(false) bool floatHeaderSlivers,
+    @Default(Clip.hardEdge) Clip clipBehavior,
+    String? restorationId,
+  }) = NestedScrollView;
+
+  const factory Widget.aspectRatio({
+    Key? key,
+    required double aspectRatio,
+    Widget? child,
+  }) = AspectRatio;
+
+  const factory Widget.chip({
+    Key? key,
+    Widget? avatar,
+    required Widget label,
+    TextStyle? labelStyle,
+    EdgeInsets? labelPadding,
+    Widget? deleteIcon,
+    Callback? onDeleted,
+    Color? deleteIconColor,
+    String? deleteButtonTooltipMessage,
+    BorderSide? side,
+    OutlinedBorder? shape,
+    @Default(Clip.none) Clip clipBehavior,
+    @Default(false) bool autofocus,
+    Color? backgroundColor,
+    EdgeInsets? padding,
+    VisualDensity? visualDensity,
+    MaterialTapTargetSize? materialTapTargetSize,
+    double? elevation,
+    Color? shadowColor,
+    Color? surfaceTintColor,
+    @Default(true) bool useDeleteButtonTooltip,
+  }) = Chip;
+
+  const factory Widget.magnifier({
+    Key? key,
+    @Default(Offset.zero)
+        Offset additionalFocalPointOffset,
+    @Default(BorderRadius.all(Radius.circular(40)))
+        BorderRadius borderRadius,
+    @Default(Color.fromARGB(8, 158, 158, 158))
+        Color filmColor,
+    @Default([
+      BoxShadow(
+          blurRadius: 1.5,
+          offset: Offset(0, 2),
+          spreadRadius: 0.75,
+          color: Color.fromARGB(25, 0, 0, 0))
+    ])
+        List<BoxShadow> shadows,
+    @Default(Size(77.37, 37.9))
+        Size size,
+  }) = Magnifier;
+
+  const factory Widget.table({
+    Key? key,
+    @Default([]) List<TableRow> children,
+    Map<int, TableColumnWidth>? columnWidths,
+    @Default(FlexColumnWidth()) TableColumnWidth defaultColumnWidth,
+    TextDirection? textDirection,
+    TableBorder? border,
+    @Default(TableCellVerticalAlignment.top)
+        TableCellVerticalAlignment defaultVerticalAlignment,
+    TextBaseline? textBaseline,
+  }) = Table;
+
+  const factory Widget.dataTable({
+    Key? key,
+    required List<DataColumn> columns,
+    int? sortColumnIndex,
+    @Default(true) bool sortAscending,
+    Callback? onSelectAll,
+    Callback? onDeselectAll,
+    Decoration? decoration,
+    MaterialStateProperty? dataRowColor,
+    double? dataRowHeight,
+    TextStyle? dataTextStyle,
+    MaterialStateProperty? headingRowColor,
+    double? headingRowHeight,
+    TextStyle? headingTextStyle,
+    double? horizontalMargin,
+    double? columnSpacing,
+    @Default(true) bool showCheckboxColumn,
+    @Default(false) bool showBottomBorder,
+    double? dividerThickness,
+    required List<DataRow> rows,
+    double? checkboxHorizontalMargin,
+    TableBorder? border,
+    @Default(Clip.none) Clip clipBehavior,
+  }) = DataTable;
+
   factory Widget.fromJson(Map<String, Object?> json) => _$WidgetFromJson(json);
+}
+
+extension SizedBoxUtils on SizedBox {
+  SizedBox expand() => const  SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+      );
+
+  SizedBox shrink() => const SizedBox(
+        width: 0,
+        height: 0,
+      );
 }

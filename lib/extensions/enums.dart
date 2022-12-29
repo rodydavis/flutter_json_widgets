@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart' as material;
+import 'package:flutter/gestures.dart' as gestures;
 import 'dart:ui' as ui;
 
 import '../material.dart';
@@ -209,4 +210,15 @@ extension TargetPlatformUtils on TargetPlatform {
 extension PanAxisUtils on PanAxis {
   material.PanAxis toFlutter(material.BuildContext context) =>
       material.PanAxis.values[index];
+}
+
+extension TableCellVerticalAlignmentUtils on TableCellVerticalAlignment {
+  material.TableCellVerticalAlignment toFlutter(
+          material.BuildContext context) =>
+      material.TableCellVerticalAlignment.values[index];
+}
+
+extension DragStartBehaviorUtils on DragStartBehavior {
+  gestures.DragStartBehavior toFlutter(material.BuildContext context) =>
+      gestures.DragStartBehavior.values[index];
 }

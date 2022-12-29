@@ -1,0 +1,37 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'border_radius.dart';
+import 'border_side.dart';
+import 'color.dart';
+import 'enums.dart';
+
+part 'table_border.freezed.dart';
+part 'table_border.g.dart';
+
+@freezed
+class TableBorder with _$TableBorder {
+  const factory TableBorder({
+    @Default(BorderSide.none) BorderSide top,
+    @Default(BorderSide.none) BorderSide right,
+    @Default(BorderSide.none) BorderSide bottom,
+    @Default(BorderSide.none) BorderSide left,
+    @Default(BorderSide.none) BorderSide horizontalInside,
+    @Default(BorderSide.none) BorderSide verticalInside,
+    @Default(BorderRadius.zero) BorderRadius borderRadius,
+  }) = _TableBorder;
+
+  const factory TableBorder.all({
+    @Default(Color(0xFF000000)) Color color,
+    @Default(1.0) double width,
+    @Default(BorderStyle.solid) BorderStyle style,
+    @Default(BorderRadius.zero) BorderRadius borderRadius,
+  }) = TableBorderAll;
+
+  const factory TableBorder.symmetric({
+    @Default(BorderSide.none) BorderSide inside,
+    @Default(BorderSide.none) BorderSide outside,
+  }) = TableBorderSymmetric;
+
+  factory TableBorder.fromJson(Map<String, Object?> json) =>
+      _$TableBorderFromJson(json);
+}

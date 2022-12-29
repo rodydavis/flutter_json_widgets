@@ -15,25 +15,65 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Radius _$RadiusFromJson(Map<String, dynamic> json) {
-  return _Radius.fromJson(json);
+  switch (json['runtimeType']) {
+    case 'default':
+      return _Radius.fromJson(json);
+    case 'circular':
+      return RadiusCircular.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'Radius',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
 }
 
 /// @nodoc
 mixin _$Radius {
-  double get x => throw _privateConstructorUsedError;
-  double get y => throw _privateConstructorUsedError;
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(double x, double y) $default, {
+    required TResult Function(double radius) circular,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(double x, double y)? $default, {
+    TResult? Function(double radius)? circular,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(double x, double y)? $default, {
+    TResult Function(double radius)? circular,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Radius value) $default, {
+    required TResult Function(RadiusCircular value) circular,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Radius value)? $default, {
+    TResult? Function(RadiusCircular value)? circular,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Radius value)? $default, {
+    TResult Function(RadiusCircular value)? circular,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $RadiusCopyWith<Radius> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $RadiusCopyWith<$Res> {
   factory $RadiusCopyWith(Radius value, $Res Function(Radius) then) =
       _$RadiusCopyWithImpl<$Res, Radius>;
-  @useResult
-  $Res call({double x, double y});
 }
 
 /// @nodoc
@@ -45,31 +85,12 @@ class _$RadiusCopyWithImpl<$Res, $Val extends Radius>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? x = null,
-    Object? y = null,
-  }) {
-    return _then(_value.copyWith(
-      x: null == x
-          ? _value.x
-          : x // ignore: cast_nullable_to_non_nullable
-              as double,
-      y: null == y
-          ? _value.y
-          : y // ignore: cast_nullable_to_non_nullable
-              as double,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_RadiusCopyWith<$Res> implements $RadiusCopyWith<$Res> {
+abstract class _$$_RadiusCopyWith<$Res> {
   factory _$$_RadiusCopyWith(_$_Radius value, $Res Function(_$_Radius) then) =
       __$$_RadiusCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({double x, double y});
 }
@@ -103,7 +124,8 @@ class __$$_RadiusCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Radius implements _Radius {
-  const _$_Radius(this.x, this.y);
+  const _$_Radius(this.x, this.y, {final String? $type})
+      : $type = $type ?? 'default';
 
   factory _$_Radius.fromJson(Map<String, dynamic> json) =>
       _$$_RadiusFromJson(json);
@@ -112,6 +134,9 @@ class _$_Radius implements _Radius {
   final double x;
   @override
   final double y;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -138,6 +163,68 @@ class _$_Radius implements _Radius {
       __$$_RadiusCopyWithImpl<_$_Radius>(this, _$identity);
 
   @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(double x, double y) $default, {
+    required TResult Function(double radius) circular,
+  }) {
+    return $default(x, y);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(double x, double y)? $default, {
+    TResult? Function(double radius)? circular,
+  }) {
+    return $default?.call(x, y);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(double x, double y)? $default, {
+    TResult Function(double radius)? circular,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(x, y);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Radius value) $default, {
+    required TResult Function(RadiusCircular value) circular,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Radius value)? $default, {
+    TResult? Function(RadiusCircular value)? circular,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Radius value)? $default, {
+    TResult Function(RadiusCircular value)? circular,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+
+  @override
   Map<String, dynamic> toJson() {
     return _$$_RadiusToJson(
       this,
@@ -150,12 +237,160 @@ abstract class _Radius implements Radius {
 
   factory _Radius.fromJson(Map<String, dynamic> json) = _$_Radius.fromJson;
 
-  @override
   double get x;
-  @override
   double get y;
-  @override
   @JsonKey(ignore: true)
   _$$_RadiusCopyWith<_$_Radius> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RadiusCircularCopyWith<$Res> {
+  factory _$$RadiusCircularCopyWith(
+          _$RadiusCircular value, $Res Function(_$RadiusCircular) then) =
+      __$$RadiusCircularCopyWithImpl<$Res>;
+  @useResult
+  $Res call({double radius});
+}
+
+/// @nodoc
+class __$$RadiusCircularCopyWithImpl<$Res>
+    extends _$RadiusCopyWithImpl<$Res, _$RadiusCircular>
+    implements _$$RadiusCircularCopyWith<$Res> {
+  __$$RadiusCircularCopyWithImpl(
+      _$RadiusCircular _value, $Res Function(_$RadiusCircular) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? radius = null,
+  }) {
+    return _then(_$RadiusCircular(
+      null == radius
+          ? _value.radius
+          : radius // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$RadiusCircular implements RadiusCircular {
+  const _$RadiusCircular(this.radius, {final String? $type})
+      : $type = $type ?? 'circular';
+
+  factory _$RadiusCircular.fromJson(Map<String, dynamic> json) =>
+      _$$RadiusCircularFromJson(json);
+
+  @override
+  final double radius;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Radius.circular(radius: $radius)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RadiusCircular &&
+            (identical(other.radius, radius) || other.radius == radius));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, radius);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RadiusCircularCopyWith<_$RadiusCircular> get copyWith =>
+      __$$RadiusCircularCopyWithImpl<_$RadiusCircular>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(double x, double y) $default, {
+    required TResult Function(double radius) circular,
+  }) {
+    return circular(radius);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(double x, double y)? $default, {
+    TResult? Function(double radius)? circular,
+  }) {
+    return circular?.call(radius);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(double x, double y)? $default, {
+    TResult Function(double radius)? circular,
+    required TResult orElse(),
+  }) {
+    if (circular != null) {
+      return circular(radius);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Radius value) $default, {
+    required TResult Function(RadiusCircular value) circular,
+  }) {
+    return circular(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Radius value)? $default, {
+    TResult? Function(RadiusCircular value)? circular,
+  }) {
+    return circular?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Radius value)? $default, {
+    TResult Function(RadiusCircular value)? circular,
+    required TResult orElse(),
+  }) {
+    if (circular != null) {
+      return circular(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RadiusCircularToJson(
+      this,
+    );
+  }
+}
+
+abstract class RadiusCircular implements Radius {
+  const factory RadiusCircular(final double radius) = _$RadiusCircular;
+
+  factory RadiusCircular.fromJson(Map<String, dynamic> json) =
+      _$RadiusCircular.fromJson;
+
+  double get radius;
+  @JsonKey(ignore: true)
+  _$$RadiusCircularCopyWith<_$RadiusCircular> get copyWith =>
       throw _privateConstructorUsedError;
 }

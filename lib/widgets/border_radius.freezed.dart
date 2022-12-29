@@ -15,20 +15,65 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 BorderRadius _$BorderRadiusFromJson(Map<String, dynamic> json) {
-  return _BorderRadius.fromJson(json);
+  switch (json['runtimeType']) {
+    case 'default':
+      return _BorderRadius.fromJson(json);
+    case 'all':
+      return BorderRadiusAll.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'BorderRadius',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
 }
 
 /// @nodoc
 mixin _$BorderRadius {
-  Radius get topLeft => throw _privateConstructorUsedError;
-  Radius get topRight => throw _privateConstructorUsedError;
-  Radius get bottomLeft => throw _privateConstructorUsedError;
-  Radius get bottomRight => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $BorderRadiusCopyWith<BorderRadius> get copyWith =>
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(Radius topLeft, Radius topRight, Radius bottomLeft,
+            Radius bottomRight)
+        $default, {
+    required TResult Function(Radius radius) all,
+  }) =>
       throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(Radius topLeft, Radius topRight, Radius bottomLeft,
+            Radius bottomRight)?
+        $default, {
+    TResult? Function(Radius radius)? all,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(Radius topLeft, Radius topRight, Radius bottomLeft,
+            Radius bottomRight)?
+        $default, {
+    TResult Function(Radius radius)? all,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_BorderRadius value) $default, {
+    required TResult Function(BorderRadiusAll value) all,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_BorderRadius value)? $default, {
+    TResult? Function(BorderRadiusAll value)? all,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_BorderRadius value)? $default, {
+    TResult Function(BorderRadiusAll value)? all,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -36,14 +81,6 @@ abstract class $BorderRadiusCopyWith<$Res> {
   factory $BorderRadiusCopyWith(
           BorderRadius value, $Res Function(BorderRadius) then) =
       _$BorderRadiusCopyWithImpl<$Res, BorderRadius>;
-  @useResult
-  $Res call(
-      {Radius topLeft, Radius topRight, Radius bottomLeft, Radius bottomRight});
-
-  $RadiusCopyWith<$Res> get topLeft;
-  $RadiusCopyWith<$Res> get topRight;
-  $RadiusCopyWith<$Res> get bottomLeft;
-  $RadiusCopyWith<$Res> get bottomRight;
 }
 
 /// @nodoc
@@ -55,86 +92,20 @@ class _$BorderRadiusCopyWithImpl<$Res, $Val extends BorderRadius>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? topLeft = null,
-    Object? topRight = null,
-    Object? bottomLeft = null,
-    Object? bottomRight = null,
-  }) {
-    return _then(_value.copyWith(
-      topLeft: null == topLeft
-          ? _value.topLeft
-          : topLeft // ignore: cast_nullable_to_non_nullable
-              as Radius,
-      topRight: null == topRight
-          ? _value.topRight
-          : topRight // ignore: cast_nullable_to_non_nullable
-              as Radius,
-      bottomLeft: null == bottomLeft
-          ? _value.bottomLeft
-          : bottomLeft // ignore: cast_nullable_to_non_nullable
-              as Radius,
-      bottomRight: null == bottomRight
-          ? _value.bottomRight
-          : bottomRight // ignore: cast_nullable_to_non_nullable
-              as Radius,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $RadiusCopyWith<$Res> get topLeft {
-    return $RadiusCopyWith<$Res>(_value.topLeft, (value) {
-      return _then(_value.copyWith(topLeft: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $RadiusCopyWith<$Res> get topRight {
-    return $RadiusCopyWith<$Res>(_value.topRight, (value) {
-      return _then(_value.copyWith(topRight: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $RadiusCopyWith<$Res> get bottomLeft {
-    return $RadiusCopyWith<$Res>(_value.bottomLeft, (value) {
-      return _then(_value.copyWith(bottomLeft: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $RadiusCopyWith<$Res> get bottomRight {
-    return $RadiusCopyWith<$Res>(_value.bottomRight, (value) {
-      return _then(_value.copyWith(bottomRight: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$_BorderRadiusCopyWith<$Res>
-    implements $BorderRadiusCopyWith<$Res> {
+abstract class _$$_BorderRadiusCopyWith<$Res> {
   factory _$$_BorderRadiusCopyWith(
           _$_BorderRadius value, $Res Function(_$_BorderRadius) then) =
       __$$_BorderRadiusCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
       {Radius topLeft, Radius topRight, Radius bottomLeft, Radius bottomRight});
 
-  @override
   $RadiusCopyWith<$Res> get topLeft;
-  @override
   $RadiusCopyWith<$Res> get topRight;
-  @override
   $RadiusCopyWith<$Res> get bottomLeft;
-  @override
   $RadiusCopyWith<$Res> get bottomRight;
 }
 
@@ -173,6 +144,38 @@ class __$$_BorderRadiusCopyWithImpl<$Res>
               as Radius,
     ));
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RadiusCopyWith<$Res> get topLeft {
+    return $RadiusCopyWith<$Res>(_value.topLeft, (value) {
+      return _then(_value.copyWith(topLeft: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RadiusCopyWith<$Res> get topRight {
+    return $RadiusCopyWith<$Res>(_value.topRight, (value) {
+      return _then(_value.copyWith(topRight: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RadiusCopyWith<$Res> get bottomLeft {
+    return $RadiusCopyWith<$Res>(_value.bottomLeft, (value) {
+      return _then(_value.copyWith(bottomLeft: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RadiusCopyWith<$Res> get bottomRight {
+    return $RadiusCopyWith<$Res>(_value.bottomRight, (value) {
+      return _then(_value.copyWith(bottomRight: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -182,7 +185,9 @@ class _$_BorderRadius implements _BorderRadius {
       {this.topLeft = Radius.zero,
       this.topRight = Radius.zero,
       this.bottomLeft = Radius.zero,
-      this.bottomRight = Radius.zero});
+      this.bottomRight = Radius.zero,
+      final String? $type})
+      : $type = $type ?? 'default';
 
   factory _$_BorderRadius.fromJson(Map<String, dynamic> json) =>
       _$$_BorderRadiusFromJson(json);
@@ -199,6 +204,9 @@ class _$_BorderRadius implements _BorderRadius {
   @override
   @JsonKey()
   final Radius bottomRight;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -231,6 +239,74 @@ class _$_BorderRadius implements _BorderRadius {
       __$$_BorderRadiusCopyWithImpl<_$_BorderRadius>(this, _$identity);
 
   @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(Radius topLeft, Radius topRight, Radius bottomLeft,
+            Radius bottomRight)
+        $default, {
+    required TResult Function(Radius radius) all,
+  }) {
+    return $default(topLeft, topRight, bottomLeft, bottomRight);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(Radius topLeft, Radius topRight, Radius bottomLeft,
+            Radius bottomRight)?
+        $default, {
+    TResult? Function(Radius radius)? all,
+  }) {
+    return $default?.call(topLeft, topRight, bottomLeft, bottomRight);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(Radius topLeft, Radius topRight, Radius bottomLeft,
+            Radius bottomRight)?
+        $default, {
+    TResult Function(Radius radius)? all,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(topLeft, topRight, bottomLeft, bottomRight);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_BorderRadius value) $default, {
+    required TResult Function(BorderRadiusAll value) all,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_BorderRadius value)? $default, {
+    TResult? Function(BorderRadiusAll value)? all,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_BorderRadius value)? $default, {
+    TResult Function(BorderRadiusAll value)? all,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+
+  @override
   Map<String, dynamic> toJson() {
     return _$$_BorderRadiusToJson(
       this,
@@ -248,16 +324,178 @@ abstract class _BorderRadius implements BorderRadius {
   factory _BorderRadius.fromJson(Map<String, dynamic> json) =
       _$_BorderRadius.fromJson;
 
-  @override
   Radius get topLeft;
-  @override
   Radius get topRight;
-  @override
   Radius get bottomLeft;
-  @override
   Radius get bottomRight;
-  @override
   @JsonKey(ignore: true)
   _$$_BorderRadiusCopyWith<_$_BorderRadius> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$BorderRadiusAllCopyWith<$Res> {
+  factory _$$BorderRadiusAllCopyWith(
+          _$BorderRadiusAll value, $Res Function(_$BorderRadiusAll) then) =
+      __$$BorderRadiusAllCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Radius radius});
+
+  $RadiusCopyWith<$Res> get radius;
+}
+
+/// @nodoc
+class __$$BorderRadiusAllCopyWithImpl<$Res>
+    extends _$BorderRadiusCopyWithImpl<$Res, _$BorderRadiusAll>
+    implements _$$BorderRadiusAllCopyWith<$Res> {
+  __$$BorderRadiusAllCopyWithImpl(
+      _$BorderRadiusAll _value, $Res Function(_$BorderRadiusAll) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? radius = null,
+  }) {
+    return _then(_$BorderRadiusAll(
+      null == radius
+          ? _value.radius
+          : radius // ignore: cast_nullable_to_non_nullable
+              as Radius,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RadiusCopyWith<$Res> get radius {
+    return $RadiusCopyWith<$Res>(_value.radius, (value) {
+      return _then(_value.copyWith(radius: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$BorderRadiusAll implements BorderRadiusAll {
+  const _$BorderRadiusAll(this.radius, {final String? $type})
+      : $type = $type ?? 'all';
+
+  factory _$BorderRadiusAll.fromJson(Map<String, dynamic> json) =>
+      _$$BorderRadiusAllFromJson(json);
+
+  @override
+  final Radius radius;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'BorderRadius.all(radius: $radius)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BorderRadiusAll &&
+            (identical(other.radius, radius) || other.radius == radius));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, radius);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BorderRadiusAllCopyWith<_$BorderRadiusAll> get copyWith =>
+      __$$BorderRadiusAllCopyWithImpl<_$BorderRadiusAll>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(Radius topLeft, Radius topRight, Radius bottomLeft,
+            Radius bottomRight)
+        $default, {
+    required TResult Function(Radius radius) all,
+  }) {
+    return all(radius);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(Radius topLeft, Radius topRight, Radius bottomLeft,
+            Radius bottomRight)?
+        $default, {
+    TResult? Function(Radius radius)? all,
+  }) {
+    return all?.call(radius);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(Radius topLeft, Radius topRight, Radius bottomLeft,
+            Radius bottomRight)?
+        $default, {
+    TResult Function(Radius radius)? all,
+    required TResult orElse(),
+  }) {
+    if (all != null) {
+      return all(radius);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_BorderRadius value) $default, {
+    required TResult Function(BorderRadiusAll value) all,
+  }) {
+    return all(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_BorderRadius value)? $default, {
+    TResult? Function(BorderRadiusAll value)? all,
+  }) {
+    return all?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_BorderRadius value)? $default, {
+    TResult Function(BorderRadiusAll value)? all,
+    required TResult orElse(),
+  }) {
+    if (all != null) {
+      return all(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$BorderRadiusAllToJson(
+      this,
+    );
+  }
+}
+
+abstract class BorderRadiusAll implements BorderRadius {
+  const factory BorderRadiusAll(final Radius radius) = _$BorderRadiusAll;
+
+  factory BorderRadiusAll.fromJson(Map<String, dynamic> json) =
+      _$BorderRadiusAll.fromJson;
+
+  Radius get radius;
+  @JsonKey(ignore: true)
+  _$$BorderRadiusAllCopyWith<_$BorderRadiusAll> get copyWith =>
       throw _privateConstructorUsedError;
 }
