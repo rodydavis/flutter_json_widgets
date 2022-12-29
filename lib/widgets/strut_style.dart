@@ -1,0 +1,27 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'enums.dart';
+import 'font_weight.dart';
+
+part 'strut_style.freezed.dart';
+part 'strut_style.g.dart';
+
+@freezed
+class StrutStyle with _$StrutStyle {
+  const factory StrutStyle({
+    String? fontFamily,
+    List<String>? fontFamilyFallback,
+    double? fontSize,
+    double? height,
+    TextLeadingDistribution? leadingDistribution,
+    double? leading,
+    FontWeight? fontWeight,
+    FontStyle? fontStyle,
+    bool? forceStrutHeight,
+    String? debugLabel,
+    String? package,
+  }) = _StrutStyle;
+
+  factory StrutStyle.fromJson(Map<String, Object?> json) =>
+      _$StrutStyleFromJson(json);
+}

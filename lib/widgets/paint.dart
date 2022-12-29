@@ -1,0 +1,11 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'paint.freezed.dart';
+part 'paint.g.dart';
+
+@freezed
+class Paint with _$Paint {
+  const factory Paint() = _Paint;
+
+  factory Paint.fromJson(Map<String, Object?> json) => _$PaintFromJson(json);
+}
