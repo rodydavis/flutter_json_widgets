@@ -21,7 +21,7 @@ jobs:
           flutter config --enable-web
           flutter pub get
       - name: Build
-        run: cd example && flutter build web --base-href=/flutter_json_widgets/
+        run: cd example && flutter build web --no-tree-shake-icons --base-href=/flutter_json_widgets/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
