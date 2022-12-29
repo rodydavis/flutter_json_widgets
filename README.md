@@ -899,3 +899,27 @@ Future main() async {
   }
 }
 ```
+
+### Runtime Example
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_json_widgets/flutter_widget.dart';
+import 'package:flutter_json_widgets/material.dart' as material;
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+   return FlutterWidget.network(
+     url: Uri.parse('http://127.0.0.1:4040/'),
+    );
+  }
+}
+
+```
