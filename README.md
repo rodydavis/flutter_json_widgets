@@ -14,6 +14,24 @@ This does not depend on the flutter sdk for the core classes and can be used in 
 
 This package relies on another package called [freezed](https://pub.dev/packages/freezed) to generate the classes, enums and especially the unions that make it very helpful for parsing.
 
+While it is possible to match the Flutter SDK api for widget creation in most cases, there are times where this will differ.
+
+### Named Constructors
+
+Since the widget class is a sealed union things like `ElevatedButton.icon` will be `ElevatedButtonIcon` instead.
+
+The class will still map to the correct widget at runtime.
+
+### Functions
+
+Since this is JSON ultimatly, then logic will not work here. However, there are multiple types of intents that can be used with a class `Callback` and various actions (navigation, messages, empty, ...).
+
+Also planning on expanding it to include form submission and http requests too.
+
+### Builder Methods
+
+Since there is no logic things like `LayoutBuilder` are difficult to achieve. The `MaterialApp` has a routes property that you can provide a static map to without depending on context.
+
 ## Supported Widgets
 
 There are a lot, and more coming soon. List coming soon.
