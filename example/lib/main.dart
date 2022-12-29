@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// ignore: constant_identifier_names
 const EXAMPLE = r'''
 {
   "key": null,
@@ -445,7 +446,7 @@ class _FlutterJsonEditorState extends State<FlutterJsonEditor> {
       backgroundColor: colors.background,
       body: LayoutBuilder(builder: (context, dimens) {
         return Flex(
-          direction: dimens.maxWidth < 400 ? Axis.vertical : Axis.horizontal,
+          direction: dimens.maxWidth <= 500 ? Axis.vertical : Axis.horizontal,
           children: [
             Flexible(
               child: Container(
