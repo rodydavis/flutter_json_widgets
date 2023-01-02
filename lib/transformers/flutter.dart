@@ -1431,7 +1431,6 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
       empty: (_) => () {},
       reload: (_) => () {
         if (mounted) setState(() {});
-        material.debugPrint('reloaded');
       },
       navigatorPushNamed: (value) {
         return () => navigatorKey.pushNamed(
