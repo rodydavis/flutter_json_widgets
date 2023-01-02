@@ -11,13 +11,12 @@ import 'package:shelf/shelf_io.dart' as io;
 import 'package:shelf_cors_headers/shelf_cors_headers.dart';
 
 int _counter = 0;
+const host = 'localhost';
+const port = 8080;
+const url = 'http://$host:$port';
 
 Future main() async {
   final app = Router();
-
-  const host = 'localhost';
-  const port = 8080;
-  const url = 'http://$host:$port';
 
   app.post('/api/counter', (Request request) async {
     final content = await request.readAsString();
@@ -39,12 +38,12 @@ Future main() async {
       routes: {
         '/counter': NetworkWidget(
           request: NetworkRequest(
-            url: '$url/counter',
+            url: '$url/ui/widgets/counter',
           ),
         ),
         '/long-list': NetworkWidget(
           request: NetworkRequest(
-            url: '$url/long-list',
+            url: '$url/ui/widgets/long-list',
           ),
         ),
       },
@@ -52,7 +51,7 @@ Future main() async {
   );
 
   app.get(
-    '/counter',
+    '/ui/widgets/counter',
     (Request request) => _ui(Scaffold(
       appBar: const AppBar(
         title: Text('Flutter Demo Home Page'),
@@ -87,7 +86,7 @@ Future main() async {
   );
 
   app.get(
-    '/long-list',
+    '/ui/widgets/long-list',
     (Request request) => _ui(Scaffold(
       appBar: const AppBar(
         title: Text('Flutter Long List'),
