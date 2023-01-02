@@ -15,7 +15,6 @@ class DataCell with _$DataCell {
     Callback? onTap,
     Callback? onLongPress,
     Callback? onDoubleTap,
-    Callback? onTapCancel,
   }) = _DataCell;
 
   static const DataCell empty = DataCell(SizedBoxShrink());

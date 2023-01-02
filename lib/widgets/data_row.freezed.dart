@@ -31,7 +31,7 @@ DataRow _$DataRowFromJson(Map<String, dynamic> json) {
 mixin _$DataRow {
   bool get selected => throw _privateConstructorUsedError;
   Callback? get onSelect => throw _privateConstructorUsedError;
-  Callback? get onSelectDeselect => throw _privateConstructorUsedError;
+  Callback? get onDeselect => throw _privateConstructorUsedError;
   Callback? get onLongPress => throw _privateConstructorUsedError;
   MaterialStateProperty? get color => throw _privateConstructorUsedError;
   List<DataCell> get cells => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ mixin _$DataRow {
             Key? key,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)
@@ -50,7 +50,7 @@ mixin _$DataRow {
             int? index,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)
@@ -63,7 +63,7 @@ mixin _$DataRow {
             Key? key,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)?
@@ -72,7 +72,7 @@ mixin _$DataRow {
             int? index,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)?
@@ -85,7 +85,7 @@ mixin _$DataRow {
             Key? key,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)?
@@ -94,7 +94,7 @@ mixin _$DataRow {
             int? index,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)?
@@ -134,13 +134,13 @@ abstract class $DataRowCopyWith<$Res> {
   $Res call(
       {bool selected,
       Callback? onSelect,
-      Callback? onSelectDeselect,
+      Callback? onDeselect,
       Callback? onLongPress,
       MaterialStateProperty? color,
       List<DataCell> cells});
 
   $CallbackCopyWith<$Res>? get onSelect;
-  $CallbackCopyWith<$Res>? get onSelectDeselect;
+  $CallbackCopyWith<$Res>? get onDeselect;
   $CallbackCopyWith<$Res>? get onLongPress;
   $MaterialStatePropertyCopyWith<$Res>? get color;
 }
@@ -160,7 +160,7 @@ class _$DataRowCopyWithImpl<$Res, $Val extends DataRow>
   $Res call({
     Object? selected = null,
     Object? onSelect = freezed,
-    Object? onSelectDeselect = freezed,
+    Object? onDeselect = freezed,
     Object? onLongPress = freezed,
     Object? color = freezed,
     Object? cells = null,
@@ -174,9 +174,9 @@ class _$DataRowCopyWithImpl<$Res, $Val extends DataRow>
           ? _value.onSelect
           : onSelect // ignore: cast_nullable_to_non_nullable
               as Callback?,
-      onSelectDeselect: freezed == onSelectDeselect
-          ? _value.onSelectDeselect
-          : onSelectDeselect // ignore: cast_nullable_to_non_nullable
+      onDeselect: freezed == onDeselect
+          ? _value.onDeselect
+          : onDeselect // ignore: cast_nullable_to_non_nullable
               as Callback?,
       onLongPress: freezed == onLongPress
           ? _value.onLongPress
@@ -207,13 +207,13 @@ class _$DataRowCopyWithImpl<$Res, $Val extends DataRow>
 
   @override
   @pragma('vm:prefer-inline')
-  $CallbackCopyWith<$Res>? get onSelectDeselect {
-    if (_value.onSelectDeselect == null) {
+  $CallbackCopyWith<$Res>? get onDeselect {
+    if (_value.onDeselect == null) {
       return null;
     }
 
-    return $CallbackCopyWith<$Res>(_value.onSelectDeselect!, (value) {
-      return _then(_value.copyWith(onSelectDeselect: value) as $Val);
+    return $CallbackCopyWith<$Res>(_value.onDeselect!, (value) {
+      return _then(_value.copyWith(onDeselect: value) as $Val);
     });
   }
 
@@ -253,7 +253,7 @@ abstract class _$$_DataRowCopyWith<$Res> implements $DataRowCopyWith<$Res> {
       {Key? key,
       bool selected,
       Callback? onSelect,
-      Callback? onSelectDeselect,
+      Callback? onDeselect,
       Callback? onLongPress,
       MaterialStateProperty? color,
       List<DataCell> cells});
@@ -262,7 +262,7 @@ abstract class _$$_DataRowCopyWith<$Res> implements $DataRowCopyWith<$Res> {
   @override
   $CallbackCopyWith<$Res>? get onSelect;
   @override
-  $CallbackCopyWith<$Res>? get onSelectDeselect;
+  $CallbackCopyWith<$Res>? get onDeselect;
   @override
   $CallbackCopyWith<$Res>? get onLongPress;
   @override
@@ -282,7 +282,7 @@ class __$$_DataRowCopyWithImpl<$Res>
     Object? key = freezed,
     Object? selected = null,
     Object? onSelect = freezed,
-    Object? onSelectDeselect = freezed,
+    Object? onDeselect = freezed,
     Object? onLongPress = freezed,
     Object? color = freezed,
     Object? cells = null,
@@ -300,9 +300,9 @@ class __$$_DataRowCopyWithImpl<$Res>
           ? _value.onSelect
           : onSelect // ignore: cast_nullable_to_non_nullable
               as Callback?,
-      onSelectDeselect: freezed == onSelectDeselect
-          ? _value.onSelectDeselect
-          : onSelectDeselect // ignore: cast_nullable_to_non_nullable
+      onDeselect: freezed == onDeselect
+          ? _value.onDeselect
+          : onDeselect // ignore: cast_nullable_to_non_nullable
               as Callback?,
       onLongPress: freezed == onLongPress
           ? _value.onLongPress
@@ -339,7 +339,7 @@ class _$_DataRow implements _DataRow {
       {this.key,
       this.selected = false,
       this.onSelect,
-      this.onSelectDeselect,
+      this.onDeselect,
       this.onLongPress,
       this.color,
       required final List<DataCell> cells,
@@ -358,7 +358,7 @@ class _$_DataRow implements _DataRow {
   @override
   final Callback? onSelect;
   @override
-  final Callback? onSelectDeselect;
+  final Callback? onDeselect;
   @override
   final Callback? onLongPress;
   @override
@@ -376,7 +376,7 @@ class _$_DataRow implements _DataRow {
 
   @override
   String toString() {
-    return 'DataRow(key: $key, selected: $selected, onSelect: $onSelect, onSelectDeselect: $onSelectDeselect, onLongPress: $onLongPress, color: $color, cells: $cells)';
+    return 'DataRow(key: $key, selected: $selected, onSelect: $onSelect, onDeselect: $onDeselect, onLongPress: $onLongPress, color: $color, cells: $cells)';
   }
 
   @override
@@ -389,8 +389,8 @@ class _$_DataRow implements _DataRow {
                 other.selected == selected) &&
             (identical(other.onSelect, onSelect) ||
                 other.onSelect == onSelect) &&
-            (identical(other.onSelectDeselect, onSelectDeselect) ||
-                other.onSelectDeselect == onSelectDeselect) &&
+            (identical(other.onDeselect, onDeselect) ||
+                other.onDeselect == onDeselect) &&
             (identical(other.onLongPress, onLongPress) ||
                 other.onLongPress == onLongPress) &&
             (identical(other.color, color) || other.color == color) &&
@@ -404,7 +404,7 @@ class _$_DataRow implements _DataRow {
       key,
       selected,
       onSelect,
-      onSelectDeselect,
+      onDeselect,
       onLongPress,
       color,
       const DeepCollectionEquality().hash(_cells));
@@ -422,7 +422,7 @@ class _$_DataRow implements _DataRow {
             Key? key,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)
@@ -431,14 +431,14 @@ class _$_DataRow implements _DataRow {
             int? index,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)
         byIndex,
   }) {
     return $default(
-        key, selected, onSelect, onSelectDeselect, onLongPress, color, cells);
+        key, selected, onSelect, onDeselect, onLongPress, color, cells);
   }
 
   @override
@@ -448,7 +448,7 @@ class _$_DataRow implements _DataRow {
             Key? key,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)?
@@ -457,14 +457,14 @@ class _$_DataRow implements _DataRow {
             int? index,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)?
         byIndex,
   }) {
     return $default?.call(
-        key, selected, onSelect, onSelectDeselect, onLongPress, color, cells);
+        key, selected, onSelect, onDeselect, onLongPress, color, cells);
   }
 
   @override
@@ -474,7 +474,7 @@ class _$_DataRow implements _DataRow {
             Key? key,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)?
@@ -483,7 +483,7 @@ class _$_DataRow implements _DataRow {
             int? index,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)?
@@ -492,7 +492,7 @@ class _$_DataRow implements _DataRow {
   }) {
     if ($default != null) {
       return $default(
-          key, selected, onSelect, onSelectDeselect, onLongPress, color, cells);
+          key, selected, onSelect, onDeselect, onLongPress, color, cells);
     }
     return orElse();
   }
@@ -541,7 +541,7 @@ abstract class _DataRow implements DataRow {
       {final Key? key,
       final bool selected,
       final Callback? onSelect,
-      final Callback? onSelectDeselect,
+      final Callback? onDeselect,
       final Callback? onLongPress,
       final MaterialStateProperty? color,
       required final List<DataCell> cells}) = _$_DataRow;
@@ -554,7 +554,7 @@ abstract class _DataRow implements DataRow {
   @override
   Callback? get onSelect;
   @override
-  Callback? get onSelectDeselect;
+  Callback? get onDeselect;
   @override
   Callback? get onLongPress;
   @override
@@ -579,7 +579,7 @@ abstract class _$$DataRowByIndexCopyWith<$Res>
       {int? index,
       bool selected,
       Callback? onSelect,
-      Callback? onSelectDeselect,
+      Callback? onDeselect,
       Callback? onLongPress,
       MaterialStateProperty? color,
       List<DataCell> cells});
@@ -587,7 +587,7 @@ abstract class _$$DataRowByIndexCopyWith<$Res>
   @override
   $CallbackCopyWith<$Res>? get onSelect;
   @override
-  $CallbackCopyWith<$Res>? get onSelectDeselect;
+  $CallbackCopyWith<$Res>? get onDeselect;
   @override
   $CallbackCopyWith<$Res>? get onLongPress;
   @override
@@ -608,7 +608,7 @@ class __$$DataRowByIndexCopyWithImpl<$Res>
     Object? index = freezed,
     Object? selected = null,
     Object? onSelect = freezed,
-    Object? onSelectDeselect = freezed,
+    Object? onDeselect = freezed,
     Object? onLongPress = freezed,
     Object? color = freezed,
     Object? cells = null,
@@ -626,9 +626,9 @@ class __$$DataRowByIndexCopyWithImpl<$Res>
           ? _value.onSelect
           : onSelect // ignore: cast_nullable_to_non_nullable
               as Callback?,
-      onSelectDeselect: freezed == onSelectDeselect
-          ? _value.onSelectDeselect
-          : onSelectDeselect // ignore: cast_nullable_to_non_nullable
+      onDeselect: freezed == onDeselect
+          ? _value.onDeselect
+          : onDeselect // ignore: cast_nullable_to_non_nullable
               as Callback?,
       onLongPress: freezed == onLongPress
           ? _value.onLongPress
@@ -653,7 +653,7 @@ class _$DataRowByIndex implements DataRowByIndex {
       {this.index,
       this.selected = false,
       this.onSelect,
-      this.onSelectDeselect,
+      this.onDeselect,
       this.onLongPress,
       this.color,
       required final List<DataCell> cells,
@@ -672,7 +672,7 @@ class _$DataRowByIndex implements DataRowByIndex {
   @override
   final Callback? onSelect;
   @override
-  final Callback? onSelectDeselect;
+  final Callback? onDeselect;
   @override
   final Callback? onLongPress;
   @override
@@ -690,7 +690,7 @@ class _$DataRowByIndex implements DataRowByIndex {
 
   @override
   String toString() {
-    return 'DataRow.byIndex(index: $index, selected: $selected, onSelect: $onSelect, onSelectDeselect: $onSelectDeselect, onLongPress: $onLongPress, color: $color, cells: $cells)';
+    return 'DataRow.byIndex(index: $index, selected: $selected, onSelect: $onSelect, onDeselect: $onDeselect, onLongPress: $onLongPress, color: $color, cells: $cells)';
   }
 
   @override
@@ -703,8 +703,8 @@ class _$DataRowByIndex implements DataRowByIndex {
                 other.selected == selected) &&
             (identical(other.onSelect, onSelect) ||
                 other.onSelect == onSelect) &&
-            (identical(other.onSelectDeselect, onSelectDeselect) ||
-                other.onSelectDeselect == onSelectDeselect) &&
+            (identical(other.onDeselect, onDeselect) ||
+                other.onDeselect == onDeselect) &&
             (identical(other.onLongPress, onLongPress) ||
                 other.onLongPress == onLongPress) &&
             (identical(other.color, color) || other.color == color) &&
@@ -718,7 +718,7 @@ class _$DataRowByIndex implements DataRowByIndex {
       index,
       selected,
       onSelect,
-      onSelectDeselect,
+      onDeselect,
       onLongPress,
       color,
       const DeepCollectionEquality().hash(_cells));
@@ -736,7 +736,7 @@ class _$DataRowByIndex implements DataRowByIndex {
             Key? key,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)
@@ -745,14 +745,14 @@ class _$DataRowByIndex implements DataRowByIndex {
             int? index,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)
         byIndex,
   }) {
     return byIndex(
-        index, selected, onSelect, onSelectDeselect, onLongPress, color, cells);
+        index, selected, onSelect, onDeselect, onLongPress, color, cells);
   }
 
   @override
@@ -762,7 +762,7 @@ class _$DataRowByIndex implements DataRowByIndex {
             Key? key,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)?
@@ -771,14 +771,14 @@ class _$DataRowByIndex implements DataRowByIndex {
             int? index,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)?
         byIndex,
   }) {
     return byIndex?.call(
-        index, selected, onSelect, onSelectDeselect, onLongPress, color, cells);
+        index, selected, onSelect, onDeselect, onLongPress, color, cells);
   }
 
   @override
@@ -788,7 +788,7 @@ class _$DataRowByIndex implements DataRowByIndex {
             Key? key,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)?
@@ -797,7 +797,7 @@ class _$DataRowByIndex implements DataRowByIndex {
             int? index,
             bool selected,
             Callback? onSelect,
-            Callback? onSelectDeselect,
+            Callback? onDeselect,
             Callback? onLongPress,
             MaterialStateProperty? color,
             List<DataCell> cells)?
@@ -805,8 +805,8 @@ class _$DataRowByIndex implements DataRowByIndex {
     required TResult orElse(),
   }) {
     if (byIndex != null) {
-      return byIndex(index, selected, onSelect, onSelectDeselect, onLongPress,
-          color, cells);
+      return byIndex(
+          index, selected, onSelect, onDeselect, onLongPress, color, cells);
     }
     return orElse();
   }
@@ -855,7 +855,7 @@ abstract class DataRowByIndex implements DataRow {
       {final int? index,
       final bool selected,
       final Callback? onSelect,
-      final Callback? onSelectDeselect,
+      final Callback? onDeselect,
       final Callback? onLongPress,
       final MaterialStateProperty? color,
       required final List<DataCell> cells}) = _$DataRowByIndex;
@@ -869,7 +869,7 @@ abstract class DataRowByIndex implements DataRow {
   @override
   Callback? get onSelect;
   @override
-  Callback? get onSelectDeselect;
+  Callback? get onDeselect;
   @override
   Callback? get onLongPress;
   @override

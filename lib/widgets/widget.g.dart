@@ -2428,7 +2428,7 @@ _$Chip _$$ChipFromJson(Map<String, dynamic> json) => _$Chip(
           : BorderSide.fromJson(json['side'] as Map<String, dynamic>),
       shape: json['shape'] == null
           ? null
-          : OutlinedBorder.fromJson(json['shape'] as Map<String, dynamic>),
+          : ShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
       clipBehavior:
           $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ?? Clip.none,
       autofocus: json['autofocus'] as bool? ?? false,
@@ -2451,7 +2451,6 @@ _$Chip _$$ChipFromJson(Map<String, dynamic> json) => _$Chip(
       surfaceTintColor: json['surfaceTintColor'] == null
           ? null
           : Color.fromJson(json['surfaceTintColor'] as Map<String, dynamic>),
-      useDeleteButtonTooltip: json['useDeleteButtonTooltip'] as bool? ?? true,
       $type: json['runtimeType'] as String?,
     );
 
@@ -2477,7 +2476,6 @@ Map<String, dynamic> _$$ChipToJson(_$Chip instance) => <String, dynamic>{
       'elevation': instance.elevation,
       'shadowColor': instance.shadowColor,
       'surfaceTintColor': instance.surfaceTintColor,
-      'useDeleteButtonTooltip': instance.useDeleteButtonTooltip,
       'runtimeType': instance.$type,
     };
 
@@ -2651,5 +2649,121 @@ Map<String, dynamic> _$$DataTableToJson(_$DataTable instance) =>
       'checkboxHorizontalMargin': instance.checkboxHorizontalMargin,
       'border': instance.border,
       'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'runtimeType': instance.$type,
+    };
+
+_$RepaintBoundary _$$RepaintBoundaryFromJson(Map<String, dynamic> json) =>
+    _$RepaintBoundary(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$RepaintBoundaryToJson(_$RepaintBoundary instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$ClipRect _$$ClipRectFromJson(Map<String, dynamic> json) => _$ClipRect(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ??
+          Clip.hardEdge,
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ClipRectToJson(_$ClipRect instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$ClipRRect _$$ClipRRectFromJson(Map<String, dynamic> json) => _$ClipRRect(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      borderRadius: json['borderRadius'] == null
+          ? BorderRadius.zero
+          : BorderRadius.fromJson(json['borderRadius'] as Map<String, dynamic>),
+      clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ??
+          Clip.antiAlias,
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ClipRRectToJson(_$ClipRRect instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'borderRadius': instance.borderRadius,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$ClipOval _$$ClipOvalFromJson(Map<String, dynamic> json) => _$ClipOval(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ??
+          Clip.antiAlias,
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ClipOvalToJson(_$ClipOval instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$CustomWidget _$$CustomWidgetFromJson(Map<String, dynamic> json) =>
+    _$CustomWidget(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      type: json['type'] as String,
+      properties: json['properties'] as Map<String, dynamic>?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$CustomWidgetToJson(_$CustomWidget instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'type': instance.type,
+      'properties': instance.properties,
+      'runtimeType': instance.$type,
+    };
+
+_$NetworkWidget _$$NetworkWidgetFromJson(Map<String, dynamic> json) =>
+    _$NetworkWidget(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      request: NetworkRequest.fromJson(json['request'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$NetworkWidgetToJson(_$NetworkWidget instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'request': instance.request,
       'runtimeType': instance.$type,
     };

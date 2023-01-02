@@ -32,8 +32,6 @@ class Sliver with _$Sliver {
     @Default(true) bool forceElevated,
     Color? backgroundColor,
     Color? foregroundColor,
-    Brightness? brightness,
-    TextTheme? textTheme,
     @Default(true) bool primary,
     bool? centerTitle,
     @Default(true) bool excludeHeaderSemantics,
@@ -48,7 +46,6 @@ class Sliver with _$Sliver {
     ShapeBorder? shape,
     @Default(56.0) double toolbarHeight,
     double? leadingWidth,
-    bool? backwardsCompatibility,
     TextStyle? toolbarTextStyle,
     TextStyle? titleTextStyle,
     @Default(true) bool forceMaterialTransparency,
@@ -200,7 +197,7 @@ class Sliver with _$Sliver {
 
   const factory Sliver.visibility({
     Key? key,
-    required Widget sliver,
+    required Sliver sliver,
     @Default(SliverToBoxAdapter()) Sliver replacementSliver,
     @Default(true) bool visible,
     @Default(false) bool maintainState,

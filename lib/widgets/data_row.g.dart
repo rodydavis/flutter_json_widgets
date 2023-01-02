@@ -14,9 +14,9 @@ _$_DataRow _$$_DataRowFromJson(Map<String, dynamic> json) => _$_DataRow(
       onSelect: json['onSelect'] == null
           ? null
           : Callback.fromJson(json['onSelect'] as Map<String, dynamic>),
-      onSelectDeselect: json['onSelectDeselect'] == null
+      onDeselect: json['onDeselect'] == null
           ? null
-          : Callback.fromJson(json['onSelectDeselect'] as Map<String, dynamic>),
+          : Callback.fromJson(json['onDeselect'] as Map<String, dynamic>),
       onLongPress: json['onLongPress'] == null
           ? null
           : Callback.fromJson(json['onLongPress'] as Map<String, dynamic>),
@@ -35,7 +35,7 @@ Map<String, dynamic> _$$_DataRowToJson(_$_DataRow instance) =>
       'key': instance.key,
       'selected': instance.selected,
       'onSelect': instance.onSelect,
-      'onSelectDeselect': instance.onSelectDeselect,
+      'onDeselect': instance.onDeselect,
       'onLongPress': instance.onLongPress,
       'color': instance.color,
       'cells': instance.cells,
@@ -49,9 +49,9 @@ _$DataRowByIndex _$$DataRowByIndexFromJson(Map<String, dynamic> json) =>
       onSelect: json['onSelect'] == null
           ? null
           : Callback.fromJson(json['onSelect'] as Map<String, dynamic>),
-      onSelectDeselect: json['onSelectDeselect'] == null
+      onDeselect: json['onDeselect'] == null
           ? null
-          : Callback.fromJson(json['onSelectDeselect'] as Map<String, dynamic>),
+          : Callback.fromJson(json['onDeselect'] as Map<String, dynamic>),
       onLongPress: json['onLongPress'] == null
           ? null
           : Callback.fromJson(json['onLongPress'] as Map<String, dynamic>),
@@ -70,7 +70,7 @@ Map<String, dynamic> _$$DataRowByIndexToJson(_$DataRowByIndex instance) =>
       'index': instance.index,
       'selected': instance.selected,
       'onSelect': instance.onSelect,
-      'onSelectDeselect': instance.onSelectDeselect,
+      'onDeselect': instance.onDeselect,
       'onLongPress': instance.onLongPress,
       'color': instance.color,
       'cells': instance.cells,

@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'enums.dart';
 import 'material_banner.dart';
+import 'network_request.dart';
 import 'snack_bar.dart';
 
 part 'callback.freezed.dart';
@@ -23,6 +24,16 @@ class Callback with _$Callback {
     String? path,
     Map<String, String>? params,
   }) = UrlCallback;
+
+  const factory Callback.copyClipboard(
+    String text, {
+    Callback? callback,
+  }) = CopyClipboardCallback;
+
+  const factory Callback.networkRequest(
+    NetworkRequest request, {
+    Callback? callback,
+  }) = HttpRequestCallback;
 
   const factory Callback.showSnackBar(SnackBar snackBar) = ShowSnackBarCallback;
 
@@ -50,6 +61,8 @@ class Callback with _$Callback {
       ShowMaterialBannerCallback;
 
   const factory Callback.empty() = EmptyCallback;
+
+  const factory Callback.reload() = ReloadCallback;
 
   factory Callback.fromJson(Map<String, Object?> json) =>
       _$CallbackFromJson(json);

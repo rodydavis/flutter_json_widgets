@@ -16,7 +16,7 @@ class PreferredSizeWidget with _$PreferredSizeWidget {
     Key? key,
     required Size preferredSize,
     required Widget child,
-  }) = _PreferredSizeWidget;
+  }) = PreferredSize;
 
   const factory PreferredSizeWidget.appBar({
     Key? key,

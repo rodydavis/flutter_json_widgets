@@ -16,7 +16,7 @@ _$BoxDecoration _$$BoxDecorationFromJson(Map<String, dynamic> json) =>
           : DecorationImage.fromJson(json['image'] as Map<String, dynamic>),
       border: json['border'] == null
           ? null
-          : BoxBorder.fromJson(json['border'] as Map<String, dynamic>),
+          : ShapeBorder.fromJson(json['border'] as Map<String, dynamic>),
       borderRadius: json['borderRadius'] == null
           ? null
           : BorderRadius.fromJson(json['borderRadius'] as Map<String, dynamic>),

@@ -45,10 +45,6 @@ _$SliverAppBar _$$SliverAppBarFromJson(Map<String, dynamic> json) =>
       foregroundColor: json['foregroundColor'] == null
           ? null
           : Color.fromJson(json['foregroundColor'] as Map<String, dynamic>),
-      brightness: $enumDecodeNullable(_$BrightnessEnumMap, json['brightness']),
-      textTheme: json['textTheme'] == null
-          ? null
-          : TextTheme.fromJson(json['textTheme'] as Map<String, dynamic>),
       primary: json['primary'] as bool? ?? true,
       centerTitle: json['centerTitle'] as bool?,
       excludeHeaderSemantics: json['excludeHeaderSemantics'] as bool? ?? true,
@@ -66,7 +62,6 @@ _$SliverAppBar _$$SliverAppBarFromJson(Map<String, dynamic> json) =>
           : ShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
       toolbarHeight: (json['toolbarHeight'] as num?)?.toDouble() ?? 56.0,
       leadingWidth: (json['leadingWidth'] as num?)?.toDouble(),
-      backwardsCompatibility: json['backwardsCompatibility'] as bool?,
       toolbarTextStyle: json['toolbarTextStyle'] == null
           ? null
           : TextStyle.fromJson(
@@ -95,8 +90,6 @@ Map<String, dynamic> _$$SliverAppBarToJson(_$SliverAppBar instance) =>
       'forceElevated': instance.forceElevated,
       'backgroundColor': instance.backgroundColor,
       'foregroundColor': instance.foregroundColor,
-      'brightness': _$BrightnessEnumMap[instance.brightness],
-      'textTheme': instance.textTheme,
       'primary': instance.primary,
       'centerTitle': instance.centerTitle,
       'excludeHeaderSemantics': instance.excludeHeaderSemantics,
@@ -111,17 +104,11 @@ Map<String, dynamic> _$$SliverAppBarToJson(_$SliverAppBar instance) =>
       'shape': instance.shape,
       'toolbarHeight': instance.toolbarHeight,
       'leadingWidth': instance.leadingWidth,
-      'backwardsCompatibility': instance.backwardsCompatibility,
       'toolbarTextStyle': instance.toolbarTextStyle,
       'titleTextStyle': instance.titleTextStyle,
       'forceMaterialTransparency': instance.forceMaterialTransparency,
       'runtimeType': instance.$type,
     };
-
-const _$BrightnessEnumMap = {
-  Brightness.dark: 'dark',
-  Brightness.light: 'light',
-};
 
 _$SliverAppBarMedium _$$SliverAppBarMediumFromJson(Map<String, dynamic> json) =>
     _$SliverAppBarMedium(
@@ -588,7 +575,7 @@ _$SliverVisibility _$$SliverVisibilityFromJson(Map<String, dynamic> json) =>
       key: json['key'] == null
           ? null
           : Key.fromJson(json['key'] as Map<String, dynamic>),
-      sliver: Widget.fromJson(json['sliver'] as Map<String, dynamic>),
+      sliver: Sliver.fromJson(json['sliver'] as Map<String, dynamic>),
       replacementSliver: json['replacementSliver'] == null
           ? const SliverToBoxAdapter()
           : Sliver.fromJson(json['replacementSliver'] as Map<String, dynamic>),

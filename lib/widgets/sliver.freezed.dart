@@ -77,8 +77,6 @@ mixin _$Sliver {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -93,7 +91,6 @@ mixin _$Sliver {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -193,7 +190,7 @@ mixin _$Sliver {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -224,8 +221,6 @@ mixin _$Sliver {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -240,7 +235,6 @@ mixin _$Sliver {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -339,7 +333,7 @@ mixin _$Sliver {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -370,8 +364,6 @@ mixin _$Sliver {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -386,7 +378,6 @@ mixin _$Sliver {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -484,7 +475,7 @@ mixin _$Sliver {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -638,8 +629,6 @@ abstract class _$$SliverAppBarCopyWith<$Res> implements $SliverCopyWith<$Res> {
       bool forceElevated,
       Color? backgroundColor,
       Color? foregroundColor,
-      Brightness? brightness,
-      TextTheme? textTheme,
       bool primary,
       bool? centerTitle,
       bool excludeHeaderSemantics,
@@ -654,7 +643,6 @@ abstract class _$$SliverAppBarCopyWith<$Res> implements $SliverCopyWith<$Res> {
       ShapeBorder? shape,
       double toolbarHeight,
       double? leadingWidth,
-      bool? backwardsCompatibility,
       TextStyle? toolbarTextStyle,
       TextStyle? titleTextStyle,
       bool forceMaterialTransparency});
@@ -669,7 +657,6 @@ abstract class _$$SliverAppBarCopyWith<$Res> implements $SliverCopyWith<$Res> {
   $ColorCopyWith<$Res>? get surfaceTintColor;
   $ColorCopyWith<$Res>? get backgroundColor;
   $ColorCopyWith<$Res>? get foregroundColor;
-  $TextThemeCopyWith<$Res>? get textTheme;
   $ShapeBorderCopyWith<$Res>? get shape;
   $TextStyleCopyWith<$Res>? get toolbarTextStyle;
   $TextStyleCopyWith<$Res>? get titleTextStyle;
@@ -700,8 +687,6 @@ class __$$SliverAppBarCopyWithImpl<$Res>
     Object? forceElevated = null,
     Object? backgroundColor = freezed,
     Object? foregroundColor = freezed,
-    Object? brightness = freezed,
-    Object? textTheme = freezed,
     Object? primary = null,
     Object? centerTitle = freezed,
     Object? excludeHeaderSemantics = null,
@@ -716,7 +701,6 @@ class __$$SliverAppBarCopyWithImpl<$Res>
     Object? shape = freezed,
     Object? toolbarHeight = null,
     Object? leadingWidth = freezed,
-    Object? backwardsCompatibility = freezed,
     Object? toolbarTextStyle = freezed,
     Object? titleTextStyle = freezed,
     Object? forceMaterialTransparency = null,
@@ -778,14 +762,6 @@ class __$$SliverAppBarCopyWithImpl<$Res>
           ? _value.foregroundColor
           : foregroundColor // ignore: cast_nullable_to_non_nullable
               as Color?,
-      brightness: freezed == brightness
-          ? _value.brightness
-          : brightness // ignore: cast_nullable_to_non_nullable
-              as Brightness?,
-      textTheme: freezed == textTheme
-          ? _value.textTheme
-          : textTheme // ignore: cast_nullable_to_non_nullable
-              as TextTheme?,
       primary: null == primary
           ? _value.primary
           : primary // ignore: cast_nullable_to_non_nullable
@@ -842,10 +818,6 @@ class __$$SliverAppBarCopyWithImpl<$Res>
           ? _value.leadingWidth
           : leadingWidth // ignore: cast_nullable_to_non_nullable
               as double?,
-      backwardsCompatibility: freezed == backwardsCompatibility
-          ? _value.backwardsCompatibility
-          : backwardsCompatibility // ignore: cast_nullable_to_non_nullable
-              as bool?,
       toolbarTextStyle: freezed == toolbarTextStyle
           ? _value.toolbarTextStyle
           : toolbarTextStyle // ignore: cast_nullable_to_non_nullable
@@ -959,18 +931,6 @@ class __$$SliverAppBarCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
-  $TextThemeCopyWith<$Res>? get textTheme {
-    if (_value.textTheme == null) {
-      return null;
-    }
-
-    return $TextThemeCopyWith<$Res>(_value.textTheme!, (value) {
-      return _then(_value.copyWith(textTheme: value));
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $ShapeBorderCopyWith<$Res>? get shape {
     if (_value.shape == null) {
       return null;
@@ -1024,8 +984,6 @@ class _$SliverAppBar implements SliverAppBar {
       this.forceElevated = true,
       this.backgroundColor,
       this.foregroundColor,
-      this.brightness,
-      this.textTheme,
       this.primary = true,
       this.centerTitle,
       this.excludeHeaderSemantics = true,
@@ -1040,7 +998,6 @@ class _$SliverAppBar implements SliverAppBar {
       this.shape,
       this.toolbarHeight = 56.0,
       this.leadingWidth,
-      this.backwardsCompatibility,
       this.toolbarTextStyle,
       this.titleTextStyle,
       this.forceMaterialTransparency = true,
@@ -1090,10 +1047,6 @@ class _$SliverAppBar implements SliverAppBar {
   @override
   final Color? foregroundColor;
   @override
-  final Brightness? brightness;
-  @override
-  final TextTheme? textTheme;
-  @override
   @JsonKey()
   final bool primary;
   @override
@@ -1130,8 +1083,6 @@ class _$SliverAppBar implements SliverAppBar {
   @override
   final double? leadingWidth;
   @override
-  final bool? backwardsCompatibility;
-  @override
   final TextStyle? toolbarTextStyle;
   @override
   final TextStyle? titleTextStyle;
@@ -1144,7 +1095,7 @@ class _$SliverAppBar implements SliverAppBar {
 
   @override
   String toString() {
-    return 'Sliver.appBar(key: $key, leading: $leading, automaticallyImplyLeading: $automaticallyImplyLeading, title: $title, actions: $actions, flexibleSpace: $flexibleSpace, bottom: $bottom, elevation: $elevation, scrolledUnderElevation: $scrolledUnderElevation, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, forceElevated: $forceElevated, backgroundColor: $backgroundColor, foregroundColor: $foregroundColor, brightness: $brightness, textTheme: $textTheme, primary: $primary, centerTitle: $centerTitle, excludeHeaderSemantics: $excludeHeaderSemantics, titleSpacing: $titleSpacing, collapsedHeight: $collapsedHeight, expandedHeight: $expandedHeight, floating: $floating, pinned: $pinned, snap: $snap, stretch: $stretch, stretchTriggerOffset: $stretchTriggerOffset, shape: $shape, toolbarHeight: $toolbarHeight, leadingWidth: $leadingWidth, backwardsCompatibility: $backwardsCompatibility, toolbarTextStyle: $toolbarTextStyle, titleTextStyle: $titleTextStyle, forceMaterialTransparency: $forceMaterialTransparency)';
+    return 'Sliver.appBar(key: $key, leading: $leading, automaticallyImplyLeading: $automaticallyImplyLeading, title: $title, actions: $actions, flexibleSpace: $flexibleSpace, bottom: $bottom, elevation: $elevation, scrolledUnderElevation: $scrolledUnderElevation, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, forceElevated: $forceElevated, backgroundColor: $backgroundColor, foregroundColor: $foregroundColor, primary: $primary, centerTitle: $centerTitle, excludeHeaderSemantics: $excludeHeaderSemantics, titleSpacing: $titleSpacing, collapsedHeight: $collapsedHeight, expandedHeight: $expandedHeight, floating: $floating, pinned: $pinned, snap: $snap, stretch: $stretch, stretchTriggerOffset: $stretchTriggerOffset, shape: $shape, toolbarHeight: $toolbarHeight, leadingWidth: $leadingWidth, toolbarTextStyle: $toolbarTextStyle, titleTextStyle: $titleTextStyle, forceMaterialTransparency: $forceMaterialTransparency)';
   }
 
   @override
@@ -1176,10 +1127,6 @@ class _$SliverAppBar implements SliverAppBar {
                 other.backgroundColor == backgroundColor) &&
             (identical(other.foregroundColor, foregroundColor) ||
                 other.foregroundColor == foregroundColor) &&
-            (identical(other.brightness, brightness) ||
-                other.brightness == brightness) &&
-            (identical(other.textTheme, textTheme) ||
-                other.textTheme == textTheme) &&
             (identical(other.primary, primary) || other.primary == primary) &&
             (identical(other.centerTitle, centerTitle) ||
                 other.centerTitle == centerTitle) &&
@@ -1203,8 +1150,6 @@ class _$SliverAppBar implements SliverAppBar {
                 other.toolbarHeight == toolbarHeight) &&
             (identical(other.leadingWidth, leadingWidth) ||
                 other.leadingWidth == leadingWidth) &&
-            (identical(other.backwardsCompatibility, backwardsCompatibility) ||
-                other.backwardsCompatibility == backwardsCompatibility) &&
             (identical(other.toolbarTextStyle, toolbarTextStyle) ||
                 other.toolbarTextStyle == toolbarTextStyle) &&
             (identical(other.titleTextStyle, titleTextStyle) ||
@@ -1232,8 +1177,6 @@ class _$SliverAppBar implements SliverAppBar {
         forceElevated,
         backgroundColor,
         foregroundColor,
-        brightness,
-        textTheme,
         primary,
         centerTitle,
         excludeHeaderSemantics,
@@ -1248,7 +1191,6 @@ class _$SliverAppBar implements SliverAppBar {
         shape,
         toolbarHeight,
         leadingWidth,
-        backwardsCompatibility,
         toolbarTextStyle,
         titleTextStyle,
         forceMaterialTransparency
@@ -1278,8 +1220,6 @@ class _$SliverAppBar implements SliverAppBar {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -1294,7 +1234,6 @@ class _$SliverAppBar implements SliverAppBar {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -1394,7 +1333,7 @@ class _$SliverAppBar implements SliverAppBar {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -1422,8 +1361,6 @@ class _$SliverAppBar implements SliverAppBar {
         forceElevated,
         backgroundColor,
         foregroundColor,
-        brightness,
-        textTheme,
         primary,
         centerTitle,
         excludeHeaderSemantics,
@@ -1438,7 +1375,6 @@ class _$SliverAppBar implements SliverAppBar {
         shape,
         toolbarHeight,
         leadingWidth,
-        backwardsCompatibility,
         toolbarTextStyle,
         titleTextStyle,
         forceMaterialTransparency);
@@ -1462,8 +1398,6 @@ class _$SliverAppBar implements SliverAppBar {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -1478,7 +1412,6 @@ class _$SliverAppBar implements SliverAppBar {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -1577,7 +1510,7 @@ class _$SliverAppBar implements SliverAppBar {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -1605,8 +1538,6 @@ class _$SliverAppBar implements SliverAppBar {
         forceElevated,
         backgroundColor,
         foregroundColor,
-        brightness,
-        textTheme,
         primary,
         centerTitle,
         excludeHeaderSemantics,
@@ -1621,7 +1552,6 @@ class _$SliverAppBar implements SliverAppBar {
         shape,
         toolbarHeight,
         leadingWidth,
-        backwardsCompatibility,
         toolbarTextStyle,
         titleTextStyle,
         forceMaterialTransparency);
@@ -1645,8 +1575,6 @@ class _$SliverAppBar implements SliverAppBar {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -1661,7 +1589,6 @@ class _$SliverAppBar implements SliverAppBar {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -1759,7 +1686,7 @@ class _$SliverAppBar implements SliverAppBar {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -1789,8 +1716,6 @@ class _$SliverAppBar implements SliverAppBar {
           forceElevated,
           backgroundColor,
           foregroundColor,
-          brightness,
-          textTheme,
           primary,
           centerTitle,
           excludeHeaderSemantics,
@@ -1805,7 +1730,6 @@ class _$SliverAppBar implements SliverAppBar {
           shape,
           toolbarHeight,
           leadingWidth,
-          backwardsCompatibility,
           toolbarTextStyle,
           titleTextStyle,
           forceMaterialTransparency);
@@ -1915,8 +1839,6 @@ abstract class SliverAppBar implements Sliver {
       final bool forceElevated,
       final Color? backgroundColor,
       final Color? foregroundColor,
-      final Brightness? brightness,
-      final TextTheme? textTheme,
       final bool primary,
       final bool? centerTitle,
       final bool excludeHeaderSemantics,
@@ -1931,7 +1853,6 @@ abstract class SliverAppBar implements Sliver {
       final ShapeBorder? shape,
       final double toolbarHeight,
       final double? leadingWidth,
-      final bool? backwardsCompatibility,
       final TextStyle? toolbarTextStyle,
       final TextStyle? titleTextStyle,
       final bool forceMaterialTransparency}) = _$SliverAppBar;
@@ -1954,8 +1875,6 @@ abstract class SliverAppBar implements Sliver {
   bool get forceElevated;
   Color? get backgroundColor;
   Color? get foregroundColor;
-  Brightness? get brightness;
-  TextTheme? get textTheme;
   bool get primary;
   bool? get centerTitle;
   bool get excludeHeaderSemantics;
@@ -1970,7 +1889,6 @@ abstract class SliverAppBar implements Sliver {
   ShapeBorder? get shape;
   double get toolbarHeight;
   double? get leadingWidth;
-  bool? get backwardsCompatibility;
   TextStyle? get toolbarTextStyle;
   TextStyle? get titleTextStyle;
   bool get forceMaterialTransparency;
@@ -2581,8 +2499,6 @@ class _$SliverAppBarMedium implements SliverAppBarMedium {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -2597,7 +2513,6 @@ class _$SliverAppBarMedium implements SliverAppBarMedium {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -2697,7 +2612,7 @@ class _$SliverAppBarMedium implements SliverAppBarMedium {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -2761,8 +2676,6 @@ class _$SliverAppBarMedium implements SliverAppBarMedium {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -2777,7 +2690,6 @@ class _$SliverAppBarMedium implements SliverAppBarMedium {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -2876,7 +2788,7 @@ class _$SliverAppBarMedium implements SliverAppBarMedium {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -2940,8 +2852,6 @@ class _$SliverAppBarMedium implements SliverAppBarMedium {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -2956,7 +2866,6 @@ class _$SliverAppBarMedium implements SliverAppBarMedium {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -3054,7 +2963,7 @@ class _$SliverAppBarMedium implements SliverAppBarMedium {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -3863,8 +3772,6 @@ class _$SliverAppBarLarge implements SliverAppBarLarge {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -3879,7 +3786,6 @@ class _$SliverAppBarLarge implements SliverAppBarLarge {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -3979,7 +3885,7 @@ class _$SliverAppBarLarge implements SliverAppBarLarge {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -4043,8 +3949,6 @@ class _$SliverAppBarLarge implements SliverAppBarLarge {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -4059,7 +3963,6 @@ class _$SliverAppBarLarge implements SliverAppBarLarge {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -4158,7 +4061,7 @@ class _$SliverAppBarLarge implements SliverAppBarLarge {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -4222,8 +4125,6 @@ class _$SliverAppBarLarge implements SliverAppBarLarge {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -4238,7 +4139,6 @@ class _$SliverAppBarLarge implements SliverAppBarLarge {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -4336,7 +4236,7 @@ class _$SliverAppBarLarge implements SliverAppBarLarge {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -4659,8 +4559,6 @@ class _$SliverToBoxAdapter implements SliverToBoxAdapter {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -4675,7 +4573,6 @@ class _$SliverToBoxAdapter implements SliverToBoxAdapter {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -4775,7 +4672,7 @@ class _$SliverToBoxAdapter implements SliverToBoxAdapter {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -4809,8 +4706,6 @@ class _$SliverToBoxAdapter implements SliverToBoxAdapter {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -4825,7 +4720,6 @@ class _$SliverToBoxAdapter implements SliverToBoxAdapter {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -4924,7 +4818,7 @@ class _$SliverToBoxAdapter implements SliverToBoxAdapter {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -4958,8 +4852,6 @@ class _$SliverToBoxAdapter implements SliverToBoxAdapter {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -4974,7 +4866,6 @@ class _$SliverToBoxAdapter implements SliverToBoxAdapter {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -5072,7 +4963,7 @@ class _$SliverToBoxAdapter implements SliverToBoxAdapter {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -5334,8 +5225,6 @@ class _$SliverFillRemaining implements SliverFillRemaining {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -5350,7 +5239,6 @@ class _$SliverFillRemaining implements SliverFillRemaining {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -5450,7 +5338,7 @@ class _$SliverFillRemaining implements SliverFillRemaining {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -5484,8 +5372,6 @@ class _$SliverFillRemaining implements SliverFillRemaining {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -5500,7 +5386,6 @@ class _$SliverFillRemaining implements SliverFillRemaining {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -5599,7 +5484,7 @@ class _$SliverFillRemaining implements SliverFillRemaining {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -5633,8 +5518,6 @@ class _$SliverFillRemaining implements SliverFillRemaining {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -5649,7 +5532,6 @@ class _$SliverFillRemaining implements SliverFillRemaining {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -5747,7 +5629,7 @@ class _$SliverFillRemaining implements SliverFillRemaining {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -6014,8 +5896,6 @@ class _$SliverFillViewport implements SliverFillViewport {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -6030,7 +5910,6 @@ class _$SliverFillViewport implements SliverFillViewport {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -6130,7 +6009,7 @@ class _$SliverFillViewport implements SliverFillViewport {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -6164,8 +6043,6 @@ class _$SliverFillViewport implements SliverFillViewport {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -6180,7 +6057,6 @@ class _$SliverFillViewport implements SliverFillViewport {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -6279,7 +6155,7 @@ class _$SliverFillViewport implements SliverFillViewport {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -6313,8 +6189,6 @@ class _$SliverFillViewport implements SliverFillViewport {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -6329,7 +6203,6 @@ class _$SliverFillViewport implements SliverFillViewport {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -6427,7 +6300,7 @@ class _$SliverFillViewport implements SliverFillViewport {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -6678,8 +6551,6 @@ class _$SliverFixedExtentList implements SliverFixedExtentList {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -6694,7 +6565,6 @@ class _$SliverFixedExtentList implements SliverFixedExtentList {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -6794,7 +6664,7 @@ class _$SliverFixedExtentList implements SliverFixedExtentList {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -6828,8 +6698,6 @@ class _$SliverFixedExtentList implements SliverFixedExtentList {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -6844,7 +6712,6 @@ class _$SliverFixedExtentList implements SliverFixedExtentList {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -6943,7 +6810,7 @@ class _$SliverFixedExtentList implements SliverFixedExtentList {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -6977,8 +6844,6 @@ class _$SliverFixedExtentList implements SliverFixedExtentList {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -6993,7 +6858,6 @@ class _$SliverFixedExtentList implements SliverFixedExtentList {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -7091,7 +6955,7 @@ class _$SliverFixedExtentList implements SliverFixedExtentList {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -7340,8 +7204,6 @@ class _$SliverOffstage implements SliverOffstage {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -7356,7 +7218,6 @@ class _$SliverOffstage implements SliverOffstage {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -7456,7 +7317,7 @@ class _$SliverOffstage implements SliverOffstage {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -7490,8 +7351,6 @@ class _$SliverOffstage implements SliverOffstage {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -7506,7 +7365,6 @@ class _$SliverOffstage implements SliverOffstage {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -7605,7 +7463,7 @@ class _$SliverOffstage implements SliverOffstage {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -7639,8 +7497,6 @@ class _$SliverOffstage implements SliverOffstage {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -7655,7 +7511,6 @@ class _$SliverOffstage implements SliverOffstage {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -7753,7 +7608,7 @@ class _$SliverOffstage implements SliverOffstage {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -7987,8 +7842,6 @@ class _$SliverList implements SliverList {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -8003,7 +7856,6 @@ class _$SliverList implements SliverList {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -8103,7 +7955,7 @@ class _$SliverList implements SliverList {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -8137,8 +7989,6 @@ class _$SliverList implements SliverList {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -8153,7 +8003,6 @@ class _$SliverList implements SliverList {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -8252,7 +8101,7 @@ class _$SliverList implements SliverList {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -8286,8 +8135,6 @@ class _$SliverList implements SliverList {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -8302,7 +8149,6 @@ class _$SliverList implements SliverList {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -8400,7 +8246,7 @@ class _$SliverList implements SliverList {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -8657,8 +8503,6 @@ class _$SliverGrid implements SliverGrid {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -8673,7 +8517,6 @@ class _$SliverGrid implements SliverGrid {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -8773,7 +8616,7 @@ class _$SliverGrid implements SliverGrid {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -8807,8 +8650,6 @@ class _$SliverGrid implements SliverGrid {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -8823,7 +8664,6 @@ class _$SliverGrid implements SliverGrid {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -8922,7 +8762,7 @@ class _$SliverGrid implements SliverGrid {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -8956,8 +8796,6 @@ class _$SliverGrid implements SliverGrid {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -8972,7 +8810,6 @@ class _$SliverGrid implements SliverGrid {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -9070,7 +8907,7 @@ class _$SliverGrid implements SliverGrid {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -9334,8 +9171,6 @@ class _$SliverIgnorePointer implements SliverIgnorePointer {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -9350,7 +9185,6 @@ class _$SliverIgnorePointer implements SliverIgnorePointer {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -9450,7 +9284,7 @@ class _$SliverIgnorePointer implements SliverIgnorePointer {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -9484,8 +9318,6 @@ class _$SliverIgnorePointer implements SliverIgnorePointer {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -9500,7 +9332,6 @@ class _$SliverIgnorePointer implements SliverIgnorePointer {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -9599,7 +9430,7 @@ class _$SliverIgnorePointer implements SliverIgnorePointer {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -9633,8 +9464,6 @@ class _$SliverIgnorePointer implements SliverIgnorePointer {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -9649,7 +9478,6 @@ class _$SliverIgnorePointer implements SliverIgnorePointer {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -9747,7 +9575,7 @@ class _$SliverIgnorePointer implements SliverIgnorePointer {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -10011,8 +9839,6 @@ class _$SliverOpacity implements SliverOpacity {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -10027,7 +9853,6 @@ class _$SliverOpacity implements SliverOpacity {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -10127,7 +9952,7 @@ class _$SliverOpacity implements SliverOpacity {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -10161,8 +9986,6 @@ class _$SliverOpacity implements SliverOpacity {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -10177,7 +10000,6 @@ class _$SliverOpacity implements SliverOpacity {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -10276,7 +10098,7 @@ class _$SliverOpacity implements SliverOpacity {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -10310,8 +10132,6 @@ class _$SliverOpacity implements SliverOpacity {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -10326,7 +10146,6 @@ class _$SliverOpacity implements SliverOpacity {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -10424,7 +10243,7 @@ class _$SliverOpacity implements SliverOpacity {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -10681,8 +10500,6 @@ class _$SliverPadding implements SliverPadding {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -10697,7 +10514,6 @@ class _$SliverPadding implements SliverPadding {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -10797,7 +10613,7 @@ class _$SliverPadding implements SliverPadding {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -10831,8 +10647,6 @@ class _$SliverPadding implements SliverPadding {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -10847,7 +10661,6 @@ class _$SliverPadding implements SliverPadding {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -10946,7 +10759,7 @@ class _$SliverPadding implements SliverPadding {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -10980,8 +10793,6 @@ class _$SliverPadding implements SliverPadding {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -10996,7 +10807,6 @@ class _$SliverPadding implements SliverPadding {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -11094,7 +10904,7 @@ class _$SliverPadding implements SliverPadding {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -11353,8 +11163,6 @@ class _$SliverPrototypeExtentList implements SliverPrototypeExtentList {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -11369,7 +11177,6 @@ class _$SliverPrototypeExtentList implements SliverPrototypeExtentList {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -11469,7 +11276,7 @@ class _$SliverPrototypeExtentList implements SliverPrototypeExtentList {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -11503,8 +11310,6 @@ class _$SliverPrototypeExtentList implements SliverPrototypeExtentList {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -11519,7 +11324,6 @@ class _$SliverPrototypeExtentList implements SliverPrototypeExtentList {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -11618,7 +11422,7 @@ class _$SliverPrototypeExtentList implements SliverPrototypeExtentList {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -11652,8 +11456,6 @@ class _$SliverPrototypeExtentList implements SliverPrototypeExtentList {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -11668,7 +11470,6 @@ class _$SliverPrototypeExtentList implements SliverPrototypeExtentList {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -11766,7 +11567,7 @@ class _$SliverPrototypeExtentList implements SliverPrototypeExtentList {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -12070,8 +11871,6 @@ class _$SliverSafeArea implements SliverSafeArea {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -12086,7 +11885,6 @@ class _$SliverSafeArea implements SliverSafeArea {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -12186,7 +11984,7 @@ class _$SliverSafeArea implements SliverSafeArea {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -12220,8 +12018,6 @@ class _$SliverSafeArea implements SliverSafeArea {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -12236,7 +12032,6 @@ class _$SliverSafeArea implements SliverSafeArea {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -12335,7 +12130,7 @@ class _$SliverSafeArea implements SliverSafeArea {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -12369,8 +12164,6 @@ class _$SliverSafeArea implements SliverSafeArea {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -12385,7 +12178,6 @@ class _$SliverSafeArea implements SliverSafeArea {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -12483,7 +12275,7 @@ class _$SliverSafeArea implements SliverSafeArea {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -12626,7 +12418,7 @@ abstract class _$$SliverVisibilityCopyWith<$Res>
   @useResult
   $Res call(
       {Key? key,
-      Widget sliver,
+      Sliver sliver,
       Sliver replacementSliver,
       bool visible,
       bool maintainState,
@@ -12637,7 +12429,7 @@ abstract class _$$SliverVisibilityCopyWith<$Res>
 
   @override
   $KeyCopyWith<$Res>? get key;
-  $WidgetCopyWith<$Res> get sliver;
+  $SliverCopyWith<$Res> get sliver;
   $SliverCopyWith<$Res> get replacementSliver;
 }
 
@@ -12670,7 +12462,7 @@ class __$$SliverVisibilityCopyWithImpl<$Res>
       sliver: null == sliver
           ? _value.sliver
           : sliver // ignore: cast_nullable_to_non_nullable
-              as Widget,
+              as Sliver,
       replacementSliver: null == replacementSliver
           ? _value.replacementSliver
           : replacementSliver // ignore: cast_nullable_to_non_nullable
@@ -12704,8 +12496,8 @@ class __$$SliverVisibilityCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
-  $WidgetCopyWith<$Res> get sliver {
-    return $WidgetCopyWith<$Res>(_value.sliver, (value) {
+  $SliverCopyWith<$Res> get sliver {
+    return $SliverCopyWith<$Res>(_value.sliver, (value) {
       return _then(_value.copyWith(sliver: value));
     });
   }
@@ -12741,7 +12533,7 @@ class _$SliverVisibility implements SliverVisibility {
   @override
   final Key? key;
   @override
-  final Widget sliver;
+  final Sliver sliver;
   @override
   @JsonKey()
   final Sliver replacementSliver;
@@ -12832,8 +12624,6 @@ class _$SliverVisibility implements SliverVisibility {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -12848,7 +12638,6 @@ class _$SliverVisibility implements SliverVisibility {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -12948,7 +12737,7 @@ class _$SliverVisibility implements SliverVisibility {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -12991,8 +12780,6 @@ class _$SliverVisibility implements SliverVisibility {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -13007,7 +12794,6 @@ class _$SliverVisibility implements SliverVisibility {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -13106,7 +12892,7 @@ class _$SliverVisibility implements SliverVisibility {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -13149,8 +12935,6 @@ class _$SliverVisibility implements SliverVisibility {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -13165,7 +12949,6 @@ class _$SliverVisibility implements SliverVisibility {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -13263,7 +13046,7 @@ class _$SliverVisibility implements SliverVisibility {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -13381,7 +13164,7 @@ class _$SliverVisibility implements SliverVisibility {
 abstract class SliverVisibility implements Sliver {
   const factory SliverVisibility(
       {final Key? key,
-      required final Widget sliver,
+      required final Sliver sliver,
       final Sliver replacementSliver,
       final bool visible,
       final bool maintainState,
@@ -13395,7 +13178,7 @@ abstract class SliverVisibility implements Sliver {
 
   @override
   Key? get key;
-  Widget get sliver;
+  Sliver get sliver;
   Sliver get replacementSliver;
   bool get visible;
   bool get maintainState;
@@ -13554,8 +13337,6 @@ class _$SliverVisibilityMaintain implements SliverVisibilityMaintain {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -13570,7 +13351,6 @@ class _$SliverVisibilityMaintain implements SliverVisibilityMaintain {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
@@ -13670,7 +13450,7 @@ class _$SliverVisibilityMaintain implements SliverVisibilityMaintain {
         safeArea,
     required TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -13704,8 +13484,6 @@ class _$SliverVisibilityMaintain implements SliverVisibilityMaintain {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -13720,7 +13498,6 @@ class _$SliverVisibilityMaintain implements SliverVisibilityMaintain {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -13819,7 +13596,7 @@ class _$SliverVisibilityMaintain implements SliverVisibilityMaintain {
         safeArea,
     TResult? Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,
@@ -13853,8 +13630,6 @@ class _$SliverVisibilityMaintain implements SliverVisibilityMaintain {
             bool forceElevated,
             Color? backgroundColor,
             Color? foregroundColor,
-            Brightness? brightness,
-            TextTheme? textTheme,
             bool primary,
             bool? centerTitle,
             bool excludeHeaderSemantics,
@@ -13869,7 +13644,6 @@ class _$SliverVisibilityMaintain implements SliverVisibilityMaintain {
             ShapeBorder? shape,
             double toolbarHeight,
             double? leadingWidth,
-            bool? backwardsCompatibility,
             TextStyle? toolbarTextStyle,
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
@@ -13967,7 +13741,7 @@ class _$SliverVisibilityMaintain implements SliverVisibilityMaintain {
         safeArea,
     TResult Function(
             Key? key,
-            Widget sliver,
+            Sliver sliver,
             Sliver replacementSliver,
             bool visible,
             bool maintainState,

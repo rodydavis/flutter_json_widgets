@@ -19,9 +19,6 @@ _$_DataCell _$$_DataCellFromJson(Map<String, dynamic> json) => _$_DataCell(
       onDoubleTap: json['onDoubleTap'] == null
           ? null
           : Callback.fromJson(json['onDoubleTap'] as Map<String, dynamic>),
-      onTapCancel: json['onTapCancel'] == null
-          ? null
-          : Callback.fromJson(json['onTapCancel'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_DataCellToJson(_$_DataCell instance) =>
@@ -32,5 +29,4 @@ Map<String, dynamic> _$$_DataCellToJson(_$_DataCell instance) =>
       'onTap': instance.onTap,
       'onLongPress': instance.onLongPress,
       'onDoubleTap': instance.onDoubleTap,
-      'onTapCancel': instance.onTapCancel,
     };

@@ -22,6 +22,10 @@ Callback _$CallbackFromJson(Map<String, dynamic> json) {
       return NavigationPopCallback.fromJson(json);
     case 'launchUrl':
       return UrlCallback.fromJson(json);
+    case 'copyClipboard':
+      return CopyClipboardCallback.fromJson(json);
+    case 'networkRequest':
+      return HttpRequestCallback.fromJson(json);
     case 'showSnackBar':
       return ShowSnackBarCallback.fromJson(json);
     case 'hideCurrentSnackBar':
@@ -38,6 +42,8 @@ Callback _$CallbackFromJson(Map<String, dynamic> json) {
       return ShowMaterialBannerCallback.fromJson(json);
     case 'empty':
       return EmptyCallback.fromJson(json);
+    case 'reload':
+      return ReloadCallback.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'Callback',
@@ -55,6 +61,9 @@ mixin _$Callback {
     required TResult Function(
             String url, String? path, Map<String, String>? params)
         launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
     required TResult Function(SnackBar snackBar) showSnackBar,
     required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
     required TResult Function(SnackBarClosedReason reason)
@@ -66,6 +75,7 @@ mixin _$Callback {
         removeCurrentMaterialBanner,
     required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
     required TResult Function() empty,
+    required TResult Function() reload,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +85,9 @@ mixin _$Callback {
     TResult? Function(Object? value)? navigatorPop,
     TResult? Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult? Function(SnackBar snackBar)? showSnackBar,
     TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -85,6 +98,7 @@ mixin _$Callback {
         removeCurrentMaterialBanner,
     TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult? Function()? empty,
+    TResult? Function()? reload,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -94,6 +108,9 @@ mixin _$Callback {
     TResult Function(Object? value)? navigatorPop,
     TResult Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult Function(SnackBar snackBar)? showSnackBar,
     TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -104,6 +121,7 @@ mixin _$Callback {
         removeCurrentMaterialBanner,
     TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult Function()? empty,
+    TResult Function()? reload,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +131,8 @@ mixin _$Callback {
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
     required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
     required TResult Function(ShowSnackBarCallback value) showSnackBar,
     required TResult Function(HideCurrentSnackBarCallback value)
         hideCurrentSnackBar,
@@ -127,6 +147,7 @@ mixin _$Callback {
     required TResult Function(ShowMaterialBannerCallback value)
         showMaterialBanner,
     required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -134,6 +155,8 @@ mixin _$Callback {
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
     TResult? Function(ShowSnackBarCallback value)? showSnackBar,
     TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult? Function(RemoveCurrentSnackBarCallback value)?
@@ -145,6 +168,7 @@ mixin _$Callback {
         removeCurrentMaterialBanner,
     TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -152,6 +176,8 @@ mixin _$Callback {
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
     TResult Function(ShowSnackBarCallback value)? showSnackBar,
     TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult Function(RemoveCurrentSnackBarCallback value)?
@@ -163,6 +189,7 @@ mixin _$Callback {
         removeCurrentMaterialBanner,
     TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -286,6 +313,9 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
     required TResult Function(
             String url, String? path, Map<String, String>? params)
         launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
     required TResult Function(SnackBar snackBar) showSnackBar,
     required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
     required TResult Function(SnackBarClosedReason reason)
@@ -297,6 +327,7 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
         removeCurrentMaterialBanner,
     required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
     required TResult Function() empty,
+    required TResult Function() reload,
   }) {
     return navigatorPushNamed(value, arguments);
   }
@@ -309,6 +340,9 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
     TResult? Function(Object? value)? navigatorPop,
     TResult? Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult? Function(SnackBar snackBar)? showSnackBar,
     TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -319,6 +353,7 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
         removeCurrentMaterialBanner,
     TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult? Function()? empty,
+    TResult? Function()? reload,
   }) {
     return navigatorPushNamed?.call(value, arguments);
   }
@@ -331,6 +366,9 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
     TResult Function(Object? value)? navigatorPop,
     TResult Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult Function(SnackBar snackBar)? showSnackBar,
     TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -341,6 +379,7 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
         removeCurrentMaterialBanner,
     TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult Function()? empty,
+    TResult Function()? reload,
     required TResult orElse(),
   }) {
     if (navigatorPushNamed != null) {
@@ -356,6 +395,8 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
     required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
     required TResult Function(ShowSnackBarCallback value) showSnackBar,
     required TResult Function(HideCurrentSnackBarCallback value)
         hideCurrentSnackBar,
@@ -370,6 +411,7 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
     required TResult Function(ShowMaterialBannerCallback value)
         showMaterialBanner,
     required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
   }) {
     return navigatorPushNamed(this);
   }
@@ -380,6 +422,8 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
     TResult? Function(ShowSnackBarCallback value)? showSnackBar,
     TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult? Function(RemoveCurrentSnackBarCallback value)?
@@ -391,6 +435,7 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
         removeCurrentMaterialBanner,
     TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
   }) {
     return navigatorPushNamed?.call(this);
   }
@@ -401,6 +446,8 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
     TResult Function(ShowSnackBarCallback value)? showSnackBar,
     TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult Function(RemoveCurrentSnackBarCallback value)?
@@ -412,6 +459,7 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
         removeCurrentMaterialBanner,
     TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
     required TResult orElse(),
   }) {
     if (navigatorPushNamed != null) {
@@ -519,6 +567,9 @@ class _$NavigationPopCallback implements NavigationPopCallback {
     required TResult Function(
             String url, String? path, Map<String, String>? params)
         launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
     required TResult Function(SnackBar snackBar) showSnackBar,
     required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
     required TResult Function(SnackBarClosedReason reason)
@@ -530,6 +581,7 @@ class _$NavigationPopCallback implements NavigationPopCallback {
         removeCurrentMaterialBanner,
     required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
     required TResult Function() empty,
+    required TResult Function() reload,
   }) {
     return navigatorPop(value);
   }
@@ -542,6 +594,9 @@ class _$NavigationPopCallback implements NavigationPopCallback {
     TResult? Function(Object? value)? navigatorPop,
     TResult? Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult? Function(SnackBar snackBar)? showSnackBar,
     TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -552,6 +607,7 @@ class _$NavigationPopCallback implements NavigationPopCallback {
         removeCurrentMaterialBanner,
     TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult? Function()? empty,
+    TResult? Function()? reload,
   }) {
     return navigatorPop?.call(value);
   }
@@ -564,6 +620,9 @@ class _$NavigationPopCallback implements NavigationPopCallback {
     TResult Function(Object? value)? navigatorPop,
     TResult Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult Function(SnackBar snackBar)? showSnackBar,
     TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -574,6 +633,7 @@ class _$NavigationPopCallback implements NavigationPopCallback {
         removeCurrentMaterialBanner,
     TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult Function()? empty,
+    TResult Function()? reload,
     required TResult orElse(),
   }) {
     if (navigatorPop != null) {
@@ -589,6 +649,8 @@ class _$NavigationPopCallback implements NavigationPopCallback {
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
     required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
     required TResult Function(ShowSnackBarCallback value) showSnackBar,
     required TResult Function(HideCurrentSnackBarCallback value)
         hideCurrentSnackBar,
@@ -603,6 +665,7 @@ class _$NavigationPopCallback implements NavigationPopCallback {
     required TResult Function(ShowMaterialBannerCallback value)
         showMaterialBanner,
     required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
   }) {
     return navigatorPop(this);
   }
@@ -613,6 +676,8 @@ class _$NavigationPopCallback implements NavigationPopCallback {
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
     TResult? Function(ShowSnackBarCallback value)? showSnackBar,
     TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult? Function(RemoveCurrentSnackBarCallback value)?
@@ -624,6 +689,7 @@ class _$NavigationPopCallback implements NavigationPopCallback {
         removeCurrentMaterialBanner,
     TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
   }) {
     return navigatorPop?.call(this);
   }
@@ -634,6 +700,8 @@ class _$NavigationPopCallback implements NavigationPopCallback {
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
     TResult Function(ShowSnackBarCallback value)? showSnackBar,
     TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult Function(RemoveCurrentSnackBarCallback value)?
@@ -645,6 +713,7 @@ class _$NavigationPopCallback implements NavigationPopCallback {
         removeCurrentMaterialBanner,
     TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
     required TResult orElse(),
   }) {
     if (navigatorPop != null) {
@@ -778,6 +847,9 @@ class _$UrlCallback implements UrlCallback {
     required TResult Function(
             String url, String? path, Map<String, String>? params)
         launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
     required TResult Function(SnackBar snackBar) showSnackBar,
     required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
     required TResult Function(SnackBarClosedReason reason)
@@ -789,6 +861,7 @@ class _$UrlCallback implements UrlCallback {
         removeCurrentMaterialBanner,
     required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
     required TResult Function() empty,
+    required TResult Function() reload,
   }) {
     return launchUrl(url, path, params);
   }
@@ -801,6 +874,9 @@ class _$UrlCallback implements UrlCallback {
     TResult? Function(Object? value)? navigatorPop,
     TResult? Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult? Function(SnackBar snackBar)? showSnackBar,
     TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -811,6 +887,7 @@ class _$UrlCallback implements UrlCallback {
         removeCurrentMaterialBanner,
     TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult? Function()? empty,
+    TResult? Function()? reload,
   }) {
     return launchUrl?.call(url, path, params);
   }
@@ -823,6 +900,9 @@ class _$UrlCallback implements UrlCallback {
     TResult Function(Object? value)? navigatorPop,
     TResult Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult Function(SnackBar snackBar)? showSnackBar,
     TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -833,6 +913,7 @@ class _$UrlCallback implements UrlCallback {
         removeCurrentMaterialBanner,
     TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult Function()? empty,
+    TResult Function()? reload,
     required TResult orElse(),
   }) {
     if (launchUrl != null) {
@@ -848,6 +929,8 @@ class _$UrlCallback implements UrlCallback {
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
     required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
     required TResult Function(ShowSnackBarCallback value) showSnackBar,
     required TResult Function(HideCurrentSnackBarCallback value)
         hideCurrentSnackBar,
@@ -862,6 +945,7 @@ class _$UrlCallback implements UrlCallback {
     required TResult Function(ShowMaterialBannerCallback value)
         showMaterialBanner,
     required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
   }) {
     return launchUrl(this);
   }
@@ -872,6 +956,8 @@ class _$UrlCallback implements UrlCallback {
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
     TResult? Function(ShowSnackBarCallback value)? showSnackBar,
     TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult? Function(RemoveCurrentSnackBarCallback value)?
@@ -883,6 +969,7 @@ class _$UrlCallback implements UrlCallback {
         removeCurrentMaterialBanner,
     TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
   }) {
     return launchUrl?.call(this);
   }
@@ -893,6 +980,8 @@ class _$UrlCallback implements UrlCallback {
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
     TResult Function(ShowSnackBarCallback value)? showSnackBar,
     TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult Function(RemoveCurrentSnackBarCallback value)?
@@ -904,6 +993,7 @@ class _$UrlCallback implements UrlCallback {
         removeCurrentMaterialBanner,
     TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
     required TResult orElse(),
   }) {
     if (launchUrl != null) {
@@ -932,6 +1022,574 @@ abstract class UrlCallback implements Callback {
   Map<String, String>? get params;
   @JsonKey(ignore: true)
   _$$UrlCallbackCopyWith<_$UrlCallback> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CopyClipboardCallbackCopyWith<$Res> {
+  factory _$$CopyClipboardCallbackCopyWith(_$CopyClipboardCallback value,
+          $Res Function(_$CopyClipboardCallback) then) =
+      __$$CopyClipboardCallbackCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String text, Callback? callback});
+
+  $CallbackCopyWith<$Res>? get callback;
+}
+
+/// @nodoc
+class __$$CopyClipboardCallbackCopyWithImpl<$Res>
+    extends _$CallbackCopyWithImpl<$Res, _$CopyClipboardCallback>
+    implements _$$CopyClipboardCallbackCopyWith<$Res> {
+  __$$CopyClipboardCallbackCopyWithImpl(_$CopyClipboardCallback _value,
+      $Res Function(_$CopyClipboardCallback) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = null,
+    Object? callback = freezed,
+  }) {
+    return _then(_$CopyClipboardCallback(
+      null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      callback: freezed == callback
+          ? _value.callback
+          : callback // ignore: cast_nullable_to_non_nullable
+              as Callback?,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CallbackCopyWith<$Res>? get callback {
+    if (_value.callback == null) {
+      return null;
+    }
+
+    return $CallbackCopyWith<$Res>(_value.callback!, (value) {
+      return _then(_value.copyWith(callback: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CopyClipboardCallback implements CopyClipboardCallback {
+  const _$CopyClipboardCallback(this.text, {this.callback, final String? $type})
+      : $type = $type ?? 'copyClipboard';
+
+  factory _$CopyClipboardCallback.fromJson(Map<String, dynamic> json) =>
+      _$$CopyClipboardCallbackFromJson(json);
+
+  @override
+  final String text;
+  @override
+  final Callback? callback;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Callback.copyClipboard(text: $text, callback: $callback)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CopyClipboardCallback &&
+            (identical(other.text, text) || other.text == text) &&
+            (identical(other.callback, callback) ||
+                other.callback == callback));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, text, callback);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CopyClipboardCallbackCopyWith<_$CopyClipboardCallback> get copyWith =>
+      __$$CopyClipboardCallbackCopyWithImpl<_$CopyClipboardCallback>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String value, Map<String, String>? arguments)
+        navigatorPushNamed,
+    required TResult Function(Object? value) navigatorPop,
+    required TResult Function(
+            String url, String? path, Map<String, String>? params)
+        launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
+    required TResult Function(SnackBar snackBar) showSnackBar,
+    required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
+    required TResult Function(SnackBarClosedReason reason)
+        removeCurrentSnackBar,
+    required TResult Function() clearMaterialBanners,
+    required TResult Function(MaterialBannerClosedReason reason)
+        hideCurrentMaterialBanner,
+    required TResult Function(MaterialBannerClosedReason reason)
+        removeCurrentMaterialBanner,
+    required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
+    required TResult Function() empty,
+    required TResult Function() reload,
+  }) {
+    return copyClipboard(text, callback);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String value, Map<String, String>? arguments)?
+        navigatorPushNamed,
+    TResult? Function(Object? value)? navigatorPop,
+    TResult? Function(String url, String? path, Map<String, String>? params)?
+        launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
+    TResult? Function(SnackBar snackBar)? showSnackBar,
+    TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
+    TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
+    TResult? Function()? clearMaterialBanners,
+    TResult? Function(MaterialBannerClosedReason reason)?
+        hideCurrentMaterialBanner,
+    TResult? Function(MaterialBannerClosedReason reason)?
+        removeCurrentMaterialBanner,
+    TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
+    TResult? Function()? empty,
+    TResult? Function()? reload,
+  }) {
+    return copyClipboard?.call(text, callback);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String value, Map<String, String>? arguments)?
+        navigatorPushNamed,
+    TResult Function(Object? value)? navigatorPop,
+    TResult Function(String url, String? path, Map<String, String>? params)?
+        launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
+    TResult Function(SnackBar snackBar)? showSnackBar,
+    TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
+    TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
+    TResult Function()? clearMaterialBanners,
+    TResult Function(MaterialBannerClosedReason reason)?
+        hideCurrentMaterialBanner,
+    TResult Function(MaterialBannerClosedReason reason)?
+        removeCurrentMaterialBanner,
+    TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
+    TResult Function()? empty,
+    TResult Function()? reload,
+    required TResult orElse(),
+  }) {
+    if (copyClipboard != null) {
+      return copyClipboard(text, callback);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavigationPushNamedCallback value)
+        navigatorPushNamed,
+    required TResult Function(NavigationPopCallback value) navigatorPop,
+    required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
+    required TResult Function(ShowSnackBarCallback value) showSnackBar,
+    required TResult Function(HideCurrentSnackBarCallback value)
+        hideCurrentSnackBar,
+    required TResult Function(RemoveCurrentSnackBarCallback value)
+        removeCurrentSnackBar,
+    required TResult Function(ClearMaterialBannersCallback value)
+        clearMaterialBanners,
+    required TResult Function(HideCurrentMaterialBannerCallback value)
+        hideCurrentMaterialBanner,
+    required TResult Function(RemoveCurrentMaterialBannerCallback value)
+        removeCurrentMaterialBanner,
+    required TResult Function(ShowMaterialBannerCallback value)
+        showMaterialBanner,
+    required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
+  }) {
+    return copyClipboard(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
+    TResult? Function(NavigationPopCallback value)? navigatorPop,
+    TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
+    TResult? Function(ShowSnackBarCallback value)? showSnackBar,
+    TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
+    TResult? Function(RemoveCurrentSnackBarCallback value)?
+        removeCurrentSnackBar,
+    TResult? Function(ClearMaterialBannersCallback value)? clearMaterialBanners,
+    TResult? Function(HideCurrentMaterialBannerCallback value)?
+        hideCurrentMaterialBanner,
+    TResult? Function(RemoveCurrentMaterialBannerCallback value)?
+        removeCurrentMaterialBanner,
+    TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
+    TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
+  }) {
+    return copyClipboard?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
+    TResult Function(NavigationPopCallback value)? navigatorPop,
+    TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
+    TResult Function(ShowSnackBarCallback value)? showSnackBar,
+    TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
+    TResult Function(RemoveCurrentSnackBarCallback value)?
+        removeCurrentSnackBar,
+    TResult Function(ClearMaterialBannersCallback value)? clearMaterialBanners,
+    TResult Function(HideCurrentMaterialBannerCallback value)?
+        hideCurrentMaterialBanner,
+    TResult Function(RemoveCurrentMaterialBannerCallback value)?
+        removeCurrentMaterialBanner,
+    TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
+    TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
+    required TResult orElse(),
+  }) {
+    if (copyClipboard != null) {
+      return copyClipboard(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CopyClipboardCallbackToJson(
+      this,
+    );
+  }
+}
+
+abstract class CopyClipboardCallback implements Callback {
+  const factory CopyClipboardCallback(final String text,
+      {final Callback? callback}) = _$CopyClipboardCallback;
+
+  factory CopyClipboardCallback.fromJson(Map<String, dynamic> json) =
+      _$CopyClipboardCallback.fromJson;
+
+  String get text;
+  Callback? get callback;
+  @JsonKey(ignore: true)
+  _$$CopyClipboardCallbackCopyWith<_$CopyClipboardCallback> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HttpRequestCallbackCopyWith<$Res> {
+  factory _$$HttpRequestCallbackCopyWith(_$HttpRequestCallback value,
+          $Res Function(_$HttpRequestCallback) then) =
+      __$$HttpRequestCallbackCopyWithImpl<$Res>;
+  @useResult
+  $Res call({NetworkRequest request, Callback? callback});
+
+  $NetworkRequestCopyWith<$Res> get request;
+  $CallbackCopyWith<$Res>? get callback;
+}
+
+/// @nodoc
+class __$$HttpRequestCallbackCopyWithImpl<$Res>
+    extends _$CallbackCopyWithImpl<$Res, _$HttpRequestCallback>
+    implements _$$HttpRequestCallbackCopyWith<$Res> {
+  __$$HttpRequestCallbackCopyWithImpl(
+      _$HttpRequestCallback _value, $Res Function(_$HttpRequestCallback) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? request = null,
+    Object? callback = freezed,
+  }) {
+    return _then(_$HttpRequestCallback(
+      null == request
+          ? _value.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as NetworkRequest,
+      callback: freezed == callback
+          ? _value.callback
+          : callback // ignore: cast_nullable_to_non_nullable
+              as Callback?,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NetworkRequestCopyWith<$Res> get request {
+    return $NetworkRequestCopyWith<$Res>(_value.request, (value) {
+      return _then(_value.copyWith(request: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CallbackCopyWith<$Res>? get callback {
+    if (_value.callback == null) {
+      return null;
+    }
+
+    return $CallbackCopyWith<$Res>(_value.callback!, (value) {
+      return _then(_value.copyWith(callback: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$HttpRequestCallback implements HttpRequestCallback {
+  const _$HttpRequestCallback(this.request,
+      {this.callback, final String? $type})
+      : $type = $type ?? 'networkRequest';
+
+  factory _$HttpRequestCallback.fromJson(Map<String, dynamic> json) =>
+      _$$HttpRequestCallbackFromJson(json);
+
+  @override
+  final NetworkRequest request;
+  @override
+  final Callback? callback;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Callback.networkRequest(request: $request, callback: $callback)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HttpRequestCallback &&
+            (identical(other.request, request) || other.request == request) &&
+            (identical(other.callback, callback) ||
+                other.callback == callback));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, request, callback);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HttpRequestCallbackCopyWith<_$HttpRequestCallback> get copyWith =>
+      __$$HttpRequestCallbackCopyWithImpl<_$HttpRequestCallback>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String value, Map<String, String>? arguments)
+        navigatorPushNamed,
+    required TResult Function(Object? value) navigatorPop,
+    required TResult Function(
+            String url, String? path, Map<String, String>? params)
+        launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
+    required TResult Function(SnackBar snackBar) showSnackBar,
+    required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
+    required TResult Function(SnackBarClosedReason reason)
+        removeCurrentSnackBar,
+    required TResult Function() clearMaterialBanners,
+    required TResult Function(MaterialBannerClosedReason reason)
+        hideCurrentMaterialBanner,
+    required TResult Function(MaterialBannerClosedReason reason)
+        removeCurrentMaterialBanner,
+    required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
+    required TResult Function() empty,
+    required TResult Function() reload,
+  }) {
+    return networkRequest(request, callback);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String value, Map<String, String>? arguments)?
+        navigatorPushNamed,
+    TResult? Function(Object? value)? navigatorPop,
+    TResult? Function(String url, String? path, Map<String, String>? params)?
+        launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
+    TResult? Function(SnackBar snackBar)? showSnackBar,
+    TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
+    TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
+    TResult? Function()? clearMaterialBanners,
+    TResult? Function(MaterialBannerClosedReason reason)?
+        hideCurrentMaterialBanner,
+    TResult? Function(MaterialBannerClosedReason reason)?
+        removeCurrentMaterialBanner,
+    TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
+    TResult? Function()? empty,
+    TResult? Function()? reload,
+  }) {
+    return networkRequest?.call(request, callback);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String value, Map<String, String>? arguments)?
+        navigatorPushNamed,
+    TResult Function(Object? value)? navigatorPop,
+    TResult Function(String url, String? path, Map<String, String>? params)?
+        launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
+    TResult Function(SnackBar snackBar)? showSnackBar,
+    TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
+    TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
+    TResult Function()? clearMaterialBanners,
+    TResult Function(MaterialBannerClosedReason reason)?
+        hideCurrentMaterialBanner,
+    TResult Function(MaterialBannerClosedReason reason)?
+        removeCurrentMaterialBanner,
+    TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
+    TResult Function()? empty,
+    TResult Function()? reload,
+    required TResult orElse(),
+  }) {
+    if (networkRequest != null) {
+      return networkRequest(request, callback);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavigationPushNamedCallback value)
+        navigatorPushNamed,
+    required TResult Function(NavigationPopCallback value) navigatorPop,
+    required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
+    required TResult Function(ShowSnackBarCallback value) showSnackBar,
+    required TResult Function(HideCurrentSnackBarCallback value)
+        hideCurrentSnackBar,
+    required TResult Function(RemoveCurrentSnackBarCallback value)
+        removeCurrentSnackBar,
+    required TResult Function(ClearMaterialBannersCallback value)
+        clearMaterialBanners,
+    required TResult Function(HideCurrentMaterialBannerCallback value)
+        hideCurrentMaterialBanner,
+    required TResult Function(RemoveCurrentMaterialBannerCallback value)
+        removeCurrentMaterialBanner,
+    required TResult Function(ShowMaterialBannerCallback value)
+        showMaterialBanner,
+    required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
+  }) {
+    return networkRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
+    TResult? Function(NavigationPopCallback value)? navigatorPop,
+    TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
+    TResult? Function(ShowSnackBarCallback value)? showSnackBar,
+    TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
+    TResult? Function(RemoveCurrentSnackBarCallback value)?
+        removeCurrentSnackBar,
+    TResult? Function(ClearMaterialBannersCallback value)? clearMaterialBanners,
+    TResult? Function(HideCurrentMaterialBannerCallback value)?
+        hideCurrentMaterialBanner,
+    TResult? Function(RemoveCurrentMaterialBannerCallback value)?
+        removeCurrentMaterialBanner,
+    TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
+    TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
+  }) {
+    return networkRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
+    TResult Function(NavigationPopCallback value)? navigatorPop,
+    TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
+    TResult Function(ShowSnackBarCallback value)? showSnackBar,
+    TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
+    TResult Function(RemoveCurrentSnackBarCallback value)?
+        removeCurrentSnackBar,
+    TResult Function(ClearMaterialBannersCallback value)? clearMaterialBanners,
+    TResult Function(HideCurrentMaterialBannerCallback value)?
+        hideCurrentMaterialBanner,
+    TResult Function(RemoveCurrentMaterialBannerCallback value)?
+        removeCurrentMaterialBanner,
+    TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
+    TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
+    required TResult orElse(),
+  }) {
+    if (networkRequest != null) {
+      return networkRequest(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$HttpRequestCallbackToJson(
+      this,
+    );
+  }
+}
+
+abstract class HttpRequestCallback implements Callback {
+  const factory HttpRequestCallback(final NetworkRequest request,
+      {final Callback? callback}) = _$HttpRequestCallback;
+
+  factory HttpRequestCallback.fromJson(Map<String, dynamic> json) =
+      _$HttpRequestCallback.fromJson;
+
+  NetworkRequest get request;
+  Callback? get callback;
+  @JsonKey(ignore: true)
+  _$$HttpRequestCallbackCopyWith<_$HttpRequestCallback> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1025,6 +1683,9 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
     required TResult Function(
             String url, String? path, Map<String, String>? params)
         launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
     required TResult Function(SnackBar snackBar) showSnackBar,
     required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
     required TResult Function(SnackBarClosedReason reason)
@@ -1036,6 +1697,7 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
         removeCurrentMaterialBanner,
     required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
     required TResult Function() empty,
+    required TResult Function() reload,
   }) {
     return showSnackBar(snackBar);
   }
@@ -1048,6 +1710,9 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
     TResult? Function(Object? value)? navigatorPop,
     TResult? Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult? Function(SnackBar snackBar)? showSnackBar,
     TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -1058,6 +1723,7 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
         removeCurrentMaterialBanner,
     TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult? Function()? empty,
+    TResult? Function()? reload,
   }) {
     return showSnackBar?.call(snackBar);
   }
@@ -1070,6 +1736,9 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
     TResult Function(Object? value)? navigatorPop,
     TResult Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult Function(SnackBar snackBar)? showSnackBar,
     TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -1080,6 +1749,7 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
         removeCurrentMaterialBanner,
     TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult Function()? empty,
+    TResult Function()? reload,
     required TResult orElse(),
   }) {
     if (showSnackBar != null) {
@@ -1095,6 +1765,8 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
     required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
     required TResult Function(ShowSnackBarCallback value) showSnackBar,
     required TResult Function(HideCurrentSnackBarCallback value)
         hideCurrentSnackBar,
@@ -1109,6 +1781,7 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
     required TResult Function(ShowMaterialBannerCallback value)
         showMaterialBanner,
     required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
   }) {
     return showSnackBar(this);
   }
@@ -1119,6 +1792,8 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
     TResult? Function(ShowSnackBarCallback value)? showSnackBar,
     TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult? Function(RemoveCurrentSnackBarCallback value)?
@@ -1130,6 +1805,7 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
         removeCurrentMaterialBanner,
     TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
   }) {
     return showSnackBar?.call(this);
   }
@@ -1140,6 +1816,8 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
     TResult Function(ShowSnackBarCallback value)? showSnackBar,
     TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult Function(RemoveCurrentSnackBarCallback value)?
@@ -1151,6 +1829,7 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
         removeCurrentMaterialBanner,
     TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
     required TResult orElse(),
   }) {
     if (showSnackBar != null) {
@@ -1263,6 +1942,9 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
     required TResult Function(
             String url, String? path, Map<String, String>? params)
         launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
     required TResult Function(SnackBar snackBar) showSnackBar,
     required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
     required TResult Function(SnackBarClosedReason reason)
@@ -1274,6 +1956,7 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
         removeCurrentMaterialBanner,
     required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
     required TResult Function() empty,
+    required TResult Function() reload,
   }) {
     return hideCurrentSnackBar(reason);
   }
@@ -1286,6 +1969,9 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
     TResult? Function(Object? value)? navigatorPop,
     TResult? Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult? Function(SnackBar snackBar)? showSnackBar,
     TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -1296,6 +1982,7 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
         removeCurrentMaterialBanner,
     TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult? Function()? empty,
+    TResult? Function()? reload,
   }) {
     return hideCurrentSnackBar?.call(reason);
   }
@@ -1308,6 +1995,9 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
     TResult Function(Object? value)? navigatorPop,
     TResult Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult Function(SnackBar snackBar)? showSnackBar,
     TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -1318,6 +2008,7 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
         removeCurrentMaterialBanner,
     TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult Function()? empty,
+    TResult Function()? reload,
     required TResult orElse(),
   }) {
     if (hideCurrentSnackBar != null) {
@@ -1333,6 +2024,8 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
     required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
     required TResult Function(ShowSnackBarCallback value) showSnackBar,
     required TResult Function(HideCurrentSnackBarCallback value)
         hideCurrentSnackBar,
@@ -1347,6 +2040,7 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
     required TResult Function(ShowMaterialBannerCallback value)
         showMaterialBanner,
     required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
   }) {
     return hideCurrentSnackBar(this);
   }
@@ -1357,6 +2051,8 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
     TResult? Function(ShowSnackBarCallback value)? showSnackBar,
     TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult? Function(RemoveCurrentSnackBarCallback value)?
@@ -1368,6 +2064,7 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
         removeCurrentMaterialBanner,
     TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
   }) {
     return hideCurrentSnackBar?.call(this);
   }
@@ -1378,6 +2075,8 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
     TResult Function(ShowSnackBarCallback value)? showSnackBar,
     TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult Function(RemoveCurrentSnackBarCallback value)?
@@ -1389,6 +2088,7 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
         removeCurrentMaterialBanner,
     TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
     required TResult orElse(),
   }) {
     if (hideCurrentSnackBar != null) {
@@ -1501,6 +2201,9 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
     required TResult Function(
             String url, String? path, Map<String, String>? params)
         launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
     required TResult Function(SnackBar snackBar) showSnackBar,
     required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
     required TResult Function(SnackBarClosedReason reason)
@@ -1512,6 +2215,7 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
         removeCurrentMaterialBanner,
     required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
     required TResult Function() empty,
+    required TResult Function() reload,
   }) {
     return removeCurrentSnackBar(reason);
   }
@@ -1524,6 +2228,9 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
     TResult? Function(Object? value)? navigatorPop,
     TResult? Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult? Function(SnackBar snackBar)? showSnackBar,
     TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -1534,6 +2241,7 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
         removeCurrentMaterialBanner,
     TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult? Function()? empty,
+    TResult? Function()? reload,
   }) {
     return removeCurrentSnackBar?.call(reason);
   }
@@ -1546,6 +2254,9 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
     TResult Function(Object? value)? navigatorPop,
     TResult Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult Function(SnackBar snackBar)? showSnackBar,
     TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -1556,6 +2267,7 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
         removeCurrentMaterialBanner,
     TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult Function()? empty,
+    TResult Function()? reload,
     required TResult orElse(),
   }) {
     if (removeCurrentSnackBar != null) {
@@ -1571,6 +2283,8 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
     required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
     required TResult Function(ShowSnackBarCallback value) showSnackBar,
     required TResult Function(HideCurrentSnackBarCallback value)
         hideCurrentSnackBar,
@@ -1585,6 +2299,7 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
     required TResult Function(ShowMaterialBannerCallback value)
         showMaterialBanner,
     required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
   }) {
     return removeCurrentSnackBar(this);
   }
@@ -1595,6 +2310,8 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
     TResult? Function(ShowSnackBarCallback value)? showSnackBar,
     TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult? Function(RemoveCurrentSnackBarCallback value)?
@@ -1606,6 +2323,7 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
         removeCurrentMaterialBanner,
     TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
   }) {
     return removeCurrentSnackBar?.call(this);
   }
@@ -1616,6 +2334,8 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
     TResult Function(ShowSnackBarCallback value)? showSnackBar,
     TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult Function(RemoveCurrentSnackBarCallback value)?
@@ -1627,6 +2347,7 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
         removeCurrentMaterialBanner,
     TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
     required TResult orElse(),
   }) {
     if (removeCurrentSnackBar != null) {
@@ -1711,6 +2432,9 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
     required TResult Function(
             String url, String? path, Map<String, String>? params)
         launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
     required TResult Function(SnackBar snackBar) showSnackBar,
     required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
     required TResult Function(SnackBarClosedReason reason)
@@ -1722,6 +2446,7 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
         removeCurrentMaterialBanner,
     required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
     required TResult Function() empty,
+    required TResult Function() reload,
   }) {
     return clearMaterialBanners();
   }
@@ -1734,6 +2459,9 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
     TResult? Function(Object? value)? navigatorPop,
     TResult? Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult? Function(SnackBar snackBar)? showSnackBar,
     TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -1744,6 +2472,7 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
         removeCurrentMaterialBanner,
     TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult? Function()? empty,
+    TResult? Function()? reload,
   }) {
     return clearMaterialBanners?.call();
   }
@@ -1756,6 +2485,9 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
     TResult Function(Object? value)? navigatorPop,
     TResult Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult Function(SnackBar snackBar)? showSnackBar,
     TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -1766,6 +2498,7 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
         removeCurrentMaterialBanner,
     TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult Function()? empty,
+    TResult Function()? reload,
     required TResult orElse(),
   }) {
     if (clearMaterialBanners != null) {
@@ -1781,6 +2514,8 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
     required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
     required TResult Function(ShowSnackBarCallback value) showSnackBar,
     required TResult Function(HideCurrentSnackBarCallback value)
         hideCurrentSnackBar,
@@ -1795,6 +2530,7 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
     required TResult Function(ShowMaterialBannerCallback value)
         showMaterialBanner,
     required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
   }) {
     return clearMaterialBanners(this);
   }
@@ -1805,6 +2541,8 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
     TResult? Function(ShowSnackBarCallback value)? showSnackBar,
     TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult? Function(RemoveCurrentSnackBarCallback value)?
@@ -1816,6 +2554,7 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
         removeCurrentMaterialBanner,
     TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
   }) {
     return clearMaterialBanners?.call(this);
   }
@@ -1826,6 +2565,8 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
     TResult Function(ShowSnackBarCallback value)? showSnackBar,
     TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult Function(RemoveCurrentSnackBarCallback value)?
@@ -1837,6 +2578,7 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
         removeCurrentMaterialBanner,
     TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
     required TResult orElse(),
   }) {
     if (clearMaterialBanners != null) {
@@ -1946,6 +2688,9 @@ class _$HideCurrentMaterialBannerCallback
     required TResult Function(
             String url, String? path, Map<String, String>? params)
         launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
     required TResult Function(SnackBar snackBar) showSnackBar,
     required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
     required TResult Function(SnackBarClosedReason reason)
@@ -1957,6 +2702,7 @@ class _$HideCurrentMaterialBannerCallback
         removeCurrentMaterialBanner,
     required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
     required TResult Function() empty,
+    required TResult Function() reload,
   }) {
     return hideCurrentMaterialBanner(reason);
   }
@@ -1969,6 +2715,9 @@ class _$HideCurrentMaterialBannerCallback
     TResult? Function(Object? value)? navigatorPop,
     TResult? Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult? Function(SnackBar snackBar)? showSnackBar,
     TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -1979,6 +2728,7 @@ class _$HideCurrentMaterialBannerCallback
         removeCurrentMaterialBanner,
     TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult? Function()? empty,
+    TResult? Function()? reload,
   }) {
     return hideCurrentMaterialBanner?.call(reason);
   }
@@ -1991,6 +2741,9 @@ class _$HideCurrentMaterialBannerCallback
     TResult Function(Object? value)? navigatorPop,
     TResult Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult Function(SnackBar snackBar)? showSnackBar,
     TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -2001,6 +2754,7 @@ class _$HideCurrentMaterialBannerCallback
         removeCurrentMaterialBanner,
     TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult Function()? empty,
+    TResult Function()? reload,
     required TResult orElse(),
   }) {
     if (hideCurrentMaterialBanner != null) {
@@ -2016,6 +2770,8 @@ class _$HideCurrentMaterialBannerCallback
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
     required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
     required TResult Function(ShowSnackBarCallback value) showSnackBar,
     required TResult Function(HideCurrentSnackBarCallback value)
         hideCurrentSnackBar,
@@ -2030,6 +2786,7 @@ class _$HideCurrentMaterialBannerCallback
     required TResult Function(ShowMaterialBannerCallback value)
         showMaterialBanner,
     required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
   }) {
     return hideCurrentMaterialBanner(this);
   }
@@ -2040,6 +2797,8 @@ class _$HideCurrentMaterialBannerCallback
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
     TResult? Function(ShowSnackBarCallback value)? showSnackBar,
     TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult? Function(RemoveCurrentSnackBarCallback value)?
@@ -2051,6 +2810,7 @@ class _$HideCurrentMaterialBannerCallback
         removeCurrentMaterialBanner,
     TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
   }) {
     return hideCurrentMaterialBanner?.call(this);
   }
@@ -2061,6 +2821,8 @@ class _$HideCurrentMaterialBannerCallback
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
     TResult Function(ShowSnackBarCallback value)? showSnackBar,
     TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult Function(RemoveCurrentSnackBarCallback value)?
@@ -2072,6 +2834,7 @@ class _$HideCurrentMaterialBannerCallback
         removeCurrentMaterialBanner,
     TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
     required TResult orElse(),
   }) {
     if (hideCurrentMaterialBanner != null) {
@@ -2189,6 +2952,9 @@ class _$RemoveCurrentMaterialBannerCallback
     required TResult Function(
             String url, String? path, Map<String, String>? params)
         launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
     required TResult Function(SnackBar snackBar) showSnackBar,
     required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
     required TResult Function(SnackBarClosedReason reason)
@@ -2200,6 +2966,7 @@ class _$RemoveCurrentMaterialBannerCallback
         removeCurrentMaterialBanner,
     required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
     required TResult Function() empty,
+    required TResult Function() reload,
   }) {
     return removeCurrentMaterialBanner(reason);
   }
@@ -2212,6 +2979,9 @@ class _$RemoveCurrentMaterialBannerCallback
     TResult? Function(Object? value)? navigatorPop,
     TResult? Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult? Function(SnackBar snackBar)? showSnackBar,
     TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -2222,6 +2992,7 @@ class _$RemoveCurrentMaterialBannerCallback
         removeCurrentMaterialBanner,
     TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult? Function()? empty,
+    TResult? Function()? reload,
   }) {
     return removeCurrentMaterialBanner?.call(reason);
   }
@@ -2234,6 +3005,9 @@ class _$RemoveCurrentMaterialBannerCallback
     TResult Function(Object? value)? navigatorPop,
     TResult Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult Function(SnackBar snackBar)? showSnackBar,
     TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -2244,6 +3018,7 @@ class _$RemoveCurrentMaterialBannerCallback
         removeCurrentMaterialBanner,
     TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult Function()? empty,
+    TResult Function()? reload,
     required TResult orElse(),
   }) {
     if (removeCurrentMaterialBanner != null) {
@@ -2259,6 +3034,8 @@ class _$RemoveCurrentMaterialBannerCallback
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
     required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
     required TResult Function(ShowSnackBarCallback value) showSnackBar,
     required TResult Function(HideCurrentSnackBarCallback value)
         hideCurrentSnackBar,
@@ -2273,6 +3050,7 @@ class _$RemoveCurrentMaterialBannerCallback
     required TResult Function(ShowMaterialBannerCallback value)
         showMaterialBanner,
     required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
   }) {
     return removeCurrentMaterialBanner(this);
   }
@@ -2283,6 +3061,8 @@ class _$RemoveCurrentMaterialBannerCallback
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
     TResult? Function(ShowSnackBarCallback value)? showSnackBar,
     TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult? Function(RemoveCurrentSnackBarCallback value)?
@@ -2294,6 +3074,7 @@ class _$RemoveCurrentMaterialBannerCallback
         removeCurrentMaterialBanner,
     TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
   }) {
     return removeCurrentMaterialBanner?.call(this);
   }
@@ -2304,6 +3085,8 @@ class _$RemoveCurrentMaterialBannerCallback
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
     TResult Function(ShowSnackBarCallback value)? showSnackBar,
     TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult Function(RemoveCurrentSnackBarCallback value)?
@@ -2315,6 +3098,7 @@ class _$RemoveCurrentMaterialBannerCallback
         removeCurrentMaterialBanner,
     TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
     required TResult orElse(),
   }) {
     if (removeCurrentMaterialBanner != null) {
@@ -2439,6 +3223,9 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
     required TResult Function(
             String url, String? path, Map<String, String>? params)
         launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
     required TResult Function(SnackBar snackBar) showSnackBar,
     required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
     required TResult Function(SnackBarClosedReason reason)
@@ -2450,6 +3237,7 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
         removeCurrentMaterialBanner,
     required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
     required TResult Function() empty,
+    required TResult Function() reload,
   }) {
     return showMaterialBanner(materialBanner);
   }
@@ -2462,6 +3250,9 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
     TResult? Function(Object? value)? navigatorPop,
     TResult? Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult? Function(SnackBar snackBar)? showSnackBar,
     TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -2472,6 +3263,7 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
         removeCurrentMaterialBanner,
     TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult? Function()? empty,
+    TResult? Function()? reload,
   }) {
     return showMaterialBanner?.call(materialBanner);
   }
@@ -2484,6 +3276,9 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
     TResult Function(Object? value)? navigatorPop,
     TResult Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult Function(SnackBar snackBar)? showSnackBar,
     TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -2494,6 +3289,7 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
         removeCurrentMaterialBanner,
     TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult Function()? empty,
+    TResult Function()? reload,
     required TResult orElse(),
   }) {
     if (showMaterialBanner != null) {
@@ -2509,6 +3305,8 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
     required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
     required TResult Function(ShowSnackBarCallback value) showSnackBar,
     required TResult Function(HideCurrentSnackBarCallback value)
         hideCurrentSnackBar,
@@ -2523,6 +3321,7 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
     required TResult Function(ShowMaterialBannerCallback value)
         showMaterialBanner,
     required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
   }) {
     return showMaterialBanner(this);
   }
@@ -2533,6 +3332,8 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
     TResult? Function(ShowSnackBarCallback value)? showSnackBar,
     TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult? Function(RemoveCurrentSnackBarCallback value)?
@@ -2544,6 +3345,7 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
         removeCurrentMaterialBanner,
     TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
   }) {
     return showMaterialBanner?.call(this);
   }
@@ -2554,6 +3356,8 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
     TResult Function(ShowSnackBarCallback value)? showSnackBar,
     TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult Function(RemoveCurrentSnackBarCallback value)?
@@ -2565,6 +3369,7 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
         removeCurrentMaterialBanner,
     TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
     required TResult orElse(),
   }) {
     if (showMaterialBanner != null) {
@@ -2645,6 +3450,9 @@ class _$EmptyCallback implements EmptyCallback {
     required TResult Function(
             String url, String? path, Map<String, String>? params)
         launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
     required TResult Function(SnackBar snackBar) showSnackBar,
     required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
     required TResult Function(SnackBarClosedReason reason)
@@ -2656,6 +3464,7 @@ class _$EmptyCallback implements EmptyCallback {
         removeCurrentMaterialBanner,
     required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
     required TResult Function() empty,
+    required TResult Function() reload,
   }) {
     return empty();
   }
@@ -2668,6 +3477,9 @@ class _$EmptyCallback implements EmptyCallback {
     TResult? Function(Object? value)? navigatorPop,
     TResult? Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult? Function(SnackBar snackBar)? showSnackBar,
     TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -2678,6 +3490,7 @@ class _$EmptyCallback implements EmptyCallback {
         removeCurrentMaterialBanner,
     TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult? Function()? empty,
+    TResult? Function()? reload,
   }) {
     return empty?.call();
   }
@@ -2690,6 +3503,9 @@ class _$EmptyCallback implements EmptyCallback {
     TResult Function(Object? value)? navigatorPop,
     TResult Function(String url, String? path, Map<String, String>? params)?
         launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
     TResult Function(SnackBar snackBar)? showSnackBar,
     TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
     TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
@@ -2700,6 +3516,7 @@ class _$EmptyCallback implements EmptyCallback {
         removeCurrentMaterialBanner,
     TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
     TResult Function()? empty,
+    TResult Function()? reload,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -2715,6 +3532,8 @@ class _$EmptyCallback implements EmptyCallback {
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
     required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
     required TResult Function(ShowSnackBarCallback value) showSnackBar,
     required TResult Function(HideCurrentSnackBarCallback value)
         hideCurrentSnackBar,
@@ -2729,6 +3548,7 @@ class _$EmptyCallback implements EmptyCallback {
     required TResult Function(ShowMaterialBannerCallback value)
         showMaterialBanner,
     required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
   }) {
     return empty(this);
   }
@@ -2739,6 +3559,8 @@ class _$EmptyCallback implements EmptyCallback {
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
     TResult? Function(ShowSnackBarCallback value)? showSnackBar,
     TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult? Function(RemoveCurrentSnackBarCallback value)?
@@ -2750,6 +3572,7 @@ class _$EmptyCallback implements EmptyCallback {
         removeCurrentMaterialBanner,
     TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
   }) {
     return empty?.call(this);
   }
@@ -2760,6 +3583,8 @@ class _$EmptyCallback implements EmptyCallback {
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
     TResult Function(ShowSnackBarCallback value)? showSnackBar,
     TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
     TResult Function(RemoveCurrentSnackBarCallback value)?
@@ -2771,6 +3596,7 @@ class _$EmptyCallback implements EmptyCallback {
         removeCurrentMaterialBanner,
     TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
     TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -2792,4 +3618,225 @@ abstract class EmptyCallback implements Callback {
 
   factory EmptyCallback.fromJson(Map<String, dynamic> json) =
       _$EmptyCallback.fromJson;
+}
+
+/// @nodoc
+abstract class _$$ReloadCallbackCopyWith<$Res> {
+  factory _$$ReloadCallbackCopyWith(
+          _$ReloadCallback value, $Res Function(_$ReloadCallback) then) =
+      __$$ReloadCallbackCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ReloadCallbackCopyWithImpl<$Res>
+    extends _$CallbackCopyWithImpl<$Res, _$ReloadCallback>
+    implements _$$ReloadCallbackCopyWith<$Res> {
+  __$$ReloadCallbackCopyWithImpl(
+      _$ReloadCallback _value, $Res Function(_$ReloadCallback) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ReloadCallback implements ReloadCallback {
+  const _$ReloadCallback({final String? $type}) : $type = $type ?? 'reload';
+
+  factory _$ReloadCallback.fromJson(Map<String, dynamic> json) =>
+      _$$ReloadCallbackFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Callback.reload()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ReloadCallback);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String value, Map<String, String>? arguments)
+        navigatorPushNamed,
+    required TResult Function(Object? value) navigatorPop,
+    required TResult Function(
+            String url, String? path, Map<String, String>? params)
+        launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
+    required TResult Function(SnackBar snackBar) showSnackBar,
+    required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
+    required TResult Function(SnackBarClosedReason reason)
+        removeCurrentSnackBar,
+    required TResult Function() clearMaterialBanners,
+    required TResult Function(MaterialBannerClosedReason reason)
+        hideCurrentMaterialBanner,
+    required TResult Function(MaterialBannerClosedReason reason)
+        removeCurrentMaterialBanner,
+    required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
+    required TResult Function() empty,
+    required TResult Function() reload,
+  }) {
+    return reload();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String value, Map<String, String>? arguments)?
+        navigatorPushNamed,
+    TResult? Function(Object? value)? navigatorPop,
+    TResult? Function(String url, String? path, Map<String, String>? params)?
+        launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
+    TResult? Function(SnackBar snackBar)? showSnackBar,
+    TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
+    TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
+    TResult? Function()? clearMaterialBanners,
+    TResult? Function(MaterialBannerClosedReason reason)?
+        hideCurrentMaterialBanner,
+    TResult? Function(MaterialBannerClosedReason reason)?
+        removeCurrentMaterialBanner,
+    TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
+    TResult? Function()? empty,
+    TResult? Function()? reload,
+  }) {
+    return reload?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String value, Map<String, String>? arguments)?
+        navigatorPushNamed,
+    TResult Function(Object? value)? navigatorPop,
+    TResult Function(String url, String? path, Map<String, String>? params)?
+        launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
+    TResult Function(SnackBar snackBar)? showSnackBar,
+    TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
+    TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
+    TResult Function()? clearMaterialBanners,
+    TResult Function(MaterialBannerClosedReason reason)?
+        hideCurrentMaterialBanner,
+    TResult Function(MaterialBannerClosedReason reason)?
+        removeCurrentMaterialBanner,
+    TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
+    TResult Function()? empty,
+    TResult Function()? reload,
+    required TResult orElse(),
+  }) {
+    if (reload != null) {
+      return reload();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavigationPushNamedCallback value)
+        navigatorPushNamed,
+    required TResult Function(NavigationPopCallback value) navigatorPop,
+    required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
+    required TResult Function(ShowSnackBarCallback value) showSnackBar,
+    required TResult Function(HideCurrentSnackBarCallback value)
+        hideCurrentSnackBar,
+    required TResult Function(RemoveCurrentSnackBarCallback value)
+        removeCurrentSnackBar,
+    required TResult Function(ClearMaterialBannersCallback value)
+        clearMaterialBanners,
+    required TResult Function(HideCurrentMaterialBannerCallback value)
+        hideCurrentMaterialBanner,
+    required TResult Function(RemoveCurrentMaterialBannerCallback value)
+        removeCurrentMaterialBanner,
+    required TResult Function(ShowMaterialBannerCallback value)
+        showMaterialBanner,
+    required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
+  }) {
+    return reload(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
+    TResult? Function(NavigationPopCallback value)? navigatorPop,
+    TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
+    TResult? Function(ShowSnackBarCallback value)? showSnackBar,
+    TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
+    TResult? Function(RemoveCurrentSnackBarCallback value)?
+        removeCurrentSnackBar,
+    TResult? Function(ClearMaterialBannersCallback value)? clearMaterialBanners,
+    TResult? Function(HideCurrentMaterialBannerCallback value)?
+        hideCurrentMaterialBanner,
+    TResult? Function(RemoveCurrentMaterialBannerCallback value)?
+        removeCurrentMaterialBanner,
+    TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
+    TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
+  }) {
+    return reload?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
+    TResult Function(NavigationPopCallback value)? navigatorPop,
+    TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
+    TResult Function(ShowSnackBarCallback value)? showSnackBar,
+    TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
+    TResult Function(RemoveCurrentSnackBarCallback value)?
+        removeCurrentSnackBar,
+    TResult Function(ClearMaterialBannersCallback value)? clearMaterialBanners,
+    TResult Function(HideCurrentMaterialBannerCallback value)?
+        hideCurrentMaterialBanner,
+    TResult Function(RemoveCurrentMaterialBannerCallback value)?
+        removeCurrentMaterialBanner,
+    TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
+    TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
+    required TResult orElse(),
+  }) {
+    if (reload != null) {
+      return reload(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ReloadCallbackToJson(
+      this,
+    );
+  }
+}
+
+abstract class ReloadCallback implements Callback {
+  const factory ReloadCallback() = _$ReloadCallback;
+
+  factory ReloadCallback.fromJson(Map<String, dynamic> json) =
+      _$ReloadCallback.fromJson;
 }

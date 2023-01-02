@@ -1,8 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_json_widgets/flutter_widget.dart';
+import 'package:flutter_json_widgets/flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true),
       themeMode: ThemeMode.system,
-      home: const FlutterJsonEditor(),
+      initialRoute: kDebugMode ? '/example' : '/editor',
+      routes: {
+        '/editor': (_) => const FlutterJsonEditor(),
+        '/example': (_) => FlutterWidget.network(
+              url: Uri.parse('http://localhost:8080/'),
+            ),
+      },
     );
   }
 }

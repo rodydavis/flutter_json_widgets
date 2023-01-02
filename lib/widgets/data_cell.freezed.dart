@@ -26,7 +26,6 @@ mixin _$DataCell {
   Callback? get onTap => throw _privateConstructorUsedError;
   Callback? get onLongPress => throw _privateConstructorUsedError;
   Callback? get onDoubleTap => throw _privateConstructorUsedError;
-  Callback? get onTapCancel => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,14 +44,12 @@ abstract class $DataCellCopyWith<$Res> {
       bool showEditIcon,
       Callback? onTap,
       Callback? onLongPress,
-      Callback? onDoubleTap,
-      Callback? onTapCancel});
+      Callback? onDoubleTap});
 
   $WidgetCopyWith<$Res> get child;
   $CallbackCopyWith<$Res>? get onTap;
   $CallbackCopyWith<$Res>? get onLongPress;
   $CallbackCopyWith<$Res>? get onDoubleTap;
-  $CallbackCopyWith<$Res>? get onTapCancel;
 }
 
 /// @nodoc
@@ -74,7 +71,6 @@ class _$DataCellCopyWithImpl<$Res, $Val extends DataCell>
     Object? onTap = freezed,
     Object? onLongPress = freezed,
     Object? onDoubleTap = freezed,
-    Object? onTapCancel = freezed,
   }) {
     return _then(_value.copyWith(
       child: null == child
@@ -100,10 +96,6 @@ class _$DataCellCopyWithImpl<$Res, $Val extends DataCell>
       onDoubleTap: freezed == onDoubleTap
           ? _value.onDoubleTap
           : onDoubleTap // ignore: cast_nullable_to_non_nullable
-              as Callback?,
-      onTapCancel: freezed == onTapCancel
-          ? _value.onTapCancel
-          : onTapCancel // ignore: cast_nullable_to_non_nullable
               as Callback?,
     ) as $Val);
   }
@@ -151,18 +143,6 @@ class _$DataCellCopyWithImpl<$Res, $Val extends DataCell>
       return _then(_value.copyWith(onDoubleTap: value) as $Val);
     });
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CallbackCopyWith<$Res>? get onTapCancel {
-    if (_value.onTapCancel == null) {
-      return null;
-    }
-
-    return $CallbackCopyWith<$Res>(_value.onTapCancel!, (value) {
-      return _then(_value.copyWith(onTapCancel: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -178,8 +158,7 @@ abstract class _$$_DataCellCopyWith<$Res> implements $DataCellCopyWith<$Res> {
       bool showEditIcon,
       Callback? onTap,
       Callback? onLongPress,
-      Callback? onDoubleTap,
-      Callback? onTapCancel});
+      Callback? onDoubleTap});
 
   @override
   $WidgetCopyWith<$Res> get child;
@@ -189,8 +168,6 @@ abstract class _$$_DataCellCopyWith<$Res> implements $DataCellCopyWith<$Res> {
   $CallbackCopyWith<$Res>? get onLongPress;
   @override
   $CallbackCopyWith<$Res>? get onDoubleTap;
-  @override
-  $CallbackCopyWith<$Res>? get onTapCancel;
 }
 
 /// @nodoc
@@ -210,7 +187,6 @@ class __$$_DataCellCopyWithImpl<$Res>
     Object? onTap = freezed,
     Object? onLongPress = freezed,
     Object? onDoubleTap = freezed,
-    Object? onTapCancel = freezed,
   }) {
     return _then(_$_DataCell(
       null == child
@@ -237,10 +213,6 @@ class __$$_DataCellCopyWithImpl<$Res>
           ? _value.onDoubleTap
           : onDoubleTap // ignore: cast_nullable_to_non_nullable
               as Callback?,
-      onTapCancel: freezed == onTapCancel
-          ? _value.onTapCancel
-          : onTapCancel // ignore: cast_nullable_to_non_nullable
-              as Callback?,
     ));
   }
 }
@@ -253,8 +225,7 @@ class _$_DataCell implements _DataCell {
       this.showEditIcon = false,
       this.onTap,
       this.onLongPress,
-      this.onDoubleTap,
-      this.onTapCancel});
+      this.onDoubleTap});
 
   factory _$_DataCell.fromJson(Map<String, dynamic> json) =>
       _$$_DataCellFromJson(json);
@@ -273,12 +244,10 @@ class _$_DataCell implements _DataCell {
   final Callback? onLongPress;
   @override
   final Callback? onDoubleTap;
-  @override
-  final Callback? onTapCancel;
 
   @override
   String toString() {
-    return 'DataCell(child: $child, placeholder: $placeholder, showEditIcon: $showEditIcon, onTap: $onTap, onLongPress: $onLongPress, onDoubleTap: $onDoubleTap, onTapCancel: $onTapCancel)';
+    return 'DataCell(child: $child, placeholder: $placeholder, showEditIcon: $showEditIcon, onTap: $onTap, onLongPress: $onLongPress, onDoubleTap: $onDoubleTap)';
   }
 
   @override
@@ -295,15 +264,13 @@ class _$_DataCell implements _DataCell {
             (identical(other.onLongPress, onLongPress) ||
                 other.onLongPress == onLongPress) &&
             (identical(other.onDoubleTap, onDoubleTap) ||
-                other.onDoubleTap == onDoubleTap) &&
-            (identical(other.onTapCancel, onTapCancel) ||
-                other.onTapCancel == onTapCancel));
+                other.onDoubleTap == onDoubleTap));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, child, placeholder, showEditIcon,
-      onTap, onLongPress, onDoubleTap, onTapCancel);
+      onTap, onLongPress, onDoubleTap);
 
   @JsonKey(ignore: true)
   @override
@@ -325,8 +292,7 @@ abstract class _DataCell implements DataCell {
       final bool showEditIcon,
       final Callback? onTap,
       final Callback? onLongPress,
-      final Callback? onDoubleTap,
-      final Callback? onTapCancel}) = _$_DataCell;
+      final Callback? onDoubleTap}) = _$_DataCell;
 
   factory _DataCell.fromJson(Map<String, dynamic> json) = _$_DataCell.fromJson;
 
@@ -342,8 +308,6 @@ abstract class _DataCell implements DataCell {
   Callback? get onLongPress;
   @override
   Callback? get onDoubleTap;
-  @override
-  Callback? get onTapCancel;
   @override
   @JsonKey(ignore: true)
   _$$_DataCellCopyWith<_$_DataCell> get copyWith =>

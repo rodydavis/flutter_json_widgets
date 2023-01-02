@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 PreferredSizeWidget _$PreferredSizeWidgetFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'default':
-      return _PreferredSizeWidget.fromJson(json);
+      return PreferredSize.fromJson(json);
     case 'appBar':
       return AppBar.fromJson(json);
 
@@ -129,19 +129,19 @@ mixin _$PreferredSizeWidget {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_PreferredSizeWidget value) $default, {
+    TResult Function(PreferredSize value) $default, {
     required TResult Function(AppBar value) appBar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_PreferredSizeWidget value)? $default, {
+    TResult? Function(PreferredSize value)? $default, {
     TResult? Function(AppBar value)? appBar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PreferredSizeWidget value)? $default, {
+    TResult Function(PreferredSize value)? $default, {
     TResult Function(AppBar value)? appBar,
     required TResult orElse(),
   }) =>
@@ -200,11 +200,11 @@ class _$PreferredSizeWidgetCopyWithImpl<$Res, $Val extends PreferredSizeWidget>
 }
 
 /// @nodoc
-abstract class _$$_PreferredSizeWidgetCopyWith<$Res>
+abstract class _$$PreferredSizeCopyWith<$Res>
     implements $PreferredSizeWidgetCopyWith<$Res> {
-  factory _$$_PreferredSizeWidgetCopyWith(_$_PreferredSizeWidget value,
-          $Res Function(_$_PreferredSizeWidget) then) =
-      __$$_PreferredSizeWidgetCopyWithImpl<$Res>;
+  factory _$$PreferredSizeCopyWith(
+          _$PreferredSize value, $Res Function(_$PreferredSize) then) =
+      __$$PreferredSizeCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Key? key, Size preferredSize, Widget child});
@@ -216,11 +216,11 @@ abstract class _$$_PreferredSizeWidgetCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PreferredSizeWidgetCopyWithImpl<$Res>
-    extends _$PreferredSizeWidgetCopyWithImpl<$Res, _$_PreferredSizeWidget>
-    implements _$$_PreferredSizeWidgetCopyWith<$Res> {
-  __$$_PreferredSizeWidgetCopyWithImpl(_$_PreferredSizeWidget _value,
-      $Res Function(_$_PreferredSizeWidget) _then)
+class __$$PreferredSizeCopyWithImpl<$Res>
+    extends _$PreferredSizeWidgetCopyWithImpl<$Res, _$PreferredSize>
+    implements _$$PreferredSizeCopyWith<$Res> {
+  __$$PreferredSizeCopyWithImpl(
+      _$PreferredSize _value, $Res Function(_$PreferredSize) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -230,7 +230,7 @@ class __$$_PreferredSizeWidgetCopyWithImpl<$Res>
     Object? preferredSize = null,
     Object? child = null,
   }) {
-    return _then(_$_PreferredSizeWidget(
+    return _then(_$PreferredSize(
       key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -265,16 +265,16 @@ class __$$_PreferredSizeWidgetCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PreferredSizeWidget implements _PreferredSizeWidget {
-  const _$_PreferredSizeWidget(
+class _$PreferredSize implements PreferredSize {
+  const _$PreferredSize(
       {this.key,
       required this.preferredSize,
       required this.child,
       final String? $type})
       : $type = $type ?? 'default';
 
-  factory _$_PreferredSizeWidget.fromJson(Map<String, dynamic> json) =>
-      _$$_PreferredSizeWidgetFromJson(json);
+  factory _$PreferredSize.fromJson(Map<String, dynamic> json) =>
+      _$$PreferredSizeFromJson(json);
 
   @override
   final Key? key;
@@ -295,7 +295,7 @@ class _$_PreferredSizeWidget implements _PreferredSizeWidget {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PreferredSizeWidget &&
+            other is _$PreferredSize &&
             (identical(other.key, key) || other.key == key) &&
             (identical(other.preferredSize, preferredSize) ||
                 other.preferredSize == preferredSize) &&
@@ -309,9 +309,8 @@ class _$_PreferredSizeWidget implements _PreferredSizeWidget {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PreferredSizeWidgetCopyWith<_$_PreferredSizeWidget> get copyWith =>
-      __$$_PreferredSizeWidgetCopyWithImpl<_$_PreferredSizeWidget>(
-          this, _$identity);
+  _$$PreferredSizeCopyWith<_$PreferredSize> get copyWith =>
+      __$$PreferredSizeCopyWithImpl<_$PreferredSize>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -425,7 +424,7 @@ class _$_PreferredSizeWidget implements _PreferredSizeWidget {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_PreferredSizeWidget value) $default, {
+    TResult Function(PreferredSize value) $default, {
     required TResult Function(AppBar value) appBar,
   }) {
     return $default(this);
@@ -434,7 +433,7 @@ class _$_PreferredSizeWidget implements _PreferredSizeWidget {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_PreferredSizeWidget value)? $default, {
+    TResult? Function(PreferredSize value)? $default, {
     TResult? Function(AppBar value)? appBar,
   }) {
     return $default?.call(this);
@@ -443,7 +442,7 @@ class _$_PreferredSizeWidget implements _PreferredSizeWidget {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PreferredSizeWidget value)? $default, {
+    TResult Function(PreferredSize value)? $default, {
     TResult Function(AppBar value)? appBar,
     required TResult orElse(),
   }) {
@@ -455,20 +454,20 @@ class _$_PreferredSizeWidget implements _PreferredSizeWidget {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PreferredSizeWidgetToJson(
+    return _$$PreferredSizeToJson(
       this,
     );
   }
 }
 
-abstract class _PreferredSizeWidget implements PreferredSizeWidget {
-  const factory _PreferredSizeWidget(
+abstract class PreferredSize implements PreferredSizeWidget {
+  const factory PreferredSize(
       {final Key? key,
       required final Size preferredSize,
-      required final Widget child}) = _$_PreferredSizeWidget;
+      required final Widget child}) = _$PreferredSize;
 
-  factory _PreferredSizeWidget.fromJson(Map<String, dynamic> json) =
-      _$_PreferredSizeWidget.fromJson;
+  factory PreferredSize.fromJson(Map<String, dynamic> json) =
+      _$PreferredSize.fromJson;
 
   @override
   Key? get key;
@@ -476,7 +475,7 @@ abstract class _PreferredSizeWidget implements PreferredSizeWidget {
   Widget get child;
   @override
   @JsonKey(ignore: true)
-  _$$_PreferredSizeWidgetCopyWith<_$_PreferredSizeWidget> get copyWith =>
+  _$$PreferredSizeCopyWith<_$PreferredSize> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1187,7 +1186,7 @@ class _$AppBar implements AppBar {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_PreferredSizeWidget value) $default, {
+    TResult Function(PreferredSize value) $default, {
     required TResult Function(AppBar value) appBar,
   }) {
     return appBar(this);
@@ -1196,7 +1195,7 @@ class _$AppBar implements AppBar {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_PreferredSizeWidget value)? $default, {
+    TResult? Function(PreferredSize value)? $default, {
     TResult? Function(AppBar value)? appBar,
   }) {
     return appBar?.call(this);
@@ -1205,7 +1204,7 @@ class _$AppBar implements AppBar {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PreferredSizeWidget value)? $default, {
+    TResult Function(PreferredSize value)? $default, {
     TResult Function(AppBar value)? appBar,
     required TResult orElse(),
   }) {

@@ -223,7 +223,7 @@ class _$ValueKey implements ValueKey {
   }
 }
 
-abstract class ValueKey implements Key {
+abstract class ValueKey implements Key, LocalKey {
   const factory ValueKey({required final String value}) = _$ValueKey;
 
   factory ValueKey.fromJson(Map<String, dynamic> json) = _$ValueKey.fromJson;
@@ -346,7 +346,7 @@ class _$UniqueKey implements UniqueKey {
   }
 }
 
-abstract class UniqueKey implements Key {
+abstract class UniqueKey implements Key, LocalKey {
   const factory UniqueKey() = _$UniqueKey;
 
   factory UniqueKey.fromJson(Map<String, dynamic> json) = _$UniqueKey.fromJson;

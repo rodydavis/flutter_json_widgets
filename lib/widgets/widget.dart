@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'alignment.dart';
 import 'border_radius.dart';
 import 'border_side.dart';
-import 'box_border.dart';
 import 'box_constraints.dart';
 import 'color.dart';
 import 'curves.dart';
@@ -19,6 +18,7 @@ import 'key.dart';
 import 'locale.dart';
 import 'matrix_4.dart';
 import 'mouse_cursor.dart';
+import 'network_request.dart';
 import 'offset.dart';
 import 'preferred_size_widget.dart';
 import 'radius.dart';
@@ -754,7 +754,7 @@ class Widget with _$Widget {
     Color? deleteIconColor,
     String? deleteButtonTooltipMessage,
     BorderSide? side,
-    OutlinedBorder? shape,
+    ShapeBorder? shape,
     @Default(Clip.none) Clip clipBehavior,
     @Default(false) bool autofocus,
     Color? backgroundColor,
@@ -764,7 +764,6 @@ class Widget with _$Widget {
     double? elevation,
     Color? shadowColor,
     Color? surfaceTintColor,
-    @Default(true) bool useDeleteButtonTooltip,
   }) = Chip;
 
   const factory Widget.magnifier({
@@ -823,6 +822,41 @@ class Widget with _$Widget {
     TableBorder? border,
     @Default(Clip.none) Clip clipBehavior,
   }) = DataTable;
+
+  const factory Widget.repaintBoundary({
+    Key? key,
+    Widget? child,
+  }) = RepaintBoundary;
+
+  const factory Widget.clipRect({
+    Key? key,
+    @Default(Clip.hardEdge) Clip clipBehavior,
+    Widget? child,
+  }) = ClipRect;
+
+  const factory Widget.clipRRect({
+    Key? key,
+    @Default(BorderRadius.zero) BorderRadius? borderRadius,
+    @Default(Clip.antiAlias) Clip clipBehavior,
+    Widget? child,
+  }) = ClipRRect;
+
+  const factory Widget.clipOval({
+    Key? key,
+    @Default(Clip.antiAlias) Clip clipBehavior,
+    Widget? child,
+  }) = ClipOval;
+
+  const factory Widget.custom({
+    Key? key,
+    required String type,
+    Map<String, Object?>? properties,
+  }) = CustomWidget;
+
+  const factory Widget.network({
+    Key? key,
+    required NetworkRequest request,
+  }) = NetworkWidget;
 
   factory Widget.fromJson(Map<String, Object?> json) => _$WidgetFromJson(json);
 }
