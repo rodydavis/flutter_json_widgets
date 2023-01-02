@@ -873,39 +873,123 @@ And the backing JSON:
   }
 ```
 
-### Server Example
+### SSR Example
+
+#### Server (dart)
 
 ```dart
+// ignore_for_file: depend_on_referenced_packages
+
 import 'dart:convert';
-import 'dart:io';
 import 'dart:async';
 
-import 'package:example/example.dart';
+import 'package:flutter_json_widgets/flutter_json_widgets.dart';
+
+import 'package:shelf_router/shelf_router.dart';
+import 'package:shelf/shelf.dart';
+import 'package:shelf/shelf_io.dart' as io;
+import 'package:shelf_cors_headers/shelf_cors_headers.dart';
+
+int _counter = 0;
 
 Future main() async {
-  final app = Example().buildApp();
-  const encoder = JsonEncoder.withIndent('  ');
-  final jsonString = encoder.convert(app.toJson());
+  final app = Router();
 
-  final server = await HttpServer.bind(
-    InternetAddress.loopbackIPv4,
-    4040,
+  const host = 'localhost';
+  const port = 8080;
+  const url = 'http://$host:$port';
+
+  app.post('/api/counter', (Request request) async {
+    final content = await request.readAsString();
+    final map = jsonDecode(content) as Map<String, Object?>;
+    _counter = map['counter'] as int;
+    return Response.ok(
+      jsonEncode({'counter': _counter}),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    );
+  });
+
+  app.get(
+    '/',
+    (Request request) => _ui(const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/counter',
+      routes: {
+        '/counter': NetworkWidget(
+          request: NetworkRequest(
+            url: '$url/counter',
+          ),
+        ),
+      },
+    )),
   );
-  print('Listening on http://${server.address.address}:${server.port}/');
 
-  await for (HttpRequest request in server) {
-    request.response.write(jsonString);
-    await request.response.close();
-  }
+  app.get(
+    '/counter',
+    (Request request) => _ui(Scaffold(
+      appBar: const AppBar(
+        title: Text('Flutter Demo Home Page'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: const TextStyle.headlineMedium(),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: Callback.networkRequest(
+          NetworkRequest(
+            url: '$url/api/counter',
+            method: 'POST',
+            bodyMap: {'counter': _counter + 1},
+          ),
+          callback: const Callback.reload(),
+        ),
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+    )),
+  );
+
+  // Set CORS headers with every request
+  final handler = const Pipeline().addMiddleware(corsHeaders()).addHandler(app);
+
+  // ignore: avoid_print
+  print('Starting server on $url');
+  await io.serve(handler, host, port);
 }
+
+Response _ui(Widget widget) {
+  const encoder = JsonEncoder.withIndent('  ');
+  final jsonString = encoder.convert(widget.toJson());
+  return Response.ok(
+    jsonString,
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0',
+    },
+  );
+}
+
 ```
 
-### Runtime Example
+### Client (flutter)
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:flutter_json_widgets/flutter_widget.dart';
-import 'package:flutter_json_widgets/material.dart' as material;
+import 'package:flutter_json_widgets/flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -917,7 +1001,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    return FlutterWidget.network(
-     url: Uri.parse('http://127.0.0.1:4040/'),
+     url: Uri.parse('http://localhost:8080/'),
     );
   }
 }
