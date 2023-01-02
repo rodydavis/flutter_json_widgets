@@ -21,6 +21,7 @@ class FlutterWidget extends material.StatefulWidget {
     this.customWidgets = const {},
   })  : url = null,
         json = null,
+        assetPath = null,
         headers = const {};
 
   const FlutterWidget.json({
@@ -29,6 +30,7 @@ class FlutterWidget extends material.StatefulWidget {
     this.customWidgets = const {},
   })  : url = null,
         widget = null,
+        assetPath = null,
         headers = const {};
 
   const FlutterWidget.network({
@@ -3228,7 +3230,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         iconSize: value.iconSize,
         visualDensity: $visualDensity(context, value.visualDensity),
         padding: $edgeInsets(value.padding),
-        alignment: $alignment(value.alignment)!,
+        alignment: $alignment(value.alignment),
         splashRadius: value.splashRadius,
         color: $color(context, value.color),
         focusColor: $color(context, value.focusColor),

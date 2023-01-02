@@ -42,6 +42,11 @@ Future main() async {
             url: '$url/counter',
           ),
         ),
+        '/long-list': NetworkWidget(
+          request: NetworkRequest(
+            url: '$url/long-list',
+          ),
+        ),
       },
     )),
   );
@@ -81,6 +86,18 @@ Future main() async {
     )),
   );
 
+  app.get(
+    '/long-list',
+    (Request request) => _ui(Scaffold(
+      appBar: const AppBar(
+        title: Text('Flutter Long List'),
+      ),
+      body: ListView(
+        children: List.generate(10000, (index) => Text('Item $index')),
+      ),
+    )),
+  );
+
   // Set CORS headers with every request
   final handler = const Pipeline().addMiddleware(corsHeaders()).addHandler(app);
 
@@ -96,9 +113,6 @@ Response _ui(Widget widget) {
     jsonString,
     headers: {
       'Content-Type': 'application/json',
-      // 'Cache-Control': 'no-cache, no-store, must-revalidate',
-      // 'Pragma': 'no-cache',
-      // 'Expires': '0',
     },
   );
 }
