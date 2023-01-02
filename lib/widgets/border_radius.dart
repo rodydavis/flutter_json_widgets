@@ -7,14 +7,28 @@ part 'border_radius.g.dart';
 
 @freezed
 class BorderRadius with _$BorderRadius {
-  const factory BorderRadius({
-    @Default(Radius.zero) Radius topLeft,
-    @Default(Radius.zero) Radius topRight,
-    @Default(Radius.zero) Radius bottomLeft,
-    @Default(Radius.zero) Radius bottomRight,
-  }) = _BorderRadius;
+  const factory BorderRadius.all(Radius radius) = BorderRadiusAll;
 
-  static const BorderRadius zero = BorderRadius();
+  const factory BorderRadius.circular(double radius) = BorderRadiusCircular;
+
+  const factory BorderRadius.vertical({
+    @Default(Radius.zero) Radius top,
+    @Default(Radius.zero) Radius bottom,
+  }) = BorderRadiusVertical;
+
+  const factory BorderRadius.horizontal({
+    @Default(Radius.zero) Radius left,
+    @Default(Radius.zero) Radius right,
+  }) = BorderRadiusHorizontal;
+
+  const factory BorderRadius.only({
+    Radius? topLeft,
+    Radius? topRight,
+    Radius? bottomLeft,
+    Radius? bottomRight,
+  }) = BorderRadiusOnly;
+
+  static const BorderRadius zero = BorderRadius.all(Radius.zero);
 
   factory BorderRadius.fromJson(Map<String, Object?> json) =>
       _$BorderRadiusFromJson(json);

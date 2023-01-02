@@ -277,3 +277,16 @@ enum PanAxis {
   aligned,
   free,
 }
+
+enum TableCellVerticalAlignment {
+  top,
+  middle,
+  bottom,
+  baseline,
+  fill
+}
+
+enum DragStartBehavior {
+  down,
+  start,
+}

@@ -56,6 +56,42 @@ Map<String, dynamic> _$$UrlCallbackToJson(_$UrlCallback instance) =>
       'runtimeType': instance.$type,
     };
 
+_$CopyClipboardCallback _$$CopyClipboardCallbackFromJson(
+        Map<String, dynamic> json) =>
+    _$CopyClipboardCallback(
+      json['text'] as String,
+      callback: json['callback'] == null
+          ? null
+          : Callback.fromJson(json['callback'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$CopyClipboardCallbackToJson(
+        _$CopyClipboardCallback instance) =>
+    <String, dynamic>{
+      'text': instance.text,
+      'callback': instance.callback,
+      'runtimeType': instance.$type,
+    };
+
+_$HttpRequestCallback _$$HttpRequestCallbackFromJson(
+        Map<String, dynamic> json) =>
+    _$HttpRequestCallback(
+      NetworkRequest.fromJson(json['request'] as Map<String, dynamic>),
+      callback: json['callback'] == null
+          ? null
+          : Callback.fromJson(json['callback'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$HttpRequestCallbackToJson(
+        _$HttpRequestCallback instance) =>
+    <String, dynamic>{
+      'request': instance.request,
+      'callback': instance.callback,
+      'runtimeType': instance.$type,
+    };
+
 _$ShowSnackBarCallback _$$ShowSnackBarCallbackFromJson(
         Map<String, dynamic> json) =>
     _$ShowSnackBarCallback(
@@ -182,6 +218,16 @@ _$EmptyCallback _$$EmptyCallbackFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$EmptyCallbackToJson(_$EmptyCallback instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$ReloadCallback _$$ReloadCallbackFromJson(Map<String, dynamic> json) =>
+    _$ReloadCallback(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ReloadCallbackToJson(_$ReloadCallback instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };

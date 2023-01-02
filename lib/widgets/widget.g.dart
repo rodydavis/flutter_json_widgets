@@ -106,6 +106,42 @@ Map<String, dynamic> _$$SizedBoxToJson(_$SizedBox instance) =>
       'runtimeType': instance.$type,
     };
 
+_$SizedBoxExpanded _$$SizedBoxExpandedFromJson(Map<String, dynamic> json) =>
+    _$SizedBoxExpanded(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$SizedBoxExpandedToJson(_$SizedBoxExpanded instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$SizedBoxShrink _$$SizedBoxShrinkFromJson(Map<String, dynamic> json) =>
+    _$SizedBoxShrink(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$SizedBoxShrinkToJson(_$SizedBoxShrink instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
 _$Container _$$ContainerFromJson(Map<String, dynamic> json) => _$Container(
       key: json['key'] == null
           ? null
@@ -2121,3 +2157,613 @@ const _$PanAxisEnumMap = {
   PanAxis.aligned: 'aligned',
   PanAxis.free: 'free',
 };
+
+_$CustomScrollView _$$CustomScrollViewFromJson(Map<String, dynamic> json) =>
+    _$CustomScrollView(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      scrollDirection:
+          $enumDecodeNullable(_$AxisEnumMap, json['scrollDirection']) ??
+              Axis.vertical,
+      reverse: json['reverse'] as bool? ?? false,
+      primary: json['primary'] as bool?,
+      physics: json['physics'] == null
+          ? null
+          : ScrollPhysics.fromJson(json['physics'] as Map<String, dynamic>),
+      shrinkWrap: json['shrinkWrap'] as bool? ?? false,
+      center: json['center'] == null
+          ? null
+          : Key.fromJson(json['center'] as Map<String, dynamic>),
+      anchor: (json['anchor'] as num?)?.toDouble() ?? 0.0,
+      cacheExtent: (json['cacheExtent'] as num?)?.toDouble(),
+      slivers: (json['slivers'] as List<dynamic>?)
+              ?.map((e) => Sliver.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      semanticChildCount: json['semanticChildCount'] as int?,
+      keyboardDismissBehavior: $enumDecodeNullable(
+              _$ScrollViewKeyboardDismissBehaviorEnumMap,
+              json['keyboardDismissBehavior']) ??
+          ScrollViewKeyboardDismissBehavior.manual,
+      restorationId: json['restorationId'] as String?,
+      clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ??
+          Clip.hardEdge,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$CustomScrollViewToJson(_$CustomScrollView instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'scrollDirection': _$AxisEnumMap[instance.scrollDirection]!,
+      'reverse': instance.reverse,
+      'primary': instance.primary,
+      'physics': instance.physics,
+      'shrinkWrap': instance.shrinkWrap,
+      'center': instance.center,
+      'anchor': instance.anchor,
+      'cacheExtent': instance.cacheExtent,
+      'slivers': instance.slivers,
+      'semanticChildCount': instance.semanticChildCount,
+      'keyboardDismissBehavior': _$ScrollViewKeyboardDismissBehaviorEnumMap[
+          instance.keyboardDismissBehavior]!,
+      'restorationId': instance.restorationId,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'runtimeType': instance.$type,
+    };
+
+_$ListViewCustom _$$ListViewCustomFromJson(Map<String, dynamic> json) =>
+    _$ListViewCustom(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      scrollDirection:
+          $enumDecodeNullable(_$AxisEnumMap, json['scrollDirection']) ??
+              Axis.vertical,
+      reverse: json['reverse'] as bool? ?? false,
+      primary: json['primary'] as bool?,
+      physics: json['physics'] == null
+          ? null
+          : ScrollPhysics.fromJson(json['physics'] as Map<String, dynamic>),
+      shrinkWrap: json['shrinkWrap'] as bool? ?? false,
+      padding: json['padding'] == null
+          ? null
+          : EdgeInsets.fromJson(json['padding'] as Map<String, dynamic>),
+      itemExtent: (json['itemExtent'] as num?)?.toDouble(),
+      prototypeItem: json['prototypeItem'] == null
+          ? null
+          : Widget.fromJson(json['prototypeItem'] as Map<String, dynamic>),
+      childrenDelegate: SliverChildDelegate.fromJson(
+          json['childrenDelegate'] as Map<String, dynamic>),
+      cacheExtent: (json['cacheExtent'] as num?)?.toDouble(),
+      semanticChildCount: json['semanticChildCount'] as int?,
+      keyboardDismissBehavior: $enumDecodeNullable(
+              _$ScrollViewKeyboardDismissBehaviorEnumMap,
+              json['keyboardDismissBehavior']) ??
+          ScrollViewKeyboardDismissBehavior.manual,
+      restorationId: json['restorationId'] as String?,
+      clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ??
+          Clip.hardEdge,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ListViewCustomToJson(_$ListViewCustom instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'scrollDirection': _$AxisEnumMap[instance.scrollDirection]!,
+      'reverse': instance.reverse,
+      'primary': instance.primary,
+      'physics': instance.physics,
+      'shrinkWrap': instance.shrinkWrap,
+      'padding': instance.padding,
+      'itemExtent': instance.itemExtent,
+      'prototypeItem': instance.prototypeItem,
+      'childrenDelegate': instance.childrenDelegate,
+      'cacheExtent': instance.cacheExtent,
+      'semanticChildCount': instance.semanticChildCount,
+      'keyboardDismissBehavior': _$ScrollViewKeyboardDismissBehaviorEnumMap[
+          instance.keyboardDismissBehavior]!,
+      'restorationId': instance.restorationId,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'runtimeType': instance.$type,
+    };
+
+_$SafeArea _$$SafeAreaFromJson(Map<String, dynamic> json) => _$SafeArea(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      left: json['left'] as bool? ?? true,
+      top: json['top'] as bool? ?? true,
+      right: json['right'] as bool? ?? true,
+      bottom: json['bottom'] as bool? ?? true,
+      minimum: json['minimum'] == null
+          ? EdgeInsets.zero
+          : EdgeInsets.fromJson(json['minimum'] as Map<String, dynamic>),
+      maintainBottomViewPadding:
+          json['maintainBottomViewPadding'] as bool? ?? false,
+      child: Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$SafeAreaToJson(_$SafeArea instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'left': instance.left,
+      'top': instance.top,
+      'right': instance.right,
+      'bottom': instance.bottom,
+      'minimum': instance.minimum,
+      'maintainBottomViewPadding': instance.maintainBottomViewPadding,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$Offstage _$$OffstageFromJson(Map<String, dynamic> json) => _$Offstage(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      offstage: json['offstage'] as bool? ?? true,
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$OffstageToJson(_$Offstage instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'offstage': instance.offstage,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$Opacity _$$OpacityFromJson(Map<String, dynamic> json) => _$Opacity(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      opacity: (json['opacity'] as num).toDouble(),
+      alwaysIncludeSemantics: json['alwaysIncludeSemantics'] as bool? ?? false,
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$OpacityToJson(_$Opacity instance) => <String, dynamic>{
+      'key': instance.key,
+      'opacity': instance.opacity,
+      'alwaysIncludeSemantics': instance.alwaysIncludeSemantics,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$NestedScrollView _$$NestedScrollViewFromJson(Map<String, dynamic> json) =>
+    _$NestedScrollView(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      scrollDirection:
+          $enumDecodeNullable(_$AxisEnumMap, json['scrollDirection']) ??
+              Axis.vertical,
+      reverse: json['reverse'] as bool? ?? false,
+      physics: json['physics'] == null
+          ? null
+          : ScrollPhysics.fromJson(json['physics'] as Map<String, dynamic>),
+      slivers: (json['slivers'] as List<dynamic>)
+          .map((e) => Sliver.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      innerBoxIsScrolledSlivers:
+          (json['innerBoxIsScrolledSlivers'] as List<dynamic>?)
+              ?.map((e) => Sliver.fromJson(e as Map<String, dynamic>))
+              .toList(),
+      body: Widget.fromJson(json['body'] as Map<String, dynamic>),
+      floatHeaderSlivers: json['floatHeaderSlivers'] as bool? ?? false,
+      clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ??
+          Clip.hardEdge,
+      restorationId: json['restorationId'] as String?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$NestedScrollViewToJson(_$NestedScrollView instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'scrollDirection': _$AxisEnumMap[instance.scrollDirection]!,
+      'reverse': instance.reverse,
+      'physics': instance.physics,
+      'slivers': instance.slivers,
+      'innerBoxIsScrolledSlivers': instance.innerBoxIsScrolledSlivers,
+      'body': instance.body,
+      'floatHeaderSlivers': instance.floatHeaderSlivers,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'restorationId': instance.restorationId,
+      'runtimeType': instance.$type,
+    };
+
+_$AspectRatio _$$AspectRatioFromJson(Map<String, dynamic> json) =>
+    _$AspectRatio(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      aspectRatio: (json['aspectRatio'] as num).toDouble(),
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$AspectRatioToJson(_$AspectRatio instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'aspectRatio': instance.aspectRatio,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$Chip _$$ChipFromJson(Map<String, dynamic> json) => _$Chip(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      avatar: json['avatar'] == null
+          ? null
+          : Widget.fromJson(json['avatar'] as Map<String, dynamic>),
+      label: Widget.fromJson(json['label'] as Map<String, dynamic>),
+      labelStyle: json['labelStyle'] == null
+          ? null
+          : TextStyle.fromJson(json['labelStyle'] as Map<String, dynamic>),
+      labelPadding: json['labelPadding'] == null
+          ? null
+          : EdgeInsets.fromJson(json['labelPadding'] as Map<String, dynamic>),
+      deleteIcon: json['deleteIcon'] == null
+          ? null
+          : Widget.fromJson(json['deleteIcon'] as Map<String, dynamic>),
+      onDeleted: json['onDeleted'] == null
+          ? null
+          : Callback.fromJson(json['onDeleted'] as Map<String, dynamic>),
+      deleteIconColor: json['deleteIconColor'] == null
+          ? null
+          : Color.fromJson(json['deleteIconColor'] as Map<String, dynamic>),
+      deleteButtonTooltipMessage: json['deleteButtonTooltipMessage'] as String?,
+      side: json['side'] == null
+          ? null
+          : BorderSide.fromJson(json['side'] as Map<String, dynamic>),
+      shape: json['shape'] == null
+          ? null
+          : ShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+      clipBehavior:
+          $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ?? Clip.none,
+      autofocus: json['autofocus'] as bool? ?? false,
+      backgroundColor: json['backgroundColor'] == null
+          ? null
+          : Color.fromJson(json['backgroundColor'] as Map<String, dynamic>),
+      padding: json['padding'] == null
+          ? null
+          : EdgeInsets.fromJson(json['padding'] as Map<String, dynamic>),
+      visualDensity: json['visualDensity'] == null
+          ? null
+          : VisualDensity.fromJson(
+              json['visualDensity'] as Map<String, dynamic>),
+      materialTapTargetSize: $enumDecodeNullable(
+          _$MaterialTapTargetSizeEnumMap, json['materialTapTargetSize']),
+      elevation: (json['elevation'] as num?)?.toDouble(),
+      shadowColor: json['shadowColor'] == null
+          ? null
+          : Color.fromJson(json['shadowColor'] as Map<String, dynamic>),
+      surfaceTintColor: json['surfaceTintColor'] == null
+          ? null
+          : Color.fromJson(json['surfaceTintColor'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ChipToJson(_$Chip instance) => <String, dynamic>{
+      'key': instance.key,
+      'avatar': instance.avatar,
+      'label': instance.label,
+      'labelStyle': instance.labelStyle,
+      'labelPadding': instance.labelPadding,
+      'deleteIcon': instance.deleteIcon,
+      'onDeleted': instance.onDeleted,
+      'deleteIconColor': instance.deleteIconColor,
+      'deleteButtonTooltipMessage': instance.deleteButtonTooltipMessage,
+      'side': instance.side,
+      'shape': instance.shape,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'autofocus': instance.autofocus,
+      'backgroundColor': instance.backgroundColor,
+      'padding': instance.padding,
+      'visualDensity': instance.visualDensity,
+      'materialTapTargetSize':
+          _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize],
+      'elevation': instance.elevation,
+      'shadowColor': instance.shadowColor,
+      'surfaceTintColor': instance.surfaceTintColor,
+      'runtimeType': instance.$type,
+    };
+
+_$Magnifier _$$MagnifierFromJson(Map<String, dynamic> json) => _$Magnifier(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      additionalFocalPointOffset: json['additionalFocalPointOffset'] == null
+          ? Offset.zero
+          : Offset.fromJson(
+              json['additionalFocalPointOffset'] as Map<String, dynamic>),
+      borderRadius: json['borderRadius'] == null
+          ? const BorderRadius.all(Radius.circular(40))
+          : BorderRadius.fromJson(json['borderRadius'] as Map<String, dynamic>),
+      filmColor: json['filmColor'] == null
+          ? const Color.fromARGB(8, 158, 158, 158)
+          : Color.fromJson(json['filmColor'] as Map<String, dynamic>),
+      shadows: (json['shadows'] as List<dynamic>?)
+              ?.map((e) => BoxShadow.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [
+            BoxShadow(
+                blurRadius: 1.5,
+                offset: Offset(0, 2),
+                spreadRadius: 0.75,
+                color: Color.fromARGB(25, 0, 0, 0))
+          ],
+      size: json['size'] == null
+          ? const Size(77.37, 37.9)
+          : Size.fromJson(json['size'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$MagnifierToJson(_$Magnifier instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'additionalFocalPointOffset': instance.additionalFocalPointOffset,
+      'borderRadius': instance.borderRadius,
+      'filmColor': instance.filmColor,
+      'shadows': instance.shadows,
+      'size': instance.size,
+      'runtimeType': instance.$type,
+    };
+
+_$Table _$$TableFromJson(Map<String, dynamic> json) => _$Table(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      children: (json['children'] as List<dynamic>?)
+              ?.map((e) => TableRow.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      columnWidths: (json['columnWidths'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(
+            int.parse(k), TableColumnWidth.fromJson(e as Map<String, dynamic>)),
+      ),
+      defaultColumnWidth: json['defaultColumnWidth'] == null
+          ? const FlexColumnWidth()
+          : TableColumnWidth.fromJson(
+              json['defaultColumnWidth'] as Map<String, dynamic>),
+      textDirection:
+          $enumDecodeNullable(_$TextDirectionEnumMap, json['textDirection']),
+      border: json['border'] == null
+          ? null
+          : TableBorder.fromJson(json['border'] as Map<String, dynamic>),
+      defaultVerticalAlignment: $enumDecodeNullable(
+              _$TableCellVerticalAlignmentEnumMap,
+              json['defaultVerticalAlignment']) ??
+          TableCellVerticalAlignment.top,
+      textBaseline:
+          $enumDecodeNullable(_$TextBaselineEnumMap, json['textBaseline']),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$TableToJson(_$Table instance) => <String, dynamic>{
+      'key': instance.key,
+      'children': instance.children,
+      'columnWidths':
+          instance.columnWidths?.map((k, e) => MapEntry(k.toString(), e)),
+      'defaultColumnWidth': instance.defaultColumnWidth,
+      'textDirection': _$TextDirectionEnumMap[instance.textDirection],
+      'border': instance.border,
+      'defaultVerticalAlignment': _$TableCellVerticalAlignmentEnumMap[
+          instance.defaultVerticalAlignment]!,
+      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
+      'runtimeType': instance.$type,
+    };
+
+const _$TableCellVerticalAlignmentEnumMap = {
+  TableCellVerticalAlignment.top: 'top',
+  TableCellVerticalAlignment.middle: 'middle',
+  TableCellVerticalAlignment.bottom: 'bottom',
+  TableCellVerticalAlignment.baseline: 'baseline',
+  TableCellVerticalAlignment.fill: 'fill',
+};
+
+_$DataTable _$$DataTableFromJson(Map<String, dynamic> json) => _$DataTable(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      columns: (json['columns'] as List<dynamic>)
+          .map((e) => DataColumn.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      sortColumnIndex: json['sortColumnIndex'] as int?,
+      sortAscending: json['sortAscending'] as bool? ?? true,
+      onSelectAll: json['onSelectAll'] == null
+          ? null
+          : Callback.fromJson(json['onSelectAll'] as Map<String, dynamic>),
+      onDeselectAll: json['onDeselectAll'] == null
+          ? null
+          : Callback.fromJson(json['onDeselectAll'] as Map<String, dynamic>),
+      decoration: json['decoration'] == null
+          ? null
+          : Decoration.fromJson(json['decoration'] as Map<String, dynamic>),
+      dataRowColor: json['dataRowColor'] == null
+          ? null
+          : MaterialStateProperty.fromJson(
+              json['dataRowColor'] as Map<String, dynamic>),
+      dataRowHeight: (json['dataRowHeight'] as num?)?.toDouble(),
+      dataTextStyle: json['dataTextStyle'] == null
+          ? null
+          : TextStyle.fromJson(json['dataTextStyle'] as Map<String, dynamic>),
+      headingRowColor: json['headingRowColor'] == null
+          ? null
+          : MaterialStateProperty.fromJson(
+              json['headingRowColor'] as Map<String, dynamic>),
+      headingRowHeight: (json['headingRowHeight'] as num?)?.toDouble(),
+      headingTextStyle: json['headingTextStyle'] == null
+          ? null
+          : TextStyle.fromJson(
+              json['headingTextStyle'] as Map<String, dynamic>),
+      horizontalMargin: (json['horizontalMargin'] as num?)?.toDouble(),
+      columnSpacing: (json['columnSpacing'] as num?)?.toDouble(),
+      showCheckboxColumn: json['showCheckboxColumn'] as bool? ?? true,
+      showBottomBorder: json['showBottomBorder'] as bool? ?? false,
+      dividerThickness: (json['dividerThickness'] as num?)?.toDouble(),
+      rows: (json['rows'] as List<dynamic>)
+          .map((e) => DataRow.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      checkboxHorizontalMargin:
+          (json['checkboxHorizontalMargin'] as num?)?.toDouble(),
+      border: json['border'] == null
+          ? null
+          : TableBorder.fromJson(json['border'] as Map<String, dynamic>),
+      clipBehavior:
+          $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ?? Clip.none,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$DataTableToJson(_$DataTable instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'columns': instance.columns,
+      'sortColumnIndex': instance.sortColumnIndex,
+      'sortAscending': instance.sortAscending,
+      'onSelectAll': instance.onSelectAll,
+      'onDeselectAll': instance.onDeselectAll,
+      'decoration': instance.decoration,
+      'dataRowColor': instance.dataRowColor,
+      'dataRowHeight': instance.dataRowHeight,
+      'dataTextStyle': instance.dataTextStyle,
+      'headingRowColor': instance.headingRowColor,
+      'headingRowHeight': instance.headingRowHeight,
+      'headingTextStyle': instance.headingTextStyle,
+      'horizontalMargin': instance.horizontalMargin,
+      'columnSpacing': instance.columnSpacing,
+      'showCheckboxColumn': instance.showCheckboxColumn,
+      'showBottomBorder': instance.showBottomBorder,
+      'dividerThickness': instance.dividerThickness,
+      'rows': instance.rows,
+      'checkboxHorizontalMargin': instance.checkboxHorizontalMargin,
+      'border': instance.border,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'runtimeType': instance.$type,
+    };
+
+_$RepaintBoundary _$$RepaintBoundaryFromJson(Map<String, dynamic> json) =>
+    _$RepaintBoundary(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$RepaintBoundaryToJson(_$RepaintBoundary instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$ClipRect _$$ClipRectFromJson(Map<String, dynamic> json) => _$ClipRect(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ??
+          Clip.hardEdge,
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ClipRectToJson(_$ClipRect instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$ClipRRect _$$ClipRRectFromJson(Map<String, dynamic> json) => _$ClipRRect(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      borderRadius: json['borderRadius'] == null
+          ? BorderRadius.zero
+          : BorderRadius.fromJson(json['borderRadius'] as Map<String, dynamic>),
+      clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ??
+          Clip.antiAlias,
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ClipRRectToJson(_$ClipRRect instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'borderRadius': instance.borderRadius,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$ClipOval _$$ClipOvalFromJson(Map<String, dynamic> json) => _$ClipOval(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ??
+          Clip.antiAlias,
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ClipOvalToJson(_$ClipOval instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child,
+      'runtimeType': instance.$type,
+    };
+
+_$CustomWidget _$$CustomWidgetFromJson(Map<String, dynamic> json) =>
+    _$CustomWidget(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      type: json['type'] as String,
+      properties: json['properties'] as Map<String, dynamic>?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$CustomWidgetToJson(_$CustomWidget instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'type': instance.type,
+      'properties': instance.properties,
+      'runtimeType': instance.$type,
+    };
+
+_$NetworkWidget _$$NetworkWidgetFromJson(Map<String, dynamic> json) =>
+    _$NetworkWidget(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      request: NetworkRequest.fromJson(json['request'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$NetworkWidgetToJson(_$NetworkWidget instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'request': instance.request,
+      'runtimeType': instance.$type,
+    };

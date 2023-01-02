@@ -38,7 +38,7 @@ mixin _$Decoration {
     required TResult Function(
             Color? color,
             DecorationImage? image,
-            BoxBorder? border,
+            ShapeBorder? border,
             BorderRadius? borderRadius,
             List<BoxShadow>? boxShadow,
             Gradient? gradient,
@@ -55,7 +55,7 @@ mixin _$Decoration {
     TResult? Function(
             Color? color,
             DecorationImage? image,
-            BoxBorder? border,
+            ShapeBorder? border,
             BorderRadius? borderRadius,
             List<BoxShadow>? boxShadow,
             Gradient? gradient,
@@ -72,7 +72,7 @@ mixin _$Decoration {
     TResult Function(
             Color? color,
             DecorationImage? image,
-            BoxBorder? border,
+            ShapeBorder? border,
             BorderRadius? borderRadius,
             List<BoxShadow>? boxShadow,
             Gradient? gradient,
@@ -204,7 +204,7 @@ abstract class _$$BoxDecorationCopyWith<$Res>
   $Res call(
       {Color? color,
       DecorationImage? image,
-      BoxBorder? border,
+      ShapeBorder? border,
       BorderRadius? borderRadius,
       List<BoxShadow>? boxShadow,
       Gradient? gradient,
@@ -215,7 +215,7 @@ abstract class _$$BoxDecorationCopyWith<$Res>
   $ColorCopyWith<$Res>? get color;
   @override
   $DecorationImageCopyWith<$Res>? get image;
-  $BoxBorderCopyWith<$Res>? get border;
+  $ShapeBorderCopyWith<$Res>? get border;
   $BorderRadiusCopyWith<$Res>? get borderRadius;
   @override
   $GradientCopyWith<$Res>? get gradient;
@@ -253,7 +253,7 @@ class __$$BoxDecorationCopyWithImpl<$Res>
       border: freezed == border
           ? _value.border
           : border // ignore: cast_nullable_to_non_nullable
-              as BoxBorder?,
+              as ShapeBorder?,
       borderRadius: freezed == borderRadius
           ? _value.borderRadius
           : borderRadius // ignore: cast_nullable_to_non_nullable
@@ -279,12 +279,12 @@ class __$$BoxDecorationCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
-  $BoxBorderCopyWith<$Res>? get border {
+  $ShapeBorderCopyWith<$Res>? get border {
     if (_value.border == null) {
       return null;
     }
 
-    return $BoxBorderCopyWith<$Res>(_value.border!, (value) {
+    return $ShapeBorderCopyWith<$Res>(_value.border!, (value) {
       return _then(_value.copyWith(border: value));
     });
   }
@@ -326,7 +326,7 @@ class _$BoxDecoration implements BoxDecoration {
   @override
   final DecorationImage? image;
   @override
-  final BoxBorder? border;
+  final ShapeBorder? border;
   @override
   final BorderRadius? borderRadius;
   final List<BoxShadow>? _boxShadow;
@@ -399,7 +399,7 @@ class _$BoxDecoration implements BoxDecoration {
     required TResult Function(
             Color? color,
             DecorationImage? image,
-            BoxBorder? border,
+            ShapeBorder? border,
             BorderRadius? borderRadius,
             List<BoxShadow>? boxShadow,
             Gradient? gradient,
@@ -420,7 +420,7 @@ class _$BoxDecoration implements BoxDecoration {
     TResult? Function(
             Color? color,
             DecorationImage? image,
-            BoxBorder? border,
+            ShapeBorder? border,
             BorderRadius? borderRadius,
             List<BoxShadow>? boxShadow,
             Gradient? gradient,
@@ -441,7 +441,7 @@ class _$BoxDecoration implements BoxDecoration {
     TResult Function(
             Color? color,
             DecorationImage? image,
-            BoxBorder? border,
+            ShapeBorder? border,
             BorderRadius? borderRadius,
             List<BoxShadow>? boxShadow,
             Gradient? gradient,
@@ -503,7 +503,7 @@ abstract class BoxDecoration implements Decoration {
   const factory BoxDecoration(
       {final Color? color,
       final DecorationImage? image,
-      final BoxBorder? border,
+      final ShapeBorder? border,
       final BorderRadius? borderRadius,
       final List<BoxShadow>? boxShadow,
       final Gradient? gradient,
@@ -517,7 +517,7 @@ abstract class BoxDecoration implements Decoration {
   Color? get color;
   @override
   DecorationImage? get image;
-  BoxBorder? get border;
+  ShapeBorder? get border;
   BorderRadius? get borderRadius;
   List<BoxShadow>? get boxShadow;
   @override
@@ -678,7 +678,7 @@ class _$ShapeDecoration implements ShapeDecoration {
     required TResult Function(
             Color? color,
             DecorationImage? image,
-            BoxBorder? border,
+            ShapeBorder? border,
             BorderRadius? borderRadius,
             List<BoxShadow>? boxShadow,
             Gradient? gradient,
@@ -698,7 +698,7 @@ class _$ShapeDecoration implements ShapeDecoration {
     TResult? Function(
             Color? color,
             DecorationImage? image,
-            BoxBorder? border,
+            ShapeBorder? border,
             BorderRadius? borderRadius,
             List<BoxShadow>? boxShadow,
             Gradient? gradient,
@@ -718,7 +718,7 @@ class _$ShapeDecoration implements ShapeDecoration {
     TResult Function(
             Color? color,
             DecorationImage? image,
-            BoxBorder? border,
+            ShapeBorder? border,
             BorderRadius? borderRadius,
             List<BoxShadow>? boxShadow,
             Gradient? gradient,

@@ -6,12 +6,49 @@ part of 'text_decoration.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TextDecoration _$$_TextDecorationFromJson(Map<String, dynamic> json) =>
-    _$_TextDecoration(
-      mask: json['mask'] as int,
+_$TextDecorationNone _$$TextDecorationNoneFromJson(Map<String, dynamic> json) =>
+    _$TextDecorationNone(
+      $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_TextDecorationToJson(_$_TextDecoration instance) =>
+Map<String, dynamic> _$$TextDecorationNoneToJson(
+        _$TextDecorationNone instance) =>
     <String, dynamic>{
-      'mask': instance.mask,
+      'runtimeType': instance.$type,
+    };
+
+_$TextDecorationUnderline _$$TextDecorationUnderlineFromJson(
+        Map<String, dynamic> json) =>
+    _$TextDecorationUnderline(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$TextDecorationUnderlineToJson(
+        _$TextDecorationUnderline instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$TextDecorationOverline _$$TextDecorationOverlineFromJson(
+        Map<String, dynamic> json) =>
+    _$TextDecorationOverline(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$TextDecorationOverlineToJson(
+        _$TextDecorationOverline instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$TextDecorationLineThrough _$$TextDecorationLineThroughFromJson(
+        Map<String, dynamic> json) =>
+    _$TextDecorationLineThrough(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$TextDecorationLineThroughToJson(
+        _$TextDecorationLineThrough instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
     };

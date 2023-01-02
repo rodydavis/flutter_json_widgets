@@ -6,9 +6,8 @@ part of 'preferred_size_widget.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PreferredSizeWidget _$$_PreferredSizeWidgetFromJson(
-        Map<String, dynamic> json) =>
-    _$_PreferredSizeWidget(
+_$PreferredSize _$$PreferredSizeFromJson(Map<String, dynamic> json) =>
+    _$PreferredSize(
       key: json['key'] == null
           ? null
           : Key.fromJson(json['key'] as Map<String, dynamic>),
@@ -18,8 +17,7 @@ _$_PreferredSizeWidget _$$_PreferredSizeWidgetFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_PreferredSizeWidgetToJson(
-        _$_PreferredSizeWidget instance) =>
+Map<String, dynamic> _$$PreferredSizeToJson(_$PreferredSize instance) =>
     <String, dynamic>{
       'key': instance.key,
       'preferredSize': instance.preferredSize,

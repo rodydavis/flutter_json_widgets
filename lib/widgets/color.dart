@@ -7,6 +7,25 @@ part 'color.g.dart';
 class Color with _$Color {
   const factory Color(int value) = _Color;
 
+  const factory Color.fromARGB(
+    int a,
+    int r,
+    int g,
+    int b,
+  ) = ColorARGB;
+
+  const factory Color.fromRGBO(
+    int r,
+    int g,
+    int b,
+    double opacity,
+  ) = ColorRGBO;
+
+  const factory Color.alphaBlend(
+    Color foreground,
+    Color background,
+  ) = ColorAlphaBlend;
+
   const factory Color.material(
     int value,
     Map<int, Color> swatch,
