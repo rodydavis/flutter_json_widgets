@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart' as material;
 import 'package:flutter/services.dart' as services;
+import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:ui' as ui;
 import 'package:flutter_json_widgets/flutter_json_widgets.dart' as widgets;
@@ -35,14 +36,25 @@ class FlutterWidget extends material.StatefulWidget {
     required this.url,
     this.customWidgets = const {},
     this.headers = const {},
+    this.assetPath,
   })  : widget = null,
         json = null;
+
+  const FlutterWidget.asset({
+    super.key,
+    required this.assetPath,
+    this.customWidgets = const {},
+  })  : widget = null,
+        json = null,
+        url = null,
+        headers = const {};
 
   final widgets.Widget? widget;
   final Uri? url;
   final Map<String, String> headers;
   final Map<String, Object?>? json;
   final Map<String, WidgetBuilder> customWidgets;
+  final String? assetPath;
 
   @override
   material.State<FlutterWidget> createState() => _FlutterWidgetState();
@@ -65,6 +77,21 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         return material.Container();
       }
     }
+    if (widget.assetPath != null) {
+      return material.FutureBuilder(
+        future: services.rootBundle
+            .loadString(widget.assetPath!)
+            .then((value) => jsonDecode(value))
+            .then((value) => widgets.Widget.fromJson(value)),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final widget = snapshot.data!;
+            return $widget(context, widget)!;
+          }
+          return buildLoading();
+        },
+      );
+    }
     if (widget.url != null) {
       return material.FutureBuilder(
         future: http
@@ -77,18 +104,28 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
             final widget = snapshot.data!;
             return $widget(context, widget)!;
           }
-          return const material.MaterialApp(
-            debugShowCheckedModeBanner: false,
-            home: material.Scaffold(
-              body: material.Center(
-                child: material.CircularProgressIndicator(),
-              ),
-            ),
-          );
+          if (widget.assetPath != null) {
+            return FlutterWidget.asset(
+              assetPath: widget.assetPath!,
+              customWidgets: widget.customWidgets,
+            );
+          }
+          return buildLoading();
         },
       );
     }
     return material.Container();
+  }
+
+  material.Widget buildLoading() {
+    return const material.MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: material.Scaffold(
+        body: material.Center(
+          child: material.CircularProgressIndicator(),
+        ),
+      ),
+    );
   }
 
   material.Key? $key(
