@@ -84,41 +84,85 @@ _$_ColorScheme _$$_ColorSchemeFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_ColorSchemeToJson(_$_ColorScheme instance) =>
-    <String, dynamic>{
-      'brightness': _$BrightnessEnumMap[instance.brightness]!,
-      'primary': instance.primary,
-      'onPrimary': instance.onPrimary,
-      'primaryContainer': instance.primaryContainer,
-      'onPrimaryContainer': instance.onPrimaryContainer,
-      'secondary': instance.secondary,
-      'onSecondary': instance.onSecondary,
-      'secondaryContainer': instance.secondaryContainer,
-      'onSecondaryContainer': instance.onSecondaryContainer,
-      'tertiary': instance.tertiary,
-      'onTertiary': instance.onTertiary,
-      'tertiaryContainer': instance.tertiaryContainer,
-      'onTertiaryContainer': instance.onTertiaryContainer,
-      'error': instance.error,
-      'onError': instance.onError,
-      'errorContainer': instance.errorContainer,
-      'onErrorContainer': instance.onErrorContainer,
-      'background': instance.background,
-      'onBackground': instance.onBackground,
-      'surface': instance.surface,
-      'onSurface': instance.onSurface,
-      'surfaceVariant': instance.surfaceVariant,
-      'onSurfaceVariant': instance.onSurfaceVariant,
-      'outline': instance.outline,
-      'outlineVariant': instance.outlineVariant,
-      'shadow': instance.shadow,
-      'scrim': instance.scrim,
-      'inverseSurface': instance.inverseSurface,
-      'onInverseSurface': instance.onInverseSurface,
-      'inversePrimary': instance.inversePrimary,
-      'surfaceTint': instance.surfaceTint,
-      'runtimeType': instance.$type,
-    };
+const _$$_ColorSchemeFieldMap = <String, String>{
+  'brightness': 'brightness',
+  'primary': 'primary',
+  'onPrimary': 'onPrimary',
+  'primaryContainer': 'primaryContainer',
+  'onPrimaryContainer': 'onPrimaryContainer',
+  'secondary': 'secondary',
+  'onSecondary': 'onSecondary',
+  'secondaryContainer': 'secondaryContainer',
+  'onSecondaryContainer': 'onSecondaryContainer',
+  'tertiary': 'tertiary',
+  'onTertiary': 'onTertiary',
+  'tertiaryContainer': 'tertiaryContainer',
+  'onTertiaryContainer': 'onTertiaryContainer',
+  'error': 'error',
+  'onError': 'onError',
+  'errorContainer': 'errorContainer',
+  'onErrorContainer': 'onErrorContainer',
+  'background': 'background',
+  'onBackground': 'onBackground',
+  'surface': 'surface',
+  'onSurface': 'onSurface',
+  'surfaceVariant': 'surfaceVariant',
+  'onSurfaceVariant': 'onSurfaceVariant',
+  'outline': 'outline',
+  'outlineVariant': 'outlineVariant',
+  'shadow': 'shadow',
+  'scrim': 'scrim',
+  'inverseSurface': 'inverseSurface',
+  'onInverseSurface': 'onInverseSurface',
+  'inversePrimary': 'inversePrimary',
+  'surfaceTint': 'surfaceTint',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$_ColorSchemeToJson(_$_ColorScheme instance) {
+  final val = <String, dynamic>{
+    'brightness': _$BrightnessEnumMap[instance.brightness]!,
+    'primary': instance.primary,
+    'onPrimary': instance.onPrimary,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('primaryContainer', instance.primaryContainer);
+  writeNotNull('onPrimaryContainer', instance.onPrimaryContainer);
+  val['secondary'] = instance.secondary;
+  val['onSecondary'] = instance.onSecondary;
+  writeNotNull('secondaryContainer', instance.secondaryContainer);
+  writeNotNull('onSecondaryContainer', instance.onSecondaryContainer);
+  writeNotNull('tertiary', instance.tertiary);
+  writeNotNull('onTertiary', instance.onTertiary);
+  writeNotNull('tertiaryContainer', instance.tertiaryContainer);
+  writeNotNull('onTertiaryContainer', instance.onTertiaryContainer);
+  val['error'] = instance.error;
+  val['onError'] = instance.onError;
+  writeNotNull('errorContainer', instance.errorContainer);
+  writeNotNull('onErrorContainer', instance.onErrorContainer);
+  val['background'] = instance.background;
+  val['onBackground'] = instance.onBackground;
+  val['surface'] = instance.surface;
+  val['onSurface'] = instance.onSurface;
+  writeNotNull('surfaceVariant', instance.surfaceVariant);
+  writeNotNull('onSurfaceVariant', instance.onSurfaceVariant);
+  writeNotNull('outline', instance.outline);
+  writeNotNull('outlineVariant', instance.outlineVariant);
+  writeNotNull('shadow', instance.shadow);
+  writeNotNull('scrim', instance.scrim);
+  writeNotNull('inverseSurface', instance.inverseSurface);
+  writeNotNull('onInverseSurface', instance.onInverseSurface);
+  writeNotNull('inversePrimary', instance.inversePrimary);
+  writeNotNull('surfaceTint', instance.surfaceTint);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 const _$BrightnessEnumMap = {
   Brightness.dark: 'dark',
@@ -226,40 +270,85 @@ _$ColorSchemeFromSeed _$$ColorSchemeFromSeedFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$ColorSchemeFromSeedFieldMap = <String, String>{
+  'seedColor': 'seedColor',
+  'brightness': 'brightness',
+  'primary': 'primary',
+  'onPrimary': 'onPrimary',
+  'primaryContainer': 'primaryContainer',
+  'onPrimaryContainer': 'onPrimaryContainer',
+  'secondary': 'secondary',
+  'onSecondary': 'onSecondary',
+  'secondaryContainer': 'secondaryContainer',
+  'onSecondaryContainer': 'onSecondaryContainer',
+  'tertiary': 'tertiary',
+  'onTertiary': 'onTertiary',
+  'tertiaryContainer': 'tertiaryContainer',
+  'onTertiaryContainer': 'onTertiaryContainer',
+  'error': 'error',
+  'onError': 'onError',
+  'errorContainer': 'errorContainer',
+  'onErrorContainer': 'onErrorContainer',
+  'outline': 'outline',
+  'outlineVariant': 'outlineVariant',
+  'background': 'background',
+  'onBackground': 'onBackground',
+  'surface': 'surface',
+  'onSurface': 'onSurface',
+  'surfaceVariant': 'surfaceVariant',
+  'onSurfaceVariant': 'onSurfaceVariant',
+  'inverseSurface': 'inverseSurface',
+  'onInverseSurface': 'onInverseSurface',
+  'inversePrimary': 'inversePrimary',
+  'shadow': 'shadow',
+  'scrim': 'scrim',
+  'surfaceTint': 'surfaceTint',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$ColorSchemeFromSeedToJson(
-        _$ColorSchemeFromSeed instance) =>
-    <String, dynamic>{
-      'seedColor': instance.seedColor,
-      'brightness': _$BrightnessEnumMap[instance.brightness]!,
-      'primary': instance.primary,
-      'onPrimary': instance.onPrimary,
-      'primaryContainer': instance.primaryContainer,
-      'onPrimaryContainer': instance.onPrimaryContainer,
-      'secondary': instance.secondary,
-      'onSecondary': instance.onSecondary,
-      'secondaryContainer': instance.secondaryContainer,
-      'onSecondaryContainer': instance.onSecondaryContainer,
-      'tertiary': instance.tertiary,
-      'onTertiary': instance.onTertiary,
-      'tertiaryContainer': instance.tertiaryContainer,
-      'onTertiaryContainer': instance.onTertiaryContainer,
-      'error': instance.error,
-      'onError': instance.onError,
-      'errorContainer': instance.errorContainer,
-      'onErrorContainer': instance.onErrorContainer,
-      'outline': instance.outline,
-      'outlineVariant': instance.outlineVariant,
-      'background': instance.background,
-      'onBackground': instance.onBackground,
-      'surface': instance.surface,
-      'onSurface': instance.onSurface,
-      'surfaceVariant': instance.surfaceVariant,
-      'onSurfaceVariant': instance.onSurfaceVariant,
-      'inverseSurface': instance.inverseSurface,
-      'onInverseSurface': instance.onInverseSurface,
-      'inversePrimary': instance.inversePrimary,
-      'shadow': instance.shadow,
-      'scrim': instance.scrim,
-      'surfaceTint': instance.surfaceTint,
-      'runtimeType': instance.$type,
-    };
+    _$ColorSchemeFromSeed instance) {
+  final val = <String, dynamic>{
+    'seedColor': instance.seedColor,
+    'brightness': _$BrightnessEnumMap[instance.brightness]!,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('primary', instance.primary);
+  writeNotNull('onPrimary', instance.onPrimary);
+  writeNotNull('primaryContainer', instance.primaryContainer);
+  writeNotNull('onPrimaryContainer', instance.onPrimaryContainer);
+  writeNotNull('secondary', instance.secondary);
+  writeNotNull('onSecondary', instance.onSecondary);
+  writeNotNull('secondaryContainer', instance.secondaryContainer);
+  writeNotNull('onSecondaryContainer', instance.onSecondaryContainer);
+  writeNotNull('tertiary', instance.tertiary);
+  writeNotNull('onTertiary', instance.onTertiary);
+  writeNotNull('tertiaryContainer', instance.tertiaryContainer);
+  writeNotNull('onTertiaryContainer', instance.onTertiaryContainer);
+  writeNotNull('error', instance.error);
+  writeNotNull('onError', instance.onError);
+  writeNotNull('errorContainer', instance.errorContainer);
+  writeNotNull('onErrorContainer', instance.onErrorContainer);
+  writeNotNull('outline', instance.outline);
+  writeNotNull('outlineVariant', instance.outlineVariant);
+  writeNotNull('background', instance.background);
+  writeNotNull('onBackground', instance.onBackground);
+  writeNotNull('surface', instance.surface);
+  writeNotNull('onSurface', instance.onSurface);
+  writeNotNull('surfaceVariant', instance.surfaceVariant);
+  writeNotNull('onSurfaceVariant', instance.onSurfaceVariant);
+  writeNotNull('inverseSurface', instance.inverseSurface);
+  writeNotNull('onInverseSurface', instance.onInverseSurface);
+  writeNotNull('inversePrimary', instance.inversePrimary);
+  writeNotNull('shadow', instance.shadow);
+  writeNotNull('scrim', instance.scrim);
+  writeNotNull('surfaceTint', instance.surfaceTint);
+  val['runtimeType'] = instance.$type;
+  return val;
+}

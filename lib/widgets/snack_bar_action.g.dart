@@ -21,11 +21,27 @@ _$_SnackBarAction _$$_SnackBarActionFromJson(Map<String, dynamic> json) =>
       onPressed: Callback.fromJson(json['onPressed'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_SnackBarActionToJson(_$_SnackBarAction instance) =>
-    <String, dynamic>{
-      'key': instance.key,
-      'textColor': instance.textColor,
-      'disabledTextColor': instance.disabledTextColor,
-      'label': instance.label,
-      'onPressed': instance.onPressed,
-    };
+const _$$_SnackBarActionFieldMap = <String, String>{
+  'key': 'key',
+  'textColor': 'textColor',
+  'disabledTextColor': 'disabledTextColor',
+  'label': 'label',
+  'onPressed': 'onPressed',
+};
+
+Map<String, dynamic> _$$_SnackBarActionToJson(_$_SnackBarAction instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('textColor', instance.textColor);
+  writeNotNull('disabledTextColor', instance.disabledTextColor);
+  val['label'] = instance.label;
+  val['onPressed'] = instance.onPressed;
+  return val;
+}

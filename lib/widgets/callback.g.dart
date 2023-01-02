@@ -16,13 +16,28 @@ _$NavigationPushNamedCallback _$$NavigationPushNamedCallbackFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$NavigationPushNamedCallbackFieldMap = <String, String>{
+  'value': 'value',
+  'arguments': 'arguments',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$NavigationPushNamedCallbackToJson(
-        _$NavigationPushNamedCallback instance) =>
-    <String, dynamic>{
-      'value': instance.value,
-      'arguments': instance.arguments,
-      'runtimeType': instance.$type,
-    };
+    _$NavigationPushNamedCallback instance) {
+  final val = <String, dynamic>{
+    'value': instance.value,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('arguments', instance.arguments);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$NavigationPopCallback _$$NavigationPopCallbackFromJson(
         Map<String, dynamic> json) =>
@@ -31,12 +46,25 @@ _$NavigationPopCallback _$$NavigationPopCallbackFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$NavigationPopCallbackFieldMap = <String, String>{
+  'value': 'value',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$NavigationPopCallbackToJson(
-        _$NavigationPopCallback instance) =>
-    <String, dynamic>{
-      'value': instance.value,
-      'runtimeType': instance.$type,
-    };
+    _$NavigationPopCallback instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('value', instance.value);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$UrlCallback _$$UrlCallbackFromJson(Map<String, dynamic> json) =>
     _$UrlCallback(
@@ -48,13 +76,29 @@ _$UrlCallback _$$UrlCallbackFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$UrlCallbackToJson(_$UrlCallback instance) =>
-    <String, dynamic>{
-      'url': instance.url,
-      'path': instance.path,
-      'params': instance.params,
-      'runtimeType': instance.$type,
-    };
+const _$$UrlCallbackFieldMap = <String, String>{
+  'url': 'url',
+  'path': 'path',
+  'params': 'params',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$UrlCallbackToJson(_$UrlCallback instance) {
+  final val = <String, dynamic>{
+    'url': instance.url,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('path', instance.path);
+  writeNotNull('params', instance.params);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$CopyClipboardCallback _$$CopyClipboardCallbackFromJson(
         Map<String, dynamic> json) =>
@@ -66,13 +110,28 @@ _$CopyClipboardCallback _$$CopyClipboardCallbackFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$CopyClipboardCallbackFieldMap = <String, String>{
+  'text': 'text',
+  'callback': 'callback',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$CopyClipboardCallbackToJson(
-        _$CopyClipboardCallback instance) =>
-    <String, dynamic>{
-      'text': instance.text,
-      'callback': instance.callback,
-      'runtimeType': instance.$type,
-    };
+    _$CopyClipboardCallback instance) {
+  final val = <String, dynamic>{
+    'text': instance.text,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('callback', instance.callback);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$HttpRequestCallback _$$HttpRequestCallbackFromJson(
         Map<String, dynamic> json) =>
@@ -84,13 +143,28 @@ _$HttpRequestCallback _$$HttpRequestCallbackFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$HttpRequestCallbackFieldMap = <String, String>{
+  'request': 'request',
+  'callback': 'callback',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$HttpRequestCallbackToJson(
-        _$HttpRequestCallback instance) =>
-    <String, dynamic>{
-      'request': instance.request,
-      'callback': instance.callback,
-      'runtimeType': instance.$type,
-    };
+    _$HttpRequestCallback instance) {
+  final val = <String, dynamic>{
+    'request': instance.request,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('callback', instance.callback);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$ShowSnackBarCallback _$$ShowSnackBarCallbackFromJson(
         Map<String, dynamic> json) =>
@@ -98,6 +172,11 @@ _$ShowSnackBarCallback _$$ShowSnackBarCallbackFromJson(
       SnackBar.fromJson(json['snackBar'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
+
+const _$$ShowSnackBarCallbackFieldMap = <String, String>{
+  'snackBar': 'snackBar',
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$ShowSnackBarCallbackToJson(
         _$ShowSnackBarCallback instance) =>
@@ -114,6 +193,11 @@ _$HideCurrentSnackBarCallback _$$HideCurrentSnackBarCallbackFromJson(
               SnackBarClosedReason.hide,
       $type: json['runtimeType'] as String?,
     );
+
+const _$$HideCurrentSnackBarCallbackFieldMap = <String, String>{
+  'reason': 'reason',
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$HideCurrentSnackBarCallbackToJson(
         _$HideCurrentSnackBarCallback instance) =>
@@ -140,6 +224,11 @@ _$RemoveCurrentSnackBarCallback _$$RemoveCurrentSnackBarCallbackFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$RemoveCurrentSnackBarCallbackFieldMap = <String, String>{
+  'reason': 'reason',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$RemoveCurrentSnackBarCallbackToJson(
         _$RemoveCurrentSnackBarCallback instance) =>
     <String, dynamic>{
@@ -152,6 +241,10 @@ _$ClearMaterialBannersCallback _$$ClearMaterialBannersCallbackFromJson(
     _$ClearMaterialBannersCallback(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$ClearMaterialBannersCallbackFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$ClearMaterialBannersCallbackToJson(
         _$ClearMaterialBannersCallback instance) =>
@@ -167,6 +260,11 @@ _$HideCurrentMaterialBannerCallback
               MaterialBannerClosedReason.hide,
           $type: json['runtimeType'] as String?,
         );
+
+const _$$HideCurrentMaterialBannerCallbackFieldMap = <String, String>{
+  'reason': 'reason',
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$HideCurrentMaterialBannerCallbackToJson(
         _$HideCurrentMaterialBannerCallback instance) =>
@@ -191,6 +289,11 @@ _$RemoveCurrentMaterialBannerCallback
           $type: json['runtimeType'] as String?,
         );
 
+const _$$RemoveCurrentMaterialBannerCallbackFieldMap = <String, String>{
+  'reason': 'reason',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$RemoveCurrentMaterialBannerCallbackToJson(
         _$RemoveCurrentMaterialBannerCallback instance) =>
     <String, dynamic>{
@@ -205,6 +308,11 @@ _$ShowMaterialBannerCallback _$$ShowMaterialBannerCallbackFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$ShowMaterialBannerCallbackFieldMap = <String, String>{
+  'materialBanner': 'materialBanner',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$ShowMaterialBannerCallbackToJson(
         _$ShowMaterialBannerCallback instance) =>
     <String, dynamic>{
@@ -217,6 +325,10 @@ _$EmptyCallback _$$EmptyCallbackFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
+const _$$EmptyCallbackFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$EmptyCallbackToJson(_$EmptyCallback instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
@@ -226,6 +338,10 @@ _$ReloadCallback _$$ReloadCallbackFromJson(Map<String, dynamic> json) =>
     _$ReloadCallback(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$ReloadCallbackFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$ReloadCallbackToJson(_$ReloadCallback instance) =>
     <String, dynamic>{

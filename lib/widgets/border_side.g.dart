@@ -17,6 +17,13 @@ _$_BorderSide _$$_BorderSideFromJson(Map<String, dynamic> json) =>
       strokeAlign: (json['strokeAlign'] as num?)?.toDouble() ?? -1.0,
     );
 
+const _$$_BorderSideFieldMap = <String, String>{
+  'color': 'color',
+  'width': 'width',
+  'style': 'style',
+  'strokeAlign': 'strokeAlign',
+};
+
 Map<String, dynamic> _$$_BorderSideToJson(_$_BorderSide instance) =>
     <String, dynamic>{
       'color': instance.color,

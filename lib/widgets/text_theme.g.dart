@@ -54,21 +54,47 @@ _$_TextTheme _$$_TextThemeFromJson(Map<String, dynamic> json) => _$_TextTheme(
           : TextStyle.fromJson(json['labelSmall'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_TextThemeToJson(_$_TextTheme instance) =>
-    <String, dynamic>{
-      'displayLarge': instance.displayLarge,
-      'displayMedium': instance.displayMedium,
-      'displaySmall': instance.displaySmall,
-      'headlineLarge': instance.headlineLarge,
-      'headlineMedium': instance.headlineMedium,
-      'headlineSmall': instance.headlineSmall,
-      'titleLarge': instance.titleLarge,
-      'titleMedium': instance.titleMedium,
-      'titleSmall': instance.titleSmall,
-      'bodyLarge': instance.bodyLarge,
-      'bodyMedium': instance.bodyMedium,
-      'bodySmall': instance.bodySmall,
-      'labelLarge': instance.labelLarge,
-      'labelMedium': instance.labelMedium,
-      'labelSmall': instance.labelSmall,
-    };
+const _$$_TextThemeFieldMap = <String, String>{
+  'displayLarge': 'displayLarge',
+  'displayMedium': 'displayMedium',
+  'displaySmall': 'displaySmall',
+  'headlineLarge': 'headlineLarge',
+  'headlineMedium': 'headlineMedium',
+  'headlineSmall': 'headlineSmall',
+  'titleLarge': 'titleLarge',
+  'titleMedium': 'titleMedium',
+  'titleSmall': 'titleSmall',
+  'bodyLarge': 'bodyLarge',
+  'bodyMedium': 'bodyMedium',
+  'bodySmall': 'bodySmall',
+  'labelLarge': 'labelLarge',
+  'labelMedium': 'labelMedium',
+  'labelSmall': 'labelSmall',
+};
+
+Map<String, dynamic> _$$_TextThemeToJson(_$_TextTheme instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('displayLarge', instance.displayLarge);
+  writeNotNull('displayMedium', instance.displayMedium);
+  writeNotNull('displaySmall', instance.displaySmall);
+  writeNotNull('headlineLarge', instance.headlineLarge);
+  writeNotNull('headlineMedium', instance.headlineMedium);
+  writeNotNull('headlineSmall', instance.headlineSmall);
+  writeNotNull('titleLarge', instance.titleLarge);
+  writeNotNull('titleMedium', instance.titleMedium);
+  writeNotNull('titleSmall', instance.titleSmall);
+  writeNotNull('bodyLarge', instance.bodyLarge);
+  writeNotNull('bodyMedium', instance.bodyMedium);
+  writeNotNull('bodySmall', instance.bodySmall);
+  writeNotNull('labelLarge', instance.labelLarge);
+  writeNotNull('labelMedium', instance.labelMedium);
+  writeNotNull('labelSmall', instance.labelSmall);
+  return val;
+}

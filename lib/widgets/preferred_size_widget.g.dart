@@ -17,13 +17,28 @@ _$PreferredSize _$$PreferredSizeFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$PreferredSizeToJson(_$PreferredSize instance) =>
-    <String, dynamic>{
-      'key': instance.key,
-      'preferredSize': instance.preferredSize,
-      'child': instance.child,
-      'runtimeType': instance.$type,
-    };
+const _$$PreferredSizeFieldMap = <String, String>{
+  'key': 'key',
+  'preferredSize': 'preferredSize',
+  'child': 'child',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$PreferredSizeToJson(_$PreferredSize instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  val['preferredSize'] = instance.preferredSize;
+  val['child'] = instance.child;
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$AppBar _$$AppBarFromJson(Map<String, dynamic> json) => _$AppBar(
       key: json['key'] == null
@@ -85,31 +100,69 @@ _$AppBar _$$AppBarFromJson(Map<String, dynamic> json) => _$AppBar(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$AppBarToJson(_$AppBar instance) => <String, dynamic>{
-      'key': instance.key,
-      'leading': instance.leading,
-      'automaticallyImplyLeading': instance.automaticallyImplyLeading,
-      'title': instance.title,
-      'actions': instance.actions,
-      'flexibleSpace': instance.flexibleSpace,
-      'bottom': instance.bottom,
-      'elevation': instance.elevation,
-      'scrolledUnderElevation': instance.scrolledUnderElevation,
-      'shadowColor': instance.shadowColor,
-      'surfaceTintColor': instance.surfaceTintColor,
-      'shape': instance.shape,
-      'backgroundColor': instance.backgroundColor,
-      'foregroundColor': instance.foregroundColor,
-      'primary': instance.primary,
-      'centerTitle': instance.centerTitle,
-      'excludeHeaderSemantics': instance.excludeHeaderSemantics,
-      'titleSpacing': instance.titleSpacing,
-      'toolbarOpacity': instance.toolbarOpacity,
-      'bottomOpacity': instance.bottomOpacity,
-      'toolbarHeight': instance.toolbarHeight,
-      'leadingWidth': instance.leadingWidth,
-      'toolbarTextStyle': instance.toolbarTextStyle,
-      'titleTextStyle': instance.titleTextStyle,
-      'forceMaterialTransparency': instance.forceMaterialTransparency,
-      'runtimeType': instance.$type,
-    };
+const _$$AppBarFieldMap = <String, String>{
+  'key': 'key',
+  'leading': 'leading',
+  'automaticallyImplyLeading': 'automaticallyImplyLeading',
+  'title': 'title',
+  'actions': 'actions',
+  'flexibleSpace': 'flexibleSpace',
+  'bottom': 'bottom',
+  'elevation': 'elevation',
+  'scrolledUnderElevation': 'scrolledUnderElevation',
+  'shadowColor': 'shadowColor',
+  'surfaceTintColor': 'surfaceTintColor',
+  'shape': 'shape',
+  'backgroundColor': 'backgroundColor',
+  'foregroundColor': 'foregroundColor',
+  'primary': 'primary',
+  'centerTitle': 'centerTitle',
+  'excludeHeaderSemantics': 'excludeHeaderSemantics',
+  'titleSpacing': 'titleSpacing',
+  'toolbarOpacity': 'toolbarOpacity',
+  'bottomOpacity': 'bottomOpacity',
+  'toolbarHeight': 'toolbarHeight',
+  'leadingWidth': 'leadingWidth',
+  'toolbarTextStyle': 'toolbarTextStyle',
+  'titleTextStyle': 'titleTextStyle',
+  'forceMaterialTransparency': 'forceMaterialTransparency',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$AppBarToJson(_$AppBar instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('leading', instance.leading);
+  val['automaticallyImplyLeading'] = instance.automaticallyImplyLeading;
+  writeNotNull('title', instance.title);
+  writeNotNull('actions', instance.actions);
+  writeNotNull('flexibleSpace', instance.flexibleSpace);
+  writeNotNull('bottom', instance.bottom);
+  writeNotNull('elevation', instance.elevation);
+  writeNotNull('scrolledUnderElevation', instance.scrolledUnderElevation);
+  writeNotNull('shadowColor', instance.shadowColor);
+  writeNotNull('surfaceTintColor', instance.surfaceTintColor);
+  writeNotNull('shape', instance.shape);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('foregroundColor', instance.foregroundColor);
+  val['primary'] = instance.primary;
+  writeNotNull('centerTitle', instance.centerTitle);
+  val['excludeHeaderSemantics'] = instance.excludeHeaderSemantics;
+  writeNotNull('titleSpacing', instance.titleSpacing);
+  val['toolbarOpacity'] = instance.toolbarOpacity;
+  val['bottomOpacity'] = instance.bottomOpacity;
+  writeNotNull('toolbarHeight', instance.toolbarHeight);
+  writeNotNull('leadingWidth', instance.leadingWidth);
+  writeNotNull('toolbarTextStyle', instance.toolbarTextStyle);
+  writeNotNull('titleTextStyle', instance.titleTextStyle);
+  val['forceMaterialTransparency'] = instance.forceMaterialTransparency;
+  val['runtimeType'] = instance.$type;
+  return val;
+}

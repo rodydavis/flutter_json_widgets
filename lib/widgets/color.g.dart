@@ -11,6 +11,11 @@ _$_Color _$$_ColorFromJson(Map<String, dynamic> json) => _$_Color(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$_ColorFieldMap = <String, String>{
+  'value': 'value',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$_ColorToJson(_$_Color instance) => <String, dynamic>{
       'value': instance.value,
       'runtimeType': instance.$type,
@@ -23,6 +28,14 @@ _$ColorARGB _$$ColorARGBFromJson(Map<String, dynamic> json) => _$ColorARGB(
       json['b'] as int,
       $type: json['runtimeType'] as String?,
     );
+
+const _$$ColorARGBFieldMap = <String, String>{
+  'a': 'a',
+  'r': 'r',
+  'g': 'g',
+  'b': 'b',
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$ColorARGBToJson(_$ColorARGB instance) =>
     <String, dynamic>{
@@ -41,6 +54,14 @@ _$ColorRGBO _$$ColorRGBOFromJson(Map<String, dynamic> json) => _$ColorRGBO(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$ColorRGBOFieldMap = <String, String>{
+  'r': 'r',
+  'g': 'g',
+  'b': 'b',
+  'opacity': 'opacity',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$ColorRGBOToJson(_$ColorRGBO instance) =>
     <String, dynamic>{
       'r': instance.r,
@@ -56,6 +77,12 @@ _$ColorAlphaBlend _$$ColorAlphaBlendFromJson(Map<String, dynamic> json) =>
       Color.fromJson(json['background'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
+
+const _$$ColorAlphaBlendFieldMap = <String, String>{
+  'foreground': 'foreground',
+  'background': 'background',
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$ColorAlphaBlendToJson(_$ColorAlphaBlend instance) =>
     <String, dynamic>{
@@ -73,6 +100,12 @@ _$MaterialColor _$$MaterialColorFromJson(Map<String, dynamic> json) =>
       ),
       $type: json['runtimeType'] as String?,
     );
+
+const _$$MaterialColorFieldMap = <String, String>{
+  'value': 'value',
+  'swatch': 'swatch',
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$MaterialColorToJson(_$MaterialColor instance) =>
     <String, dynamic>{
@@ -92,6 +125,12 @@ _$MaterialAccentColor _$$MaterialAccentColorFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$MaterialAccentColorFieldMap = <String, String>{
+  'value': 'value',
+  'swatch': 'swatch',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$MaterialAccentColorToJson(
         _$MaterialAccentColor instance) =>
     <String, dynamic>{
@@ -105,6 +144,10 @@ _$PrimaryColor _$$PrimaryColorFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
+const _$$PrimaryColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$PrimaryColorToJson(_$PrimaryColor instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
@@ -114,6 +157,10 @@ _$OnPrimaryColor _$$OnPrimaryColorFromJson(Map<String, dynamic> json) =>
     _$OnPrimaryColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$OnPrimaryColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$OnPrimaryColorToJson(_$OnPrimaryColor instance) =>
     <String, dynamic>{
@@ -125,6 +172,10 @@ _$PrimaryContainerColor _$$PrimaryContainerColorFromJson(
     _$PrimaryContainerColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$PrimaryContainerColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$PrimaryContainerColorToJson(
         _$PrimaryContainerColor instance) =>
@@ -138,6 +189,10 @@ _$OnPrimaryContainerColor _$$OnPrimaryContainerColorFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$OnPrimaryContainerColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$OnPrimaryContainerColorToJson(
         _$OnPrimaryContainerColor instance) =>
     <String, dynamic>{
@@ -149,6 +204,10 @@ _$SecondaryColor _$$SecondaryColorFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
+const _$$SecondaryColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$SecondaryColorToJson(_$SecondaryColor instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
@@ -158,6 +217,10 @@ _$OnSecondaryColor _$$OnSecondaryColorFromJson(Map<String, dynamic> json) =>
     _$OnSecondaryColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$OnSecondaryColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$OnSecondaryColorToJson(_$OnSecondaryColor instance) =>
     <String, dynamic>{
@@ -169,6 +232,10 @@ _$SecondaryContainerColor _$$SecondaryContainerColorFromJson(
     _$SecondaryContainerColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$SecondaryContainerColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$SecondaryContainerColorToJson(
         _$SecondaryContainerColor instance) =>
@@ -182,6 +249,10 @@ _$OnSecondaryContainerColor _$$OnSecondaryContainerColorFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$OnSecondaryContainerColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$OnSecondaryContainerColorToJson(
         _$OnSecondaryContainerColor instance) =>
     <String, dynamic>{
@@ -193,6 +264,10 @@ _$TertiaryColor _$$TertiaryColorFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
+const _$$TertiaryColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$TertiaryColorToJson(_$TertiaryColor instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
@@ -202,6 +277,10 @@ _$OnTertiaryColor _$$OnTertiaryColorFromJson(Map<String, dynamic> json) =>
     _$OnTertiaryColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$OnTertiaryColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$OnTertiaryColorToJson(_$OnTertiaryColor instance) =>
     <String, dynamic>{
@@ -213,6 +292,10 @@ _$TertiaryContainerColor _$$TertiaryContainerColorFromJson(
     _$TertiaryContainerColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$TertiaryContainerColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$TertiaryContainerColorToJson(
         _$TertiaryContainerColor instance) =>
@@ -226,6 +309,10 @@ _$OnTertiaryContainerColor _$$OnTertiaryContainerColorFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$OnTertiaryContainerColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$OnTertiaryContainerColorToJson(
         _$OnTertiaryContainerColor instance) =>
     <String, dynamic>{
@@ -235,6 +322,10 @@ Map<String, dynamic> _$$OnTertiaryContainerColorToJson(
 _$ErrorColor _$$ErrorColorFromJson(Map<String, dynamic> json) => _$ErrorColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$ErrorColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$ErrorColorToJson(_$ErrorColor instance) =>
     <String, dynamic>{
@@ -246,6 +337,10 @@ _$OnErrorColor _$$OnErrorColorFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
+const _$$OnErrorColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$OnErrorColorToJson(_$OnErrorColor instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
@@ -256,6 +351,10 @@ _$ErrorContainerColor _$$ErrorContainerColorFromJson(
     _$ErrorContainerColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$ErrorContainerColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$ErrorContainerColorToJson(
         _$ErrorContainerColor instance) =>
@@ -269,6 +368,10 @@ _$OnErrorContainerColor _$$OnErrorContainerColorFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$OnErrorContainerColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$OnErrorContainerColorToJson(
         _$OnErrorContainerColor instance) =>
     <String, dynamic>{
@@ -279,6 +382,10 @@ _$OutlineColor _$$OutlineColorFromJson(Map<String, dynamic> json) =>
     _$OutlineColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$OutlineColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$OutlineColorToJson(_$OutlineColor instance) =>
     <String, dynamic>{
@@ -291,6 +398,10 @@ _$OutlineVariantColor _$$OutlineVariantColorFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$OutlineVariantColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$OutlineVariantColorToJson(
         _$OutlineVariantColor instance) =>
     <String, dynamic>{
@@ -302,6 +413,10 @@ _$BackgroundColor _$$BackgroundColorFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
+const _$$BackgroundColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$BackgroundColorToJson(_$BackgroundColor instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
@@ -311,6 +426,10 @@ _$OnBackgroundColor _$$OnBackgroundColorFromJson(Map<String, dynamic> json) =>
     _$OnBackgroundColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$OnBackgroundColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$OnBackgroundColorToJson(_$OnBackgroundColor instance) =>
     <String, dynamic>{
@@ -322,6 +441,10 @@ _$SurfaceColor _$$SurfaceColorFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
+const _$$SurfaceColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$SurfaceColorToJson(_$SurfaceColor instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
@@ -331,6 +454,10 @@ _$OnSurfaceColor _$$OnSurfaceColorFromJson(Map<String, dynamic> json) =>
     _$OnSurfaceColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$OnSurfaceColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$OnSurfaceColorToJson(_$OnSurfaceColor instance) =>
     <String, dynamic>{
@@ -342,6 +469,10 @@ _$SurfaceVariantColor _$$SurfaceVariantColorFromJson(
     _$SurfaceVariantColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$SurfaceVariantColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$SurfaceVariantColorToJson(
         _$SurfaceVariantColor instance) =>
@@ -355,6 +486,10 @@ _$OnSurfaceVariantColor _$$OnSurfaceVariantColorFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$OnSurfaceVariantColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$OnSurfaceVariantColorToJson(
         _$OnSurfaceVariantColor instance) =>
     <String, dynamic>{
@@ -366,6 +501,10 @@ _$InverseSurfaceColor _$$InverseSurfaceColorFromJson(
     _$InverseSurfaceColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$InverseSurfaceColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$InverseSurfaceColorToJson(
         _$InverseSurfaceColor instance) =>
@@ -379,6 +518,10 @@ _$OnInverseSurfaceColor _$$OnInverseSurfaceColorFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$OnInverseSurfaceColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$OnInverseSurfaceColorToJson(
         _$OnInverseSurfaceColor instance) =>
     <String, dynamic>{
@@ -391,6 +534,10 @@ _$InversePrimaryColor _$$InversePrimaryColorFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$InversePrimaryColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$InversePrimaryColorToJson(
         _$InversePrimaryColor instance) =>
     <String, dynamic>{
@@ -402,6 +549,10 @@ _$ShadowColor _$$ShadowColorFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
+const _$$ShadowColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$ShadowColorToJson(_$ShadowColor instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
@@ -410,6 +561,10 @@ Map<String, dynamic> _$$ShadowColorToJson(_$ShadowColor instance) =>
 _$ScrimColor _$$ScrimColorFromJson(Map<String, dynamic> json) => _$ScrimColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$ScrimColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$ScrimColorToJson(_$ScrimColor instance) =>
     <String, dynamic>{
@@ -420,6 +575,10 @@ _$SurfaceTintColor _$$SurfaceTintColorFromJson(Map<String, dynamic> json) =>
     _$SurfaceTintColor(
       $type: json['runtimeType'] as String?,
     );
+
+const _$$SurfaceTintColorFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$SurfaceTintColorToJson(_$SurfaceTintColor instance) =>
     <String, dynamic>{

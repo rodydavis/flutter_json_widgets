@@ -22,12 +22,30 @@ _$_NetworkRequest _$$_NetworkRequestFromJson(Map<String, dynamic> json) =>
       ),
     );
 
-Map<String, dynamic> _$$_NetworkRequestToJson(_$_NetworkRequest instance) =>
-    <String, dynamic>{
-      'url': instance.url,
-      'headers': instance.headers,
-      'method': instance.method,
-      'bodyText': instance.bodyText,
-      'bodyBytes': instance.bodyBytes,
-      'bodyMap': instance.bodyMap,
-    };
+const _$$_NetworkRequestFieldMap = <String, String>{
+  'url': 'url',
+  'headers': 'headers',
+  'method': 'method',
+  'bodyText': 'bodyText',
+  'bodyBytes': 'bodyBytes',
+  'bodyMap': 'bodyMap',
+};
+
+Map<String, dynamic> _$$_NetworkRequestToJson(_$_NetworkRequest instance) {
+  final val = <String, dynamic>{
+    'url': instance.url,
+    'headers': instance.headers,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('method', instance.method);
+  writeNotNull('bodyText', instance.bodyText);
+  writeNotNull('bodyBytes', instance.bodyBytes);
+  writeNotNull('bodyMap', instance.bodyMap);
+  return val;
+}

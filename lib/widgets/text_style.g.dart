@@ -63,37 +63,77 @@ _$_TextStyle _$$_TextStyleFromJson(Map<String, dynamic> json) => _$_TextStyle(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_TextStyleToJson(_$_TextStyle instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$_TextStyleFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$_TextStyleToJson(_$_TextStyle instance) {
+  final val = <String, dynamic>{
+    'inherit': instance.inherit,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 const _$FontStyleEnumMap = {
   FontStyle.normal: 'normal',
@@ -183,37 +223,76 @@ _$DisplayLarge _$$DisplayLargeFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$DisplayLargeToJson(_$DisplayLarge instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$DisplayLargeFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$DisplayLargeToJson(_$DisplayLarge instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$DisplayMedium _$$DisplayMediumFromJson(Map<String, dynamic> json) =>
     _$DisplayMedium(
@@ -273,37 +352,76 @@ _$DisplayMedium _$$DisplayMediumFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$DisplayMediumToJson(_$DisplayMedium instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$DisplayMediumFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$DisplayMediumToJson(_$DisplayMedium instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$DisplaySmall _$$DisplaySmallFromJson(Map<String, dynamic> json) =>
     _$DisplaySmall(
@@ -363,37 +481,76 @@ _$DisplaySmall _$$DisplaySmallFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$DisplaySmallToJson(_$DisplaySmall instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$DisplaySmallFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$DisplaySmallToJson(_$DisplaySmall instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$HeadlineLarge _$$HeadlineLargeFromJson(Map<String, dynamic> json) =>
     _$HeadlineLarge(
@@ -453,37 +610,76 @@ _$HeadlineLarge _$$HeadlineLargeFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$HeadlineLargeToJson(_$HeadlineLarge instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$HeadlineLargeFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$HeadlineLargeToJson(_$HeadlineLarge instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$HeadlineMedium _$$HeadlineMediumFromJson(Map<String, dynamic> json) =>
     _$HeadlineMedium(
@@ -543,37 +739,76 @@ _$HeadlineMedium _$$HeadlineMediumFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$HeadlineMediumToJson(_$HeadlineMedium instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$HeadlineMediumFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$HeadlineMediumToJson(_$HeadlineMedium instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$HeadlineSmall _$$HeadlineSmallFromJson(Map<String, dynamic> json) =>
     _$HeadlineSmall(
@@ -633,37 +868,76 @@ _$HeadlineSmall _$$HeadlineSmallFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$HeadlineSmallToJson(_$HeadlineSmall instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$HeadlineSmallFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$HeadlineSmallToJson(_$HeadlineSmall instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$BodyLarge _$$BodyLargeFromJson(Map<String, dynamic> json) => _$BodyLarge(
       inherit: json['inherit'] as bool?,
@@ -722,37 +996,76 @@ _$BodyLarge _$$BodyLargeFromJson(Map<String, dynamic> json) => _$BodyLarge(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$BodyLargeToJson(_$BodyLarge instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$BodyLargeFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$BodyLargeToJson(_$BodyLarge instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$BodyMedium _$$BodyMediumFromJson(Map<String, dynamic> json) => _$BodyMedium(
       inherit: json['inherit'] as bool?,
@@ -811,37 +1124,76 @@ _$BodyMedium _$$BodyMediumFromJson(Map<String, dynamic> json) => _$BodyMedium(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$BodyMediumToJson(_$BodyMedium instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$BodyMediumFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$BodyMediumToJson(_$BodyMedium instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$BodySmall _$$BodySmallFromJson(Map<String, dynamic> json) => _$BodySmall(
       inherit: json['inherit'] as bool?,
@@ -900,37 +1252,76 @@ _$BodySmall _$$BodySmallFromJson(Map<String, dynamic> json) => _$BodySmall(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$BodySmallToJson(_$BodySmall instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$BodySmallFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$BodySmallToJson(_$BodySmall instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$TitleLarge _$$TitleLargeFromJson(Map<String, dynamic> json) => _$TitleLarge(
       inherit: json['inherit'] as bool?,
@@ -989,37 +1380,76 @@ _$TitleLarge _$$TitleLargeFromJson(Map<String, dynamic> json) => _$TitleLarge(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$TitleLargeToJson(_$TitleLarge instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$TitleLargeFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$TitleLargeToJson(_$TitleLarge instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$TitleMedium _$$TitleMediumFromJson(Map<String, dynamic> json) =>
     _$TitleMedium(
@@ -1079,37 +1509,76 @@ _$TitleMedium _$$TitleMediumFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$TitleMediumToJson(_$TitleMedium instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$TitleMediumFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$TitleMediumToJson(_$TitleMedium instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$TitleSmall _$$TitleSmallFromJson(Map<String, dynamic> json) => _$TitleSmall(
       inherit: json['inherit'] as bool?,
@@ -1168,37 +1637,76 @@ _$TitleSmall _$$TitleSmallFromJson(Map<String, dynamic> json) => _$TitleSmall(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$TitleSmallToJson(_$TitleSmall instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$TitleSmallFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$TitleSmallToJson(_$TitleSmall instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$LabelLarge _$$LabelLargeFromJson(Map<String, dynamic> json) => _$LabelLarge(
       inherit: json['inherit'] as bool?,
@@ -1257,37 +1765,76 @@ _$LabelLarge _$$LabelLargeFromJson(Map<String, dynamic> json) => _$LabelLarge(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$LabelLargeToJson(_$LabelLarge instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$LabelLargeFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$LabelLargeToJson(_$LabelLarge instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$LabelMedium _$$LabelMediumFromJson(Map<String, dynamic> json) =>
     _$LabelMedium(
@@ -1347,37 +1894,76 @@ _$LabelMedium _$$LabelMediumFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$LabelMediumToJson(_$LabelMedium instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$LabelMediumFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$LabelMediumToJson(_$LabelMedium instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 _$LabelSmall _$$LabelSmallFromJson(Map<String, dynamic> json) => _$LabelSmall(
       inherit: json['inherit'] as bool?,
@@ -1436,34 +2022,73 @@ _$LabelSmall _$$LabelSmallFromJson(Map<String, dynamic> json) => _$LabelSmall(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$LabelSmallToJson(_$LabelSmall instance) =>
-    <String, dynamic>{
-      'inherit': instance.inherit,
-      'color': instance.color,
-      'backgroundColor': instance.backgroundColor,
-      'fontSize': instance.fontSize,
-      'fontWeight': instance.fontWeight,
-      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
-      'letterSpacing': instance.letterSpacing,
-      'wordSpacing': instance.wordSpacing,
-      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
-      'height': instance.height,
-      'leadingDistribution':
-          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
-      'locale': instance.locale,
-      'foreground': instance.foreground,
-      'background': instance.background,
-      'shadows': instance.shadows,
-      'fontFeatures': instance.fontFeatures,
-      'fontVariations': instance.fontVariations,
-      'decoration': instance.decoration,
-      'decorationColor': instance.decorationColor,
-      'decorationStyle': _$TextDecorationStyleEnumMap[instance.decorationStyle],
-      'decorationThickness': instance.decorationThickness,
-      'debugLabel': instance.debugLabel,
-      'fontFamily': instance.fontFamily,
-      'fontFamilyFallback': instance.fontFamilyFallback,
-      'package': instance.package,
-      'overflow': _$TextOverflowEnumMap[instance.overflow],
-      'runtimeType': instance.$type,
-    };
+const _$$LabelSmallFieldMap = <String, String>{
+  'inherit': 'inherit',
+  'color': 'color',
+  'backgroundColor': 'backgroundColor',
+  'fontSize': 'fontSize',
+  'fontWeight': 'fontWeight',
+  'fontStyle': 'fontStyle',
+  'letterSpacing': 'letterSpacing',
+  'wordSpacing': 'wordSpacing',
+  'textBaseline': 'textBaseline',
+  'height': 'height',
+  'leadingDistribution': 'leadingDistribution',
+  'locale': 'locale',
+  'foreground': 'foreground',
+  'background': 'background',
+  'shadows': 'shadows',
+  'fontFeatures': 'fontFeatures',
+  'fontVariations': 'fontVariations',
+  'decoration': 'decoration',
+  'decorationColor': 'decorationColor',
+  'decorationStyle': 'decorationStyle',
+  'decorationThickness': 'decorationThickness',
+  'debugLabel': 'debugLabel',
+  'fontFamily': 'fontFamily',
+  'fontFamilyFallback': 'fontFamilyFallback',
+  'package': 'package',
+  'overflow': 'overflow',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$LabelSmallToJson(_$LabelSmall instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inherit', instance.inherit);
+  writeNotNull('color', instance.color);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('fontSize', instance.fontSize);
+  writeNotNull('fontWeight', instance.fontWeight);
+  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
+  writeNotNull('letterSpacing', instance.letterSpacing);
+  writeNotNull('wordSpacing', instance.wordSpacing);
+  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
+  writeNotNull('height', instance.height);
+  writeNotNull('leadingDistribution',
+      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('foreground', instance.foreground);
+  writeNotNull('background', instance.background);
+  writeNotNull('shadows', instance.shadows);
+  writeNotNull('fontFeatures', instance.fontFeatures);
+  writeNotNull('fontVariations', instance.fontVariations);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('decorationColor', instance.decorationColor);
+  writeNotNull('decorationStyle',
+      _$TextDecorationStyleEnumMap[instance.decorationStyle]);
+  writeNotNull('decorationThickness', instance.decorationThickness);
+  writeNotNull('debugLabel', instance.debugLabel);
+  writeNotNull('fontFamily', instance.fontFamily);
+  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
+  writeNotNull('package', instance.package);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}

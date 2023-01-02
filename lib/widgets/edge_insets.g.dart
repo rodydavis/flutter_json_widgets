@@ -14,6 +14,13 @@ _$_EdgeInsets _$$_EdgeInsetsFromJson(Map<String, dynamic> json) =>
       (json['bottom'] as num).toDouble(),
     );
 
+const _$$_EdgeInsetsFieldMap = <String, String>{
+  'left': 'left',
+  'top': 'top',
+  'right': 'right',
+  'bottom': 'bottom',
+};
+
 Map<String, dynamic> _$$_EdgeInsetsToJson(_$_EdgeInsets instance) =>
     <String, dynamic>{
       'left': instance.left,

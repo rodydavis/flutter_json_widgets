@@ -50,25 +50,51 @@ _$_MaterialBanner _$$_MaterialBannerFromJson(Map<String, dynamic> json) =>
           : Callback.fromJson(json['onVisible'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_MaterialBannerToJson(_$_MaterialBanner instance) =>
-    <String, dynamic>{
-      'key': instance.key,
-      'content': instance.content,
-      'contentTextStyle': instance.contentTextStyle,
-      'actions': instance.actions,
-      'elevation': instance.elevation,
-      'leading': instance.leading,
-      'backgroundColor': instance.backgroundColor,
-      'surfaceTintColor': instance.surfaceTintColor,
-      'shadowColor': instance.shadowColor,
-      'dividerColor': instance.dividerColor,
-      'padding': instance.padding,
-      'leadingPadding': instance.leadingPadding,
-      'forceActionsBelow': instance.forceActionsBelow,
-      'overflowAlignment':
-          _$OverflowBarAlignmentEnumMap[instance.overflowAlignment]!,
-      'onVisible': instance.onVisible,
-    };
+const _$$_MaterialBannerFieldMap = <String, String>{
+  'key': 'key',
+  'content': 'content',
+  'contentTextStyle': 'contentTextStyle',
+  'actions': 'actions',
+  'elevation': 'elevation',
+  'leading': 'leading',
+  'backgroundColor': 'backgroundColor',
+  'surfaceTintColor': 'surfaceTintColor',
+  'shadowColor': 'shadowColor',
+  'dividerColor': 'dividerColor',
+  'padding': 'padding',
+  'leadingPadding': 'leadingPadding',
+  'forceActionsBelow': 'forceActionsBelow',
+  'overflowAlignment': 'overflowAlignment',
+  'onVisible': 'onVisible',
+};
+
+Map<String, dynamic> _$$_MaterialBannerToJson(_$_MaterialBanner instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  val['content'] = instance.content;
+  writeNotNull('contentTextStyle', instance.contentTextStyle);
+  val['actions'] = instance.actions;
+  writeNotNull('elevation', instance.elevation);
+  writeNotNull('leading', instance.leading);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('surfaceTintColor', instance.surfaceTintColor);
+  writeNotNull('shadowColor', instance.shadowColor);
+  writeNotNull('dividerColor', instance.dividerColor);
+  writeNotNull('padding', instance.padding);
+  writeNotNull('leadingPadding', instance.leadingPadding);
+  val['forceActionsBelow'] = instance.forceActionsBelow;
+  val['overflowAlignment'] =
+      _$OverflowBarAlignmentEnumMap[instance.overflowAlignment]!;
+  writeNotNull('onVisible', instance.onVisible);
+  return val;
+}
 
 const _$OverflowBarAlignmentEnumMap = {
   OverflowBarAlignment.start: 'start',

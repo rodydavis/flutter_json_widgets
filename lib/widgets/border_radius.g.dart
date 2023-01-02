@@ -12,6 +12,11 @@ _$BorderRadiusAll _$$BorderRadiusAllFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
+const _$$BorderRadiusAllFieldMap = <String, String>{
+  'radius': 'radius',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$BorderRadiusAllToJson(_$BorderRadiusAll instance) =>
     <String, dynamic>{
       'radius': instance.radius,
@@ -24,6 +29,11 @@ _$BorderRadiusCircular _$$BorderRadiusCircularFromJson(
       (json['radius'] as num).toDouble(),
       $type: json['runtimeType'] as String?,
     );
+
+const _$$BorderRadiusCircularFieldMap = <String, String>{
+  'radius': 'radius',
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$BorderRadiusCircularToJson(
         _$BorderRadiusCircular instance) =>
@@ -44,6 +54,12 @@ _$BorderRadiusVertical _$$BorderRadiusVerticalFromJson(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$BorderRadiusVerticalFieldMap = <String, String>{
+  'top': 'top',
+  'bottom': 'bottom',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$BorderRadiusVerticalToJson(
         _$BorderRadiusVertical instance) =>
     <String, dynamic>{
@@ -63,6 +79,12 @@ _$BorderRadiusHorizontal _$$BorderRadiusHorizontalFromJson(
           : Radius.fromJson(json['right'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
+
+const _$$BorderRadiusHorizontalFieldMap = <String, String>{
+  'left': 'left',
+  'right': 'right',
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$BorderRadiusHorizontalToJson(
         _$BorderRadiusHorizontal instance) =>
@@ -89,11 +111,27 @@ _$BorderRadiusOnly _$$BorderRadiusOnlyFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$BorderRadiusOnlyToJson(_$BorderRadiusOnly instance) =>
-    <String, dynamic>{
-      'topLeft': instance.topLeft,
-      'topRight': instance.topRight,
-      'bottomLeft': instance.bottomLeft,
-      'bottomRight': instance.bottomRight,
-      'runtimeType': instance.$type,
-    };
+const _$$BorderRadiusOnlyFieldMap = <String, String>{
+  'topLeft': 'topLeft',
+  'topRight': 'topRight',
+  'bottomLeft': 'bottomLeft',
+  'bottomRight': 'bottomRight',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$BorderRadiusOnlyToJson(_$BorderRadiusOnly instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('topLeft', instance.topLeft);
+  writeNotNull('topRight', instance.topRight);
+  writeNotNull('bottomLeft', instance.bottomLeft);
+  writeNotNull('bottomRight', instance.bottomRight);
+  val['runtimeType'] = instance.$type;
+  return val;
+}

@@ -18,9 +18,23 @@ _$_TableRow _$$_TableRowFromJson(Map<String, dynamic> json) => _$_TableRow(
           .toList(),
     );
 
-Map<String, dynamic> _$$_TableRowToJson(_$_TableRow instance) =>
-    <String, dynamic>{
-      'key': instance.key,
-      'decoration': instance.decoration,
-      'children': instance.children,
-    };
+const _$$_TableRowFieldMap = <String, String>{
+  'key': 'key',
+  'decoration': 'decoration',
+  'children': 'children',
+};
+
+Map<String, dynamic> _$$_TableRowToJson(_$_TableRow instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('children', instance.children);
+  return val;
+}

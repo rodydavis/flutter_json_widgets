@@ -33,18 +33,39 @@ _$BoxDecoration _$$BoxDecorationFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$BoxDecorationToJson(_$BoxDecoration instance) =>
-    <String, dynamic>{
-      'color': instance.color,
-      'image': instance.image,
-      'border': instance.border,
-      'borderRadius': instance.borderRadius,
-      'boxShadow': instance.boxShadow,
-      'gradient': instance.gradient,
-      'backgroundBlendMode': _$BlendModeEnumMap[instance.backgroundBlendMode],
-      'shape': _$BoxShapeEnumMap[instance.shape]!,
-      'runtimeType': instance.$type,
-    };
+const _$$BoxDecorationFieldMap = <String, String>{
+  'color': 'color',
+  'image': 'image',
+  'border': 'border',
+  'borderRadius': 'borderRadius',
+  'boxShadow': 'boxShadow',
+  'gradient': 'gradient',
+  'backgroundBlendMode': 'backgroundBlendMode',
+  'shape': 'shape',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$BoxDecorationToJson(_$BoxDecoration instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('color', instance.color);
+  writeNotNull('image', instance.image);
+  writeNotNull('border', instance.border);
+  writeNotNull('borderRadius', instance.borderRadius);
+  writeNotNull('boxShadow', instance.boxShadow);
+  writeNotNull('gradient', instance.gradient);
+  writeNotNull(
+      'backgroundBlendMode', _$BlendModeEnumMap[instance.backgroundBlendMode]);
+  val['shape'] = _$BoxShapeEnumMap[instance.shape]!;
+  val['runtimeType'] = instance.$type;
+  return val;
+}
 
 const _$BlendModeEnumMap = {
   BlendMode.clear: 'clear',
@@ -101,12 +122,29 @@ _$ShapeDecoration _$$ShapeDecorationFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ShapeDecorationToJson(_$ShapeDecoration instance) =>
-    <String, dynamic>{
-      'color': instance.color,
-      'image': instance.image,
-      'gradient': instance.gradient,
-      'shadows': instance.shadows,
-      'shape': instance.shape,
-      'runtimeType': instance.$type,
-    };
+const _$$ShapeDecorationFieldMap = <String, String>{
+  'color': 'color',
+  'image': 'image',
+  'gradient': 'gradient',
+  'shadows': 'shadows',
+  'shape': 'shape',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$ShapeDecorationToJson(_$ShapeDecoration instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('color', instance.color);
+  writeNotNull('image', instance.image);
+  writeNotNull('gradient', instance.gradient);
+  writeNotNull('shadows', instance.shadows);
+  val['shape'] = instance.shape;
+  val['runtimeType'] = instance.$type;
+  return val;
+}

@@ -13,9 +13,24 @@ _$_DataColumn _$$_DataColumnFromJson(Map<String, dynamic> json) =>
       numeric: json['numeric'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$_DataColumnToJson(_$_DataColumn instance) =>
-    <String, dynamic>{
-      'label': instance.label,
-      'tooltip': instance.tooltip,
-      'numeric': instance.numeric,
-    };
+const _$$_DataColumnFieldMap = <String, String>{
+  'label': 'label',
+  'tooltip': 'tooltip',
+  'numeric': 'numeric',
+};
+
+Map<String, dynamic> _$$_DataColumnToJson(_$_DataColumn instance) {
+  final val = <String, dynamic>{
+    'label': instance.label,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('tooltip', instance.tooltip);
+  val['numeric'] = instance.numeric;
+  return val;
+}

@@ -1,7 +1,11 @@
-# targets:
-#   $default:
-#     builders:
-#       freezed:
-#         options:
-#           union_key: type
-#           union_value_case: pascal
+targets:
+  $default:
+    builders:
+      # freezed:
+      #   options:
+      #     union_key: runtime_type
+      #     union_value_case: snake
+      json_serializable:
+        options:
+          include_if_null: false
+          create_field_map: true

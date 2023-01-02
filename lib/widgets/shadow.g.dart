@@ -17,6 +17,13 @@ _$_Shadow _$$_ShadowFromJson(Map<String, dynamic> json) => _$_Shadow(
       $type: json['runtimeType'] as String?,
     );
 
+const _$$_ShadowFieldMap = <String, String>{
+  'color': 'color',
+  'offset': 'offset',
+  'blurRadius': 'blurRadius',
+  r'$type': 'runtimeType',
+};
+
 Map<String, dynamic> _$$_ShadowToJson(_$_Shadow instance) => <String, dynamic>{
       'color': instance.color,
       'offset': instance.offset,
@@ -37,6 +44,15 @@ _$BoxShadow _$$BoxShadowFromJson(Map<String, dynamic> json) => _$BoxShadow(
           BlurStyle.normal,
       $type: json['runtimeType'] as String?,
     );
+
+const _$$BoxShadowFieldMap = <String, String>{
+  'color': 'color',
+  'offset': 'offset',
+  'blurRadius': 'blurRadius',
+  'spreadRadius': 'spreadRadius',
+  'blurStyle': 'blurStyle',
+  r'$type': 'runtimeType',
+};
 
 Map<String, dynamic> _$$BoxShadowToJson(_$BoxShadow instance) =>
     <String, dynamic>{

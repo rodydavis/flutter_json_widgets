@@ -25,6 +25,25 @@ _$_Matrix4 _$$_Matrix4FromJson(Map<String, dynamic> json) => _$_Matrix4(
       (json['arg15'] as num).toDouble(),
     );
 
+const _$$_Matrix4FieldMap = <String, String>{
+  'arg0': 'arg0',
+  'arg1': 'arg1',
+  'arg2': 'arg2',
+  'arg3': 'arg3',
+  'arg4': 'arg4',
+  'arg5': 'arg5',
+  'arg6': 'arg6',
+  'arg7': 'arg7',
+  'arg8': 'arg8',
+  'arg9': 'arg9',
+  'arg10': 'arg10',
+  'arg11': 'arg11',
+  'arg12': 'arg12',
+  'arg13': 'arg13',
+  'arg14': 'arg14',
+  'arg15': 'arg15',
+};
+
 Map<String, dynamic> _$$_Matrix4ToJson(_$_Matrix4 instance) =>
     <String, dynamic>{
       'arg0': instance.arg0,
