@@ -166,7 +166,7 @@ FormField _$FormFieldFromJson(Map<String, dynamic> json) {
     case 'string':
       return FormStringField.fromJson(json);
     case 'bool':
-      return FormBooleanField.fromJson(json);
+      return FormBoolField.fromJson(json);
     case 'double':
       return FormDoubleField.fromJson(json);
     case 'int':
@@ -256,7 +256,7 @@ mixin _$FormField {
     required TResult Function(FormObjectField value) object,
     required TResult Function(FormMapField value) map,
     required TResult Function(FormStringField value) string,
-    required TResult Function(FormBooleanField value) bool,
+    required TResult Function(FormBoolField value) bool,
     required TResult Function(FormDoubleField value) double,
     required TResult Function(FormIntegerField value) int,
     required TResult Function(FormNumField value) num,
@@ -270,7 +270,7 @@ mixin _$FormField {
     TResult? Function(FormObjectField value)? object,
     TResult? Function(FormMapField value)? map,
     TResult? Function(FormStringField value)? string,
-    TResult? Function(FormBooleanField value)? bool,
+    TResult? Function(FormBoolField value)? bool,
     TResult? Function(FormDoubleField value)? double,
     TResult? Function(FormIntegerField value)? int,
     TResult? Function(FormNumField value)? num,
@@ -284,7 +284,7 @@ mixin _$FormField {
     TResult Function(FormObjectField value)? object,
     TResult Function(FormMapField value)? map,
     TResult Function(FormStringField value)? string,
-    TResult Function(FormBooleanField value)? bool,
+    TResult Function(FormBoolField value)? bool,
     TResult Function(FormDoubleField value)? double,
     TResult Function(FormIntegerField value)? int,
     TResult Function(FormNumField value)? num,
@@ -502,7 +502,7 @@ class _$FormObjectField implements FormObjectField {
     required TResult Function(FormObjectField value) object,
     required TResult Function(FormMapField value) map,
     required TResult Function(FormStringField value) string,
-    required TResult Function(FormBooleanField value) bool,
+    required TResult Function(FormBoolField value) bool,
     required TResult Function(FormDoubleField value) double,
     required TResult Function(FormIntegerField value) int,
     required TResult Function(FormNumField value) num,
@@ -519,7 +519,7 @@ class _$FormObjectField implements FormObjectField {
     TResult? Function(FormObjectField value)? object,
     TResult? Function(FormMapField value)? map,
     TResult? Function(FormStringField value)? string,
-    TResult? Function(FormBooleanField value)? bool,
+    TResult? Function(FormBoolField value)? bool,
     TResult? Function(FormDoubleField value)? double,
     TResult? Function(FormIntegerField value)? int,
     TResult? Function(FormNumField value)? num,
@@ -536,7 +536,7 @@ class _$FormObjectField implements FormObjectField {
     TResult Function(FormObjectField value)? object,
     TResult Function(FormMapField value)? map,
     TResult Function(FormStringField value)? string,
-    TResult Function(FormBooleanField value)? bool,
+    TResult Function(FormBoolField value)? bool,
     TResult Function(FormDoubleField value)? double,
     TResult Function(FormIntegerField value)? int,
     TResult Function(FormNumField value)? num,
@@ -759,7 +759,7 @@ class _$FormMapField implements FormMapField {
     required TResult Function(FormObjectField value) object,
     required TResult Function(FormMapField value) map,
     required TResult Function(FormStringField value) string,
-    required TResult Function(FormBooleanField value) bool,
+    required TResult Function(FormBoolField value) bool,
     required TResult Function(FormDoubleField value) double,
     required TResult Function(FormIntegerField value) int,
     required TResult Function(FormNumField value) num,
@@ -776,7 +776,7 @@ class _$FormMapField implements FormMapField {
     TResult? Function(FormObjectField value)? object,
     TResult? Function(FormMapField value)? map,
     TResult? Function(FormStringField value)? string,
-    TResult? Function(FormBooleanField value)? bool,
+    TResult? Function(FormBoolField value)? bool,
     TResult? Function(FormDoubleField value)? double,
     TResult? Function(FormIntegerField value)? int,
     TResult? Function(FormNumField value)? num,
@@ -793,7 +793,7 @@ class _$FormMapField implements FormMapField {
     TResult Function(FormObjectField value)? object,
     TResult Function(FormMapField value)? map,
     TResult Function(FormStringField value)? string,
-    TResult Function(FormBooleanField value)? bool,
+    TResult Function(FormBoolField value)? bool,
     TResult Function(FormDoubleField value)? double,
     TResult Function(FormIntegerField value)? int,
     TResult Function(FormNumField value)? num,
@@ -1004,7 +1004,7 @@ class _$FormStringField implements FormStringField {
     required TResult Function(FormObjectField value) object,
     required TResult Function(FormMapField value) map,
     required TResult Function(FormStringField value) string,
-    required TResult Function(FormBooleanField value) bool,
+    required TResult Function(FormBoolField value) bool,
     required TResult Function(FormDoubleField value) double,
     required TResult Function(FormIntegerField value) int,
     required TResult Function(FormNumField value) num,
@@ -1021,7 +1021,7 @@ class _$FormStringField implements FormStringField {
     TResult? Function(FormObjectField value)? object,
     TResult? Function(FormMapField value)? map,
     TResult? Function(FormStringField value)? string,
-    TResult? Function(FormBooleanField value)? bool,
+    TResult? Function(FormBoolField value)? bool,
     TResult? Function(FormDoubleField value)? double,
     TResult? Function(FormIntegerField value)? int,
     TResult? Function(FormNumField value)? num,
@@ -1038,7 +1038,7 @@ class _$FormStringField implements FormStringField {
     TResult Function(FormObjectField value)? object,
     TResult Function(FormMapField value)? map,
     TResult Function(FormStringField value)? string,
-    TResult Function(FormBooleanField value)? bool,
+    TResult Function(FormBoolField value)? bool,
     TResult Function(FormDoubleField value)? double,
     TResult Function(FormIntegerField value)? int,
     TResult Function(FormNumField value)? num,
@@ -1083,22 +1083,22 @@ abstract class FormStringField implements FormField {
 }
 
 /// @nodoc
-abstract class _$$FormBooleanFieldCopyWith<$Res>
+abstract class _$$FormBoolFieldCopyWith<$Res>
     implements $FormFieldCopyWith<$Res> {
-  factory _$$FormBooleanFieldCopyWith(
-          _$FormBooleanField value, $Res Function(_$FormBooleanField) then) =
-      __$$FormBooleanFieldCopyWithImpl<$Res>;
+  factory _$$FormBoolFieldCopyWith(
+          _$FormBoolField value, $Res Function(_$FormBoolField) then) =
+      __$$FormBoolFieldCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String key, String? description, bool? value});
 }
 
 /// @nodoc
-class __$$FormBooleanFieldCopyWithImpl<$Res>
-    extends _$FormFieldCopyWithImpl<$Res, _$FormBooleanField>
-    implements _$$FormBooleanFieldCopyWith<$Res> {
-  __$$FormBooleanFieldCopyWithImpl(
-      _$FormBooleanField _value, $Res Function(_$FormBooleanField) _then)
+class __$$FormBoolFieldCopyWithImpl<$Res>
+    extends _$FormFieldCopyWithImpl<$Res, _$FormBoolField>
+    implements _$$FormBoolFieldCopyWith<$Res> {
+  __$$FormBoolFieldCopyWithImpl(
+      _$FormBoolField _value, $Res Function(_$FormBoolField) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1108,7 +1108,7 @@ class __$$FormBooleanFieldCopyWithImpl<$Res>
     Object? description = freezed,
     Object? value = freezed,
   }) {
-    return _then(_$FormBooleanField(
+    return _then(_$FormBoolField(
       key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -1127,13 +1127,13 @@ class __$$FormBooleanFieldCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FormBooleanField implements FormBooleanField {
-  const _$FormBooleanField(
+class _$FormBoolField implements FormBoolField {
+  const _$FormBoolField(
       {required this.key, this.description, this.value, final String? $type})
       : $type = $type ?? 'bool';
 
-  factory _$FormBooleanField.fromJson(Map<String, dynamic> json) =>
-      _$$FormBooleanFieldFromJson(json);
+  factory _$FormBoolField.fromJson(Map<String, dynamic> json) =>
+      _$$FormBoolFieldFromJson(json);
 
   @override
   final String key;
@@ -1154,7 +1154,7 @@ class _$FormBooleanField implements FormBooleanField {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FormBooleanField &&
+            other is _$FormBoolField &&
             (identical(other.key, key) || other.key == key) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -1168,8 +1168,8 @@ class _$FormBooleanField implements FormBooleanField {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FormBooleanFieldCopyWith<_$FormBooleanField> get copyWith =>
-      __$$FormBooleanFieldCopyWithImpl<_$FormBooleanField>(this, _$identity);
+  _$$FormBoolFieldCopyWith<_$FormBoolField> get copyWith =>
+      __$$FormBoolFieldCopyWithImpl<_$FormBoolField>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1249,7 +1249,7 @@ class _$FormBooleanField implements FormBooleanField {
     required TResult Function(FormObjectField value) object,
     required TResult Function(FormMapField value) map,
     required TResult Function(FormStringField value) string,
-    required TResult Function(FormBooleanField value) bool,
+    required TResult Function(FormBoolField value) bool,
     required TResult Function(FormDoubleField value) double,
     required TResult Function(FormIntegerField value) int,
     required TResult Function(FormNumField value) num,
@@ -1266,7 +1266,7 @@ class _$FormBooleanField implements FormBooleanField {
     TResult? Function(FormObjectField value)? object,
     TResult? Function(FormMapField value)? map,
     TResult? Function(FormStringField value)? string,
-    TResult? Function(FormBooleanField value)? bool,
+    TResult? Function(FormBoolField value)? bool,
     TResult? Function(FormDoubleField value)? double,
     TResult? Function(FormIntegerField value)? int,
     TResult? Function(FormNumField value)? num,
@@ -1283,7 +1283,7 @@ class _$FormBooleanField implements FormBooleanField {
     TResult Function(FormObjectField value)? object,
     TResult Function(FormMapField value)? map,
     TResult Function(FormStringField value)? string,
-    TResult Function(FormBooleanField value)? bool,
+    TResult Function(FormBoolField value)? bool,
     TResult Function(FormDoubleField value)? double,
     TResult Function(FormIntegerField value)? int,
     TResult Function(FormNumField value)? num,
@@ -1300,20 +1300,20 @@ class _$FormBooleanField implements FormBooleanField {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FormBooleanFieldToJson(
+    return _$$FormBoolFieldToJson(
       this,
     );
   }
 }
 
-abstract class FormBooleanField implements FormField {
-  const factory FormBooleanField(
+abstract class FormBoolField implements FormField {
+  const factory FormBoolField(
       {required final String key,
       final String? description,
-      final bool? value}) = _$FormBooleanField;
+      final bool? value}) = _$FormBoolField;
 
-  factory FormBooleanField.fromJson(Map<String, dynamic> json) =
-      _$FormBooleanField.fromJson;
+  factory FormBoolField.fromJson(Map<String, dynamic> json) =
+      _$FormBoolField.fromJson;
 
   @override
   String get key;
@@ -1323,7 +1323,7 @@ abstract class FormBooleanField implements FormField {
   bool? get value;
   @override
   @JsonKey(ignore: true)
-  _$$FormBooleanFieldCopyWith<_$FormBooleanField> get copyWith =>
+  _$$FormBoolFieldCopyWith<_$FormBoolField> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1494,7 +1494,7 @@ class _$FormDoubleField implements FormDoubleField {
     required TResult Function(FormObjectField value) object,
     required TResult Function(FormMapField value) map,
     required TResult Function(FormStringField value) string,
-    required TResult Function(FormBooleanField value) bool,
+    required TResult Function(FormBoolField value) bool,
     required TResult Function(FormDoubleField value) double,
     required TResult Function(FormIntegerField value) int,
     required TResult Function(FormNumField value) num,
@@ -1511,7 +1511,7 @@ class _$FormDoubleField implements FormDoubleField {
     TResult? Function(FormObjectField value)? object,
     TResult? Function(FormMapField value)? map,
     TResult? Function(FormStringField value)? string,
-    TResult? Function(FormBooleanField value)? bool,
+    TResult? Function(FormBoolField value)? bool,
     TResult? Function(FormDoubleField value)? double,
     TResult? Function(FormIntegerField value)? int,
     TResult? Function(FormNumField value)? num,
@@ -1528,7 +1528,7 @@ class _$FormDoubleField implements FormDoubleField {
     TResult Function(FormObjectField value)? object,
     TResult Function(FormMapField value)? map,
     TResult Function(FormStringField value)? string,
-    TResult Function(FormBooleanField value)? bool,
+    TResult Function(FormBoolField value)? bool,
     TResult Function(FormDoubleField value)? double,
     TResult Function(FormIntegerField value)? int,
     TResult Function(FormNumField value)? num,
@@ -1739,7 +1739,7 @@ class _$FormIntegerField implements FormIntegerField {
     required TResult Function(FormObjectField value) object,
     required TResult Function(FormMapField value) map,
     required TResult Function(FormStringField value) string,
-    required TResult Function(FormBooleanField value) bool,
+    required TResult Function(FormBoolField value) bool,
     required TResult Function(FormDoubleField value) double,
     required TResult Function(FormIntegerField value) int,
     required TResult Function(FormNumField value) num,
@@ -1756,7 +1756,7 @@ class _$FormIntegerField implements FormIntegerField {
     TResult? Function(FormObjectField value)? object,
     TResult? Function(FormMapField value)? map,
     TResult? Function(FormStringField value)? string,
-    TResult? Function(FormBooleanField value)? bool,
+    TResult? Function(FormBoolField value)? bool,
     TResult? Function(FormDoubleField value)? double,
     TResult? Function(FormIntegerField value)? int,
     TResult? Function(FormNumField value)? num,
@@ -1773,7 +1773,7 @@ class _$FormIntegerField implements FormIntegerField {
     TResult Function(FormObjectField value)? object,
     TResult Function(FormMapField value)? map,
     TResult Function(FormStringField value)? string,
-    TResult Function(FormBooleanField value)? bool,
+    TResult Function(FormBoolField value)? bool,
     TResult Function(FormDoubleField value)? double,
     TResult Function(FormIntegerField value)? int,
     TResult Function(FormNumField value)? num,
@@ -1984,7 +1984,7 @@ class _$FormNumField implements FormNumField {
     required TResult Function(FormObjectField value) object,
     required TResult Function(FormMapField value) map,
     required TResult Function(FormStringField value) string,
-    required TResult Function(FormBooleanField value) bool,
+    required TResult Function(FormBoolField value) bool,
     required TResult Function(FormDoubleField value) double,
     required TResult Function(FormIntegerField value) int,
     required TResult Function(FormNumField value) num,
@@ -2001,7 +2001,7 @@ class _$FormNumField implements FormNumField {
     TResult? Function(FormObjectField value)? object,
     TResult? Function(FormMapField value)? map,
     TResult? Function(FormStringField value)? string,
-    TResult? Function(FormBooleanField value)? bool,
+    TResult? Function(FormBoolField value)? bool,
     TResult? Function(FormDoubleField value)? double,
     TResult? Function(FormIntegerField value)? int,
     TResult? Function(FormNumField value)? num,
@@ -2018,7 +2018,7 @@ class _$FormNumField implements FormNumField {
     TResult Function(FormObjectField value)? object,
     TResult Function(FormMapField value)? map,
     TResult Function(FormStringField value)? string,
-    TResult Function(FormBooleanField value)? bool,
+    TResult Function(FormBoolField value)? bool,
     TResult Function(FormDoubleField value)? double,
     TResult Function(FormIntegerField value)? int,
     TResult Function(FormNumField value)? num,
@@ -2229,7 +2229,7 @@ class _$FormDateTimeField implements FormDateTimeField {
     required TResult Function(FormObjectField value) object,
     required TResult Function(FormMapField value) map,
     required TResult Function(FormStringField value) string,
-    required TResult Function(FormBooleanField value) bool,
+    required TResult Function(FormBoolField value) bool,
     required TResult Function(FormDoubleField value) double,
     required TResult Function(FormIntegerField value) int,
     required TResult Function(FormNumField value) num,
@@ -2246,7 +2246,7 @@ class _$FormDateTimeField implements FormDateTimeField {
     TResult? Function(FormObjectField value)? object,
     TResult? Function(FormMapField value)? map,
     TResult? Function(FormStringField value)? string,
-    TResult? Function(FormBooleanField value)? bool,
+    TResult? Function(FormBoolField value)? bool,
     TResult? Function(FormDoubleField value)? double,
     TResult? Function(FormIntegerField value)? int,
     TResult? Function(FormNumField value)? num,
@@ -2263,7 +2263,7 @@ class _$FormDateTimeField implements FormDateTimeField {
     TResult Function(FormObjectField value)? object,
     TResult Function(FormMapField value)? map,
     TResult Function(FormStringField value)? string,
-    TResult Function(FormBooleanField value)? bool,
+    TResult Function(FormBoolField value)? bool,
     TResult Function(FormDoubleField value)? double,
     TResult Function(FormIntegerField value)? int,
     TResult Function(FormNumField value)? num,
@@ -2474,7 +2474,7 @@ class _$FormDurationField implements FormDurationField {
     required TResult Function(FormObjectField value) object,
     required TResult Function(FormMapField value) map,
     required TResult Function(FormStringField value) string,
-    required TResult Function(FormBooleanField value) bool,
+    required TResult Function(FormBoolField value) bool,
     required TResult Function(FormDoubleField value) double,
     required TResult Function(FormIntegerField value) int,
     required TResult Function(FormNumField value) num,
@@ -2491,7 +2491,7 @@ class _$FormDurationField implements FormDurationField {
     TResult? Function(FormObjectField value)? object,
     TResult? Function(FormMapField value)? map,
     TResult? Function(FormStringField value)? string,
-    TResult? Function(FormBooleanField value)? bool,
+    TResult? Function(FormBoolField value)? bool,
     TResult? Function(FormDoubleField value)? double,
     TResult? Function(FormIntegerField value)? int,
     TResult? Function(FormNumField value)? num,
@@ -2508,7 +2508,7 @@ class _$FormDurationField implements FormDurationField {
     TResult Function(FormObjectField value)? object,
     TResult Function(FormMapField value)? map,
     TResult Function(FormStringField value)? string,
-    TResult Function(FormBooleanField value)? bool,
+    TResult Function(FormBoolField value)? bool,
     TResult Function(FormDoubleField value)? double,
     TResult Function(FormIntegerField value)? int,
     TResult Function(FormNumField value)? num,
@@ -2733,7 +2733,7 @@ class _$FormColorField implements FormColorField {
     required TResult Function(FormObjectField value) object,
     required TResult Function(FormMapField value) map,
     required TResult Function(FormStringField value) string,
-    required TResult Function(FormBooleanField value) bool,
+    required TResult Function(FormBoolField value) bool,
     required TResult Function(FormDoubleField value) double,
     required TResult Function(FormIntegerField value) int,
     required TResult Function(FormNumField value) num,
@@ -2750,7 +2750,7 @@ class _$FormColorField implements FormColorField {
     TResult? Function(FormObjectField value)? object,
     TResult? Function(FormMapField value)? map,
     TResult? Function(FormStringField value)? string,
-    TResult? Function(FormBooleanField value)? bool,
+    TResult? Function(FormBoolField value)? bool,
     TResult? Function(FormDoubleField value)? double,
     TResult? Function(FormIntegerField value)? int,
     TResult? Function(FormNumField value)? num,
@@ -2767,7 +2767,7 @@ class _$FormColorField implements FormColorField {
     TResult Function(FormObjectField value)? object,
     TResult Function(FormMapField value)? map,
     TResult Function(FormStringField value)? string,
-    TResult Function(FormBooleanField value)? bool,
+    TResult Function(FormBoolField value)? bool,
     TResult Function(FormDoubleField value)? double,
     TResult Function(FormIntegerField value)? int,
     TResult Function(FormNumField value)? num,

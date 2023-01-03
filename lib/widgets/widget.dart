@@ -9,6 +9,7 @@ import 'curves.dart';
 import 'data_column.dart';
 import 'data_row.dart';
 import 'decoration.dart';
+import 'dropdown_menu_item.dart';
 import 'edge_insets.dart';
 import 'enums.dart';
 import 'floating_action_button_location.dart';
@@ -16,6 +17,7 @@ import 'icon_data.dart';
 import 'icon_theme_data.dart';
 import 'image_provider.dart';
 import 'inline_span.dart';
+import 'input_decoration.dart';
 import 'key.dart';
 import 'locale.dart';
 import 'matrix_4.dart';
@@ -23,6 +25,7 @@ import 'mouse_cursor.dart';
 import 'navigation_rail_destination.dart';
 import 'network_request.dart';
 import 'offset.dart';
+import 'popup_menu_entry.dart';
 import 'preferred_size_widget.dart';
 import 'radius.dart';
 import 'rect.dart';
@@ -37,7 +40,10 @@ import 'sliver_grid_delegate.dart';
 import 'strut_style.dart';
 import 'table_column_width.dart';
 import 'table_row.dart';
+import 'text_align_vertical.dart';
 import 'text_height_behavior.dart';
+import 'text_input_formatter.dart';
+import 'text_input_type.dart';
 import 'text_style.dart';
 import 'theme_data.dart';
 import 'visual_density.dart';
@@ -855,7 +861,7 @@ class Widget with _$Widget {
     Key? key,
     required bool? value,
     @Default(false) bool tristate,
-    FormBooleanField? field,
+    FormBoolField? field,
     MouseCursor? mouseCursor,
     Color? activeColor,
     MaterialStateProperty? fillColor,
@@ -1153,11 +1159,150 @@ class Widget with _$Widget {
     Set<PointerDeviceKind>? supportedDevices,
   }) = GestureDetector;
 
+  const factory Widget.textFormField({
+    Key? key,
+    String? initialValue,
+    FormStringField? field,
+    @Default(InputDecoration()) InputDecoration? decoration,
+    TextInputType? keyboardType,
+    @Default(TextCapitalization.none) TextCapitalization textCapitalization,
+    TextInputAction? textInputAction,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextDirection? textDirection,
+    @Default(TextAlign.start) TextAlign textAlign,
+    TextAlignVertical? textAlignVertical,
+    @Default(false) bool autofocus,
+    @Default(false) bool readOnly,
+    bool? showCursor,
+    @Default('•') String obscuringCharacter,
+    @Default(false) bool obscureText,
+    @Default(true) bool autocorrect,
+    SmartDashesType? smartDashesType,
+    SmartQuotesType? smartQuotesType,
+    @Default(true) bool enableSuggestions,
+    MaxLengthEnforcement? maxLengthEnforcement,
+    @Default(1) int? maxLines,
+    int? minLines,
+    @Default(false) bool expands,
+    int? maxLength,
+    Callback? onTap,
+    Map<String, String>? validatorMessages,
+    Callback? onEditingComplete,
+    List<TextInputFormatter>? inputFormatters,
+    bool? enabled,
+    @Default(2.0) double cursorWidth,
+    double? cursorHeight,
+    Radius? cursorRadius,
+    Color? cursorColor,
+    Brightness? keyboardAppearance,
+    @Default(EdgeInsets.all(20.0)) EdgeInsets scrollPadding,
+    bool? enableInteractiveSelection,
+    ScrollPhysics? scrollPhysics,
+    Iterable<String>? autofillHints,
+    AutovalidateMode? autovalidateMode,
+    String? restorationId,
+    @Default(true) bool enableIMEPersonalizedLearning,
+    MouseCursor? mouseCursor,
+  }) = TextFormField;
+
+  const factory Widget.materialSwitch({
+    Key? key,
+    required bool value,
+    FormBoolField? field,
+    Color? activeColor,
+    Color? activeTrackColor,
+    Color? inactiveThumbColor,
+    Color? inactiveTrackColor,
+    ImageProvider? activeThumbImage,
+    ImageProvider? inactiveThumbImage,
+    MaterialStateProperty? thumbColor,
+    MaterialStateProperty? trackColor,
+    MaterialTapTargetSize? materialTapTargetSize,
+    @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,
+    MouseCursor? mouseCursor,
+    Color? focusColor,
+    Color? hoverColor,
+    MaterialStateProperty? overlayColor,
+    double? splashRadius,
+    BoolSelectionCallback? onFocusChange,
+    @Default(false) bool autofocus,
+  }) = Switch;
+
+  const factory Widget.inputDatePickerFormField({
+    Key? key,
+    DateTime? initialDate,
+    required DateTime firstDate,
+    required DateTime lastDate,
+    FormDateTimeField? field,
+    String? errorFormatText,
+    String? errorInvalidText,
+    String? fieldHintText,
+    String? fieldLabelText,
+    TextInputType? keyboardType,
+    @Default(false) bool autofocus,
+  }) = InputDatePickerFormField;
+
+  const factory Widget.dropdownButtonFormField({
+    Key? key,
+    FormStringField? field,
+    required List<DropdownMenuItem> items,
+    String? value,
+    Widget? hint,
+    Widget? disabledHint,
+    Callback? onTap,
+    @Default(8) int elevation,
+    TextStyle? style,
+    Widget? icon,
+    Color? iconDisabledColor,
+    Color? iconEnabledColor,
+    @Default(24.0) double iconSize,
+    @Default(true) bool isDense,
+    @Default(false) bool isExpanded,
+    double? itemHeight,
+    Color? focusColor,
+    @Default(false) bool autofocus,
+    Color? dropdownColor,
+    InputDecoration? decoration,
+    Map<String, String>? validatorMessages,
+    AutovalidateMode? autovalidateMode,
+    double? menuMaxHeight,
+    bool? enableFeedback,
+    @Default(Alignment.centerLeft) Alignment alignment,
+    BorderRadius? borderRadius,
+  }) = DropdownButtonFormField;
+
+  const factory Widget.popupMenuButton({
+    Key? key,
+    required List<PopupMenuEntry> items,
+    String? initialValue,
+    Callback? onOpened,
+    FormStringField? field,
+    Callback? onCanceled,
+    String? tooltip,
+    double? elevation,
+    Color? shadowColor,
+    Color? surfaceTintColor,
+    @Default(EdgeInsets.all(8.0)) EdgeInsets padding,
+    Widget? child,
+    double? splashRadius,
+    Widget? icon,
+    double? iconSize,
+    @Default(Offset.zero) Offset offset,
+    @Default(true) bool enabled,
+    ShapeBorder? shape,
+    Color? color,
+    bool? enableFeedback,
+    BoxConstraints? constraints,
+    PopupMenuPosition? position,
+    @Default(Clip.none) Clip clipBehavior,
+  }) = PopupMenuButton;
+
   const factory Widget.ignorePointer({
-     Key? key,
-  @Default(true) bool ignoring ,
-  bool? ignoringSemantics,
-  Widget? child,
+    Key? key,
+    @Default(true) bool ignoring,
+    bool? ignoringSemantics,
+    Widget? child,
   }) = IgnorePointer;
 
   const factory Widget.responsive({

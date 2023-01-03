@@ -65,12 +65,14 @@ _$FormSubmitNetworkRequest _$$FormSubmitNetworkRequestFromJson(
             (k, e) => MapEntry(k, e as String),
           ) ??
           const {},
+      validate: json['validate'] as bool? ?? false,
       $type: json['runtimeType'] as String?,
     );
 
 const _$$FormSubmitNetworkRequestFieldMap = <String, String>{
   'url': 'url',
   'headers': 'headers',
+  'validate': 'validate',
   r'$type': 'runtimeType',
 };
 
@@ -79,5 +81,6 @@ Map<String, dynamic> _$$FormSubmitNetworkRequestToJson(
     <String, dynamic>{
       'url': instance.url,
       'headers': instance.headers,
+      'validate': instance.validate,
       'runtimeType': instance.$type,
     };

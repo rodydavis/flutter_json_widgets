@@ -4126,7 +4126,7 @@ _$Checkbox _$$CheckboxFromJson(Map<String, dynamic> json) => _$Checkbox(
       tristate: json['tristate'] as bool? ?? false,
       field: json['field'] == null
           ? null
-          : FormBooleanField.fromJson(json['field'] as Map<String, dynamic>),
+          : FormBoolField.fromJson(json['field'] as Map<String, dynamic>),
       mouseCursor: json['mouseCursor'] == null
           ? null
           : MouseCursor.fromJson(json['mouseCursor'] as Map<String, dynamic>),
@@ -5695,6 +5695,711 @@ const _$PointerDeviceKindEnumMap = {
   PointerDeviceKind.invertedStylus: 'invertedStylus',
   PointerDeviceKind.trackpad: 'trackpad',
   PointerDeviceKind.unknown: 'unknown',
+};
+
+_$TextFormField _$$TextFormFieldFromJson(Map<String, dynamic> json) =>
+    _$TextFormField(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      initialValue: json['initialValue'] as String?,
+      field: json['field'] == null
+          ? null
+          : FormStringField.fromJson(json['field'] as Map<String, dynamic>),
+      decoration: json['decoration'] == null
+          ? const InputDecoration()
+          : InputDecoration.fromJson(
+              json['decoration'] as Map<String, dynamic>),
+      keyboardType: json['keyboardType'] == null
+          ? null
+          : TextInputType.fromJson(
+              json['keyboardType'] as Map<String, dynamic>),
+      textCapitalization: $enumDecodeNullable(
+              _$TextCapitalizationEnumMap, json['textCapitalization']) ??
+          TextCapitalization.none,
+      textInputAction: $enumDecodeNullable(
+          _$TextInputActionEnumMap, json['textInputAction']),
+      style: json['style'] == null
+          ? null
+          : TextStyle.fromJson(json['style'] as Map<String, dynamic>),
+      strutStyle: json['strutStyle'] == null
+          ? null
+          : StrutStyle.fromJson(json['strutStyle'] as Map<String, dynamic>),
+      textDirection:
+          $enumDecodeNullable(_$TextDirectionEnumMap, json['textDirection']),
+      textAlign: $enumDecodeNullable(_$TextAlignEnumMap, json['textAlign']) ??
+          TextAlign.start,
+      textAlignVertical: json['textAlignVertical'] == null
+          ? null
+          : TextAlignVertical.fromJson(
+              json['textAlignVertical'] as Map<String, dynamic>),
+      autofocus: json['autofocus'] as bool? ?? false,
+      readOnly: json['readOnly'] as bool? ?? false,
+      showCursor: json['showCursor'] as bool?,
+      obscuringCharacter: json['obscuringCharacter'] as String? ?? '•',
+      obscureText: json['obscureText'] as bool? ?? false,
+      autocorrect: json['autocorrect'] as bool? ?? true,
+      smartDashesType: $enumDecodeNullable(
+          _$SmartDashesTypeEnumMap, json['smartDashesType']),
+      smartQuotesType: $enumDecodeNullable(
+          _$SmartQuotesTypeEnumMap, json['smartQuotesType']),
+      enableSuggestions: json['enableSuggestions'] as bool? ?? true,
+      maxLengthEnforcement: $enumDecodeNullable(
+          _$MaxLengthEnforcementEnumMap, json['maxLengthEnforcement']),
+      maxLines: json['maxLines'] as int? ?? 1,
+      minLines: json['minLines'] as int?,
+      expands: json['expands'] as bool? ?? false,
+      maxLength: json['maxLength'] as int?,
+      onTap: json['onTap'] == null
+          ? null
+          : Callback.fromJson(json['onTap'] as Map<String, dynamic>),
+      validatorMessages:
+          (json['validatorMessages'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
+      onEditingComplete: json['onEditingComplete'] == null
+          ? null
+          : Callback.fromJson(
+              json['onEditingComplete'] as Map<String, dynamic>),
+      inputFormatters: (json['inputFormatters'] as List<dynamic>?)
+          ?.map((e) => TextInputFormatter.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      enabled: json['enabled'] as bool?,
+      cursorWidth: (json['cursorWidth'] as num?)?.toDouble() ?? 2.0,
+      cursorHeight: (json['cursorHeight'] as num?)?.toDouble(),
+      cursorRadius: json['cursorRadius'] == null
+          ? null
+          : Radius.fromJson(json['cursorRadius'] as Map<String, dynamic>),
+      cursorColor: json['cursorColor'] == null
+          ? null
+          : Color.fromJson(json['cursorColor'] as Map<String, dynamic>),
+      keyboardAppearance:
+          $enumDecodeNullable(_$BrightnessEnumMap, json['keyboardAppearance']),
+      scrollPadding: json['scrollPadding'] == null
+          ? const EdgeInsets.all(20.0)
+          : EdgeInsets.fromJson(json['scrollPadding'] as Map<String, dynamic>),
+      enableInteractiveSelection: json['enableInteractiveSelection'] as bool?,
+      scrollPhysics: json['scrollPhysics'] == null
+          ? null
+          : ScrollPhysics.fromJson(
+              json['scrollPhysics'] as Map<String, dynamic>),
+      autofillHints:
+          (json['autofillHints'] as List<dynamic>?)?.map((e) => e as String),
+      autovalidateMode: $enumDecodeNullable(
+          _$AutovalidateModeEnumMap, json['autovalidateMode']),
+      restorationId: json['restorationId'] as String?,
+      enableIMEPersonalizedLearning:
+          json['enableIMEPersonalizedLearning'] as bool? ?? true,
+      mouseCursor: json['mouseCursor'] == null
+          ? null
+          : MouseCursor.fromJson(json['mouseCursor'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$TextFormFieldFieldMap = <String, String>{
+  'key': 'key',
+  'initialValue': 'initialValue',
+  'field': 'field',
+  'decoration': 'decoration',
+  'keyboardType': 'keyboardType',
+  'textCapitalization': 'textCapitalization',
+  'textInputAction': 'textInputAction',
+  'style': 'style',
+  'strutStyle': 'strutStyle',
+  'textDirection': 'textDirection',
+  'textAlign': 'textAlign',
+  'textAlignVertical': 'textAlignVertical',
+  'autofocus': 'autofocus',
+  'readOnly': 'readOnly',
+  'showCursor': 'showCursor',
+  'obscuringCharacter': 'obscuringCharacter',
+  'obscureText': 'obscureText',
+  'autocorrect': 'autocorrect',
+  'smartDashesType': 'smartDashesType',
+  'smartQuotesType': 'smartQuotesType',
+  'enableSuggestions': 'enableSuggestions',
+  'maxLengthEnforcement': 'maxLengthEnforcement',
+  'maxLines': 'maxLines',
+  'minLines': 'minLines',
+  'expands': 'expands',
+  'maxLength': 'maxLength',
+  'onTap': 'onTap',
+  'validatorMessages': 'validatorMessages',
+  'onEditingComplete': 'onEditingComplete',
+  'inputFormatters': 'inputFormatters',
+  'enabled': 'enabled',
+  'cursorWidth': 'cursorWidth',
+  'cursorHeight': 'cursorHeight',
+  'cursorRadius': 'cursorRadius',
+  'cursorColor': 'cursorColor',
+  'keyboardAppearance': 'keyboardAppearance',
+  'scrollPadding': 'scrollPadding',
+  'enableInteractiveSelection': 'enableInteractiveSelection',
+  'scrollPhysics': 'scrollPhysics',
+  'autofillHints': 'autofillHints',
+  'autovalidateMode': 'autovalidateMode',
+  'restorationId': 'restorationId',
+  'enableIMEPersonalizedLearning': 'enableIMEPersonalizedLearning',
+  'mouseCursor': 'mouseCursor',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$TextFormFieldToJson(_$TextFormField instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('initialValue', instance.initialValue);
+  writeNotNull('field', instance.field);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('keyboardType', instance.keyboardType);
+  val['textCapitalization'] =
+      _$TextCapitalizationEnumMap[instance.textCapitalization]!;
+  writeNotNull(
+      'textInputAction', _$TextInputActionEnumMap[instance.textInputAction]);
+  writeNotNull('style', instance.style);
+  writeNotNull('strutStyle', instance.strutStyle);
+  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
+  val['textAlign'] = _$TextAlignEnumMap[instance.textAlign]!;
+  writeNotNull('textAlignVertical', instance.textAlignVertical);
+  val['autofocus'] = instance.autofocus;
+  val['readOnly'] = instance.readOnly;
+  writeNotNull('showCursor', instance.showCursor);
+  val['obscuringCharacter'] = instance.obscuringCharacter;
+  val['obscureText'] = instance.obscureText;
+  val['autocorrect'] = instance.autocorrect;
+  writeNotNull(
+      'smartDashesType', _$SmartDashesTypeEnumMap[instance.smartDashesType]);
+  writeNotNull(
+      'smartQuotesType', _$SmartQuotesTypeEnumMap[instance.smartQuotesType]);
+  val['enableSuggestions'] = instance.enableSuggestions;
+  writeNotNull('maxLengthEnforcement',
+      _$MaxLengthEnforcementEnumMap[instance.maxLengthEnforcement]);
+  writeNotNull('maxLines', instance.maxLines);
+  writeNotNull('minLines', instance.minLines);
+  val['expands'] = instance.expands;
+  writeNotNull('maxLength', instance.maxLength);
+  writeNotNull('onTap', instance.onTap);
+  writeNotNull('validatorMessages', instance.validatorMessages);
+  writeNotNull('onEditingComplete', instance.onEditingComplete);
+  writeNotNull('inputFormatters', instance.inputFormatters);
+  writeNotNull('enabled', instance.enabled);
+  val['cursorWidth'] = instance.cursorWidth;
+  writeNotNull('cursorHeight', instance.cursorHeight);
+  writeNotNull('cursorRadius', instance.cursorRadius);
+  writeNotNull('cursorColor', instance.cursorColor);
+  writeNotNull(
+      'keyboardAppearance', _$BrightnessEnumMap[instance.keyboardAppearance]);
+  val['scrollPadding'] = instance.scrollPadding;
+  writeNotNull(
+      'enableInteractiveSelection', instance.enableInteractiveSelection);
+  writeNotNull('scrollPhysics', instance.scrollPhysics);
+  writeNotNull('autofillHints', instance.autofillHints?.toList());
+  writeNotNull(
+      'autovalidateMode', _$AutovalidateModeEnumMap[instance.autovalidateMode]);
+  writeNotNull('restorationId', instance.restorationId);
+  val['enableIMEPersonalizedLearning'] = instance.enableIMEPersonalizedLearning;
+  writeNotNull('mouseCursor', instance.mouseCursor);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+const _$TextCapitalizationEnumMap = {
+  TextCapitalization.words: 'words',
+  TextCapitalization.sentences: 'sentences',
+  TextCapitalization.characters: 'characters',
+  TextCapitalization.none: 'none',
+};
+
+const _$TextInputActionEnumMap = {
+  TextInputAction.none: 'none',
+  TextInputAction.unspecified: 'unspecified',
+  TextInputAction.done: 'done',
+  TextInputAction.go: 'go',
+  TextInputAction.search: 'search',
+  TextInputAction.send: 'send',
+  TextInputAction.next: 'next',
+  TextInputAction.previous: 'previous',
+  TextInputAction.continueAction: 'continueAction',
+  TextInputAction.join: 'join',
+  TextInputAction.route: 'route',
+  TextInputAction.emergencyCall: 'emergencyCall',
+  TextInputAction.newline: 'newline',
+};
+
+const _$SmartDashesTypeEnumMap = {
+  SmartDashesType.disabled: 'disabled',
+  SmartDashesType.enabled: 'enabled',
+};
+
+const _$SmartQuotesTypeEnumMap = {
+  SmartQuotesType.disabled: 'disabled',
+  SmartQuotesType.enabled: 'enabled',
+};
+
+const _$MaxLengthEnforcementEnumMap = {
+  MaxLengthEnforcement.none: 'none',
+  MaxLengthEnforcement.enforced: 'enforced',
+  MaxLengthEnforcement.truncateAfterCompositionEnds:
+      'truncateAfterCompositionEnds',
+};
+
+_$Switch _$$SwitchFromJson(Map<String, dynamic> json) => _$Switch(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      value: json['value'] as bool,
+      field: json['field'] == null
+          ? null
+          : FormBoolField.fromJson(json['field'] as Map<String, dynamic>),
+      activeColor: json['activeColor'] == null
+          ? null
+          : Color.fromJson(json['activeColor'] as Map<String, dynamic>),
+      activeTrackColor: json['activeTrackColor'] == null
+          ? null
+          : Color.fromJson(json['activeTrackColor'] as Map<String, dynamic>),
+      inactiveThumbColor: json['inactiveThumbColor'] == null
+          ? null
+          : Color.fromJson(json['inactiveThumbColor'] as Map<String, dynamic>),
+      inactiveTrackColor: json['inactiveTrackColor'] == null
+          ? null
+          : Color.fromJson(json['inactiveTrackColor'] as Map<String, dynamic>),
+      activeThumbImage: json['activeThumbImage'] == null
+          ? null
+          : ImageProvider.fromJson(
+              json['activeThumbImage'] as Map<String, dynamic>),
+      inactiveThumbImage: json['inactiveThumbImage'] == null
+          ? null
+          : ImageProvider.fromJson(
+              json['inactiveThumbImage'] as Map<String, dynamic>),
+      thumbColor: json['thumbColor'] == null
+          ? null
+          : MaterialStateProperty.fromJson(
+              json['thumbColor'] as Map<String, dynamic>),
+      trackColor: json['trackColor'] == null
+          ? null
+          : MaterialStateProperty.fromJson(
+              json['trackColor'] as Map<String, dynamic>),
+      materialTapTargetSize: $enumDecodeNullable(
+          _$MaterialTapTargetSizeEnumMap, json['materialTapTargetSize']),
+      dragStartBehavior: $enumDecodeNullable(
+              _$DragStartBehaviorEnumMap, json['dragStartBehavior']) ??
+          DragStartBehavior.start,
+      mouseCursor: json['mouseCursor'] == null
+          ? null
+          : MouseCursor.fromJson(json['mouseCursor'] as Map<String, dynamic>),
+      focusColor: json['focusColor'] == null
+          ? null
+          : Color.fromJson(json['focusColor'] as Map<String, dynamic>),
+      hoverColor: json['hoverColor'] == null
+          ? null
+          : Color.fromJson(json['hoverColor'] as Map<String, dynamic>),
+      overlayColor: json['overlayColor'] == null
+          ? null
+          : MaterialStateProperty.fromJson(
+              json['overlayColor'] as Map<String, dynamic>),
+      splashRadius: (json['splashRadius'] as num?)?.toDouble(),
+      onFocusChange: json['onFocusChange'] == null
+          ? null
+          : BoolSelectionCallback.fromJson(
+              json['onFocusChange'] as Map<String, dynamic>),
+      autofocus: json['autofocus'] as bool? ?? false,
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$SwitchFieldMap = <String, String>{
+  'key': 'key',
+  'value': 'value',
+  'field': 'field',
+  'activeColor': 'activeColor',
+  'activeTrackColor': 'activeTrackColor',
+  'inactiveThumbColor': 'inactiveThumbColor',
+  'inactiveTrackColor': 'inactiveTrackColor',
+  'activeThumbImage': 'activeThumbImage',
+  'inactiveThumbImage': 'inactiveThumbImage',
+  'thumbColor': 'thumbColor',
+  'trackColor': 'trackColor',
+  'materialTapTargetSize': 'materialTapTargetSize',
+  'dragStartBehavior': 'dragStartBehavior',
+  'mouseCursor': 'mouseCursor',
+  'focusColor': 'focusColor',
+  'hoverColor': 'hoverColor',
+  'overlayColor': 'overlayColor',
+  'splashRadius': 'splashRadius',
+  'onFocusChange': 'onFocusChange',
+  'autofocus': 'autofocus',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$SwitchToJson(_$Switch instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  val['value'] = instance.value;
+  writeNotNull('field', instance.field);
+  writeNotNull('activeColor', instance.activeColor);
+  writeNotNull('activeTrackColor', instance.activeTrackColor);
+  writeNotNull('inactiveThumbColor', instance.inactiveThumbColor);
+  writeNotNull('inactiveTrackColor', instance.inactiveTrackColor);
+  writeNotNull('activeThumbImage', instance.activeThumbImage);
+  writeNotNull('inactiveThumbImage', instance.inactiveThumbImage);
+  writeNotNull('thumbColor', instance.thumbColor);
+  writeNotNull('trackColor', instance.trackColor);
+  writeNotNull('materialTapTargetSize',
+      _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize]);
+  val['dragStartBehavior'] =
+      _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!;
+  writeNotNull('mouseCursor', instance.mouseCursor);
+  writeNotNull('focusColor', instance.focusColor);
+  writeNotNull('hoverColor', instance.hoverColor);
+  writeNotNull('overlayColor', instance.overlayColor);
+  writeNotNull('splashRadius', instance.splashRadius);
+  writeNotNull('onFocusChange', instance.onFocusChange);
+  val['autofocus'] = instance.autofocus;
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$InputDatePickerFormField _$$InputDatePickerFormFieldFromJson(
+        Map<String, dynamic> json) =>
+    _$InputDatePickerFormField(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      initialDate: json['initialDate'] == null
+          ? null
+          : DateTime.parse(json['initialDate'] as String),
+      firstDate: DateTime.parse(json['firstDate'] as String),
+      lastDate: DateTime.parse(json['lastDate'] as String),
+      field: json['field'] == null
+          ? null
+          : FormDateTimeField.fromJson(json['field'] as Map<String, dynamic>),
+      errorFormatText: json['errorFormatText'] as String?,
+      errorInvalidText: json['errorInvalidText'] as String?,
+      fieldHintText: json['fieldHintText'] as String?,
+      fieldLabelText: json['fieldLabelText'] as String?,
+      keyboardType: json['keyboardType'] == null
+          ? null
+          : TextInputType.fromJson(
+              json['keyboardType'] as Map<String, dynamic>),
+      autofocus: json['autofocus'] as bool? ?? false,
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$InputDatePickerFormFieldFieldMap = <String, String>{
+  'key': 'key',
+  'initialDate': 'initialDate',
+  'firstDate': 'firstDate',
+  'lastDate': 'lastDate',
+  'field': 'field',
+  'errorFormatText': 'errorFormatText',
+  'errorInvalidText': 'errorInvalidText',
+  'fieldHintText': 'fieldHintText',
+  'fieldLabelText': 'fieldLabelText',
+  'keyboardType': 'keyboardType',
+  'autofocus': 'autofocus',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$InputDatePickerFormFieldToJson(
+    _$InputDatePickerFormField instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('initialDate', instance.initialDate?.toIso8601String());
+  val['firstDate'] = instance.firstDate.toIso8601String();
+  val['lastDate'] = instance.lastDate.toIso8601String();
+  writeNotNull('field', instance.field);
+  writeNotNull('errorFormatText', instance.errorFormatText);
+  writeNotNull('errorInvalidText', instance.errorInvalidText);
+  writeNotNull('fieldHintText', instance.fieldHintText);
+  writeNotNull('fieldLabelText', instance.fieldLabelText);
+  writeNotNull('keyboardType', instance.keyboardType);
+  val['autofocus'] = instance.autofocus;
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$DropdownButtonFormField _$$DropdownButtonFormFieldFromJson(
+        Map<String, dynamic> json) =>
+    _$DropdownButtonFormField(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      field: json['field'] == null
+          ? null
+          : FormStringField.fromJson(json['field'] as Map<String, dynamic>),
+      items: (json['items'] as List<dynamic>)
+          .map((e) => DropdownMenuItem.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      value: json['value'] as String?,
+      hint: json['hint'] == null
+          ? null
+          : Widget.fromJson(json['hint'] as Map<String, dynamic>),
+      disabledHint: json['disabledHint'] == null
+          ? null
+          : Widget.fromJson(json['disabledHint'] as Map<String, dynamic>),
+      onTap: json['onTap'] == null
+          ? null
+          : Callback.fromJson(json['onTap'] as Map<String, dynamic>),
+      elevation: json['elevation'] as int? ?? 8,
+      style: json['style'] == null
+          ? null
+          : TextStyle.fromJson(json['style'] as Map<String, dynamic>),
+      icon: json['icon'] == null
+          ? null
+          : Widget.fromJson(json['icon'] as Map<String, dynamic>),
+      iconDisabledColor: json['iconDisabledColor'] == null
+          ? null
+          : Color.fromJson(json['iconDisabledColor'] as Map<String, dynamic>),
+      iconEnabledColor: json['iconEnabledColor'] == null
+          ? null
+          : Color.fromJson(json['iconEnabledColor'] as Map<String, dynamic>),
+      iconSize: (json['iconSize'] as num?)?.toDouble() ?? 24.0,
+      isDense: json['isDense'] as bool? ?? true,
+      isExpanded: json['isExpanded'] as bool? ?? false,
+      itemHeight: (json['itemHeight'] as num?)?.toDouble(),
+      focusColor: json['focusColor'] == null
+          ? null
+          : Color.fromJson(json['focusColor'] as Map<String, dynamic>),
+      autofocus: json['autofocus'] as bool? ?? false,
+      dropdownColor: json['dropdownColor'] == null
+          ? null
+          : Color.fromJson(json['dropdownColor'] as Map<String, dynamic>),
+      decoration: json['decoration'] == null
+          ? null
+          : InputDecoration.fromJson(
+              json['decoration'] as Map<String, dynamic>),
+      validatorMessages:
+          (json['validatorMessages'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
+      autovalidateMode: $enumDecodeNullable(
+          _$AutovalidateModeEnumMap, json['autovalidateMode']),
+      menuMaxHeight: (json['menuMaxHeight'] as num?)?.toDouble(),
+      enableFeedback: json['enableFeedback'] as bool?,
+      alignment: json['alignment'] == null
+          ? Alignment.centerLeft
+          : Alignment.fromJson(json['alignment'] as Map<String, dynamic>),
+      borderRadius: json['borderRadius'] == null
+          ? null
+          : BorderRadius.fromJson(json['borderRadius'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$DropdownButtonFormFieldFieldMap = <String, String>{
+  'key': 'key',
+  'field': 'field',
+  'items': 'items',
+  'value': 'value',
+  'hint': 'hint',
+  'disabledHint': 'disabledHint',
+  'onTap': 'onTap',
+  'elevation': 'elevation',
+  'style': 'style',
+  'icon': 'icon',
+  'iconDisabledColor': 'iconDisabledColor',
+  'iconEnabledColor': 'iconEnabledColor',
+  'iconSize': 'iconSize',
+  'isDense': 'isDense',
+  'isExpanded': 'isExpanded',
+  'itemHeight': 'itemHeight',
+  'focusColor': 'focusColor',
+  'autofocus': 'autofocus',
+  'dropdownColor': 'dropdownColor',
+  'decoration': 'decoration',
+  'validatorMessages': 'validatorMessages',
+  'autovalidateMode': 'autovalidateMode',
+  'menuMaxHeight': 'menuMaxHeight',
+  'enableFeedback': 'enableFeedback',
+  'alignment': 'alignment',
+  'borderRadius': 'borderRadius',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$DropdownButtonFormFieldToJson(
+    _$DropdownButtonFormField instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('field', instance.field);
+  val['items'] = instance.items;
+  writeNotNull('value', instance.value);
+  writeNotNull('hint', instance.hint);
+  writeNotNull('disabledHint', instance.disabledHint);
+  writeNotNull('onTap', instance.onTap);
+  val['elevation'] = instance.elevation;
+  writeNotNull('style', instance.style);
+  writeNotNull('icon', instance.icon);
+  writeNotNull('iconDisabledColor', instance.iconDisabledColor);
+  writeNotNull('iconEnabledColor', instance.iconEnabledColor);
+  val['iconSize'] = instance.iconSize;
+  val['isDense'] = instance.isDense;
+  val['isExpanded'] = instance.isExpanded;
+  writeNotNull('itemHeight', instance.itemHeight);
+  writeNotNull('focusColor', instance.focusColor);
+  val['autofocus'] = instance.autofocus;
+  writeNotNull('dropdownColor', instance.dropdownColor);
+  writeNotNull('decoration', instance.decoration);
+  writeNotNull('validatorMessages', instance.validatorMessages);
+  writeNotNull(
+      'autovalidateMode', _$AutovalidateModeEnumMap[instance.autovalidateMode]);
+  writeNotNull('menuMaxHeight', instance.menuMaxHeight);
+  writeNotNull('enableFeedback', instance.enableFeedback);
+  val['alignment'] = instance.alignment;
+  writeNotNull('borderRadius', instance.borderRadius);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$PopupMenuButton _$$PopupMenuButtonFromJson(Map<String, dynamic> json) =>
+    _$PopupMenuButton(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      items: (json['items'] as List<dynamic>)
+          .map((e) => PopupMenuEntry.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      initialValue: json['initialValue'] as String?,
+      onOpened: json['onOpened'] == null
+          ? null
+          : Callback.fromJson(json['onOpened'] as Map<String, dynamic>),
+      field: json['field'] == null
+          ? null
+          : FormStringField.fromJson(json['field'] as Map<String, dynamic>),
+      onCanceled: json['onCanceled'] == null
+          ? null
+          : Callback.fromJson(json['onCanceled'] as Map<String, dynamic>),
+      tooltip: json['tooltip'] as String?,
+      elevation: (json['elevation'] as num?)?.toDouble(),
+      shadowColor: json['shadowColor'] == null
+          ? null
+          : Color.fromJson(json['shadowColor'] as Map<String, dynamic>),
+      surfaceTintColor: json['surfaceTintColor'] == null
+          ? null
+          : Color.fromJson(json['surfaceTintColor'] as Map<String, dynamic>),
+      padding: json['padding'] == null
+          ? const EdgeInsets.all(8.0)
+          : EdgeInsets.fromJson(json['padding'] as Map<String, dynamic>),
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      splashRadius: (json['splashRadius'] as num?)?.toDouble(),
+      icon: json['icon'] == null
+          ? null
+          : Widget.fromJson(json['icon'] as Map<String, dynamic>),
+      iconSize: (json['iconSize'] as num?)?.toDouble(),
+      offset: json['offset'] == null
+          ? Offset.zero
+          : Offset.fromJson(json['offset'] as Map<String, dynamic>),
+      enabled: json['enabled'] as bool? ?? true,
+      shape: json['shape'] == null
+          ? null
+          : ShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+      color: json['color'] == null
+          ? null
+          : Color.fromJson(json['color'] as Map<String, dynamic>),
+      enableFeedback: json['enableFeedback'] as bool?,
+      constraints: json['constraints'] == null
+          ? null
+          : BoxConstraints.fromJson(
+              json['constraints'] as Map<String, dynamic>),
+      position:
+          $enumDecodeNullable(_$PopupMenuPositionEnumMap, json['position']),
+      clipBehavior:
+          $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ?? Clip.none,
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$PopupMenuButtonFieldMap = <String, String>{
+  'key': 'key',
+  'items': 'items',
+  'initialValue': 'initialValue',
+  'onOpened': 'onOpened',
+  'field': 'field',
+  'onCanceled': 'onCanceled',
+  'tooltip': 'tooltip',
+  'elevation': 'elevation',
+  'shadowColor': 'shadowColor',
+  'surfaceTintColor': 'surfaceTintColor',
+  'padding': 'padding',
+  'child': 'child',
+  'splashRadius': 'splashRadius',
+  'icon': 'icon',
+  'iconSize': 'iconSize',
+  'offset': 'offset',
+  'enabled': 'enabled',
+  'shape': 'shape',
+  'color': 'color',
+  'enableFeedback': 'enableFeedback',
+  'constraints': 'constraints',
+  'position': 'position',
+  'clipBehavior': 'clipBehavior',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$PopupMenuButtonToJson(_$PopupMenuButton instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  val['items'] = instance.items;
+  writeNotNull('initialValue', instance.initialValue);
+  writeNotNull('onOpened', instance.onOpened);
+  writeNotNull('field', instance.field);
+  writeNotNull('onCanceled', instance.onCanceled);
+  writeNotNull('tooltip', instance.tooltip);
+  writeNotNull('elevation', instance.elevation);
+  writeNotNull('shadowColor', instance.shadowColor);
+  writeNotNull('surfaceTintColor', instance.surfaceTintColor);
+  val['padding'] = instance.padding;
+  writeNotNull('child', instance.child);
+  writeNotNull('splashRadius', instance.splashRadius);
+  writeNotNull('icon', instance.icon);
+  writeNotNull('iconSize', instance.iconSize);
+  val['offset'] = instance.offset;
+  val['enabled'] = instance.enabled;
+  writeNotNull('shape', instance.shape);
+  writeNotNull('color', instance.color);
+  writeNotNull('enableFeedback', instance.enableFeedback);
+  writeNotNull('constraints', instance.constraints);
+  writeNotNull('position', _$PopupMenuPositionEnumMap[instance.position]);
+  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+const _$PopupMenuPositionEnumMap = {
+  PopupMenuPosition.over: 'over',
+  PopupMenuPosition.under: 'under',
 };
 
 _$IgnorePointer _$$IgnorePointerFromJson(Map<String, dynamic> json) =>

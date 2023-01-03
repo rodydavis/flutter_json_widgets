@@ -117,22 +117,22 @@ Map<String, dynamic> _$$FormStringFieldToJson(_$FormStringField instance) {
   return val;
 }
 
-_$FormBooleanField _$$FormBooleanFieldFromJson(Map<String, dynamic> json) =>
-    _$FormBooleanField(
+_$FormBoolField _$$FormBoolFieldFromJson(Map<String, dynamic> json) =>
+    _$FormBoolField(
       key: json['key'] as String,
       description: json['description'] as String?,
       value: json['value'] as bool?,
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FormBooleanFieldFieldMap = <String, String>{
+const _$$FormBoolFieldFieldMap = <String, String>{
   'key': 'key',
   'description': 'description',
   'value': 'value',
   r'$type': 'runtimeType',
 };
 
-Map<String, dynamic> _$$FormBooleanFieldToJson(_$FormBooleanField instance) {
+Map<String, dynamic> _$$FormBoolFieldToJson(_$FormBoolField instance) {
   final val = <String, dynamic>{
     'key': instance.key,
   };

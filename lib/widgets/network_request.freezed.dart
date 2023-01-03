@@ -42,7 +42,8 @@ mixin _$NetworkRequest {
             Map<String, Object>? bodyMap,
             bool streamedResponse)
         http,
-    required TResult Function(String url, Map<String, String> headers)
+    required TResult Function(
+            String url, Map<String, String> headers, bool validate)
         formSubmit,
   }) =>
       throw _privateConstructorUsedError;
@@ -57,7 +58,8 @@ mixin _$NetworkRequest {
             Map<String, Object>? bodyMap,
             bool streamedResponse)?
         http,
-    TResult? Function(String url, Map<String, String> headers)? formSubmit,
+    TResult? Function(String url, Map<String, String> headers, bool validate)?
+        formSubmit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,7 +73,8 @@ mixin _$NetworkRequest {
             Map<String, Object>? bodyMap,
             bool streamedResponse)?
         http,
-    TResult Function(String url, Map<String, String> headers)? formSubmit,
+    TResult Function(String url, Map<String, String> headers, bool validate)?
+        formSubmit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -323,7 +326,8 @@ class _$NetworkHttpRequest implements NetworkHttpRequest {
             Map<String, Object>? bodyMap,
             bool streamedResponse)
         http,
-    required TResult Function(String url, Map<String, String> headers)
+    required TResult Function(
+            String url, Map<String, String> headers, bool validate)
         formSubmit,
   }) {
     return http(
@@ -342,7 +346,8 @@ class _$NetworkHttpRequest implements NetworkHttpRequest {
             Map<String, Object>? bodyMap,
             bool streamedResponse)?
         http,
-    TResult? Function(String url, Map<String, String> headers)? formSubmit,
+    TResult? Function(String url, Map<String, String> headers, bool validate)?
+        formSubmit,
   }) {
     return http?.call(
         url, headers, method, bodyText, bodyBytes, bodyMap, streamedResponse);
@@ -360,7 +365,8 @@ class _$NetworkHttpRequest implements NetworkHttpRequest {
             Map<String, Object>? bodyMap,
             bool streamedResponse)?
         http,
-    TResult Function(String url, Map<String, String> headers)? formSubmit,
+    TResult Function(String url, Map<String, String> headers, bool validate)?
+        formSubmit,
     required TResult orElse(),
   }) {
     if (http != null) {
@@ -445,7 +451,7 @@ abstract class _$$FormSubmitNetworkRequestCopyWith<$Res>
       __$$FormSubmitNetworkRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String url, Map<String, String> headers});
+  $Res call({String url, Map<String, String> headers, bool validate});
 }
 
 /// @nodoc
@@ -461,6 +467,7 @@ class __$$FormSubmitNetworkRequestCopyWithImpl<$Res>
   $Res call({
     Object? url = null,
     Object? headers = null,
+    Object? validate = null,
   }) {
     return _then(_$FormSubmitNetworkRequest(
       url: null == url
@@ -471,6 +478,10 @@ class __$$FormSubmitNetworkRequestCopyWithImpl<$Res>
           ? _value._headers
           : headers // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
+      validate: null == validate
+          ? _value.validate
+          : validate // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -481,6 +492,7 @@ class _$FormSubmitNetworkRequest implements FormSubmitNetworkRequest {
   const _$FormSubmitNetworkRequest(
       {required this.url,
       final Map<String, String> headers = const {},
+      this.validate = false,
       final String? $type})
       : _headers = headers,
         $type = $type ?? 'formSubmit';
@@ -499,12 +511,16 @@ class _$FormSubmitNetworkRequest implements FormSubmitNetworkRequest {
     return EqualUnmodifiableMapView(_headers);
   }
 
+  @override
+  @JsonKey()
+  final bool validate;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'NetworkRequest.formSubmit(url: $url, headers: $headers)';
+    return 'NetworkRequest.formSubmit(url: $url, headers: $headers, validate: $validate)';
   }
 
   @override
@@ -513,13 +529,15 @@ class _$FormSubmitNetworkRequest implements FormSubmitNetworkRequest {
         (other.runtimeType == runtimeType &&
             other is _$FormSubmitNetworkRequest &&
             (identical(other.url, url) || other.url == url) &&
-            const DeepCollectionEquality().equals(other._headers, _headers));
+            const DeepCollectionEquality().equals(other._headers, _headers) &&
+            (identical(other.validate, validate) ||
+                other.validate == validate));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, url, const DeepCollectionEquality().hash(_headers));
+  int get hashCode => Object.hash(runtimeType, url,
+      const DeepCollectionEquality().hash(_headers), validate);
 
   @JsonKey(ignore: true)
   @override
@@ -541,10 +559,11 @@ class _$FormSubmitNetworkRequest implements FormSubmitNetworkRequest {
             Map<String, Object>? bodyMap,
             bool streamedResponse)
         http,
-    required TResult Function(String url, Map<String, String> headers)
+    required TResult Function(
+            String url, Map<String, String> headers, bool validate)
         formSubmit,
   }) {
-    return formSubmit(url, headers);
+    return formSubmit(url, headers, validate);
   }
 
   @override
@@ -559,9 +578,10 @@ class _$FormSubmitNetworkRequest implements FormSubmitNetworkRequest {
             Map<String, Object>? bodyMap,
             bool streamedResponse)?
         http,
-    TResult? Function(String url, Map<String, String> headers)? formSubmit,
+    TResult? Function(String url, Map<String, String> headers, bool validate)?
+        formSubmit,
   }) {
-    return formSubmit?.call(url, headers);
+    return formSubmit?.call(url, headers, validate);
   }
 
   @override
@@ -576,11 +596,12 @@ class _$FormSubmitNetworkRequest implements FormSubmitNetworkRequest {
             Map<String, Object>? bodyMap,
             bool streamedResponse)?
         http,
-    TResult Function(String url, Map<String, String> headers)? formSubmit,
+    TResult Function(String url, Map<String, String> headers, bool validate)?
+        formSubmit,
     required TResult orElse(),
   }) {
     if (formSubmit != null) {
-      return formSubmit(url, headers);
+      return formSubmit(url, headers, validate);
     }
     return orElse();
   }
@@ -627,7 +648,8 @@ class _$FormSubmitNetworkRequest implements FormSubmitNetworkRequest {
 abstract class FormSubmitNetworkRequest implements NetworkRequest {
   const factory FormSubmitNetworkRequest(
       {required final String url,
-      final Map<String, String> headers}) = _$FormSubmitNetworkRequest;
+      final Map<String, String> headers,
+      final bool validate}) = _$FormSubmitNetworkRequest;
 
   factory FormSubmitNetworkRequest.fromJson(Map<String, dynamic> json) =
       _$FormSubmitNetworkRequest.fromJson;
@@ -636,6 +658,7 @@ abstract class FormSubmitNetworkRequest implements NetworkRequest {
   String get url;
   @override
   Map<String, String> get headers;
+  bool get validate;
   @override
   @JsonKey(ignore: true)
   _$$FormSubmitNetworkRequestCopyWith<_$FormSubmitNetworkRequest>

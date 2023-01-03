@@ -359,3 +359,53 @@ enum PointerSignalKind {
   scale,
   unknown
 }
+
+enum MaxLengthEnforcement {
+  none,
+  enforced,
+  truncateAfterCompositionEnds,
+}
+
+enum SmartDashesType {
+  disabled,
+  enabled,
+}
+
+enum TextCapitalization {
+  words,
+  sentences,
+  characters,
+  none,
+}
+
+enum SmartQuotesType {
+  disabled,
+  enabled,
+}
+
+enum TextInputAction {
+  none,
+  unspecified,
+  done,
+  go,
+  search,
+  send,
+  next,
+  previous,
+  continueAction,
+  join,
+  route,
+  emergencyCall,
+  newline,
+}
+
+enum FloatingLabelBehavior {
+  never,
+  auto,
+  always,
+}
+
+enum PopupMenuPosition {
+  over,
+  under,
+}

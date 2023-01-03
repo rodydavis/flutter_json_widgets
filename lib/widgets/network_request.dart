@@ -18,6 +18,7 @@ class NetworkRequest with _$NetworkRequest {
   const factory NetworkRequest.formSubmit({
     required String url,
     @Default({}) Map<String, String> headers,
+    @Default(false) bool validate,
   }) = FormSubmitNetworkRequest;
 
   factory NetworkRequest.fromJson(Map<String, Object?> json) =>

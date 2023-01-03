@@ -20,7 +20,7 @@ Future main() async {
 
   app.get('/', (Request request) {
     // Redirect
-    return Response.seeOther('$url/form');
+    return Response.seeOther('$url/counter');
   });
 
   app.get(
@@ -84,25 +84,66 @@ Future main() async {
 
   app.get(
     '/form',
-    (Request request) => _ui(const Scaffold(
-      appBar: AppBar(
+    (Request request) => _ui(Scaffold(
+      appBar: const AppBar(
         title: Text('Flutter Form'),
       ),
-      body: ListView(
-        children: [
-          ListTile(
-            title: Text('Checkbox'),
-            trailing: Checkbox(
-              value: false,
-              field: FormBooleanField(
-                key: 'checkbox',
-                description: 'Checkbox',
+      body: Form(
+        autovalidateMode: AutovalidateMode.always,
+        child: ListView(
+          children: [
+            const ListTile(
+              title: Text('Checkbox'),
+              trailing: Checkbox(
+                value: false,
+                field: FormBoolField(
+                  key: 'checkbox',
+                  description: 'Checkbox',
+                ),
               ),
             ),
-          ),
-        ],
+            const ListTile(
+              title: TextFormField(
+                initialValue: 'Text',
+                field: FormStringField(
+                  key: 'text',
+                  description: 'Text',
+                ),
+              ),
+            ),
+            const ListTile(
+              title: DropdownButtonFormField(
+                items: [
+                  DropdownMenuItem(
+                    child: Text('One'),
+                    value: 'one',
+                  ),
+                  DropdownMenuItem(
+                    child: Text('Two'),
+                    value: 'two',
+                  ),
+                ],
+                value: 'one',
+                field: FormStringField(
+                  key: 'drop_down',
+                  description: 'Drop Down',
+                ),
+              ),
+            ),
+            ListTile(
+              title: InputDatePickerFormField(
+                firstDate: DateTime(2020),
+                lastDate: DateTime(2030),
+                field: const FormDateTimeField(
+                  key: 'date_time',
+                  description: 'Date Time',
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: const FloatingActionButton(
         onPressed: Callback.networkRequest(
           NetworkRequest.formSubmit(url: '$url/api/form'),
           callback: Callback.reload(),

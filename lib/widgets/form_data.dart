@@ -68,7 +68,7 @@ class FormField with _$FormField {
     required String key,
     String? description,
     bool? value,
-  }) = FormBooleanField;
+  }) = FormBoolField;
 
   const factory FormField.double({
     required String key,
