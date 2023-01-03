@@ -9,6 +9,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'dart:ui' as ui;
 import 'package:flutter_json_widgets/flutter_json_widgets.dart' as widgets;
 import 'package:http/http.dart' as http;
+import 'package:vector_math/vector_math.dart';
 
 typedef WidgetBuilder = material.Widget Function(
   material.BuildContext context,
@@ -1865,26 +1866,9 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     );
   }
 
-  material.Matrix4? $matrix4(final widgets.Matrix4? matrix4) {
+  material.Matrix4? $matrix4(final Matrix4? matrix4) {
     if (matrix4 == null) return null;
-    return material.Matrix4(
-      matrix4.arg0,
-      matrix4.arg1,
-      matrix4.arg2,
-      matrix4.arg3,
-      matrix4.arg4,
-      matrix4.arg5,
-      matrix4.arg6,
-      matrix4.arg7,
-      matrix4.arg8,
-      matrix4.arg9,
-      matrix4.arg10,
-      matrix4.arg11,
-      matrix4.arg12,
-      matrix4.arg13,
-      matrix4.arg14,
-      matrix4.arg15,
-    );
+    return material.Matrix4.fromList(matrix4.storage.toList());
   }
 
   material.Size? $size(final widgets.Size? size) {

@@ -245,9 +245,8 @@ _$Container _$$ContainerFromJson(Map<String, dynamic> json) => _$Container(
       margin: json['margin'] == null
           ? null
           : EdgeInsets.fromJson(json['margin'] as Map<String, dynamic>),
-      transform: json['transform'] == null
-          ? null
-          : Matrix4.fromJson(json['transform'] as Map<String, dynamic>),
+      transform: _$JsonConverterFromJson<List<double>, Matrix4>(
+          json['transform'], matrixConverter.fromJson),
       transformAlignment: json['transformAlignment'] == null
           ? null
           : Alignment.fromJson(
@@ -297,7 +296,10 @@ Map<String, dynamic> _$$ContainerToJson(_$Container instance) {
   writeNotNull('height', instance.height);
   writeNotNull('constraints', instance.constraints);
   writeNotNull('margin', instance.margin);
-  writeNotNull('transform', instance.transform);
+  writeNotNull(
+      'transform',
+      _$JsonConverterToJson<List<double>, Matrix4>(
+          instance.transform, matrixConverter.toJson));
   writeNotNull('transformAlignment', instance.transformAlignment);
   writeNotNull('child', instance.child);
   val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
@@ -305,12 +307,24 @@ Map<String, dynamic> _$$ContainerToJson(_$Container instance) {
   return val;
 }
 
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
 const _$ClipEnumMap = {
   Clip.none: 'none',
   Clip.hardEdge: 'hardEdge',
   Clip.antiAlias: 'antiAlias',
   Clip.antiAliasWithSaveLayer: 'antiAliasWithSaveLayer',
 };
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);
 
 _$ConstrainedBox _$$ConstrainedBoxFromJson(Map<String, dynamic> json) =>
     _$ConstrainedBox(

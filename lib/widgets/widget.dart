@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:vector_math/vector_math.dart';
 
 import 'alignment.dart';
 import 'border_radius.dart';
@@ -102,7 +103,7 @@ class Widget with _$Widget {
     double? height,
     BoxConstraints? constraints,
     EdgeInsets? margin,
-    Matrix4? transform,
+    @matrixConverter Matrix4? transform,
     Alignment? transformAlignment,
     Widget? child,
     @Default(Clip.none) Clip clipBehavior,
