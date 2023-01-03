@@ -73,6 +73,38 @@ Future main() async {
   });
 
   app.get(
+    '/responsive',
+    (Request request) => _ui(const ResponsiveWidget(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Responsive Demo'),
+        ),
+        body: Center(
+          child: Text('Mobile Device'),
+        ),
+      ),
+      breakpoints: {
+        720: Scaffold(
+          appBar: AppBar(
+            title: Text('Responsive Demo'),
+          ),
+          body: Center(
+            child: Text('Tablet Device'),
+          ),
+        ),
+        1440: Scaffold(
+          appBar: AppBar(
+            title: Text('Responsive Demo'),
+          ),
+          body: Center(
+            child: Text('Desktop Device'),
+          ),
+        ),
+      },
+    )),
+  );
+
+  app.get(
     '/long-list',
     (Request request) => _ui(Scaffold(
       appBar: const AppBar(
