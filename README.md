@@ -81,7 +81,7 @@ Future main() async {
       initialRoute: '/counter',
       routes: {
         '/counter': NetworkWidget(
-          request: NetworkRequest(
+          request: NetworkHttpRequest(
             url: '$url/counter',
           ),
         ),
@@ -111,7 +111,7 @@ Future main() async {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: Callback.networkRequest(
-          NetworkRequest(
+          NetworkHttpRequest(
             url: '$url/api/counter',
             method: 'POST',
             bodyMap: {'counter': _counter + 1},
@@ -200,7 +200,7 @@ class Example {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: Callback.networkRequest(
-          NetworkRequest(
+          NetworkHttpRequest(
             url: '$url/api/counter',
             method: 'POST',
             bodyMap: {'counter': _counter + 1},

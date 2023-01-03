@@ -6,6 +6,51 @@ part of 'callback.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$IntSelectionCallback _$$IntSelectionCallbackFromJson(
+        Map<String, dynamic> json) =>
+    _$IntSelectionCallback(
+      values: (json['values'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(k, Callback.fromJson(e as Map<String, dynamic>)),
+      ),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$IntSelectionCallbackFieldMap = <String, String>{
+  'values': 'values',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$IntSelectionCallbackToJson(
+        _$IntSelectionCallback instance) =>
+    <String, dynamic>{
+      'values': instance.values,
+      'runtimeType': instance.$type,
+    };
+
+_$BoolSelectionCallback _$$BoolSelectionCallbackFromJson(
+        Map<String, dynamic> json) =>
+    _$BoolSelectionCallback(
+      trueCallback:
+          Callback.fromJson(json['trueCallback'] as Map<String, dynamic>),
+      falseCallback:
+          Callback.fromJson(json['falseCallback'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$BoolSelectionCallbackFieldMap = <String, String>{
+  'trueCallback': 'trueCallback',
+  'falseCallback': 'falseCallback',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$BoolSelectionCallbackToJson(
+        _$BoolSelectionCallback instance) =>
+    <String, dynamic>{
+      'trueCallback': instance.trueCallback,
+      'falseCallback': instance.falseCallback,
+      'runtimeType': instance.$type,
+    };
+
 _$NavigationPushNamedCallback _$$NavigationPushNamedCallbackFromJson(
         Map<String, dynamic> json) =>
     _$NavigationPushNamedCallback(

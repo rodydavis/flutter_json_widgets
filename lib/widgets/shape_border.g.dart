@@ -267,6 +267,20 @@ Map<String, dynamic> _$$OutlineInputBorderToJson(
       'runtimeType': instance.$type,
     };
 
+_$InputBorderNone _$$InputBorderNoneFromJson(Map<String, dynamic> json) =>
+    _$InputBorderNone(
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$InputBorderNoneFieldMap = <String, String>{
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$InputBorderNoneToJson(_$InputBorderNone instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
 _$StarBorder _$$StarBorderFromJson(Map<String, dynamic> json) => _$StarBorder(
       side: json['side'] == null
           ? BorderSide.none

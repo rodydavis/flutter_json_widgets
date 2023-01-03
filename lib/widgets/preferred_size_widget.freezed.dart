@@ -20,6 +20,8 @@ PreferredSizeWidget _$PreferredSizeWidgetFromJson(Map<String, dynamic> json) {
       return PreferredSize.fromJson(json);
     case 'appBar':
       return AppBar.fromJson(json);
+    case 'tabBar':
+      return TabBar.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'PreferredSizeWidget',
@@ -60,6 +62,31 @@ mixin _$PreferredSizeWidget {
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
         appBar,
+    required TResult Function(
+            Key? key,
+            List<Widget> tabs,
+            bool isScrollable,
+            IntSelectionCallback? onTap,
+            EdgeInsets? padding,
+            Color? indicatorColor,
+            bool automaticIndicatorColorAdjustment,
+            double indicatorWeight,
+            EdgeInsets indicatorPadding,
+            Decoration? indicator,
+            TabBarIndicatorSize? indicatorSize,
+            Color? dividerColor,
+            Color? labelColor,
+            TextStyle? labelStyle,
+            EdgeInsets? labelPadding,
+            Color? unselectedLabelColor,
+            TextStyle? unselectedLabelStyle,
+            DragStartBehavior dragStartBehavior,
+            MaterialStateProperty? overlayColor,
+            MouseCursor? mouseCursor,
+            bool? enableFeedback,
+            ScrollPhysics? physics,
+            BorderRadius? splashBorderRadius)
+        tabBar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -92,6 +119,31 @@ mixin _$PreferredSizeWidget {
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
         appBar,
+    TResult? Function(
+            Key? key,
+            List<Widget> tabs,
+            bool isScrollable,
+            IntSelectionCallback? onTap,
+            EdgeInsets? padding,
+            Color? indicatorColor,
+            bool automaticIndicatorColorAdjustment,
+            double indicatorWeight,
+            EdgeInsets indicatorPadding,
+            Decoration? indicator,
+            TabBarIndicatorSize? indicatorSize,
+            Color? dividerColor,
+            Color? labelColor,
+            TextStyle? labelStyle,
+            EdgeInsets? labelPadding,
+            Color? unselectedLabelColor,
+            TextStyle? unselectedLabelStyle,
+            DragStartBehavior dragStartBehavior,
+            MaterialStateProperty? overlayColor,
+            MouseCursor? mouseCursor,
+            bool? enableFeedback,
+            ScrollPhysics? physics,
+            BorderRadius? splashBorderRadius)?
+        tabBar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -124,6 +176,31 @@ mixin _$PreferredSizeWidget {
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
         appBar,
+    TResult Function(
+            Key? key,
+            List<Widget> tabs,
+            bool isScrollable,
+            IntSelectionCallback? onTap,
+            EdgeInsets? padding,
+            Color? indicatorColor,
+            bool automaticIndicatorColorAdjustment,
+            double indicatorWeight,
+            EdgeInsets indicatorPadding,
+            Decoration? indicator,
+            TabBarIndicatorSize? indicatorSize,
+            Color? dividerColor,
+            Color? labelColor,
+            TextStyle? labelStyle,
+            EdgeInsets? labelPadding,
+            Color? unselectedLabelColor,
+            TextStyle? unselectedLabelStyle,
+            DragStartBehavior dragStartBehavior,
+            MaterialStateProperty? overlayColor,
+            MouseCursor? mouseCursor,
+            bool? enableFeedback,
+            ScrollPhysics? physics,
+            BorderRadius? splashBorderRadius)?
+        tabBar,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,18 +208,21 @@ mixin _$PreferredSizeWidget {
   TResult map<TResult extends Object?>(
     TResult Function(PreferredSize value) $default, {
     required TResult Function(AppBar value) appBar,
+    required TResult Function(TabBar value) tabBar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(PreferredSize value)? $default, {
     TResult? Function(AppBar value)? appBar,
+    TResult? Function(TabBar value)? tabBar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(PreferredSize value)? $default, {
     TResult Function(AppBar value)? appBar,
+    TResult Function(TabBar value)? tabBar,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -343,6 +423,31 @@ class _$PreferredSize implements PreferredSize {
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
         appBar,
+    required TResult Function(
+            Key? key,
+            List<Widget> tabs,
+            bool isScrollable,
+            IntSelectionCallback? onTap,
+            EdgeInsets? padding,
+            Color? indicatorColor,
+            bool automaticIndicatorColorAdjustment,
+            double indicatorWeight,
+            EdgeInsets indicatorPadding,
+            Decoration? indicator,
+            TabBarIndicatorSize? indicatorSize,
+            Color? dividerColor,
+            Color? labelColor,
+            TextStyle? labelStyle,
+            EdgeInsets? labelPadding,
+            Color? unselectedLabelColor,
+            TextStyle? unselectedLabelStyle,
+            DragStartBehavior dragStartBehavior,
+            MaterialStateProperty? overlayColor,
+            MouseCursor? mouseCursor,
+            bool? enableFeedback,
+            ScrollPhysics? physics,
+            BorderRadius? splashBorderRadius)
+        tabBar,
   }) {
     return $default(key, preferredSize, child);
   }
@@ -378,6 +483,31 @@ class _$PreferredSize implements PreferredSize {
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
         appBar,
+    TResult? Function(
+            Key? key,
+            List<Widget> tabs,
+            bool isScrollable,
+            IntSelectionCallback? onTap,
+            EdgeInsets? padding,
+            Color? indicatorColor,
+            bool automaticIndicatorColorAdjustment,
+            double indicatorWeight,
+            EdgeInsets indicatorPadding,
+            Decoration? indicator,
+            TabBarIndicatorSize? indicatorSize,
+            Color? dividerColor,
+            Color? labelColor,
+            TextStyle? labelStyle,
+            EdgeInsets? labelPadding,
+            Color? unselectedLabelColor,
+            TextStyle? unselectedLabelStyle,
+            DragStartBehavior dragStartBehavior,
+            MaterialStateProperty? overlayColor,
+            MouseCursor? mouseCursor,
+            bool? enableFeedback,
+            ScrollPhysics? physics,
+            BorderRadius? splashBorderRadius)?
+        tabBar,
   }) {
     return $default?.call(key, preferredSize, child);
   }
@@ -413,6 +543,31 @@ class _$PreferredSize implements PreferredSize {
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
         appBar,
+    TResult Function(
+            Key? key,
+            List<Widget> tabs,
+            bool isScrollable,
+            IntSelectionCallback? onTap,
+            EdgeInsets? padding,
+            Color? indicatorColor,
+            bool automaticIndicatorColorAdjustment,
+            double indicatorWeight,
+            EdgeInsets indicatorPadding,
+            Decoration? indicator,
+            TabBarIndicatorSize? indicatorSize,
+            Color? dividerColor,
+            Color? labelColor,
+            TextStyle? labelStyle,
+            EdgeInsets? labelPadding,
+            Color? unselectedLabelColor,
+            TextStyle? unselectedLabelStyle,
+            DragStartBehavior dragStartBehavior,
+            MaterialStateProperty? overlayColor,
+            MouseCursor? mouseCursor,
+            bool? enableFeedback,
+            ScrollPhysics? physics,
+            BorderRadius? splashBorderRadius)?
+        tabBar,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -426,6 +581,7 @@ class _$PreferredSize implements PreferredSize {
   TResult map<TResult extends Object?>(
     TResult Function(PreferredSize value) $default, {
     required TResult Function(AppBar value) appBar,
+    required TResult Function(TabBar value) tabBar,
   }) {
     return $default(this);
   }
@@ -435,6 +591,7 @@ class _$PreferredSize implements PreferredSize {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(PreferredSize value)? $default, {
     TResult? Function(AppBar value)? appBar,
+    TResult? Function(TabBar value)? tabBar,
   }) {
     return $default?.call(this);
   }
@@ -444,6 +601,7 @@ class _$PreferredSize implements PreferredSize {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(PreferredSize value)? $default, {
     TResult Function(AppBar value)? appBar,
+    TResult Function(TabBar value)? tabBar,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -1030,6 +1188,31 @@ class _$AppBar implements AppBar {
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)
         appBar,
+    required TResult Function(
+            Key? key,
+            List<Widget> tabs,
+            bool isScrollable,
+            IntSelectionCallback? onTap,
+            EdgeInsets? padding,
+            Color? indicatorColor,
+            bool automaticIndicatorColorAdjustment,
+            double indicatorWeight,
+            EdgeInsets indicatorPadding,
+            Decoration? indicator,
+            TabBarIndicatorSize? indicatorSize,
+            Color? dividerColor,
+            Color? labelColor,
+            TextStyle? labelStyle,
+            EdgeInsets? labelPadding,
+            Color? unselectedLabelColor,
+            TextStyle? unselectedLabelStyle,
+            DragStartBehavior dragStartBehavior,
+            MaterialStateProperty? overlayColor,
+            MouseCursor? mouseCursor,
+            bool? enableFeedback,
+            ScrollPhysics? physics,
+            BorderRadius? splashBorderRadius)
+        tabBar,
   }) {
     return appBar(
         key,
@@ -1090,6 +1273,31 @@ class _$AppBar implements AppBar {
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
         appBar,
+    TResult? Function(
+            Key? key,
+            List<Widget> tabs,
+            bool isScrollable,
+            IntSelectionCallback? onTap,
+            EdgeInsets? padding,
+            Color? indicatorColor,
+            bool automaticIndicatorColorAdjustment,
+            double indicatorWeight,
+            EdgeInsets indicatorPadding,
+            Decoration? indicator,
+            TabBarIndicatorSize? indicatorSize,
+            Color? dividerColor,
+            Color? labelColor,
+            TextStyle? labelStyle,
+            EdgeInsets? labelPadding,
+            Color? unselectedLabelColor,
+            TextStyle? unselectedLabelStyle,
+            DragStartBehavior dragStartBehavior,
+            MaterialStateProperty? overlayColor,
+            MouseCursor? mouseCursor,
+            bool? enableFeedback,
+            ScrollPhysics? physics,
+            BorderRadius? splashBorderRadius)?
+        tabBar,
   }) {
     return appBar?.call(
         key,
@@ -1150,6 +1358,31 @@ class _$AppBar implements AppBar {
             TextStyle? titleTextStyle,
             bool forceMaterialTransparency)?
         appBar,
+    TResult Function(
+            Key? key,
+            List<Widget> tabs,
+            bool isScrollable,
+            IntSelectionCallback? onTap,
+            EdgeInsets? padding,
+            Color? indicatorColor,
+            bool automaticIndicatorColorAdjustment,
+            double indicatorWeight,
+            EdgeInsets indicatorPadding,
+            Decoration? indicator,
+            TabBarIndicatorSize? indicatorSize,
+            Color? dividerColor,
+            Color? labelColor,
+            TextStyle? labelStyle,
+            EdgeInsets? labelPadding,
+            Color? unselectedLabelColor,
+            TextStyle? unselectedLabelStyle,
+            DragStartBehavior dragStartBehavior,
+            MaterialStateProperty? overlayColor,
+            MouseCursor? mouseCursor,
+            bool? enableFeedback,
+            ScrollPhysics? physics,
+            BorderRadius? splashBorderRadius)?
+        tabBar,
     required TResult orElse(),
   }) {
     if (appBar != null) {
@@ -1188,6 +1421,7 @@ class _$AppBar implements AppBar {
   TResult map<TResult extends Object?>(
     TResult Function(PreferredSize value) $default, {
     required TResult Function(AppBar value) appBar,
+    required TResult Function(TabBar value) tabBar,
   }) {
     return appBar(this);
   }
@@ -1197,6 +1431,7 @@ class _$AppBar implements AppBar {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(PreferredSize value)? $default, {
     TResult? Function(AppBar value)? appBar,
+    TResult? Function(TabBar value)? tabBar,
   }) {
     return appBar?.call(this);
   }
@@ -1206,6 +1441,7 @@ class _$AppBar implements AppBar {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(PreferredSize value)? $default, {
     TResult Function(AppBar value)? appBar,
+    TResult Function(TabBar value)? tabBar,
     required TResult orElse(),
   }) {
     if (appBar != null) {
@@ -1281,5 +1517,889 @@ abstract class AppBar implements PreferredSizeWidget {
   @override
   @JsonKey(ignore: true)
   _$$AppBarCopyWith<_$AppBar> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TabBarCopyWith<$Res>
+    implements $PreferredSizeWidgetCopyWith<$Res> {
+  factory _$$TabBarCopyWith(_$TabBar value, $Res Function(_$TabBar) then) =
+      __$$TabBarCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {Key? key,
+      List<Widget> tabs,
+      bool isScrollable,
+      IntSelectionCallback? onTap,
+      EdgeInsets? padding,
+      Color? indicatorColor,
+      bool automaticIndicatorColorAdjustment,
+      double indicatorWeight,
+      EdgeInsets indicatorPadding,
+      Decoration? indicator,
+      TabBarIndicatorSize? indicatorSize,
+      Color? dividerColor,
+      Color? labelColor,
+      TextStyle? labelStyle,
+      EdgeInsets? labelPadding,
+      Color? unselectedLabelColor,
+      TextStyle? unselectedLabelStyle,
+      DragStartBehavior dragStartBehavior,
+      MaterialStateProperty? overlayColor,
+      MouseCursor? mouseCursor,
+      bool? enableFeedback,
+      ScrollPhysics? physics,
+      BorderRadius? splashBorderRadius});
+
+  @override
+  $KeyCopyWith<$Res>? get key;
+  $EdgeInsetsCopyWith<$Res>? get padding;
+  $ColorCopyWith<$Res>? get indicatorColor;
+  $EdgeInsetsCopyWith<$Res> get indicatorPadding;
+  $DecorationCopyWith<$Res>? get indicator;
+  $ColorCopyWith<$Res>? get dividerColor;
+  $ColorCopyWith<$Res>? get labelColor;
+  $TextStyleCopyWith<$Res>? get labelStyle;
+  $EdgeInsetsCopyWith<$Res>? get labelPadding;
+  $ColorCopyWith<$Res>? get unselectedLabelColor;
+  $TextStyleCopyWith<$Res>? get unselectedLabelStyle;
+  $MaterialStatePropertyCopyWith<$Res>? get overlayColor;
+  $MouseCursorCopyWith<$Res>? get mouseCursor;
+  $ScrollPhysicsCopyWith<$Res>? get physics;
+  $BorderRadiusCopyWith<$Res>? get splashBorderRadius;
+}
+
+/// @nodoc
+class __$$TabBarCopyWithImpl<$Res>
+    extends _$PreferredSizeWidgetCopyWithImpl<$Res, _$TabBar>
+    implements _$$TabBarCopyWith<$Res> {
+  __$$TabBarCopyWithImpl(_$TabBar _value, $Res Function(_$TabBar) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? key = freezed,
+    Object? tabs = null,
+    Object? isScrollable = null,
+    Object? onTap = freezed,
+    Object? padding = freezed,
+    Object? indicatorColor = freezed,
+    Object? automaticIndicatorColorAdjustment = null,
+    Object? indicatorWeight = null,
+    Object? indicatorPadding = null,
+    Object? indicator = freezed,
+    Object? indicatorSize = freezed,
+    Object? dividerColor = freezed,
+    Object? labelColor = freezed,
+    Object? labelStyle = freezed,
+    Object? labelPadding = freezed,
+    Object? unselectedLabelColor = freezed,
+    Object? unselectedLabelStyle = freezed,
+    Object? dragStartBehavior = null,
+    Object? overlayColor = freezed,
+    Object? mouseCursor = freezed,
+    Object? enableFeedback = freezed,
+    Object? physics = freezed,
+    Object? splashBorderRadius = freezed,
+  }) {
+    return _then(_$TabBar(
+      key: freezed == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as Key?,
+      tabs: null == tabs
+          ? _value._tabs
+          : tabs // ignore: cast_nullable_to_non_nullable
+              as List<Widget>,
+      isScrollable: null == isScrollable
+          ? _value.isScrollable
+          : isScrollable // ignore: cast_nullable_to_non_nullable
+              as bool,
+      onTap: freezed == onTap
+          ? _value.onTap
+          : onTap // ignore: cast_nullable_to_non_nullable
+              as IntSelectionCallback?,
+      padding: freezed == padding
+          ? _value.padding
+          : padding // ignore: cast_nullable_to_non_nullable
+              as EdgeInsets?,
+      indicatorColor: freezed == indicatorColor
+          ? _value.indicatorColor
+          : indicatorColor // ignore: cast_nullable_to_non_nullable
+              as Color?,
+      automaticIndicatorColorAdjustment: null ==
+              automaticIndicatorColorAdjustment
+          ? _value.automaticIndicatorColorAdjustment
+          : automaticIndicatorColorAdjustment // ignore: cast_nullable_to_non_nullable
+              as bool,
+      indicatorWeight: null == indicatorWeight
+          ? _value.indicatorWeight
+          : indicatorWeight // ignore: cast_nullable_to_non_nullable
+              as double,
+      indicatorPadding: null == indicatorPadding
+          ? _value.indicatorPadding
+          : indicatorPadding // ignore: cast_nullable_to_non_nullable
+              as EdgeInsets,
+      indicator: freezed == indicator
+          ? _value.indicator
+          : indicator // ignore: cast_nullable_to_non_nullable
+              as Decoration?,
+      indicatorSize: freezed == indicatorSize
+          ? _value.indicatorSize
+          : indicatorSize // ignore: cast_nullable_to_non_nullable
+              as TabBarIndicatorSize?,
+      dividerColor: freezed == dividerColor
+          ? _value.dividerColor
+          : dividerColor // ignore: cast_nullable_to_non_nullable
+              as Color?,
+      labelColor: freezed == labelColor
+          ? _value.labelColor
+          : labelColor // ignore: cast_nullable_to_non_nullable
+              as Color?,
+      labelStyle: freezed == labelStyle
+          ? _value.labelStyle
+          : labelStyle // ignore: cast_nullable_to_non_nullable
+              as TextStyle?,
+      labelPadding: freezed == labelPadding
+          ? _value.labelPadding
+          : labelPadding // ignore: cast_nullable_to_non_nullable
+              as EdgeInsets?,
+      unselectedLabelColor: freezed == unselectedLabelColor
+          ? _value.unselectedLabelColor
+          : unselectedLabelColor // ignore: cast_nullable_to_non_nullable
+              as Color?,
+      unselectedLabelStyle: freezed == unselectedLabelStyle
+          ? _value.unselectedLabelStyle
+          : unselectedLabelStyle // ignore: cast_nullable_to_non_nullable
+              as TextStyle?,
+      dragStartBehavior: null == dragStartBehavior
+          ? _value.dragStartBehavior
+          : dragStartBehavior // ignore: cast_nullable_to_non_nullable
+              as DragStartBehavior,
+      overlayColor: freezed == overlayColor
+          ? _value.overlayColor
+          : overlayColor // ignore: cast_nullable_to_non_nullable
+              as MaterialStateProperty?,
+      mouseCursor: freezed == mouseCursor
+          ? _value.mouseCursor
+          : mouseCursor // ignore: cast_nullable_to_non_nullable
+              as MouseCursor?,
+      enableFeedback: freezed == enableFeedback
+          ? _value.enableFeedback
+          : enableFeedback // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      physics: freezed == physics
+          ? _value.physics
+          : physics // ignore: cast_nullable_to_non_nullable
+              as ScrollPhysics?,
+      splashBorderRadius: freezed == splashBorderRadius
+          ? _value.splashBorderRadius
+          : splashBorderRadius // ignore: cast_nullable_to_non_nullable
+              as BorderRadius?,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $EdgeInsetsCopyWith<$Res>? get padding {
+    if (_value.padding == null) {
+      return null;
+    }
+
+    return $EdgeInsetsCopyWith<$Res>(_value.padding!, (value) {
+      return _then(_value.copyWith(padding: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ColorCopyWith<$Res>? get indicatorColor {
+    if (_value.indicatorColor == null) {
+      return null;
+    }
+
+    return $ColorCopyWith<$Res>(_value.indicatorColor!, (value) {
+      return _then(_value.copyWith(indicatorColor: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $EdgeInsetsCopyWith<$Res> get indicatorPadding {
+    return $EdgeInsetsCopyWith<$Res>(_value.indicatorPadding, (value) {
+      return _then(_value.copyWith(indicatorPadding: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DecorationCopyWith<$Res>? get indicator {
+    if (_value.indicator == null) {
+      return null;
+    }
+
+    return $DecorationCopyWith<$Res>(_value.indicator!, (value) {
+      return _then(_value.copyWith(indicator: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ColorCopyWith<$Res>? get dividerColor {
+    if (_value.dividerColor == null) {
+      return null;
+    }
+
+    return $ColorCopyWith<$Res>(_value.dividerColor!, (value) {
+      return _then(_value.copyWith(dividerColor: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ColorCopyWith<$Res>? get labelColor {
+    if (_value.labelColor == null) {
+      return null;
+    }
+
+    return $ColorCopyWith<$Res>(_value.labelColor!, (value) {
+      return _then(_value.copyWith(labelColor: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TextStyleCopyWith<$Res>? get labelStyle {
+    if (_value.labelStyle == null) {
+      return null;
+    }
+
+    return $TextStyleCopyWith<$Res>(_value.labelStyle!, (value) {
+      return _then(_value.copyWith(labelStyle: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $EdgeInsetsCopyWith<$Res>? get labelPadding {
+    if (_value.labelPadding == null) {
+      return null;
+    }
+
+    return $EdgeInsetsCopyWith<$Res>(_value.labelPadding!, (value) {
+      return _then(_value.copyWith(labelPadding: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ColorCopyWith<$Res>? get unselectedLabelColor {
+    if (_value.unselectedLabelColor == null) {
+      return null;
+    }
+
+    return $ColorCopyWith<$Res>(_value.unselectedLabelColor!, (value) {
+      return _then(_value.copyWith(unselectedLabelColor: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TextStyleCopyWith<$Res>? get unselectedLabelStyle {
+    if (_value.unselectedLabelStyle == null) {
+      return null;
+    }
+
+    return $TextStyleCopyWith<$Res>(_value.unselectedLabelStyle!, (value) {
+      return _then(_value.copyWith(unselectedLabelStyle: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MaterialStatePropertyCopyWith<$Res>? get overlayColor {
+    if (_value.overlayColor == null) {
+      return null;
+    }
+
+    return $MaterialStatePropertyCopyWith<$Res>(_value.overlayColor!, (value) {
+      return _then(_value.copyWith(overlayColor: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MouseCursorCopyWith<$Res>? get mouseCursor {
+    if (_value.mouseCursor == null) {
+      return null;
+    }
+
+    return $MouseCursorCopyWith<$Res>(_value.mouseCursor!, (value) {
+      return _then(_value.copyWith(mouseCursor: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ScrollPhysicsCopyWith<$Res>? get physics {
+    if (_value.physics == null) {
+      return null;
+    }
+
+    return $ScrollPhysicsCopyWith<$Res>(_value.physics!, (value) {
+      return _then(_value.copyWith(physics: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BorderRadiusCopyWith<$Res>? get splashBorderRadius {
+    if (_value.splashBorderRadius == null) {
+      return null;
+    }
+
+    return $BorderRadiusCopyWith<$Res>(_value.splashBorderRadius!, (value) {
+      return _then(_value.copyWith(splashBorderRadius: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$TabBar implements TabBar {
+  const _$TabBar(
+      {this.key,
+      required final List<Widget> tabs,
+      this.isScrollable = false,
+      this.onTap,
+      this.padding,
+      this.indicatorColor,
+      this.automaticIndicatorColorAdjustment = true,
+      this.indicatorWeight = 2.0,
+      this.indicatorPadding = EdgeInsets.zero,
+      this.indicator,
+      this.indicatorSize,
+      this.dividerColor,
+      this.labelColor,
+      this.labelStyle,
+      this.labelPadding,
+      this.unselectedLabelColor,
+      this.unselectedLabelStyle,
+      this.dragStartBehavior = DragStartBehavior.start,
+      this.overlayColor,
+      this.mouseCursor,
+      this.enableFeedback,
+      this.physics,
+      this.splashBorderRadius,
+      final String? $type})
+      : _tabs = tabs,
+        $type = $type ?? 'tabBar';
+
+  factory _$TabBar.fromJson(Map<String, dynamic> json) =>
+      _$$TabBarFromJson(json);
+
+  @override
+  final Key? key;
+  final List<Widget> _tabs;
+  @override
+  List<Widget> get tabs {
+    if (_tabs is EqualUnmodifiableListView) return _tabs;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tabs);
+  }
+
+  @override
+  @JsonKey()
+  final bool isScrollable;
+  @override
+  final IntSelectionCallback? onTap;
+  @override
+  final EdgeInsets? padding;
+  @override
+  final Color? indicatorColor;
+  @override
+  @JsonKey()
+  final bool automaticIndicatorColorAdjustment;
+  @override
+  @JsonKey()
+  final double indicatorWeight;
+  @override
+  @JsonKey()
+  final EdgeInsets indicatorPadding;
+  @override
+  final Decoration? indicator;
+  @override
+  final TabBarIndicatorSize? indicatorSize;
+  @override
+  final Color? dividerColor;
+  @override
+  final Color? labelColor;
+  @override
+  final TextStyle? labelStyle;
+  @override
+  final EdgeInsets? labelPadding;
+  @override
+  final Color? unselectedLabelColor;
+  @override
+  final TextStyle? unselectedLabelStyle;
+  @override
+  @JsonKey()
+  final DragStartBehavior dragStartBehavior;
+  @override
+  final MaterialStateProperty? overlayColor;
+  @override
+  final MouseCursor? mouseCursor;
+  @override
+  final bool? enableFeedback;
+  @override
+  final ScrollPhysics? physics;
+  @override
+  final BorderRadius? splashBorderRadius;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'PreferredSizeWidget.tabBar(key: $key, tabs: $tabs, isScrollable: $isScrollable, onTap: $onTap, padding: $padding, indicatorColor: $indicatorColor, automaticIndicatorColorAdjustment: $automaticIndicatorColorAdjustment, indicatorWeight: $indicatorWeight, indicatorPadding: $indicatorPadding, indicator: $indicator, indicatorSize: $indicatorSize, dividerColor: $dividerColor, labelColor: $labelColor, labelStyle: $labelStyle, labelPadding: $labelPadding, unselectedLabelColor: $unselectedLabelColor, unselectedLabelStyle: $unselectedLabelStyle, dragStartBehavior: $dragStartBehavior, overlayColor: $overlayColor, mouseCursor: $mouseCursor, enableFeedback: $enableFeedback, physics: $physics, splashBorderRadius: $splashBorderRadius)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TabBar &&
+            (identical(other.key, key) || other.key == key) &&
+            const DeepCollectionEquality().equals(other._tabs, _tabs) &&
+            (identical(other.isScrollable, isScrollable) ||
+                other.isScrollable == isScrollable) &&
+            const DeepCollectionEquality().equals(other.onTap, onTap) &&
+            (identical(other.padding, padding) || other.padding == padding) &&
+            (identical(other.indicatorColor, indicatorColor) ||
+                other.indicatorColor == indicatorColor) &&
+            (identical(other.automaticIndicatorColorAdjustment,
+                    automaticIndicatorColorAdjustment) ||
+                other.automaticIndicatorColorAdjustment ==
+                    automaticIndicatorColorAdjustment) &&
+            (identical(other.indicatorWeight, indicatorWeight) ||
+                other.indicatorWeight == indicatorWeight) &&
+            (identical(other.indicatorPadding, indicatorPadding) ||
+                other.indicatorPadding == indicatorPadding) &&
+            (identical(other.indicator, indicator) ||
+                other.indicator == indicator) &&
+            (identical(other.indicatorSize, indicatorSize) ||
+                other.indicatorSize == indicatorSize) &&
+            (identical(other.dividerColor, dividerColor) ||
+                other.dividerColor == dividerColor) &&
+            (identical(other.labelColor, labelColor) ||
+                other.labelColor == labelColor) &&
+            (identical(other.labelStyle, labelStyle) ||
+                other.labelStyle == labelStyle) &&
+            (identical(other.labelPadding, labelPadding) ||
+                other.labelPadding == labelPadding) &&
+            (identical(other.unselectedLabelColor, unselectedLabelColor) ||
+                other.unselectedLabelColor == unselectedLabelColor) &&
+            (identical(other.unselectedLabelStyle, unselectedLabelStyle) ||
+                other.unselectedLabelStyle == unselectedLabelStyle) &&
+            (identical(other.dragStartBehavior, dragStartBehavior) ||
+                other.dragStartBehavior == dragStartBehavior) &&
+            (identical(other.overlayColor, overlayColor) ||
+                other.overlayColor == overlayColor) &&
+            (identical(other.mouseCursor, mouseCursor) ||
+                other.mouseCursor == mouseCursor) &&
+            (identical(other.enableFeedback, enableFeedback) ||
+                other.enableFeedback == enableFeedback) &&
+            (identical(other.physics, physics) || other.physics == physics) &&
+            (identical(other.splashBorderRadius, splashBorderRadius) ||
+                other.splashBorderRadius == splashBorderRadius));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        key,
+        const DeepCollectionEquality().hash(_tabs),
+        isScrollable,
+        const DeepCollectionEquality().hash(onTap),
+        padding,
+        indicatorColor,
+        automaticIndicatorColorAdjustment,
+        indicatorWeight,
+        indicatorPadding,
+        indicator,
+        indicatorSize,
+        dividerColor,
+        labelColor,
+        labelStyle,
+        labelPadding,
+        unselectedLabelColor,
+        unselectedLabelStyle,
+        dragStartBehavior,
+        overlayColor,
+        mouseCursor,
+        enableFeedback,
+        physics,
+        splashBorderRadius
+      ]);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TabBarCopyWith<_$TabBar> get copyWith =>
+      __$$TabBarCopyWithImpl<_$TabBar>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(Key? key, Size preferredSize, Widget child) $default, {
+    required TResult Function(
+            Key? key,
+            Widget? leading,
+            bool automaticallyImplyLeading,
+            Widget? title,
+            List<Widget>? actions,
+            Widget? flexibleSpace,
+            PreferredSizeWidget? bottom,
+            double? elevation,
+            double? scrolledUnderElevation,
+            Color? shadowColor,
+            Color? surfaceTintColor,
+            ShapeBorder? shape,
+            Color? backgroundColor,
+            Color? foregroundColor,
+            bool primary,
+            bool? centerTitle,
+            bool excludeHeaderSemantics,
+            double? titleSpacing,
+            double toolbarOpacity,
+            double bottomOpacity,
+            double? toolbarHeight,
+            double? leadingWidth,
+            TextStyle? toolbarTextStyle,
+            TextStyle? titleTextStyle,
+            bool forceMaterialTransparency)
+        appBar,
+    required TResult Function(
+            Key? key,
+            List<Widget> tabs,
+            bool isScrollable,
+            IntSelectionCallback? onTap,
+            EdgeInsets? padding,
+            Color? indicatorColor,
+            bool automaticIndicatorColorAdjustment,
+            double indicatorWeight,
+            EdgeInsets indicatorPadding,
+            Decoration? indicator,
+            TabBarIndicatorSize? indicatorSize,
+            Color? dividerColor,
+            Color? labelColor,
+            TextStyle? labelStyle,
+            EdgeInsets? labelPadding,
+            Color? unselectedLabelColor,
+            TextStyle? unselectedLabelStyle,
+            DragStartBehavior dragStartBehavior,
+            MaterialStateProperty? overlayColor,
+            MouseCursor? mouseCursor,
+            bool? enableFeedback,
+            ScrollPhysics? physics,
+            BorderRadius? splashBorderRadius)
+        tabBar,
+  }) {
+    return tabBar(
+        key,
+        tabs,
+        isScrollable,
+        onTap,
+        padding,
+        indicatorColor,
+        automaticIndicatorColorAdjustment,
+        indicatorWeight,
+        indicatorPadding,
+        indicator,
+        indicatorSize,
+        dividerColor,
+        labelColor,
+        labelStyle,
+        labelPadding,
+        unselectedLabelColor,
+        unselectedLabelStyle,
+        dragStartBehavior,
+        overlayColor,
+        mouseCursor,
+        enableFeedback,
+        physics,
+        splashBorderRadius);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(Key? key, Size preferredSize, Widget child)? $default, {
+    TResult? Function(
+            Key? key,
+            Widget? leading,
+            bool automaticallyImplyLeading,
+            Widget? title,
+            List<Widget>? actions,
+            Widget? flexibleSpace,
+            PreferredSizeWidget? bottom,
+            double? elevation,
+            double? scrolledUnderElevation,
+            Color? shadowColor,
+            Color? surfaceTintColor,
+            ShapeBorder? shape,
+            Color? backgroundColor,
+            Color? foregroundColor,
+            bool primary,
+            bool? centerTitle,
+            bool excludeHeaderSemantics,
+            double? titleSpacing,
+            double toolbarOpacity,
+            double bottomOpacity,
+            double? toolbarHeight,
+            double? leadingWidth,
+            TextStyle? toolbarTextStyle,
+            TextStyle? titleTextStyle,
+            bool forceMaterialTransparency)?
+        appBar,
+    TResult? Function(
+            Key? key,
+            List<Widget> tabs,
+            bool isScrollable,
+            IntSelectionCallback? onTap,
+            EdgeInsets? padding,
+            Color? indicatorColor,
+            bool automaticIndicatorColorAdjustment,
+            double indicatorWeight,
+            EdgeInsets indicatorPadding,
+            Decoration? indicator,
+            TabBarIndicatorSize? indicatorSize,
+            Color? dividerColor,
+            Color? labelColor,
+            TextStyle? labelStyle,
+            EdgeInsets? labelPadding,
+            Color? unselectedLabelColor,
+            TextStyle? unselectedLabelStyle,
+            DragStartBehavior dragStartBehavior,
+            MaterialStateProperty? overlayColor,
+            MouseCursor? mouseCursor,
+            bool? enableFeedback,
+            ScrollPhysics? physics,
+            BorderRadius? splashBorderRadius)?
+        tabBar,
+  }) {
+    return tabBar?.call(
+        key,
+        tabs,
+        isScrollable,
+        onTap,
+        padding,
+        indicatorColor,
+        automaticIndicatorColorAdjustment,
+        indicatorWeight,
+        indicatorPadding,
+        indicator,
+        indicatorSize,
+        dividerColor,
+        labelColor,
+        labelStyle,
+        labelPadding,
+        unselectedLabelColor,
+        unselectedLabelStyle,
+        dragStartBehavior,
+        overlayColor,
+        mouseCursor,
+        enableFeedback,
+        physics,
+        splashBorderRadius);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(Key? key, Size preferredSize, Widget child)? $default, {
+    TResult Function(
+            Key? key,
+            Widget? leading,
+            bool automaticallyImplyLeading,
+            Widget? title,
+            List<Widget>? actions,
+            Widget? flexibleSpace,
+            PreferredSizeWidget? bottom,
+            double? elevation,
+            double? scrolledUnderElevation,
+            Color? shadowColor,
+            Color? surfaceTintColor,
+            ShapeBorder? shape,
+            Color? backgroundColor,
+            Color? foregroundColor,
+            bool primary,
+            bool? centerTitle,
+            bool excludeHeaderSemantics,
+            double? titleSpacing,
+            double toolbarOpacity,
+            double bottomOpacity,
+            double? toolbarHeight,
+            double? leadingWidth,
+            TextStyle? toolbarTextStyle,
+            TextStyle? titleTextStyle,
+            bool forceMaterialTransparency)?
+        appBar,
+    TResult Function(
+            Key? key,
+            List<Widget> tabs,
+            bool isScrollable,
+            IntSelectionCallback? onTap,
+            EdgeInsets? padding,
+            Color? indicatorColor,
+            bool automaticIndicatorColorAdjustment,
+            double indicatorWeight,
+            EdgeInsets indicatorPadding,
+            Decoration? indicator,
+            TabBarIndicatorSize? indicatorSize,
+            Color? dividerColor,
+            Color? labelColor,
+            TextStyle? labelStyle,
+            EdgeInsets? labelPadding,
+            Color? unselectedLabelColor,
+            TextStyle? unselectedLabelStyle,
+            DragStartBehavior dragStartBehavior,
+            MaterialStateProperty? overlayColor,
+            MouseCursor? mouseCursor,
+            bool? enableFeedback,
+            ScrollPhysics? physics,
+            BorderRadius? splashBorderRadius)?
+        tabBar,
+    required TResult orElse(),
+  }) {
+    if (tabBar != null) {
+      return tabBar(
+          key,
+          tabs,
+          isScrollable,
+          onTap,
+          padding,
+          indicatorColor,
+          automaticIndicatorColorAdjustment,
+          indicatorWeight,
+          indicatorPadding,
+          indicator,
+          indicatorSize,
+          dividerColor,
+          labelColor,
+          labelStyle,
+          labelPadding,
+          unselectedLabelColor,
+          unselectedLabelStyle,
+          dragStartBehavior,
+          overlayColor,
+          mouseCursor,
+          enableFeedback,
+          physics,
+          splashBorderRadius);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(PreferredSize value) $default, {
+    required TResult Function(AppBar value) appBar,
+    required TResult Function(TabBar value) tabBar,
+  }) {
+    return tabBar(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(PreferredSize value)? $default, {
+    TResult? Function(AppBar value)? appBar,
+    TResult? Function(TabBar value)? tabBar,
+  }) {
+    return tabBar?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(PreferredSize value)? $default, {
+    TResult Function(AppBar value)? appBar,
+    TResult Function(TabBar value)? tabBar,
+    required TResult orElse(),
+  }) {
+    if (tabBar != null) {
+      return tabBar(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$TabBarToJson(
+      this,
+    );
+  }
+}
+
+abstract class TabBar implements PreferredSizeWidget {
+  const factory TabBar(
+      {final Key? key,
+      required final List<Widget> tabs,
+      final bool isScrollable,
+      final IntSelectionCallback? onTap,
+      final EdgeInsets? padding,
+      final Color? indicatorColor,
+      final bool automaticIndicatorColorAdjustment,
+      final double indicatorWeight,
+      final EdgeInsets indicatorPadding,
+      final Decoration? indicator,
+      final TabBarIndicatorSize? indicatorSize,
+      final Color? dividerColor,
+      final Color? labelColor,
+      final TextStyle? labelStyle,
+      final EdgeInsets? labelPadding,
+      final Color? unselectedLabelColor,
+      final TextStyle? unselectedLabelStyle,
+      final DragStartBehavior dragStartBehavior,
+      final MaterialStateProperty? overlayColor,
+      final MouseCursor? mouseCursor,
+      final bool? enableFeedback,
+      final ScrollPhysics? physics,
+      final BorderRadius? splashBorderRadius}) = _$TabBar;
+
+  factory TabBar.fromJson(Map<String, dynamic> json) = _$TabBar.fromJson;
+
+  @override
+  Key? get key;
+  List<Widget> get tabs;
+  bool get isScrollable;
+  IntSelectionCallback? get onTap;
+  EdgeInsets? get padding;
+  Color? get indicatorColor;
+  bool get automaticIndicatorColorAdjustment;
+  double get indicatorWeight;
+  EdgeInsets get indicatorPadding;
+  Decoration? get indicator;
+  TabBarIndicatorSize? get indicatorSize;
+  Color? get dividerColor;
+  Color? get labelColor;
+  TextStyle? get labelStyle;
+  EdgeInsets? get labelPadding;
+  Color? get unselectedLabelColor;
+  TextStyle? get unselectedLabelStyle;
+  DragStartBehavior get dragStartBehavior;
+  MaterialStateProperty? get overlayColor;
+  MouseCursor? get mouseCursor;
+  bool? get enableFeedback;
+  ScrollPhysics? get physics;
+  BorderRadius? get splashBorderRadius;
+  @override
+  @JsonKey(ignore: true)
+  _$$TabBarCopyWith<_$TabBar> get copyWith =>
       throw _privateConstructorUsedError;
 }

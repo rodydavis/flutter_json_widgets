@@ -166,3 +166,150 @@ Map<String, dynamic> _$$AppBarToJson(_$AppBar instance) {
   val['runtimeType'] = instance.$type;
   return val;
 }
+
+_$TabBar _$$TabBarFromJson(Map<String, dynamic> json) => _$TabBar(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      tabs: (json['tabs'] as List<dynamic>)
+          .map((e) => Widget.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      isScrollable: json['isScrollable'] as bool? ?? false,
+      onTap: json['onTap'] == null
+          ? null
+          : IntSelectionCallback.fromJson(
+              json['onTap'] as Map<String, dynamic>),
+      padding: json['padding'] == null
+          ? null
+          : EdgeInsets.fromJson(json['padding'] as Map<String, dynamic>),
+      indicatorColor: json['indicatorColor'] == null
+          ? null
+          : Color.fromJson(json['indicatorColor'] as Map<String, dynamic>),
+      automaticIndicatorColorAdjustment:
+          json['automaticIndicatorColorAdjustment'] as bool? ?? true,
+      indicatorWeight: (json['indicatorWeight'] as num?)?.toDouble() ?? 2.0,
+      indicatorPadding: json['indicatorPadding'] == null
+          ? EdgeInsets.zero
+          : EdgeInsets.fromJson(
+              json['indicatorPadding'] as Map<String, dynamic>),
+      indicator: json['indicator'] == null
+          ? null
+          : Decoration.fromJson(json['indicator'] as Map<String, dynamic>),
+      indicatorSize: $enumDecodeNullable(
+          _$TabBarIndicatorSizeEnumMap, json['indicatorSize']),
+      dividerColor: json['dividerColor'] == null
+          ? null
+          : Color.fromJson(json['dividerColor'] as Map<String, dynamic>),
+      labelColor: json['labelColor'] == null
+          ? null
+          : Color.fromJson(json['labelColor'] as Map<String, dynamic>),
+      labelStyle: json['labelStyle'] == null
+          ? null
+          : TextStyle.fromJson(json['labelStyle'] as Map<String, dynamic>),
+      labelPadding: json['labelPadding'] == null
+          ? null
+          : EdgeInsets.fromJson(json['labelPadding'] as Map<String, dynamic>),
+      unselectedLabelColor: json['unselectedLabelColor'] == null
+          ? null
+          : Color.fromJson(
+              json['unselectedLabelColor'] as Map<String, dynamic>),
+      unselectedLabelStyle: json['unselectedLabelStyle'] == null
+          ? null
+          : TextStyle.fromJson(
+              json['unselectedLabelStyle'] as Map<String, dynamic>),
+      dragStartBehavior: $enumDecodeNullable(
+              _$DragStartBehaviorEnumMap, json['dragStartBehavior']) ??
+          DragStartBehavior.start,
+      overlayColor: json['overlayColor'] == null
+          ? null
+          : MaterialStateProperty.fromJson(
+              json['overlayColor'] as Map<String, dynamic>),
+      mouseCursor: json['mouseCursor'] == null
+          ? null
+          : MouseCursor.fromJson(json['mouseCursor'] as Map<String, dynamic>),
+      enableFeedback: json['enableFeedback'] as bool?,
+      physics: json['physics'] == null
+          ? null
+          : ScrollPhysics.fromJson(json['physics'] as Map<String, dynamic>),
+      splashBorderRadius: json['splashBorderRadius'] == null
+          ? null
+          : BorderRadius.fromJson(
+              json['splashBorderRadius'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$TabBarFieldMap = <String, String>{
+  'key': 'key',
+  'tabs': 'tabs',
+  'isScrollable': 'isScrollable',
+  'onTap': 'onTap',
+  'padding': 'padding',
+  'indicatorColor': 'indicatorColor',
+  'automaticIndicatorColorAdjustment': 'automaticIndicatorColorAdjustment',
+  'indicatorWeight': 'indicatorWeight',
+  'indicatorPadding': 'indicatorPadding',
+  'indicator': 'indicator',
+  'indicatorSize': 'indicatorSize',
+  'dividerColor': 'dividerColor',
+  'labelColor': 'labelColor',
+  'labelStyle': 'labelStyle',
+  'labelPadding': 'labelPadding',
+  'unselectedLabelColor': 'unselectedLabelColor',
+  'unselectedLabelStyle': 'unselectedLabelStyle',
+  'dragStartBehavior': 'dragStartBehavior',
+  'overlayColor': 'overlayColor',
+  'mouseCursor': 'mouseCursor',
+  'enableFeedback': 'enableFeedback',
+  'physics': 'physics',
+  'splashBorderRadius': 'splashBorderRadius',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$TabBarToJson(_$TabBar instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  val['tabs'] = instance.tabs;
+  val['isScrollable'] = instance.isScrollable;
+  writeNotNull('onTap', instance.onTap);
+  writeNotNull('padding', instance.padding);
+  writeNotNull('indicatorColor', instance.indicatorColor);
+  val['automaticIndicatorColorAdjustment'] =
+      instance.automaticIndicatorColorAdjustment;
+  val['indicatorWeight'] = instance.indicatorWeight;
+  val['indicatorPadding'] = instance.indicatorPadding;
+  writeNotNull('indicator', instance.indicator);
+  writeNotNull(
+      'indicatorSize', _$TabBarIndicatorSizeEnumMap[instance.indicatorSize]);
+  writeNotNull('dividerColor', instance.dividerColor);
+  writeNotNull('labelColor', instance.labelColor);
+  writeNotNull('labelStyle', instance.labelStyle);
+  writeNotNull('labelPadding', instance.labelPadding);
+  writeNotNull('unselectedLabelColor', instance.unselectedLabelColor);
+  writeNotNull('unselectedLabelStyle', instance.unselectedLabelStyle);
+  val['dragStartBehavior'] =
+      _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!;
+  writeNotNull('overlayColor', instance.overlayColor);
+  writeNotNull('mouseCursor', instance.mouseCursor);
+  writeNotNull('enableFeedback', instance.enableFeedback);
+  writeNotNull('physics', instance.physics);
+  writeNotNull('splashBorderRadius', instance.splashBorderRadius);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+const _$TabBarIndicatorSizeEnumMap = {
+  TabBarIndicatorSize.tab: 'tab',
+  TabBarIndicatorSize.label: 'label',
+};
+
+const _$DragStartBehaviorEnumMap = {
+  DragStartBehavior.down: 'down',
+  DragStartBehavior.start: 'start',
+};

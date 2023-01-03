@@ -278,15 +278,134 @@ enum PanAxis {
   free,
 }
 
-enum TableCellVerticalAlignment {
-  top,
-  middle,
-  bottom,
-  baseline,
-  fill
-}
+enum TableCellVerticalAlignment { top, middle, bottom, baseline, fill }
 
 enum DragStartBehavior {
   down,
   start,
+}
+
+enum ListTileControlAffinity {
+  leading,
+  trailing,
+  platform,
+}
+
+enum TabBarIndicatorSize {
+  tab,
+  label,
+}
+
+enum NavigationRailLabelType {
+  none,
+  selected,
+  all,
+}
+
+enum NavigationDestinationLabelBehavior {
+  alwaysShow,
+  alwaysHide,
+  onlyShowSelected,
+}
+
+enum AutovalidateMode {
+  disabled,
+  always,
+  onUserInteraction,
+}
+
+enum BoxHeightStyle {
+  tight,
+  max,
+  includeLineSpacingMiddle,
+  includeLineSpacingTop,
+  includeLineSpacingBottom,
+  strut,
+}
+
+enum BoxWidthStyle {
+  tight,
+  max,
+}
+
+enum PlaceholderAlignment {
+  baseline,
+  aboveBaseline,
+  belowBaseline,
+  top,
+  bottom,
+  middle,
+}
+
+enum HitTestBehavior {
+  deferToChild,
+  opaque,
+  translucent,
+}
+
+enum PointerDeviceKind {
+  touch,
+  mouse,
+  stylus,
+  invertedStylus,
+  trackpad,
+  unknown
+}
+
+enum PointerSignalKind {
+  none,
+  scroll,
+  scrollInertiaCancel,
+  scale,
+  unknown
+}
+
+enum MaxLengthEnforcement {
+  none,
+  enforced,
+  truncateAfterCompositionEnds,
+}
+
+enum SmartDashesType {
+  disabled,
+  enabled,
+}
+
+enum TextCapitalization {
+  words,
+  sentences,
+  characters,
+  none,
+}
+
+enum SmartQuotesType {
+  disabled,
+  enabled,
+}
+
+enum TextInputAction {
+  none,
+  unspecified,
+  done,
+  go,
+  search,
+  send,
+  next,
+  previous,
+  continueAction,
+  join,
+  route,
+  emergencyCall,
+  newline,
+}
+
+enum FloatingLabelBehavior {
+  never,
+  auto,
+  always,
+}
+
+enum PopupMenuPosition {
+  over,
+  under,
 }

@@ -2,8 +2,9 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart' as material;
+import 'package:flutter/foundation.dart' as foundation;
 import 'package:flutter/services.dart' as services;
-import 'package:flutter/widgets.dart';
+import 'package:flutter/gestures.dart' as gestures;
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:ui' as ui;
 import 'package:flutter_json_widgets/flutter_json_widgets.dart' as widgets;
@@ -19,26 +20,29 @@ class FlutterWidget extends material.StatefulWidget {
     super.key,
     required this.widget,
     this.customWidgets = const {},
-  })  : url = null,
+  })  : request = null,
         json = null,
-        assetPath = null,
-        headers = const {};
+        httpClient = null,
+        formData = null,
+        assetPath = null;
 
   const FlutterWidget.json({
     super.key,
     required this.json,
     this.customWidgets = const {},
-  })  : url = null,
+  })  : assetPath = null,
         widget = null,
-        assetPath = null,
-        headers = const {};
+        httpClient = null,
+        formData = null,
+        request = null;
 
   const FlutterWidget.network({
     super.key,
-    required this.url,
+    required this.request,
     this.customWidgets = const {},
-    this.headers = const {},
     this.assetPath,
+    this.httpClient,
+    this.formData,
   })  : widget = null,
         json = null;
 
@@ -48,15 +52,17 @@ class FlutterWidget extends material.StatefulWidget {
     this.customWidgets = const {},
   })  : widget = null,
         json = null,
-        url = null,
-        headers = const {};
+        httpClient = null,
+        formData = null,
+        request = null;
 
   final widgets.Widget? widget;
-  final Uri? url;
-  final Map<String, String> headers;
+  final widgets.NetworkHttpRequest? request;
   final Map<String, Object?>? json;
   final Map<String, WidgetBuilder> customWidgets;
   final String? assetPath;
+  final http.Client? httpClient;
+  final widgets.FormData? formData;
 
   @override
   material.State<FlutterWidget> createState() => _FlutterWidgetState();
@@ -65,6 +71,13 @@ class FlutterWidget extends material.StatefulWidget {
 class _FlutterWidgetState extends material.State<FlutterWidget> {
   final _navigatorKey = material.GlobalKey<material.NavigatorState>();
   final _messengerKey = material.GlobalKey<material.ScaffoldMessengerState>();
+  final _formKey = material.GlobalKey<material.FormState>();
+  late final _formData = material.ValueNotifier(
+    widget.formData ??
+        // ignore: prefer_const_constructors
+        widgets.FormData(fields: []),
+  );
+  late final client = widget.httpClient ?? http.Client();
 
   @override
   material.Widget build(material.BuildContext context) {
@@ -94,29 +107,153 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         },
       );
     }
-    if (widget.url != null) {
-      return material.FutureBuilder(
-        future: http
-            .get(widget.url!, headers: widget.headers)
-            .then((value) => value.body)
-            .then((value) => jsonDecode(value))
-            .then((value) => widgets.Widget.fromJson(value)),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            final widget = snapshot.data!;
-            return $widget(context, widget)!;
-          }
-          if (widget.assetPath != null) {
-            return FlutterWidget.asset(
-              assetPath: widget.assetPath!,
-              customWidgets: widget.customWidgets,
-            );
-          }
-          return buildLoading();
-        },
-      );
+    if (widget.request != null) {
+      final req = widget.request!;
+      if (!req.streamedResponse) {
+        return material.FutureBuilder(
+          future: $request(req)
+              .then((value) => value.body)
+              .then((value) => jsonDecode(value))
+              .then((value) => widgets.Widget.fromJson(value)),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final widget = snapshot.data!;
+              return $widget(context, widget)!;
+            }
+            if (widget.assetPath != null) {
+              return FlutterWidget.asset(
+                assetPath: widget.assetPath!,
+                customWidgets: widget.customWidgets,
+              );
+            }
+            return buildLoading();
+          },
+        );
+      } else {
+        return material.StreamBuilder(
+          stream: $streamedRequest(req)
+              .map((value) => utf8.decoder.convert(value))
+              .map((value) => jsonDecode(value))
+              .map((value) => widgets.Widget.fromJson(value)),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final widget = snapshot.data!;
+              return $widget(context, widget)!;
+            }
+            if (widget.assetPath != null) {
+              return FlutterWidget.asset(
+                assetPath: widget.assetPath!,
+                customWidgets: widget.customWidgets,
+              );
+            }
+            return buildLoading();
+          },
+        );
+      }
     }
     return material.Container();
+  }
+
+  Future<http.Response> $request(widgets.NetworkHttpRequest request) async {
+    final url = $uri(request.url);
+    final headers = request.headers;
+    final method = request.method ?? 'GET';
+    switch (method) {
+      case 'GET':
+        return client.get(url, headers: headers);
+      case 'POST':
+        if (request.bodyText != null) {
+          return client.post(
+            url,
+            headers: headers,
+            body: request.bodyText,
+          );
+        } else if (request.bodyBytes != null) {
+          return client.post(
+            url,
+            headers: headers,
+            body: Uint8List.fromList(request.bodyBytes!),
+          );
+        } else if (request.bodyMap != null) {
+          return client.post(
+            url,
+            headers: headers,
+            body: jsonEncode(request.bodyMap),
+          );
+        } else {
+          return client.post(url, headers: headers);
+        }
+      case 'PUT':
+        if (request.bodyText != null) {
+          return client.put(
+            url,
+            headers: headers,
+            body: request.bodyText,
+          );
+        } else if (request.bodyBytes != null) {
+          return client.put(
+            url,
+            headers: headers,
+            body: request.bodyBytes,
+          );
+        } else if (request.bodyMap != null) {
+          return client.put(
+            url,
+            headers: headers,
+            body: jsonEncode(request.bodyMap),
+          );
+        } else {
+          return client.put(url, headers: headers);
+        }
+      case 'DELETE':
+        return client.delete(url, headers: headers);
+      default:
+    }
+    throw Exception('Unsupported method: $method');
+  }
+
+  Stream<List<int>> $streamedRequest(
+    widgets.NetworkHttpRequest request,
+  ) async* {
+    final url = $uri(request.url);
+    final headers = request.headers;
+    final method = request.method ?? 'GET';
+    final req = http.Request(method, url);
+    req.headers.addAll(headers);
+    if (request.bodyText != null) {
+      req.body = request.bodyText!;
+    } else if (request.bodyBytes != null) {
+      req.bodyBytes = request.bodyBytes!;
+    } else if (request.bodyMap != null) {
+      req.body = jsonEncode(request.bodyMap);
+    }
+    final response = await client.send(req);
+    yield* response.stream;
+  }
+
+  Future<http.Response> $formSubmit(
+    widgets.FormSubmitNetworkRequest request,
+  ) async {
+    if (request.validate) {
+      final form = _formKey.currentState;
+      if (form != null) {
+        if (!form.validate()) {
+          return http.Response('', 400);
+        }
+        form.save();
+      }
+    }
+    final _formJson = json.encode(_formData.value.toJsonMap());
+    final _request = widgets.NetworkHttpRequest(
+      method: 'POST',
+      url: request.url,
+      headers: {
+        ...request.headers,
+        'Content-Type': 'application/json',
+      },
+      bodyText: _formJson,
+    );
+    return $request(_request);
   }
 
   material.Widget buildLoading() {
@@ -178,11 +315,24 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     final widgets.EdgeInsets? edgeInsets,
   ) {
     if (edgeInsets == null) return null;
-    return material.EdgeInsets.only(
-      left: edgeInsets.left,
-      top: edgeInsets.top,
-      right: edgeInsets.right,
-      bottom: edgeInsets.bottom,
+    return edgeInsets.map(
+      (value) => material.EdgeInsets.only(
+        top: value.top,
+        right: value.right,
+        bottom: value.bottom,
+        left: value.left,
+      ),
+      only: (value) => material.EdgeInsets.only(
+        top: value.top,
+        right: value.right,
+        bottom: value.bottom,
+        left: value.left,
+      ),
+      all: (value) => material.EdgeInsets.all(value.value),
+      symmetric: (value) => material.EdgeInsets.symmetric(
+        vertical: value.vertical,
+        horizontal: value.horizontal,
+      ),
     );
   }
 
@@ -1331,6 +1481,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         side: $borderSide(context, value.side)!,
         borderRadius: $borderRadius(value.borderRadius)!,
       ),
+      noneInput: (value) => material.InputBorder.none,
     );
   }
 
@@ -1429,16 +1580,17 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         _navigatorKey.currentState ?? material.Navigator.of(context);
     final messengerKey =
         _messengerKey.currentState ?? material.ScaffoldMessenger.of(context);
-    return callback.map(
+    return callback.maybeMap(
+      orElse: () => null,
       empty: (_) => () {},
       reload: (_) => () {
         if (mounted) setState(() {});
       },
-      navigatorPushNamed: (value) {
-        return () => navigatorKey.pushNamed(
-              value.value,
-              arguments: value.arguments,
-            );
+      navigatorPushNamed: (value) => () {
+        navigatorKey.pushNamed(
+          value.value,
+          arguments: value.arguments,
+        );
       },
       navigatorPop: (value) => () {
         _navigatorKey.currentState!.pop(
@@ -1454,74 +1606,16 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
       copyClipboard: (value) => () async {
         final data = services.ClipboardData(text: value.text);
         await services.Clipboard.setData(data);
-        if (value.callback != null) {
-          // ignore: use_build_context_synchronously
-          $callback(context, value.callback)!();
-        }
+        // ignore: use_build_context_synchronously
+        $callback(context, value.callback)?.call();
       },
       networkRequest: (value) => () async {
-        final url = $uri(value.request.url);
-        final headers = value.request.headers;
-        final method = value.request.method ?? 'GET';
-        switch (method) {
-          case 'GET':
-            await http.get(url, headers: headers);
-            break;
-          case 'POST':
-            if (value.request.bodyText != null) {
-              await http.post(
-                url,
-                headers: headers,
-                body: value.request.bodyText,
-              );
-            } else if (value.request.bodyBytes != null) {
-              await http.post(
-                url,
-                headers: headers,
-                body: Uint8List.fromList(value.request.bodyBytes!),
-              );
-            } else if (value.request.bodyMap != null) {
-              await http.post(
-                url,
-                headers: headers,
-                body: jsonEncode(value.request.bodyMap),
-              );
-            } else {
-              await http.post(url, headers: headers);
-            }
-            break;
-          case 'PUT':
-            if (value.request.bodyText != null) {
-              await http.put(
-                url,
-                headers: headers,
-                body: value.request.bodyText,
-              );
-            } else if (value.request.bodyBytes != null) {
-              await http.put(
-                url,
-                headers: headers,
-                body: value.request.bodyBytes,
-              );
-            } else if (value.request.bodyMap != null) {
-              await http.put(
-                url,
-                headers: headers,
-                body: jsonEncode(value.request.bodyMap),
-              );
-            } else {
-              await http.put(url, headers: headers);
-            }
-            break;
-          case 'DELETE':
-            await http.delete(url, headers: headers);
-            break;
-          default:
-        }
-        if (value.callback != null) {
-          // ignore: use_build_context_synchronously
-          $callback(context, value.callback)!();
-        }
+        await value.request.map(
+          http: (req) => $request(req),
+          formSubmit: (req) => $formSubmit(req),
+        );
+        // ignore: use_build_context_synchronously
+        $callback(context, value.callback)?.call();
       },
       showSnackBar: (value) => () {
         messengerKey.showSnackBar(
@@ -1718,7 +1812,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
       fit: $enum(
         imageDecoration.fit,
         material.BoxFit.values,
-      )!,
+      ),
       alignment: $alignment(imageDecoration.alignment)!,
       centerSlice: $rect(imageDecoration.centerSlice),
       repeat: $enum(
@@ -1798,6 +1892,34 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     return material.Size(size.width, size.height);
   }
 
+  material.ValueChanged<int>? $intSelection(
+    final material.BuildContext context,
+    final widgets.IntSelectionCallback? callback,
+  ) {
+    if (callback == null) return null;
+    return (value) {
+      final option = callback.values[value];
+      if (option == null) return;
+      $callback(context, option);
+    };
+  }
+
+  material.ValueChanged<bool>? $boolSelection(
+    final material.BuildContext context,
+    final widgets.BoolSelectionCallback? callback,
+  ) {
+    if (callback == null) return null;
+    return (value) {
+      if (value) {
+        final option = callback.trueCallback;
+        $callback(context, option);
+      } else {
+        final option = callback.falseCallback;
+        $callback(context, option);
+      }
+    };
+  }
+
   material.PreferredSizeWidget? $preferredSizeWidget(
     final material.BuildContext context,
     final widgets.PreferredSizeWidget? preferredSizeWidget,
@@ -1835,6 +1957,34 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         toolbarTextStyle: $textStyle(context, value.toolbarTextStyle),
         titleTextStyle: $textStyle(context, value.titleTextStyle),
         forceMaterialTransparency: value.forceMaterialTransparency,
+      ),
+      tabBar: (value) => material.TabBar(
+        key: $key(value.key),
+        tabs: $widgets(context, value.tabs)!,
+        isScrollable: value.isScrollable,
+        onTap: $intSelection(context, value.onTap),
+        padding: $edgeInsets(value.padding),
+        indicatorColor: $color(context, value.indicatorColor),
+        automaticIndicatorColorAdjustment:
+            value.automaticIndicatorColorAdjustment,
+        indicatorWeight: value.indicatorWeight,
+        indicatorPadding: $edgeInsets(value.indicatorPadding)!,
+        indicator: $decoration(context, value.indicator),
+        indicatorSize:
+            $enum(value.indicatorSize, material.TabBarIndicatorSize.values),
+        dividerColor: $color(context, value.dividerColor),
+        labelColor: $color(context, value.labelColor),
+        labelStyle: $textStyle(context, value.labelStyle),
+        labelPadding: $edgeInsets(value.labelPadding),
+        unselectedLabelColor: $color(context, value.unselectedLabelColor),
+        unselectedLabelStyle: $textStyle(context, value.unselectedLabelStyle),
+        dragStartBehavior:
+            $enum(value.dragStartBehavior, gestures.DragStartBehavior.values)!,
+        overlayColor: $materialStateProperty(context, value.overlayColor),
+        mouseCursor: $mouseCursor(value.mouseCursor),
+        enableFeedback: value.enableFeedback,
+        physics: $scrollPhysics(value.physics),
+        splashBorderRadius: $borderRadius(value.splashBorderRadius),
       ),
     );
   }
@@ -2074,26 +2224,26 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
       fromSeed: (value) => material.ColorScheme.fromSeed(
         seedColor: $color(context, value.seedColor)!,
         brightness: $enum(value.brightness, material.Brightness.values)!,
-        primary: $color(context, value.primary)!,
-        onPrimary: $color(context, value.onPrimary)!,
+        primary: $color(context, value.primary),
+        onPrimary: $color(context, value.onPrimary),
         primaryContainer: $color(context, value.primaryContainer),
         onPrimaryContainer: $color(context, value.onPrimaryContainer),
-        secondary: $color(context, value.secondary)!,
-        onSecondary: $color(context, value.onSecondary)!,
+        secondary: $color(context, value.secondary),
+        onSecondary: $color(context, value.onSecondary),
         secondaryContainer: $color(context, value.secondaryContainer),
         onSecondaryContainer: $color(context, value.onSecondaryContainer),
         tertiary: $color(context, value.tertiary),
         onTertiary: $color(context, value.onTertiary),
         tertiaryContainer: $color(context, value.tertiaryContainer),
         onTertiaryContainer: $color(context, value.onTertiaryContainer),
-        error: $color(context, value.error)!,
-        onError: $color(context, value.onError)!,
+        error: $color(context, value.error),
+        onError: $color(context, value.onError),
         errorContainer: $color(context, value.errorContainer),
         onErrorContainer: $color(context, value.onErrorContainer),
-        background: $color(context, value.background)!,
-        onBackground: $color(context, value.onBackground)!,
-        surface: $color(context, value.surface)!,
-        onSurface: $color(context, value.onSurface)!,
+        background: $color(context, value.background),
+        onBackground: $color(context, value.onBackground),
+        surface: $color(context, value.surface),
+        onSurface: $color(context, value.onSurface),
         surfaceVariant: $color(context, value.surfaceVariant),
         onSurfaceVariant: $color(context, value.onSurfaceVariant),
         outline: $color(context, value.outline),
@@ -2432,7 +2582,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
       offstage: (value) => material.SliverOffstage(
         key: $key(value.key),
         offstage: value.offstage,
-        sliver: $sliver(context, value.sliver)!,
+        sliver: $sliver(context, value.sliver),
       ),
       list: (value) => material.SliverList(
         key: $key(value.key),
@@ -2447,18 +2597,18 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         key: $key(value.key),
         ignoring: value.ignoring,
         ignoringSemantics: value.ignoringSemantics,
-        sliver: $sliver(context, value.sliver)!,
+        sliver: $sliver(context, value.sliver),
       ),
       opacity: (value) => material.SliverOpacity(
         key: $key(value.key),
         opacity: value.opacity,
         alwaysIncludeSemantics: value.alwaysIncludeSemantics,
-        sliver: $sliver(context, value.sliver)!,
+        sliver: $sliver(context, value.sliver),
       ),
       padding: (value) => material.SliverPadding(
         key: $key(value.key),
         padding: $edgeInsets(value.padding)!,
-        sliver: $sliver(context, value.sliver)!,
+        sliver: $sliver(context, value.sliver),
       ),
       prototypeExtendList: (value) => material.SliverPrototypeExtentList(
         key: $key(value.key),
@@ -2509,8 +2659,270 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     if (tableRow == null) return null;
     return material.TableRow(
       key: $key(tableRow.key as widgets.Key) as material.LocalKey?,
-      children: $widgets(context, tableRow.children)!,
+      children: $widgets(context, tableRow.children),
       decoration: $decoration(context, tableRow.decoration),
+    );
+  }
+
+  material.InlineSpan? $inlineSpan(
+    final material.BuildContext context,
+    final widgets.InlineSpan? inlineSpan,
+  ) {
+    if (inlineSpan == null) return null;
+    return inlineSpan.map(
+      widget: (value) => material.WidgetSpan(
+        child: $widget(context, value.child)!,
+        alignment:
+            $enum(value.alignment, material.PlaceholderAlignment.values)!,
+        baseline: $enum(value.baseline, material.TextBaseline.values),
+        style: $textStyle(context, value.style),
+      ),
+      text: (value) {
+        gestures.TapGestureRecognizer? recognizer;
+        if (value.onTap != null) {
+          recognizer = gestures.TapGestureRecognizer();
+          recognizer.onTap = $callback(context, value.onTap);
+        }
+        return material.TextSpan(
+          text: value.text,
+          children: value.children
+              ?.map((child) => $inlineSpan(context, child)!)
+              .toList(),
+          style: $textStyle(context, value.style),
+          mouseCursor: $mouseCursor(value.mouseCursor),
+          semanticsLabel: value.semanticsLabel,
+          locale: $locale(value.locale),
+          spellOut: value.spellOut,
+          recognizer: recognizer,
+        );
+      },
+    );
+  }
+
+  material.IconThemeData? $iconThemeData(
+    final material.BuildContext context,
+    final widgets.IconThemeData? iconThemeData,
+  ) {
+    if (iconThemeData == null) return null;
+    return material.IconThemeData(
+      size: iconThemeData.size,
+      fill: iconThemeData.fill,
+      weight: iconThemeData.weight,
+      grade: iconThemeData.grade,
+      opticalSize: iconThemeData.opticalSize,
+      color: $color(context, iconThemeData.color),
+      opacity: iconThemeData.opacity,
+      shadows: iconThemeData.shadows
+          ?.map((shadow) => $shadow(context, shadow)!)
+          .toList(),
+    );
+  }
+
+  material.NavigationRailDestination? $navigationRailDestination(
+    final material.BuildContext context,
+    final widgets.NavigationRailDestination? navigationRailDestination,
+  ) {
+    if (navigationRailDestination == null) return null;
+    return material.NavigationRailDestination(
+      icon: $widget(context, navigationRailDestination.icon)!,
+      selectedIcon: $widget(context, navigationRailDestination.selectedIcon),
+      indicatorColor: $color(context, navigationRailDestination.indicatorColor),
+      indicatorShape: $shapeBorder(
+        context,
+        navigationRailDestination.indicatorShape,
+      ),
+      label: $widget(context, navigationRailDestination.label)!,
+      padding: $edgeInsets(navigationRailDestination.padding),
+    );
+  }
+
+  material.DropdownMenuItem? $dropdownMenuItem(
+    material.BuildContext context,
+    widgets.DropdownMenuItem? value,
+  ) {
+    if (value == null) return null;
+    return material.DropdownMenuItem(
+      key: $key(value.key),
+      onTap: $callback(context, value.onTap),
+      value: value.value,
+      enabled: value.enabled,
+      alignment: $alignmentDirectional(value.alignment)!,
+      child: $widget(context, value.child)!,
+    );
+  }
+
+  material.TextInputType? $textInputType(
+    material.BuildContext context,
+    widgets.TextInputType? value,
+  ) {
+    if (value == null) return null;
+    return value.map(
+      numberWithOptions: (value) => material.TextInputType.numberWithOptions(
+        signed: value.signed,
+        decimal: value.decimal,
+      ),
+      text: (_) => material.TextInputType.text,
+      multiline: (_) => material.TextInputType.multiline,
+      number: (_) => material.TextInputType.number,
+      phone: (_) => material.TextInputType.phone,
+      datetime: (_) => material.TextInputType.datetime,
+      emailAddress: (_) => material.TextInputType.emailAddress,
+      url: (_) => material.TextInputType.url,
+      visiblePassword: (_) => material.TextInputType.visiblePassword,
+      name: (_) => material.TextInputType.name,
+      streetAddress: (_) => material.TextInputType.streetAddress,
+      none: (_) => material.TextInputType.none,
+    );
+  }
+
+  material.TextAlignVertical? $textAlignVertical(
+    material.BuildContext context,
+    widgets.TextAlignVertical? value,
+  ) {
+    if (value == null) return null;
+    return material.TextAlignVertical(y: value.y);
+  }
+
+  services.TextInputFormatter? $textInputFormatter(
+    material.BuildContext context,
+    widgets.TextInputFormatter? value,
+  ) {
+    if (value == null) return null;
+    return value.map(
+      lengthLimiting: (value) => services.LengthLimitingTextInputFormatter(
+        value.maxLength,
+        maxLengthEnforcement: $enum(
+          value.maxLengthEnforcement,
+          services.MaxLengthEnforcement.values,
+        )!,
+      ),
+      filtering: (value) => services.FilteringTextInputFormatter(
+        RegExp(value.filterPattern),
+        allow: value.allow,
+        replacementString: value.replacementString,
+      ),
+      filteringAllow: (value) => services.FilteringTextInputFormatter.allow(
+        RegExp(value.filterPattern),
+        replacementString: value.replacementString,
+      ),
+      filteringDeny: (value) => services.FilteringTextInputFormatter.deny(
+        RegExp(value.filterPattern),
+        replacementString: value.replacementString,
+      ),
+    );
+  }
+
+  material.PopupMenuEntry<String>? $popupMenuEntry(
+    material.BuildContext context,
+    widgets.PopupMenuEntry? value,
+  ) {
+    if (value == null) return null;
+    return value.map(
+      item: (value) => material.PopupMenuItem(
+        key: $key(value.key),
+        value: value.value,
+        onTap: $callback(context, value.onTap),
+        enabled: value.enabled,
+        height: value.height,
+        padding: $edgeInsets(value.padding),
+        textStyle: $textStyle(context, value.textStyle),
+        mouseCursor: $mouseCursor(value.mouseCursor),
+        child: $widget(context, value.child)!,
+      ),
+      divider: (value) => material.PopupMenuDivider(
+        key: $key(value.key),
+        height: value.height,
+      ),
+      checked: (value) => material.CheckedPopupMenuItem(
+        key: $key(value.key),
+        value: value.value,
+        checked: value.checked,
+        enabled: value.enabled,
+        padding: $edgeInsets(value.padding),
+        height: value.height,
+        mouseCursor: $mouseCursor(value.mouseCursor),
+        child: $widget(context, value.child)!,
+      ),
+    );
+  }
+
+  material.InputDecoration? $inputDecoration(
+    material.BuildContext context,
+    widgets.InputDecoration? value,
+  ) {
+    if (value == null) return null;
+    return material.InputDecoration(
+      icon: $widget(context, value.icon),
+      iconColor: $color(context, value.iconColor),
+      label: $widget(context, value.label),
+      labelText: value.labelText,
+      labelStyle: $textStyle(context, value.labelStyle),
+      floatingLabelStyle: $textStyle(context, value.floatingLabelStyle),
+      helperText: value.helperText,
+      helperStyle: $textStyle(context, value.helperStyle),
+      helperMaxLines: value.helperMaxLines,
+      hintText: value.hintText,
+      hintStyle: $textStyle(context, value.hintStyle),
+      hintTextDirection:
+          $enum(value.hintTextDirection, material.TextDirection.values),
+      hintMaxLines: value.hintMaxLines,
+      errorText: value.errorText,
+      errorStyle: $textStyle(context, value.errorStyle),
+      errorMaxLines: value.errorMaxLines,
+      floatingLabelBehavior: $enum(
+        value.floatingLabelBehavior,
+        material.FloatingLabelBehavior.values,
+      ),
+      floatingLabelAlignment:
+          $floatingLabelAlignment(context, value.floatingLabelAlignment),
+      isCollapsed: value.isCollapsed,
+      isDense: value.isDense,
+      contentPadding: $edgeInsets(value.contentPadding),
+      prefixIcon: $widget(context, value.prefixIcon),
+      prefixIconConstraints: $boxConstraints(value.prefixIconConstraints),
+      prefix: $widget(context, value.prefix),
+      prefixText: value.prefixText,
+      prefixStyle: $textStyle(context, value.prefixStyle),
+      prefixIconColor: $color(context, value.prefixIconColor),
+      suffixIcon: $widget(context, value.suffixIcon),
+      suffix: $widget(context, value.suffix),
+      suffixText: value.suffixText,
+      suffixStyle: $textStyle(context, value.suffixStyle),
+      suffixIconColor: $color(context, value.suffixIconColor),
+      suffixIconConstraints: $boxConstraints(value.suffixIconConstraints),
+      counter: $widget(context, value.counter),
+      counterText: value.counterText,
+      counterStyle: $textStyle(context, value.counterStyle),
+      filled: value.filled,
+      fillColor: $color(context, value.fillColor),
+      focusColor: $color(context, value.focusColor),
+      hoverColor: $color(context, value.hoverColor),
+      errorBorder:
+          $shapeBorder(context, value.errorBorder) as material.InputBorder?,
+      focusedBorder:
+          $shapeBorder(context, value.focusedBorder) as material.InputBorder?,
+      focusedErrorBorder: $shapeBorder(context, value.focusedErrorBorder)
+          as material.InputBorder?,
+      disabledBorder:
+          $shapeBorder(context, value.disabledBorder) as material.InputBorder?,
+      enabledBorder:
+          $shapeBorder(context, value.enabledBorder) as material.InputBorder?,
+      border: $shapeBorder(context, value.border) as material.InputBorder?,
+      enabled: value.enabled,
+      semanticCounterText: value.semanticCounterText,
+      alignLabelWithHint: value.alignLabelWithHint,
+      constraints: $boxConstraints(value.constraints),
+    );
+  }
+
+  material.FloatingLabelAlignment? $floatingLabelAlignment(
+    final material.BuildContext context,
+    final widgets.FloatingLabelAlignment? value,
+  ) {
+    if (value == null) return null;
+    return value.map(
+      start: (value) => material.FloatingLabelAlignment.start,
+      center: (value) => material.FloatingLabelAlignment.center,
     );
   }
 
@@ -2727,7 +3139,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         children: $widgets(context, value.children)!,
       ),
       icon: (value) => material.Icon(
-        $iconData(value.icon)!,
+        $iconData(value.icon),
         key: $key(value.key),
         fill: value.fill,
         weight: value.weight,
@@ -2833,7 +3245,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
           material.Axis.values,
         )!,
         reverse: value.reverse,
-        padding: $edgeInsets(value.padding)!,
+        padding: $edgeInsets(value.padding),
         primary: value.primary,
         physics: $scrollPhysics(value.physics),
         child: $widget(context, value.child),
@@ -2949,7 +3361,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
           value.clipBehavior,
           material.Clip.values,
         )!,
-        child: $widget(context, value.child)!,
+        child: $widget(context, value.child),
       ),
       elevatedButtonIcon: (value) => material.ElevatedButton.icon(
         key: $key(value.key),
@@ -2959,7 +3371,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         clipBehavior: $enum(
           value.clipBehavior,
           material.Clip.values,
-        )!,
+        ),
         icon: $widget(context, value.icon)!,
         label: $widget(context, value.label)!,
       ),
@@ -2972,7 +3384,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
           value.clipBehavior,
           material.Clip.values,
         )!,
-        child: $widget(context, value.child)!,
+        child: $widget(context, value.child),
       ),
       outlinedButtonIcon: (value) => material.OutlinedButton.icon(
         key: $key(value.key),
@@ -2982,7 +3394,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         clipBehavior: $enum(
           value.clipBehavior,
           material.Clip.values,
-        )!,
+        ),
         icon: $widget(context, value.icon)!,
         label: $widget(context, value.label)!,
       ),
@@ -3005,7 +3417,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         clipBehavior: $enum(
           value.clipBehavior,
           material.Clip.values,
-        )!,
+        ),
         icon: $widget(context, value.icon)!,
         label: $widget(context, value.label)!,
       ),
@@ -3018,7 +3430,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
           value.clipBehavior,
           material.Clip.values,
         )!,
-        child: $widget(context, value.child)!,
+        child: $widget(context, value.child),
       ),
       filledButtonIcon: (value) => material.FilledButton.icon(
         key: $key(value.key),
@@ -3028,7 +3440,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         clipBehavior: $enum(
           value.clipBehavior,
           material.Clip.values,
-        )!,
+        ),
         icon: $widget(context, value.icon)!,
         label: $widget(context, value.label)!,
       ),
@@ -3041,7 +3453,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
           value.clipBehavior,
           material.Clip.values,
         )!,
-        child: $widget(context, value.child)!,
+        child: $widget(context, value.child),
       ),
       filledTonalButtonIcon: (value) => material.FilledButton.tonalIcon(
         key: $key(value.key),
@@ -3051,7 +3463,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         clipBehavior: $enum(
           value.clipBehavior,
           material.Clip.values,
-        )!,
+        ),
         icon: $widget(context, value.icon)!,
         label: $widget(context, value.label)!,
       ),
@@ -3196,7 +3608,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         materialTapTargetSize: $enum(
           value.materialTapTargetSize,
           material.MaterialTapTargetSize.values,
-        )!,
+        ),
         isExtended: value.isExtended,
         enableFeedback: value.enableFeedback,
       ),
@@ -3276,7 +3688,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         materialTapTargetSize: $enum(
           value.materialTapTargetSize,
           material.MaterialTapTargetSize.values,
-        )!,
+        ),
         animationDuration: value.animationDuration,
         minWidth: value.minWidth,
         height: value.height,
@@ -3434,22 +3846,22 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
       ),
       repaintBoundary: (value) => material.RepaintBoundary(
         key: $key(value.key),
-        child: $widget(context, value.child)!,
+        child: $widget(context, value.child),
       ),
       clipRect: (value) => material.ClipRect(
         key: $key(value.key),
-        child: $widget(context, value.child)!,
+        child: $widget(context, value.child),
         clipBehavior: $enum(value.clipBehavior, material.Clip.values)!,
       ),
       clipRRect: (value) => material.ClipRRect(
         key: $key(value.key),
-        child: $widget(context, value.child)!,
-        borderRadius: $borderRadius(value.borderRadius)!,
+        child: $widget(context, value.child),
+        borderRadius: $borderRadius(value.borderRadius),
         clipBehavior: $enum(value.clipBehavior, material.Clip.values)!,
       ),
       clipOval: (value) => material.ClipOval(
         key: $key(value.key),
-        child: $widget(context, value.child)!,
+        child: $widget(context, value.child),
         clipBehavior: $enum(value.clipBehavior, material.Clip.values)!,
       ),
       custom: (value) {
@@ -3459,9 +3871,730 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
       },
       network: (value) => FlutterWidget.network(
         key: $key(value.key),
-        url: Uri.parse(value.request.url),
-        headers: value.request.headers,
+        request: value.request,
         customWidgets: this.widget.customWidgets,
+      ),
+      checkbox: (value) => material.ValueListenableBuilder(
+        valueListenable: _formData,
+        builder: (context, formData, child) {
+          bool? checked = value.value;
+          if (value.field != null) {
+            final field = value.field!;
+            final related = formData.getFormField(field.key);
+            if (related?.value != null && related is widgets.FormBoolField) {
+              checked = related.value;
+            } else if (field.value != null) {
+              checked = field.value;
+            }
+          }
+          return material.Checkbox(
+            key: $key(value.key),
+            value: checked,
+            tristate: value.tristate,
+            mouseCursor: $mouseCursor(value.mouseCursor),
+            activeColor: $color(context, value.activeColor),
+            fillColor: $materialStateProperty(context, value.fillColor),
+            checkColor: $color(context, value.checkColor),
+            focusColor: $color(context, value.focusColor),
+            hoverColor: $color(context, value.hoverColor),
+            overlayColor: $materialStateProperty(context, value.overlayColor),
+            splashRadius: value.splashRadius,
+            materialTapTargetSize: $enum(value.materialTapTargetSize,
+                material.MaterialTapTargetSize.values),
+            visualDensity: $visualDensity(context, value.visualDensity),
+            autofocus: value.autofocus,
+            shape: $outlinedBorder(context, value.shape),
+            side: $borderSide(context, value.side),
+            isError: value.isError,
+            onChanged: (val) {
+              if (value.field != null) {
+                final field = value.field!;
+                final fieldState =
+                    formData.getFormField(value.field!.key) ?? value.field!;
+                if (fieldState is widgets.FormBoolField) {
+                  _formData.value = formData.updateField(field.copyWith(
+                    value: val,
+                  ));
+                }
+              }
+            },
+          );
+        },
+      ),
+      theme: (value) => material.Theme(
+        key: $key(value.key),
+        data: $themeData(context, value.data)!,
+        child: $widget(context, value.child)!,
+      ),
+      listTile: (value) => material.ListTile(
+        key: $key(value.key),
+        leading: $widget(context, value.leading),
+        title: $widget(context, value.title),
+        subtitle: $widget(context, value.subtitle),
+        trailing: $widget(context, value.trailing),
+        isThreeLine: value.isThreeLine,
+        dense: value.dense,
+        visualDensity: $visualDensity(context, value.visualDensity),
+        shape: $shapeBorder(context, value.shape),
+        selectedColor: $color(context, value.selectedColor),
+        iconColor: $color(context, value.iconColor),
+        textColor: $color(context, value.textColor),
+        titleTextStyle: $textStyle(context, value.titleTextStyle),
+        subtitleTextStyle: $textStyle(context, value.subtitleTextStyle),
+        leadingAndTrailingTextStyle:
+            $textStyle(context, value.leadingAndTrailingTextStyle),
+        contentPadding: $edgeInsets(value.contentPadding),
+        enabled: value.enabled,
+        onTap: $callback(context, value.onTap),
+        onLongPress: $callback(context, value.onLongPress),
+        mouseCursor: $mouseCursor(value.mouseCursor),
+        selected: value.selected,
+        focusColor: $color(context, value.focusColor),
+        hoverColor: $color(context, value.hoverColor),
+        splashColor: $color(context, value.splashColor),
+        autofocus: value.autofocus,
+        tileColor: $color(context, value.tileColor),
+        selectedTileColor: $color(context, value.selectedTileColor),
+        enableFeedback: value.enableFeedback,
+        horizontalTitleGap: value.horizontalTitleGap,
+        minVerticalPadding: value.minVerticalPadding,
+        minLeadingWidth: value.minLeadingWidth,
+      ),
+      defaultTabController: (value) => material.DefaultTabController(
+        key: $key(value.key),
+        length: value.length,
+        initialIndex: value.initialIndex,
+        child: $widget(context, value.child)!,
+        animationDuration: value.animationDuration,
+      ),
+      gridTile: (value) => material.GridTile(
+        key: $key(value.key),
+        header: $widget(context, value.header),
+        footer: $widget(context, value.footer),
+        child: $widget(context, value.child)!,
+      ),
+      defaultTextStyle: (value) => material.DefaultTextStyle(
+        key: $key(value.key),
+        style: $textStyle(context, value.style)!,
+        textAlign: $enum(value.textAlign, material.TextAlign.values),
+        softWrap: value.softWrap,
+        overflow: $enum(value.overflow, material.TextOverflow.values)!,
+        maxLines: value.maxLines,
+        textWidthBasis:
+            $enum(value.textWidthBasis, material.TextWidthBasis.values)!,
+        textHeightBehavior:
+            $textHeightBehavior(context, value.textHeightBehavior),
+        child: $widget(context, value.child)!,
+      ),
+      tab: (value) => material.Tab(
+        key: $key(value.key),
+        text: value.text,
+        icon: $widget(context, value.icon),
+        iconMargin: $edgeInsets(value.iconMargin)!,
+        height: value.height,
+        child: $widget(context, value.child),
+      ),
+      form: (value) => material.Form(
+        key: $key(value.key),
+        child: $widget(context, value.child)!,
+        autovalidateMode:
+            $enum(value.autovalidateMode, material.AutovalidateMode.values)!,
+        onChanged: $callback(context, value.onChanged),
+      ),
+      tabBarView: (value) => material.TabBarView(
+        key: $key(value.key),
+        children: $widgets(context, value.children)!,
+        physics: $scrollPhysics(value.physics),
+        dragStartBehavior:
+            $enum(value.dragStartBehavior, gestures.DragStartBehavior.values)!,
+        viewportFraction: value.viewportFraction,
+        clipBehavior: $enum(value.clipBehavior, material.Clip.values)!,
+      ),
+      inkWell: (value) => material.InkWell(
+        key: $key(value.key),
+        child: $widget(context, value.child),
+        onTap: $callback(context, value.onTap),
+        onDoubleTap: $callback(context, value.onDoubleTap),
+        onLongPress: $callback(context, value.onLongPress),
+        onTapCancel: $callback(context, value.onTapCancel),
+        onHighlightChanged: $boolSelection(context, value.onHighlightChanged),
+        onHover: $boolSelection(context, value.onHover),
+        mouseCursor: $mouseCursor(value.mouseCursor),
+        focusColor: $color(context, value.focusColor),
+        hoverColor: $color(context, value.hoverColor),
+        highlightColor: $color(context, value.highlightColor),
+        overlayColor: $materialStateProperty(context, value.overlayColor),
+        splashColor: $color(context, value.splashColor),
+        radius: value.radius,
+        borderRadius: $borderRadius(value.borderRadius),
+        customBorder: $shapeBorder(context, value.customBorder),
+        enableFeedback: value.enableFeedback,
+        excludeFromSemantics: value.excludeFromSemantics,
+        canRequestFocus: value.canRequestFocus,
+        onFocusChange: $boolSelection(context, value.onFocusChange),
+        autofocus: value.autofocus,
+      ),
+      gestureDetector: (value) => material.GestureDetector(
+        key: $key(value.key),
+        child: $widget(context, value.child),
+        onTap: $callback(context, value.onTap),
+        onTapCancel: $callback(context, value.onTapCancel),
+        onSecondaryTap: $callback(context, value.onSecondaryTap),
+        onSecondaryTapCancel: $callback(context, value.onSecondaryTapCancel),
+        onTertiaryTapCancel: $callback(context, value.onTertiaryTapCancel),
+        onDoubleTap: $callback(context, value.onDoubleTap),
+        onDoubleTapCancel: $callback(context, value.onDoubleTapCancel),
+        onLongPressCancel: $callback(context, value.onLongPressCancel),
+        onLongPress: $callback(context, value.onLongPress),
+        onLongPressUp: $callback(context, value.onLongPressUp),
+        onSecondaryLongPressCancel:
+            $callback(context, value.onSecondaryLongPressCancel),
+        onSecondaryLongPress: $callback(context, value.onSecondaryLongPress),
+        onSecondaryLongPressUp:
+            $callback(context, value.onSecondaryLongPressUp),
+        onTertiaryLongPressCancel:
+            $callback(context, value.onTertiaryLongPressCancel),
+        onTertiaryLongPress: $callback(context, value.onTertiaryLongPress),
+        onTertiaryLongPressUp: $callback(context, value.onTertiaryLongPressUp),
+        onVerticalDragCancel: $callback(context, value.onVerticalDragCancel),
+        onHorizontalDragCancel:
+            $callback(context, value.onHorizontalDragCancel),
+        onPanCancel: $callback(context, value.onPanCancel),
+        behavior: $enum(value.behavior, material.HitTestBehavior.values),
+        excludeFromSemantics: value.excludeFromSemantics,
+        dragStartBehavior:
+            $enum(value.dragStartBehavior, gestures.DragStartBehavior.values)!,
+        supportedDevices: value.supportedDevices == null
+            ? null
+            : {
+                for (var e in value.supportedDevices!)
+                  $enum(e, gestures.PointerDeviceKind.values)!
+              },
+      ),
+      expansionTile: (value) => material.ExpansionTile(
+        key: $key(value.key),
+        leading: $widget(context, value.leading),
+        title: $widget(context, value.title)!,
+        subtitle: $widget(context, value.subtitle),
+        children: $widgets(context, value.children)!,
+        trailing: $widget(context, value.trailing),
+        initiallyExpanded: value.initiallyExpanded,
+        maintainState: value.maintainState,
+        tilePadding: $edgeInsets(value.tilePadding),
+        expandedCrossAxisAlignment: $enum(value.expandedCrossAxisAlignment,
+            material.CrossAxisAlignment.values),
+        expandedAlignment: $alignment(value.expandedAlignment),
+        childrenPadding: $edgeInsets(value.childrenPadding),
+        backgroundColor: $color(context, value.backgroundColor),
+        collapsedBackgroundColor:
+            $color(context, value.collapsedBackgroundColor),
+        textColor: $color(context, value.textColor),
+        collapsedTextColor: $color(context, value.collapsedTextColor),
+        iconColor: $color(context, value.iconColor),
+        collapsedIconColor: $color(context, value.collapsedIconColor),
+        shape: $shapeBorder(context, value.shape),
+        collapsedShape: $shapeBorder(context, value.collapsedShape),
+        clipBehavior: $enum(value.clipBehavior, material.Clip.values),
+        controlAffinity: $enum(
+            value.controlAffinity, material.ListTileControlAffinity.values),
+      ),
+      ignorePointer: (value) => material.IgnorePointer(
+        key: $key(value.key),
+        child: $widget(context, value.child)!,
+        ignoring: value.ignoring,
+        ignoringSemantics: value.ignoringSemantics,
+      ),
+      textRich: (value) => material.Text.rich(
+        $inlineSpan(context, value.textSpan)!,
+        key: $key(value.key),
+        style: $textStyle(context, value.style),
+        strutStyle: $strutStyle(context, value.strutStyle),
+        textAlign: $enum(value.textAlign, ui.TextAlign.values),
+        textDirection: $enum(value.textDirection, ui.TextDirection.values),
+        locale: $locale(value.locale),
+        softWrap: value.softWrap,
+        overflow: $enum(value.overflow, material.TextOverflow.values),
+        textScaleFactor: value.textScaleFactor,
+        maxLines: value.maxLines,
+        semanticsLabel: value.semanticsLabel,
+        textWidthBasis:
+            $enum(value.textWidthBasis, material.TextWidthBasis.values),
+        textHeightBehavior:
+            $textHeightBehavior(context, value.textHeightBehavior),
+        selectionColor: $color(context, value.selectionColor),
+      ),
+      selectableText: (value) => material.SelectableText(
+        value.data,
+        key: $key(value.key),
+        style: $textStyle(context, value.style),
+        strutStyle: $strutStyle(context, value.strutStyle),
+        textAlign: $enum(value.textAlign, material.TextAlign.values),
+        textDirection:
+            $enum(value.textDirection, material.TextDirection.values),
+        textScaleFactor: value.textScaleFactor,
+        showCursor: value.showCursor,
+        autofocus: value.autofocus,
+        minLines: value.minLines,
+        maxLines: value.maxLines,
+        cursorWidth: value.cursorWidth,
+        cursorHeight: value.cursorHeight,
+        cursorRadius: $radius(value.cursorRadius),
+        cursorColor: $color(context, value.cursorColor),
+        selectionHeightStyle:
+            $enum(value.selectionHeightStyle, ui.BoxHeightStyle.values)!,
+        selectionWidthStyle:
+            $enum(value.selectionWidthStyle, ui.BoxWidthStyle.values)!,
+        dragStartBehavior:
+            $enum(value.dragStartBehavior, gestures.DragStartBehavior.values)!,
+        enableInteractiveSelection: value.enableInteractiveSelection,
+        onTap: $callback(context, value.onTap),
+        scrollPhysics: $scrollPhysics(value.scrollPhysics),
+        semanticsLabel: value.semanticsLabel,
+        textHeightBehavior:
+            $textHeightBehavior(context, value.textHeightBehavior),
+        textWidthBasis:
+            $enum(value.textWidthBasis, material.TextWidthBasis.values),
+      ),
+      selectableTextRich: (value) => material.SelectableText.rich(
+        $inlineSpan(context, value.textSpan) as material.TextSpan,
+        key: $key(value.key),
+        style: $textStyle(context, value.style),
+        strutStyle: $strutStyle(context, value.strutStyle),
+        textAlign: $enum(value.textAlign, material.TextAlign.values),
+        textDirection:
+            $enum(value.textDirection, material.TextDirection.values),
+        textScaleFactor: value.textScaleFactor,
+        showCursor: value.showCursor,
+        autofocus: value.autofocus,
+        minLines: value.minLines,
+        maxLines: value.maxLines,
+        cursorWidth: value.cursorWidth,
+        cursorHeight: value.cursorHeight,
+        cursorRadius: $radius(value.cursorRadius),
+        cursorColor: $color(context, value.cursorColor),
+        selectionHeightStyle:
+            $enum(value.selectionHeightStyle, ui.BoxHeightStyle.values)!,
+        selectionWidthStyle:
+            $enum(value.selectionWidthStyle, ui.BoxWidthStyle.values)!,
+        dragStartBehavior:
+            $enum(value.dragStartBehavior, gestures.DragStartBehavior.values)!,
+        enableInteractiveSelection: value.enableInteractiveSelection,
+        onTap: $callback(context, value.onTap),
+        scrollPhysics: $scrollPhysics(value.scrollPhysics),
+        semanticsLabel: value.semanticsLabel,
+        textHeightBehavior:
+            $textHeightBehavior(context, value.textHeightBehavior),
+        textWidthBasis:
+            $enum(value.textWidthBasis, material.TextWidthBasis.values),
+      ),
+      navigationBar: (value) => material.NavigationBar(
+        key: $key(value.key),
+        animationDuration: value.animationDuration,
+        selectedIndex: value.selectedIndex,
+        destinations: $widgets(context, value.destinations)!,
+        onDestinationSelected:
+            $intSelection(context, value.onDestinationSelected),
+        backgroundColor: $color(context, value.backgroundColor),
+        elevation: value.elevation,
+        shadowColor: $color(context, value.shadowColor),
+        surfaceTintColor: $color(context, value.surfaceTintColor),
+        indicatorColor: $color(context, value.indicatorColor),
+        indicatorShape: $shapeBorder(context, value.indicatorShape),
+        height: value.height,
+        labelBehavior: $enum(value.labelBehavior,
+            material.NavigationDestinationLabelBehavior.values),
+      ),
+      navigationRail: (value) => material.NavigationRail(
+        key: $key(value.key),
+        backgroundColor: $color(context, value.backgroundColor),
+        extended: value.extended,
+        leading: $widget(context, value.leading),
+        trailing: $widget(context, value.trailing),
+        selectedIndex: value.selectedIndex,
+        onDestinationSelected:
+            $intSelection(context, value.onDestinationSelected),
+        elevation: value.elevation,
+        groupAlignment: value.groupAlignment,
+        labelType:
+            $enum(value.labelType, material.NavigationRailLabelType.values),
+        unselectedLabelTextStyle:
+            $textStyle(context, value.unselectedLabelTextStyle),
+        selectedLabelTextStyle:
+            $textStyle(context, value.selectedLabelTextStyle),
+        unselectedIconTheme: $iconThemeData(context, value.unselectedIconTheme),
+        selectedIconTheme: $iconThemeData(context, value.selectedIconTheme),
+        minWidth: value.minWidth,
+        minExtendedWidth: value.minExtendedWidth,
+        useIndicator: value.useIndicator,
+        indicatorColor: $color(context, value.indicatorColor),
+        indicatorShape: $shapeBorder(context, value.indicatorShape),
+        destinations: value.destinations
+            .map((e) => $navigationRailDestination(context, e)!)
+            .toList(),
+      ),
+      platform: (value) => material.Builder(
+        builder: (context) {
+          for (final platform in value.targets.keys) {
+            final enumValue = $enum(
+              platform,
+              foundation.TargetPlatform.values,
+            )!;
+            if (enumValue == foundation.defaultTargetPlatform) {
+              final target = value.targets[platform];
+              return $widget(context, target)!;
+            }
+          }
+          return $widget(context, value.child) ??
+              const material.SizedBox.shrink();
+        },
+      ),
+      responsive: (value) => material.LayoutBuilder(
+        builder: (context, constraints) {
+          final width = constraints.maxWidth;
+          final breakpoints = value.breakpoints.keys.toList();
+          breakpoints.sort();
+          for (final breakpoint in breakpoints.reversed.toList()) {
+            if (width >= breakpoint) {
+              final target = value.breakpoints[breakpoint];
+              return $widget(context, target)!;
+            }
+          }
+          return $widget(context, value.child) ??
+              const material.SizedBox.shrink();
+        },
+      ),
+      materialSwitch: (value) => material.ValueListenableBuilder(
+        valueListenable: _formData,
+        builder: (context, formData, child) {
+          bool? checked = value.value;
+          if (value.field != null) {
+            final field = value.field!;
+            final related = formData.getFormField(field.key);
+            if (related?.value != null && related is widgets.FormBoolField) {
+              checked = related.value;
+            } else if (field.value != null) {
+              checked = field.value;
+            }
+          }
+          return material.Switch(
+            key: $key(value.key),
+            value: checked ?? false,
+            activeColor: $color(context, value.activeColor),
+            activeTrackColor: $color(context, value.activeTrackColor),
+            inactiveThumbColor: $color(context, value.inactiveThumbColor),
+            inactiveTrackColor: $color(context, value.inactiveTrackColor),
+            activeThumbImage: $imageProvider(context, value.activeThumbImage),
+            inactiveThumbImage:
+                $imageProvider(context, value.inactiveThumbImage),
+            thumbColor: $materialStateProperty(context, value.thumbColor),
+            trackColor: $materialStateProperty(context, value.trackColor),
+            materialTapTargetSize: $enum(
+              value.materialTapTargetSize,
+              material.MaterialTapTargetSize.values,
+            ),
+            dragStartBehavior: $enum(
+              value.dragStartBehavior,
+              gestures.DragStartBehavior.values,
+            )!,
+            mouseCursor: $mouseCursor(value.mouseCursor),
+            focusColor: $color(context, value.focusColor),
+            hoverColor: $color(context, value.hoverColor),
+            overlayColor: $materialStateProperty(context, value.overlayColor),
+            splashRadius: value.splashRadius,
+            onFocusChange: $boolSelection(context, value.onFocusChange),
+            autofocus: value.autofocus,
+            onChanged: (val) {
+              if (value.field != null) {
+                final field = value.field!;
+                final fieldState =
+                    formData.getFormField(value.field!.key) ?? value.field!;
+                if (fieldState is widgets.FormBoolField) {
+                  _formData.value = formData.updateField(field.copyWith(
+                    value: val,
+                  ));
+                }
+              }
+            },
+          );
+        },
+      ),
+      dropdownButtonFormField: (value) => material.ValueListenableBuilder(
+        valueListenable: _formData,
+        builder: (context, formData, child) {
+          String? val = value.value;
+          if (value.field != null) {
+            final field = value.field!;
+            final related = formData.getFormField(field.key);
+            if (related?.value != null && related is widgets.FormStringField) {
+              val = related.value;
+            } else if (field.value != null) {
+              val = field.value;
+            }
+          }
+          return material.DropdownButtonFormField(
+            key: $key(value.key),
+            value: val,
+            items:
+                value.items.map((e) => $dropdownMenuItem(context, e)!).toList(),
+            hint: $widget(context, value.hint),
+            disabledHint: $widget(context, value.disabledHint),
+            onTap: $callback(context, value.onTap),
+            elevation: value.elevation,
+            style: $textStyle(context, value.style),
+            icon: $widget(context, value.icon),
+            iconDisabledColor: $color(context, value.iconDisabledColor),
+            iconEnabledColor: $color(context, value.iconEnabledColor),
+            iconSize: value.iconSize,
+            isDense: value.isDense,
+            isExpanded: value.isExpanded,
+            itemHeight: value.itemHeight,
+            focusColor: $color(context, value.focusColor),
+            autofocus: value.autofocus,
+            dropdownColor: $color(context, value.dropdownColor),
+            decoration: $inputDecoration(context, value.decoration),
+            autovalidateMode: $enum(
+              value.autovalidateMode,
+              material.AutovalidateMode.values,
+            ),
+            menuMaxHeight: value.menuMaxHeight,
+            enableFeedback: value.enableFeedback,
+            alignment: $alignmentDirectional(value.alignment)!,
+            borderRadius: $borderRadius(value.borderRadius),
+            validator: (val) {
+              final _value = val ?? '';
+              if (value.validatorMessages != null) {
+                for (final entry in value.validatorMessages!.entries) {
+                  final regex = RegExp(entry.key);
+                  if (!regex.hasMatch(_value)) {
+                    return entry.value;
+                  }
+                }
+              }
+              return null;
+            },
+            onChanged: (val) {
+              if (value.field != null) {
+                final field = value.field!;
+                final fieldState =
+                    formData.getFormField(value.field!.key) ?? value.field!;
+                if (fieldState is widgets.FormStringField) {
+                  _formData.value = formData.updateField(field.copyWith(
+                    value: val,
+                  ));
+                }
+              }
+            },
+          );
+        },
+      ),
+      textFormField: (value) => material.ValueListenableBuilder(
+        valueListenable: _formData,
+        builder: (context, formData, child) {
+          String? val = value.initialValue;
+          if (value.field != null) {
+            final field = value.field!;
+            final related = formData.getFormField(field.key);
+            if (related?.value != null && related is widgets.FormStringField) {
+              val = related.value;
+            } else if (field.value != null) {
+              val = field.value;
+            }
+          }
+          return material.TextFormField(
+            key: $key(value.key),
+            initialValue: val,
+            decoration: $inputDecoration(context, value.decoration),
+            keyboardType: $textInputType(context, value.keyboardType),
+            textCapitalization: $enum(
+              value.textCapitalization,
+              material.TextCapitalization.values,
+            )!,
+            textInputAction: $enum(
+              value.textInputAction,
+              material.TextInputAction.values,
+            ),
+            style: $textStyle(context, value.style),
+            strutStyle: $strutStyle(context, value.strutStyle),
+            textDirection: $enum(value.textDirection, ui.TextDirection.values),
+            textAlign: $enum(value.textAlign, material.TextAlign.values)!,
+            textAlignVertical:
+                $textAlignVertical(context, value.textAlignVertical),
+            autofocus: value.autofocus,
+            readOnly: value.readOnly,
+            showCursor: value.showCursor,
+            obscuringCharacter: value.obscuringCharacter,
+            obscureText: value.obscureText,
+            autocorrect: value.autocorrect,
+            smartDashesType: $enum(
+              value.smartDashesType,
+              material.SmartDashesType.values,
+            ),
+            smartQuotesType: $enum(
+              value.smartQuotesType,
+              material.SmartQuotesType.values,
+            ),
+            enableSuggestions: value.enableSuggestions,
+            maxLengthEnforcement: $enum(
+              value.maxLengthEnforcement,
+              services.MaxLengthEnforcement.values,
+            ),
+            maxLines: value.maxLines,
+            minLines: value.minLines,
+            expands: value.expands,
+            maxLength: value.maxLength,
+            onTap: $callback(context, value.onTap),
+            inputFormatters: value.inputFormatters
+                ?.map((e) => $textInputFormatter(context, e)!)
+                .toList(),
+            enabled: value.enabled,
+            cursorWidth: value.cursorWidth,
+            cursorHeight: value.cursorHeight,
+            cursorRadius: $radius(value.cursorRadius),
+            cursorColor: $color(context, value.cursorColor),
+            keyboardAppearance: $enum(
+              value.keyboardAppearance,
+              material.Brightness.values,
+            ),
+            scrollPadding: $edgeInsets(value.scrollPadding)!,
+            enableInteractiveSelection: value.enableInteractiveSelection,
+            scrollPhysics: $scrollPhysics(value.scrollPhysics),
+            autofillHints: value.autofillHints,
+            autovalidateMode: $enum(
+              value.autovalidateMode,
+              material.AutovalidateMode.values,
+            ),
+            restorationId: value.restorationId,
+            enableIMEPersonalizedLearning: value.enableIMEPersonalizedLearning,
+            mouseCursor: $mouseCursor(value.mouseCursor),
+            validator: (val) {
+              final _value = val ?? '';
+              if (value.validatorMessages != null) {
+                for (final entry in value.validatorMessages!.entries) {
+                  final regex = RegExp(entry.key);
+                  if (!regex.hasMatch(_value)) {
+                    return entry.value;
+                  }
+                }
+              }
+              return null;
+            },
+            onChanged: (val) {
+              if (value.field != null) {
+                final field = value.field!;
+                final fieldState =
+                    formData.getFormField(value.field!.key) ?? value.field!;
+                if (fieldState is widgets.FormStringField) {
+                  _formData.value = formData.updateField(field.copyWith(
+                    value: val,
+                  ));
+                }
+              }
+            },
+          );
+        },
+      ),
+      inputDatePickerFormField: (value) => material.ValueListenableBuilder(
+        valueListenable: _formData,
+        builder: (context, formData, child) {
+          DateTime? val = value.initialDate;
+          if (value.field != null) {
+            final field = value.field!;
+            final related = formData.getFormField(field.key);
+            if (related?.value != null &&
+                related is widgets.FormDateTimeField) {
+              val = related.value;
+            } else if (field.value != null) {
+              val = field.value;
+            }
+          }
+          return material.InputDatePickerFormField(
+            key: $key(value.key),
+            initialDate: val,
+            firstDate: value.firstDate,
+            lastDate: value.lastDate,
+            errorFormatText: value.errorFormatText,
+            errorInvalidText: value.errorInvalidText,
+            fieldHintText: value.fieldHintText,
+            fieldLabelText: value.fieldLabelText,
+            onDateSaved: (val) {
+              if (value.field != null) {
+                final field = value.field!;
+                final fieldState =
+                    formData.getFormField(value.field!.key) ?? value.field!;
+                if (fieldState is widgets.FormDateTimeField) {
+                  _formData.value = formData.updateField(field.copyWith(
+                    value: val,
+                  ));
+                }
+              }
+            },
+            onDateSubmitted: (val) {
+              if (value.field != null) {
+                final field = value.field!;
+                final fieldState =
+                    formData.getFormField(value.field!.key) ?? value.field!;
+                if (fieldState is widgets.FormDateTimeField) {
+                  _formData.value = formData.updateField(field.copyWith(
+                    value: val,
+                  ));
+                }
+              }
+            },
+          );
+        },
+      ),
+      popupMenuButton: (value) => material.ValueListenableBuilder(
+        valueListenable: _formData,
+        builder: (context, formData, child) {
+          String? val = value.initialValue;
+          if (value.field != null) {
+            final field = value.field!;
+            final related = formData.getFormField(field.key);
+            if (related?.value != null && related is widgets.FormStringField) {
+              val = related.value;
+            } else if (field.value != null) {
+              val = field.value;
+            }
+          }
+          return material.PopupMenuButton<String>(
+            key: $key(value.key),
+            initialValue: val,
+            onOpened: $callback(context, value.onOpened),
+            onCanceled: $callback(context, value.onCanceled),
+            tooltip: value.tooltip,
+            elevation: value.elevation,
+            shadowColor: $color(context, value.shadowColor),
+            surfaceTintColor: $color(context, value.surfaceTintColor),
+            padding: $edgeInsets(value.padding)!,
+            child: $widget(context, value.child),
+            splashRadius: value.splashRadius,
+            icon: $widget(context, value.icon),
+            iconSize: value.iconSize,
+            offset: $offset(value.offset)!,
+            enabled: value.enabled,
+            shape: $shapeBorder(context, value.shape),
+            color: $color(context, value.color),
+            enableFeedback: value.enableFeedback,
+            constraints: $boxConstraints(value.constraints),
+            position: $enum(value.position, material.PopupMenuPosition.values),
+            clipBehavior: $enum(value.clipBehavior, material.Clip.values)!,
+            itemBuilder: (context) => value.items
+                .map((e) => $popupMenuEntry(context, e)!)
+                .toList(growable: false),
+            onSelected: (val) {
+              if (value.field != null) {
+                final field = value.field!;
+                final fieldState =
+                    formData.getFormField(value.field!.key) ?? value.field!;
+                if (fieldState is widgets.FormStringField) {
+                  _formData.value = formData.updateField(field.copyWith(
+                    value: val,
+                  ));
+                }
+              }
+            },
+          );
+        },
       ),
     );
   }

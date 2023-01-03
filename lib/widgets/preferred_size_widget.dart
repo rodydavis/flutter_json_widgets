@@ -1,7 +1,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'border_radius.dart';
+import 'callback.dart';
 import 'color.dart';
+import 'decoration.dart';
+import 'edge_insets.dart';
+import 'enums.dart';
 import 'key.dart';
+import 'material_state_property.dart';
+import 'mouse_cursor.dart';
+import 'scroll_physics.dart';
 import 'shape_border.dart';
 import 'size.dart';
 import 'text_style.dart';
@@ -45,6 +53,32 @@ class PreferredSizeWidget with _$PreferredSizeWidget {
     TextStyle? titleTextStyle,
     @Default(false) bool forceMaterialTransparency,
   }) = AppBar;
+
+  const factory PreferredSizeWidget.tabBar({
+    Key? key,
+    required List<Widget> tabs,
+    @Default(false) bool isScrollable,
+    IntSelectionCallback? onTap,
+    EdgeInsets? padding,
+    Color? indicatorColor,
+    @Default(true) bool automaticIndicatorColorAdjustment,
+    @Default(2.0) double indicatorWeight,
+    @Default(EdgeInsets.zero) EdgeInsets indicatorPadding,
+    Decoration? indicator,
+    TabBarIndicatorSize? indicatorSize,
+    Color? dividerColor,
+    Color? labelColor,
+    TextStyle? labelStyle,
+    EdgeInsets? labelPadding,
+    Color? unselectedLabelColor,
+    TextStyle? unselectedLabelStyle,
+    @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,
+    MaterialStateProperty? overlayColor,
+    MouseCursor? mouseCursor,
+    bool? enableFeedback,
+    ScrollPhysics? physics,
+    BorderRadius? splashBorderRadius,
+  }) = TabBar;
 
   factory PreferredSizeWidget.fromJson(Map<String, Object?> json) =>
       _$PreferredSizeWidgetFromJson(json);

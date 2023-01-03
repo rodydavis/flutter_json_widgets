@@ -7,6 +7,8 @@ import 'radius.dart';
 part 'shape_border.freezed.dart';
 part 'shape_border.g.dart';
 
+abstract class InputBorder {}
+
 abstract class OutlinedBorder {}
 
 abstract class BoxBorder {}
@@ -64,6 +66,7 @@ class ShapeBorder with _$ShapeBorder {
     @Default(BorderRadius.zero) BorderRadius borderRadius,
   }) = BeveledRectangleBorder;
 
+  @Implements<InputBorder>()
   const factory ShapeBorder.underlineInput({
     @Default(BorderSide())
         BorderSide side,
@@ -74,11 +77,15 @@ class ShapeBorder with _$ShapeBorder {
         BorderRadius borderRadius,
   }) = UnderlineInputBorder;
 
+  @Implements<InputBorder>()
   const factory ShapeBorder.outlineInput({
     @Default(BorderSide()) BorderSide side,
     @Default(BorderRadius.all(Radius.circular(4.0))) BorderRadius borderRadius,
     @Default(4.0) double gapPadding,
   }) = OutlineInputBorder;
+
+  @Implements<InputBorder>()
+  const factory ShapeBorder.noneInput() = InputBorderNone;
 
   @Implements<OutlinedBorder>()
   const factory ShapeBorder.star({

@@ -36,6 +36,8 @@ ShapeBorder _$ShapeBorderFromJson(Map<String, dynamic> json) {
       return UnderlineInputBorder.fromJson(json);
     case 'outlineInput':
       return OutlineInputBorder.fromJson(json);
+    case 'noneInput':
+      return InputBorderNone.fromJson(json);
     case 'star':
       return StarBorder.fromJson(json);
 
@@ -69,6 +71,7 @@ mixin _$ShapeBorder {
     required TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)
         outlineInput,
+    required TResult Function() noneInput,
     required TResult Function(
             BorderSide side,
             double points,
@@ -102,6 +105,7 @@ mixin _$ShapeBorder {
     TResult? Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult? Function()? noneInput,
     TResult? Function(
             BorderSide side,
             double points,
@@ -135,6 +139,7 @@ mixin _$ShapeBorder {
     TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult Function()? noneInput,
     TResult Function(
             BorderSide side,
             double points,
@@ -160,6 +165,7 @@ mixin _$ShapeBorder {
     required TResult Function(BeveledRectangleBorder value) beveledRectangle,
     required TResult Function(UnderlineInputBorder value) underlineInput,
     required TResult Function(OutlineInputBorder value) outlineInput,
+    required TResult Function(InputBorderNone value) noneInput,
     required TResult Function(StarBorder value) star,
   }) =>
       throw _privateConstructorUsedError;
@@ -175,6 +181,7 @@ mixin _$ShapeBorder {
     TResult? Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult? Function(UnderlineInputBorder value)? underlineInput,
     TResult? Function(OutlineInputBorder value)? outlineInput,
+    TResult? Function(InputBorderNone value)? noneInput,
     TResult? Function(StarBorder value)? star,
   }) =>
       throw _privateConstructorUsedError;
@@ -190,6 +197,7 @@ mixin _$ShapeBorder {
     TResult Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult Function(UnderlineInputBorder value)? underlineInput,
     TResult Function(OutlineInputBorder value)? outlineInput,
+    TResult Function(InputBorderNone value)? noneInput,
     TResult Function(StarBorder value)? star,
     required TResult orElse(),
   }) =>
@@ -376,6 +384,7 @@ class _$Border implements Border {
     required TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)
         outlineInput,
+    required TResult Function() noneInput,
     required TResult Function(
             BorderSide side,
             double points,
@@ -412,6 +421,7 @@ class _$Border implements Border {
     TResult? Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult? Function()? noneInput,
     TResult? Function(
             BorderSide side,
             double points,
@@ -448,6 +458,7 @@ class _$Border implements Border {
     TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult Function()? noneInput,
     TResult Function(
             BorderSide side,
             double points,
@@ -479,6 +490,7 @@ class _$Border implements Border {
     required TResult Function(BeveledRectangleBorder value) beveledRectangle,
     required TResult Function(UnderlineInputBorder value) underlineInput,
     required TResult Function(OutlineInputBorder value) outlineInput,
+    required TResult Function(InputBorderNone value) noneInput,
     required TResult Function(StarBorder value) star,
   }) {
     return border(this);
@@ -497,6 +509,7 @@ class _$Border implements Border {
     TResult? Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult? Function(UnderlineInputBorder value)? underlineInput,
     TResult? Function(OutlineInputBorder value)? outlineInput,
+    TResult? Function(InputBorderNone value)? noneInput,
     TResult? Function(StarBorder value)? star,
   }) {
     return border?.call(this);
@@ -515,6 +528,7 @@ class _$Border implements Border {
     TResult Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult Function(UnderlineInputBorder value)? underlineInput,
     TResult Function(OutlineInputBorder value)? outlineInput,
+    TResult Function(InputBorderNone value)? noneInput,
     TResult Function(StarBorder value)? star,
     required TResult orElse(),
   }) {
@@ -713,6 +727,7 @@ class _$BorderDirectional implements BorderDirectional {
     required TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)
         outlineInput,
+    required TResult Function() noneInput,
     required TResult Function(
             BorderSide side,
             double points,
@@ -749,6 +764,7 @@ class _$BorderDirectional implements BorderDirectional {
     TResult? Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult? Function()? noneInput,
     TResult? Function(
             BorderSide side,
             double points,
@@ -785,6 +801,7 @@ class _$BorderDirectional implements BorderDirectional {
     TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult Function()? noneInput,
     TResult Function(
             BorderSide side,
             double points,
@@ -816,6 +833,7 @@ class _$BorderDirectional implements BorderDirectional {
     required TResult Function(BeveledRectangleBorder value) beveledRectangle,
     required TResult Function(UnderlineInputBorder value) underlineInput,
     required TResult Function(OutlineInputBorder value) outlineInput,
+    required TResult Function(InputBorderNone value) noneInput,
     required TResult Function(StarBorder value) star,
   }) {
     return directional(this);
@@ -834,6 +852,7 @@ class _$BorderDirectional implements BorderDirectional {
     TResult? Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult? Function(UnderlineInputBorder value)? underlineInput,
     TResult? Function(OutlineInputBorder value)? outlineInput,
+    TResult? Function(InputBorderNone value)? noneInput,
     TResult? Function(StarBorder value)? star,
   }) {
     return directional?.call(this);
@@ -852,6 +871,7 @@ class _$BorderDirectional implements BorderDirectional {
     TResult Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult Function(UnderlineInputBorder value)? underlineInput,
     TResult Function(OutlineInputBorder value)? outlineInput,
+    TResult Function(InputBorderNone value)? noneInput,
     TResult Function(StarBorder value)? star,
     required TResult orElse(),
   }) {
@@ -1014,6 +1034,7 @@ class _$RoundedRectangleBorder implements RoundedRectangleBorder {
     required TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)
         outlineInput,
+    required TResult Function() noneInput,
     required TResult Function(
             BorderSide side,
             double points,
@@ -1050,6 +1071,7 @@ class _$RoundedRectangleBorder implements RoundedRectangleBorder {
     TResult? Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult? Function()? noneInput,
     TResult? Function(
             BorderSide side,
             double points,
@@ -1086,6 +1108,7 @@ class _$RoundedRectangleBorder implements RoundedRectangleBorder {
     TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult Function()? noneInput,
     TResult Function(
             BorderSide side,
             double points,
@@ -1117,6 +1140,7 @@ class _$RoundedRectangleBorder implements RoundedRectangleBorder {
     required TResult Function(BeveledRectangleBorder value) beveledRectangle,
     required TResult Function(UnderlineInputBorder value) underlineInput,
     required TResult Function(OutlineInputBorder value) outlineInput,
+    required TResult Function(InputBorderNone value) noneInput,
     required TResult Function(StarBorder value) star,
   }) {
     return roundedRectangle(this);
@@ -1135,6 +1159,7 @@ class _$RoundedRectangleBorder implements RoundedRectangleBorder {
     TResult? Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult? Function(UnderlineInputBorder value)? underlineInput,
     TResult? Function(OutlineInputBorder value)? outlineInput,
+    TResult? Function(InputBorderNone value)? noneInput,
     TResult? Function(StarBorder value)? star,
   }) {
     return roundedRectangle?.call(this);
@@ -1153,6 +1178,7 @@ class _$RoundedRectangleBorder implements RoundedRectangleBorder {
     TResult Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult Function(UnderlineInputBorder value)? underlineInput,
     TResult Function(OutlineInputBorder value)? outlineInput,
+    TResult Function(InputBorderNone value)? noneInput,
     TResult Function(StarBorder value)? star,
     required TResult orElse(),
   }) {
@@ -1288,6 +1314,7 @@ class _$StadiumBorder implements StadiumBorder {
     required TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)
         outlineInput,
+    required TResult Function() noneInput,
     required TResult Function(
             BorderSide side,
             double points,
@@ -1324,6 +1351,7 @@ class _$StadiumBorder implements StadiumBorder {
     TResult? Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult? Function()? noneInput,
     TResult? Function(
             BorderSide side,
             double points,
@@ -1360,6 +1388,7 @@ class _$StadiumBorder implements StadiumBorder {
     TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult Function()? noneInput,
     TResult Function(
             BorderSide side,
             double points,
@@ -1391,6 +1420,7 @@ class _$StadiumBorder implements StadiumBorder {
     required TResult Function(BeveledRectangleBorder value) beveledRectangle,
     required TResult Function(UnderlineInputBorder value) underlineInput,
     required TResult Function(OutlineInputBorder value) outlineInput,
+    required TResult Function(InputBorderNone value) noneInput,
     required TResult Function(StarBorder value) star,
   }) {
     return stadium(this);
@@ -1409,6 +1439,7 @@ class _$StadiumBorder implements StadiumBorder {
     TResult? Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult? Function(UnderlineInputBorder value)? underlineInput,
     TResult? Function(OutlineInputBorder value)? outlineInput,
+    TResult? Function(InputBorderNone value)? noneInput,
     TResult? Function(StarBorder value)? star,
   }) {
     return stadium?.call(this);
@@ -1427,6 +1458,7 @@ class _$StadiumBorder implements StadiumBorder {
     TResult Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult Function(UnderlineInputBorder value)? underlineInput,
     TResult Function(OutlineInputBorder value)? outlineInput,
+    TResult Function(InputBorderNone value)? noneInput,
     TResult Function(StarBorder value)? star,
     required TResult orElse(),
   }) {
@@ -1572,6 +1604,7 @@ class _$OvalBorder implements OvalBorder {
     required TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)
         outlineInput,
+    required TResult Function() noneInput,
     required TResult Function(
             BorderSide side,
             double points,
@@ -1608,6 +1641,7 @@ class _$OvalBorder implements OvalBorder {
     TResult? Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult? Function()? noneInput,
     TResult? Function(
             BorderSide side,
             double points,
@@ -1644,6 +1678,7 @@ class _$OvalBorder implements OvalBorder {
     TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult Function()? noneInput,
     TResult Function(
             BorderSide side,
             double points,
@@ -1675,6 +1710,7 @@ class _$OvalBorder implements OvalBorder {
     required TResult Function(BeveledRectangleBorder value) beveledRectangle,
     required TResult Function(UnderlineInputBorder value) underlineInput,
     required TResult Function(OutlineInputBorder value) outlineInput,
+    required TResult Function(InputBorderNone value) noneInput,
     required TResult Function(StarBorder value) star,
   }) {
     return oval(this);
@@ -1693,6 +1729,7 @@ class _$OvalBorder implements OvalBorder {
     TResult? Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult? Function(UnderlineInputBorder value)? underlineInput,
     TResult? Function(OutlineInputBorder value)? outlineInput,
+    TResult? Function(InputBorderNone value)? noneInput,
     TResult? Function(StarBorder value)? star,
   }) {
     return oval?.call(this);
@@ -1711,6 +1748,7 @@ class _$OvalBorder implements OvalBorder {
     TResult Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult Function(UnderlineInputBorder value)? underlineInput,
     TResult Function(OutlineInputBorder value)? outlineInput,
+    TResult Function(InputBorderNone value)? noneInput,
     TResult Function(StarBorder value)? star,
     required TResult orElse(),
   }) {
@@ -1858,6 +1896,7 @@ class _$CircleBorder implements CircleBorder {
     required TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)
         outlineInput,
+    required TResult Function() noneInput,
     required TResult Function(
             BorderSide side,
             double points,
@@ -1894,6 +1933,7 @@ class _$CircleBorder implements CircleBorder {
     TResult? Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult? Function()? noneInput,
     TResult? Function(
             BorderSide side,
             double points,
@@ -1930,6 +1970,7 @@ class _$CircleBorder implements CircleBorder {
     TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult Function()? noneInput,
     TResult Function(
             BorderSide side,
             double points,
@@ -1961,6 +2002,7 @@ class _$CircleBorder implements CircleBorder {
     required TResult Function(BeveledRectangleBorder value) beveledRectangle,
     required TResult Function(UnderlineInputBorder value) underlineInput,
     required TResult Function(OutlineInputBorder value) outlineInput,
+    required TResult Function(InputBorderNone value) noneInput,
     required TResult Function(StarBorder value) star,
   }) {
     return circle(this);
@@ -1979,6 +2021,7 @@ class _$CircleBorder implements CircleBorder {
     TResult? Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult? Function(UnderlineInputBorder value)? underlineInput,
     TResult? Function(OutlineInputBorder value)? outlineInput,
+    TResult? Function(InputBorderNone value)? noneInput,
     TResult? Function(StarBorder value)? star,
   }) {
     return circle?.call(this);
@@ -1997,6 +2040,7 @@ class _$CircleBorder implements CircleBorder {
     TResult Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult Function(UnderlineInputBorder value)? underlineInput,
     TResult Function(OutlineInputBorder value)? outlineInput,
+    TResult Function(InputBorderNone value)? noneInput,
     TResult Function(StarBorder value)? star,
     required TResult orElse(),
   }) {
@@ -2155,6 +2199,7 @@ class _$ContinuousRectangleBorder implements ContinuousRectangleBorder {
     required TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)
         outlineInput,
+    required TResult Function() noneInput,
     required TResult Function(
             BorderSide side,
             double points,
@@ -2191,6 +2236,7 @@ class _$ContinuousRectangleBorder implements ContinuousRectangleBorder {
     TResult? Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult? Function()? noneInput,
     TResult? Function(
             BorderSide side,
             double points,
@@ -2227,6 +2273,7 @@ class _$ContinuousRectangleBorder implements ContinuousRectangleBorder {
     TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult Function()? noneInput,
     TResult Function(
             BorderSide side,
             double points,
@@ -2258,6 +2305,7 @@ class _$ContinuousRectangleBorder implements ContinuousRectangleBorder {
     required TResult Function(BeveledRectangleBorder value) beveledRectangle,
     required TResult Function(UnderlineInputBorder value) underlineInput,
     required TResult Function(OutlineInputBorder value) outlineInput,
+    required TResult Function(InputBorderNone value) noneInput,
     required TResult Function(StarBorder value) star,
   }) {
     return continuousRectangle(this);
@@ -2276,6 +2324,7 @@ class _$ContinuousRectangleBorder implements ContinuousRectangleBorder {
     TResult? Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult? Function(UnderlineInputBorder value)? underlineInput,
     TResult? Function(OutlineInputBorder value)? outlineInput,
+    TResult? Function(InputBorderNone value)? noneInput,
     TResult? Function(StarBorder value)? star,
   }) {
     return continuousRectangle?.call(this);
@@ -2294,6 +2343,7 @@ class _$ContinuousRectangleBorder implements ContinuousRectangleBorder {
     TResult Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult Function(UnderlineInputBorder value)? underlineInput,
     TResult Function(OutlineInputBorder value)? outlineInput,
+    TResult Function(InputBorderNone value)? noneInput,
     TResult Function(StarBorder value)? star,
     required TResult orElse(),
   }) {
@@ -2453,6 +2503,7 @@ class _$BeveledRectangleBorder implements BeveledRectangleBorder {
     required TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)
         outlineInput,
+    required TResult Function() noneInput,
     required TResult Function(
             BorderSide side,
             double points,
@@ -2489,6 +2540,7 @@ class _$BeveledRectangleBorder implements BeveledRectangleBorder {
     TResult? Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult? Function()? noneInput,
     TResult? Function(
             BorderSide side,
             double points,
@@ -2525,6 +2577,7 @@ class _$BeveledRectangleBorder implements BeveledRectangleBorder {
     TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult Function()? noneInput,
     TResult Function(
             BorderSide side,
             double points,
@@ -2556,6 +2609,7 @@ class _$BeveledRectangleBorder implements BeveledRectangleBorder {
     required TResult Function(BeveledRectangleBorder value) beveledRectangle,
     required TResult Function(UnderlineInputBorder value) underlineInput,
     required TResult Function(OutlineInputBorder value) outlineInput,
+    required TResult Function(InputBorderNone value) noneInput,
     required TResult Function(StarBorder value) star,
   }) {
     return beveledRectangle(this);
@@ -2574,6 +2628,7 @@ class _$BeveledRectangleBorder implements BeveledRectangleBorder {
     TResult? Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult? Function(UnderlineInputBorder value)? underlineInput,
     TResult? Function(OutlineInputBorder value)? outlineInput,
+    TResult? Function(InputBorderNone value)? noneInput,
     TResult? Function(StarBorder value)? star,
   }) {
     return beveledRectangle?.call(this);
@@ -2592,6 +2647,7 @@ class _$BeveledRectangleBorder implements BeveledRectangleBorder {
     TResult Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult Function(UnderlineInputBorder value)? underlineInput,
     TResult Function(OutlineInputBorder value)? outlineInput,
+    TResult Function(InputBorderNone value)? noneInput,
     TResult Function(StarBorder value)? star,
     required TResult orElse(),
   }) {
@@ -2751,6 +2807,7 @@ class _$UnderlineInputBorder implements UnderlineInputBorder {
     required TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)
         outlineInput,
+    required TResult Function() noneInput,
     required TResult Function(
             BorderSide side,
             double points,
@@ -2787,6 +2844,7 @@ class _$UnderlineInputBorder implements UnderlineInputBorder {
     TResult? Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult? Function()? noneInput,
     TResult? Function(
             BorderSide side,
             double points,
@@ -2823,6 +2881,7 @@ class _$UnderlineInputBorder implements UnderlineInputBorder {
     TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult Function()? noneInput,
     TResult Function(
             BorderSide side,
             double points,
@@ -2854,6 +2913,7 @@ class _$UnderlineInputBorder implements UnderlineInputBorder {
     required TResult Function(BeveledRectangleBorder value) beveledRectangle,
     required TResult Function(UnderlineInputBorder value) underlineInput,
     required TResult Function(OutlineInputBorder value) outlineInput,
+    required TResult Function(InputBorderNone value) noneInput,
     required TResult Function(StarBorder value) star,
   }) {
     return underlineInput(this);
@@ -2872,6 +2932,7 @@ class _$UnderlineInputBorder implements UnderlineInputBorder {
     TResult? Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult? Function(UnderlineInputBorder value)? underlineInput,
     TResult? Function(OutlineInputBorder value)? outlineInput,
+    TResult? Function(InputBorderNone value)? noneInput,
     TResult? Function(StarBorder value)? star,
   }) {
     return underlineInput?.call(this);
@@ -2890,6 +2951,7 @@ class _$UnderlineInputBorder implements UnderlineInputBorder {
     TResult Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult Function(UnderlineInputBorder value)? underlineInput,
     TResult Function(OutlineInputBorder value)? outlineInput,
+    TResult Function(InputBorderNone value)? noneInput,
     TResult Function(StarBorder value)? star,
     required TResult orElse(),
   }) {
@@ -2907,7 +2969,7 @@ class _$UnderlineInputBorder implements UnderlineInputBorder {
   }
 }
 
-abstract class UnderlineInputBorder implements ShapeBorder {
+abstract class UnderlineInputBorder implements ShapeBorder, InputBorder {
   const factory UnderlineInputBorder(
       {final BorderSide side,
       final BorderRadius borderRadius}) = _$UnderlineInputBorder;
@@ -3059,6 +3121,7 @@ class _$OutlineInputBorder implements OutlineInputBorder {
     required TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)
         outlineInput,
+    required TResult Function() noneInput,
     required TResult Function(
             BorderSide side,
             double points,
@@ -3095,6 +3158,7 @@ class _$OutlineInputBorder implements OutlineInputBorder {
     TResult? Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult? Function()? noneInput,
     TResult? Function(
             BorderSide side,
             double points,
@@ -3131,6 +3195,7 @@ class _$OutlineInputBorder implements OutlineInputBorder {
     TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult Function()? noneInput,
     TResult Function(
             BorderSide side,
             double points,
@@ -3162,6 +3227,7 @@ class _$OutlineInputBorder implements OutlineInputBorder {
     required TResult Function(BeveledRectangleBorder value) beveledRectangle,
     required TResult Function(UnderlineInputBorder value) underlineInput,
     required TResult Function(OutlineInputBorder value) outlineInput,
+    required TResult Function(InputBorderNone value) noneInput,
     required TResult Function(StarBorder value) star,
   }) {
     return outlineInput(this);
@@ -3180,6 +3246,7 @@ class _$OutlineInputBorder implements OutlineInputBorder {
     TResult? Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult? Function(UnderlineInputBorder value)? underlineInput,
     TResult? Function(OutlineInputBorder value)? outlineInput,
+    TResult? Function(InputBorderNone value)? noneInput,
     TResult? Function(StarBorder value)? star,
   }) {
     return outlineInput?.call(this);
@@ -3198,6 +3265,7 @@ class _$OutlineInputBorder implements OutlineInputBorder {
     TResult Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult Function(UnderlineInputBorder value)? underlineInput,
     TResult Function(OutlineInputBorder value)? outlineInput,
+    TResult Function(InputBorderNone value)? noneInput,
     TResult Function(StarBorder value)? star,
     required TResult orElse(),
   }) {
@@ -3215,7 +3283,7 @@ class _$OutlineInputBorder implements OutlineInputBorder {
   }
 }
 
-abstract class OutlineInputBorder implements ShapeBorder {
+abstract class OutlineInputBorder implements ShapeBorder, InputBorder {
   const factory OutlineInputBorder(
       {final BorderSide side,
       final BorderRadius borderRadius,
@@ -3230,6 +3298,240 @@ abstract class OutlineInputBorder implements ShapeBorder {
   @JsonKey(ignore: true)
   _$$OutlineInputBorderCopyWith<_$OutlineInputBorder> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InputBorderNoneCopyWith<$Res> {
+  factory _$$InputBorderNoneCopyWith(
+          _$InputBorderNone value, $Res Function(_$InputBorderNone) then) =
+      __$$InputBorderNoneCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InputBorderNoneCopyWithImpl<$Res>
+    extends _$ShapeBorderCopyWithImpl<$Res, _$InputBorderNone>
+    implements _$$InputBorderNoneCopyWith<$Res> {
+  __$$InputBorderNoneCopyWithImpl(
+      _$InputBorderNone _value, $Res Function(_$InputBorderNone) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$InputBorderNone implements InputBorderNone {
+  const _$InputBorderNone({final String? $type}) : $type = $type ?? 'noneInput';
+
+  factory _$InputBorderNone.fromJson(Map<String, dynamic> json) =>
+      _$$InputBorderNoneFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'ShapeBorder.noneInput()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InputBorderNone);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BorderSide top, BorderSide right,
+            BorderSide bottom, BorderSide left)
+        border,
+    required TResult Function(
+            BorderSide top, BorderSide start, BorderSide end, BorderSide bottom)
+        directional,
+    required TResult Function(BorderSide side, BorderRadius borderRadius)
+        roundedRectangle,
+    required TResult Function(BorderSide side) stadium,
+    required TResult Function(BorderSide side, double eccentricity) oval,
+    required TResult Function(BorderSide side, double eccentricity) circle,
+    required TResult Function(BorderSide side, BorderRadius borderRadius)
+        continuousRectangle,
+    required TResult Function(BorderSide side, BorderRadius borderRadius)
+        beveledRectangle,
+    required TResult Function(BorderSide side, BorderRadius borderRadius)
+        underlineInput,
+    required TResult Function(
+            BorderSide side, BorderRadius borderRadius, double gapPadding)
+        outlineInput,
+    required TResult Function() noneInput,
+    required TResult Function(
+            BorderSide side,
+            double points,
+            double innerRadiusRatio,
+            double pointRounding,
+            double valleyRounding,
+            double rotation,
+            double squash)
+        star,
+  }) {
+    return noneInput();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BorderSide top, BorderSide right, BorderSide bottom,
+            BorderSide left)?
+        border,
+    TResult? Function(BorderSide top, BorderSide start, BorderSide end,
+            BorderSide bottom)?
+        directional,
+    TResult? Function(BorderSide side, BorderRadius borderRadius)?
+        roundedRectangle,
+    TResult? Function(BorderSide side)? stadium,
+    TResult? Function(BorderSide side, double eccentricity)? oval,
+    TResult? Function(BorderSide side, double eccentricity)? circle,
+    TResult? Function(BorderSide side, BorderRadius borderRadius)?
+        continuousRectangle,
+    TResult? Function(BorderSide side, BorderRadius borderRadius)?
+        beveledRectangle,
+    TResult? Function(BorderSide side, BorderRadius borderRadius)?
+        underlineInput,
+    TResult? Function(
+            BorderSide side, BorderRadius borderRadius, double gapPadding)?
+        outlineInput,
+    TResult? Function()? noneInput,
+    TResult? Function(
+            BorderSide side,
+            double points,
+            double innerRadiusRatio,
+            double pointRounding,
+            double valleyRounding,
+            double rotation,
+            double squash)?
+        star,
+  }) {
+    return noneInput?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BorderSide top, BorderSide right, BorderSide bottom,
+            BorderSide left)?
+        border,
+    TResult Function(BorderSide top, BorderSide start, BorderSide end,
+            BorderSide bottom)?
+        directional,
+    TResult Function(BorderSide side, BorderRadius borderRadius)?
+        roundedRectangle,
+    TResult Function(BorderSide side)? stadium,
+    TResult Function(BorderSide side, double eccentricity)? oval,
+    TResult Function(BorderSide side, double eccentricity)? circle,
+    TResult Function(BorderSide side, BorderRadius borderRadius)?
+        continuousRectangle,
+    TResult Function(BorderSide side, BorderRadius borderRadius)?
+        beveledRectangle,
+    TResult Function(BorderSide side, BorderRadius borderRadius)?
+        underlineInput,
+    TResult Function(
+            BorderSide side, BorderRadius borderRadius, double gapPadding)?
+        outlineInput,
+    TResult Function()? noneInput,
+    TResult Function(
+            BorderSide side,
+            double points,
+            double innerRadiusRatio,
+            double pointRounding,
+            double valleyRounding,
+            double rotation,
+            double squash)?
+        star,
+    required TResult orElse(),
+  }) {
+    if (noneInput != null) {
+      return noneInput();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Border value) border,
+    required TResult Function(BorderDirectional value) directional,
+    required TResult Function(RoundedRectangleBorder value) roundedRectangle,
+    required TResult Function(StadiumBorder value) stadium,
+    required TResult Function(OvalBorder value) oval,
+    required TResult Function(CircleBorder value) circle,
+    required TResult Function(ContinuousRectangleBorder value)
+        continuousRectangle,
+    required TResult Function(BeveledRectangleBorder value) beveledRectangle,
+    required TResult Function(UnderlineInputBorder value) underlineInput,
+    required TResult Function(OutlineInputBorder value) outlineInput,
+    required TResult Function(InputBorderNone value) noneInput,
+    required TResult Function(StarBorder value) star,
+  }) {
+    return noneInput(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Border value)? border,
+    TResult? Function(BorderDirectional value)? directional,
+    TResult? Function(RoundedRectangleBorder value)? roundedRectangle,
+    TResult? Function(StadiumBorder value)? stadium,
+    TResult? Function(OvalBorder value)? oval,
+    TResult? Function(CircleBorder value)? circle,
+    TResult? Function(ContinuousRectangleBorder value)? continuousRectangle,
+    TResult? Function(BeveledRectangleBorder value)? beveledRectangle,
+    TResult? Function(UnderlineInputBorder value)? underlineInput,
+    TResult? Function(OutlineInputBorder value)? outlineInput,
+    TResult? Function(InputBorderNone value)? noneInput,
+    TResult? Function(StarBorder value)? star,
+  }) {
+    return noneInput?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Border value)? border,
+    TResult Function(BorderDirectional value)? directional,
+    TResult Function(RoundedRectangleBorder value)? roundedRectangle,
+    TResult Function(StadiumBorder value)? stadium,
+    TResult Function(OvalBorder value)? oval,
+    TResult Function(CircleBorder value)? circle,
+    TResult Function(ContinuousRectangleBorder value)? continuousRectangle,
+    TResult Function(BeveledRectangleBorder value)? beveledRectangle,
+    TResult Function(UnderlineInputBorder value)? underlineInput,
+    TResult Function(OutlineInputBorder value)? outlineInput,
+    TResult Function(InputBorderNone value)? noneInput,
+    TResult Function(StarBorder value)? star,
+    required TResult orElse(),
+  }) {
+    if (noneInput != null) {
+      return noneInput(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$InputBorderNoneToJson(
+      this,
+    );
+  }
+}
+
+abstract class InputBorderNone implements ShapeBorder, InputBorder {
+  const factory InputBorderNone() = _$InputBorderNone;
+
+  factory InputBorderNone.fromJson(Map<String, dynamic> json) =
+      _$InputBorderNone.fromJson;
 }
 
 /// @nodoc
@@ -3409,6 +3711,7 @@ class _$StarBorder implements StarBorder {
     required TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)
         outlineInput,
+    required TResult Function() noneInput,
     required TResult Function(
             BorderSide side,
             double points,
@@ -3446,6 +3749,7 @@ class _$StarBorder implements StarBorder {
     TResult? Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult? Function()? noneInput,
     TResult? Function(
             BorderSide side,
             double points,
@@ -3483,6 +3787,7 @@ class _$StarBorder implements StarBorder {
     TResult Function(
             BorderSide side, BorderRadius borderRadius, double gapPadding)?
         outlineInput,
+    TResult Function()? noneInput,
     TResult Function(
             BorderSide side,
             double points,
@@ -3515,6 +3820,7 @@ class _$StarBorder implements StarBorder {
     required TResult Function(BeveledRectangleBorder value) beveledRectangle,
     required TResult Function(UnderlineInputBorder value) underlineInput,
     required TResult Function(OutlineInputBorder value) outlineInput,
+    required TResult Function(InputBorderNone value) noneInput,
     required TResult Function(StarBorder value) star,
   }) {
     return star(this);
@@ -3533,6 +3839,7 @@ class _$StarBorder implements StarBorder {
     TResult? Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult? Function(UnderlineInputBorder value)? underlineInput,
     TResult? Function(OutlineInputBorder value)? outlineInput,
+    TResult? Function(InputBorderNone value)? noneInput,
     TResult? Function(StarBorder value)? star,
   }) {
     return star?.call(this);
@@ -3551,6 +3858,7 @@ class _$StarBorder implements StarBorder {
     TResult Function(BeveledRectangleBorder value)? beveledRectangle,
     TResult Function(UnderlineInputBorder value)? underlineInput,
     TResult Function(OutlineInputBorder value)? outlineInput,
+    TResult Function(InputBorderNone value)? noneInput,
     TResult Function(StarBorder value)? star,
     required TResult orElse(),
   }) {

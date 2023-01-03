@@ -16,6 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 Callback _$CallbackFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
+    case 'intSelection':
+      return IntSelectionCallback.fromJson(json);
+    case 'boolSelection':
+      return BoolSelectionCallback.fromJson(json);
     case 'navigatorPushNamed':
       return NavigationPushNamedCallback.fromJson(json);
     case 'navigatorPop':
@@ -55,6 +59,9 @@ Callback _$CallbackFromJson(Map<String, dynamic> json) {
 mixin _$Callback {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -80,6 +87,9 @@ mixin _$Callback {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -103,6 +113,9 @@ mixin _$Callback {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -127,6 +140,8 @@ mixin _$Callback {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -152,6 +167,8 @@ mixin _$Callback {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -173,6 +190,8 @@ mixin _$Callback {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -211,6 +230,588 @@ class _$CallbackCopyWithImpl<$Res, $Val extends Callback>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$IntSelectionCallbackCopyWith<$Res> {
+  factory _$$IntSelectionCallbackCopyWith(_$IntSelectionCallback value,
+          $Res Function(_$IntSelectionCallback) then) =
+      __$$IntSelectionCallbackCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, Callback> values});
+}
+
+/// @nodoc
+class __$$IntSelectionCallbackCopyWithImpl<$Res>
+    extends _$CallbackCopyWithImpl<$Res, _$IntSelectionCallback>
+    implements _$$IntSelectionCallbackCopyWith<$Res> {
+  __$$IntSelectionCallbackCopyWithImpl(_$IntSelectionCallback _value,
+      $Res Function(_$IntSelectionCallback) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? values = null,
+  }) {
+    return _then(_$IntSelectionCallback(
+      values: null == values
+          ? _value._values
+          : values // ignore: cast_nullable_to_non_nullable
+              as Map<String, Callback>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$IntSelectionCallback implements IntSelectionCallback {
+  const _$IntSelectionCallback(
+      {required final Map<String, Callback> values, final String? $type})
+      : _values = values,
+        $type = $type ?? 'intSelection';
+
+  factory _$IntSelectionCallback.fromJson(Map<String, dynamic> json) =>
+      _$$IntSelectionCallbackFromJson(json);
+
+  final Map<String, Callback> _values;
+  @override
+  Map<String, Callback> get values {
+    if (_values is EqualUnmodifiableMapView) return _values;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_values);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Callback.intSelection(values: $values)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$IntSelectionCallback &&
+            const DeepCollectionEquality().equals(other._values, _values));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_values));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$IntSelectionCallbackCopyWith<_$IntSelectionCallback> get copyWith =>
+      __$$IntSelectionCallbackCopyWithImpl<_$IntSelectionCallback>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
+    required TResult Function(String value, Map<String, String>? arguments)
+        navigatorPushNamed,
+    required TResult Function(Object? value) navigatorPop,
+    required TResult Function(
+            String url, String? path, Map<String, String>? params)
+        launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
+    required TResult Function(SnackBar snackBar) showSnackBar,
+    required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
+    required TResult Function(SnackBarClosedReason reason)
+        removeCurrentSnackBar,
+    required TResult Function() clearMaterialBanners,
+    required TResult Function(MaterialBannerClosedReason reason)
+        hideCurrentMaterialBanner,
+    required TResult Function(MaterialBannerClosedReason reason)
+        removeCurrentMaterialBanner,
+    required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
+    required TResult Function() empty,
+    required TResult Function() reload,
+  }) {
+    return intSelection(values);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
+    TResult? Function(String value, Map<String, String>? arguments)?
+        navigatorPushNamed,
+    TResult? Function(Object? value)? navigatorPop,
+    TResult? Function(String url, String? path, Map<String, String>? params)?
+        launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
+    TResult? Function(SnackBar snackBar)? showSnackBar,
+    TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
+    TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
+    TResult? Function()? clearMaterialBanners,
+    TResult? Function(MaterialBannerClosedReason reason)?
+        hideCurrentMaterialBanner,
+    TResult? Function(MaterialBannerClosedReason reason)?
+        removeCurrentMaterialBanner,
+    TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
+    TResult? Function()? empty,
+    TResult? Function()? reload,
+  }) {
+    return intSelection?.call(values);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
+    TResult Function(String value, Map<String, String>? arguments)?
+        navigatorPushNamed,
+    TResult Function(Object? value)? navigatorPop,
+    TResult Function(String url, String? path, Map<String, String>? params)?
+        launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
+    TResult Function(SnackBar snackBar)? showSnackBar,
+    TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
+    TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
+    TResult Function()? clearMaterialBanners,
+    TResult Function(MaterialBannerClosedReason reason)?
+        hideCurrentMaterialBanner,
+    TResult Function(MaterialBannerClosedReason reason)?
+        removeCurrentMaterialBanner,
+    TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
+    TResult Function()? empty,
+    TResult Function()? reload,
+    required TResult orElse(),
+  }) {
+    if (intSelection != null) {
+      return intSelection(values);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
+    required TResult Function(NavigationPushNamedCallback value)
+        navigatorPushNamed,
+    required TResult Function(NavigationPopCallback value) navigatorPop,
+    required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
+    required TResult Function(ShowSnackBarCallback value) showSnackBar,
+    required TResult Function(HideCurrentSnackBarCallback value)
+        hideCurrentSnackBar,
+    required TResult Function(RemoveCurrentSnackBarCallback value)
+        removeCurrentSnackBar,
+    required TResult Function(ClearMaterialBannersCallback value)
+        clearMaterialBanners,
+    required TResult Function(HideCurrentMaterialBannerCallback value)
+        hideCurrentMaterialBanner,
+    required TResult Function(RemoveCurrentMaterialBannerCallback value)
+        removeCurrentMaterialBanner,
+    required TResult Function(ShowMaterialBannerCallback value)
+        showMaterialBanner,
+    required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
+  }) {
+    return intSelection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
+    TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
+    TResult? Function(NavigationPopCallback value)? navigatorPop,
+    TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
+    TResult? Function(ShowSnackBarCallback value)? showSnackBar,
+    TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
+    TResult? Function(RemoveCurrentSnackBarCallback value)?
+        removeCurrentSnackBar,
+    TResult? Function(ClearMaterialBannersCallback value)? clearMaterialBanners,
+    TResult? Function(HideCurrentMaterialBannerCallback value)?
+        hideCurrentMaterialBanner,
+    TResult? Function(RemoveCurrentMaterialBannerCallback value)?
+        removeCurrentMaterialBanner,
+    TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
+    TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
+  }) {
+    return intSelection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
+    TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
+    TResult Function(NavigationPopCallback value)? navigatorPop,
+    TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
+    TResult Function(ShowSnackBarCallback value)? showSnackBar,
+    TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
+    TResult Function(RemoveCurrentSnackBarCallback value)?
+        removeCurrentSnackBar,
+    TResult Function(ClearMaterialBannersCallback value)? clearMaterialBanners,
+    TResult Function(HideCurrentMaterialBannerCallback value)?
+        hideCurrentMaterialBanner,
+    TResult Function(RemoveCurrentMaterialBannerCallback value)?
+        removeCurrentMaterialBanner,
+    TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
+    TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
+    required TResult orElse(),
+  }) {
+    if (intSelection != null) {
+      return intSelection(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$IntSelectionCallbackToJson(
+      this,
+    );
+  }
+}
+
+abstract class IntSelectionCallback implements Callback {
+  const factory IntSelectionCallback(
+      {required final Map<String, Callback> values}) = _$IntSelectionCallback;
+
+  factory IntSelectionCallback.fromJson(Map<String, dynamic> json) =
+      _$IntSelectionCallback.fromJson;
+
+  Map<String, Callback> get values;
+  @JsonKey(ignore: true)
+  _$$IntSelectionCallbackCopyWith<_$IntSelectionCallback> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$BoolSelectionCallbackCopyWith<$Res> {
+  factory _$$BoolSelectionCallbackCopyWith(_$BoolSelectionCallback value,
+          $Res Function(_$BoolSelectionCallback) then) =
+      __$$BoolSelectionCallbackCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Callback trueCallback, Callback falseCallback});
+
+  $CallbackCopyWith<$Res> get trueCallback;
+  $CallbackCopyWith<$Res> get falseCallback;
+}
+
+/// @nodoc
+class __$$BoolSelectionCallbackCopyWithImpl<$Res>
+    extends _$CallbackCopyWithImpl<$Res, _$BoolSelectionCallback>
+    implements _$$BoolSelectionCallbackCopyWith<$Res> {
+  __$$BoolSelectionCallbackCopyWithImpl(_$BoolSelectionCallback _value,
+      $Res Function(_$BoolSelectionCallback) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? trueCallback = null,
+    Object? falseCallback = null,
+  }) {
+    return _then(_$BoolSelectionCallback(
+      trueCallback: null == trueCallback
+          ? _value.trueCallback
+          : trueCallback // ignore: cast_nullable_to_non_nullable
+              as Callback,
+      falseCallback: null == falseCallback
+          ? _value.falseCallback
+          : falseCallback // ignore: cast_nullable_to_non_nullable
+              as Callback,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CallbackCopyWith<$Res> get trueCallback {
+    return $CallbackCopyWith<$Res>(_value.trueCallback, (value) {
+      return _then(_value.copyWith(trueCallback: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CallbackCopyWith<$Res> get falseCallback {
+    return $CallbackCopyWith<$Res>(_value.falseCallback, (value) {
+      return _then(_value.copyWith(falseCallback: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$BoolSelectionCallback implements BoolSelectionCallback {
+  const _$BoolSelectionCallback(
+      {required this.trueCallback,
+      required this.falseCallback,
+      final String? $type})
+      : $type = $type ?? 'boolSelection';
+
+  factory _$BoolSelectionCallback.fromJson(Map<String, dynamic> json) =>
+      _$$BoolSelectionCallbackFromJson(json);
+
+  @override
+  final Callback trueCallback;
+  @override
+  final Callback falseCallback;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Callback.boolSelection(trueCallback: $trueCallback, falseCallback: $falseCallback)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BoolSelectionCallback &&
+            (identical(other.trueCallback, trueCallback) ||
+                other.trueCallback == trueCallback) &&
+            (identical(other.falseCallback, falseCallback) ||
+                other.falseCallback == falseCallback));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, trueCallback, falseCallback);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BoolSelectionCallbackCopyWith<_$BoolSelectionCallback> get copyWith =>
+      __$$BoolSelectionCallbackCopyWithImpl<_$BoolSelectionCallback>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
+    required TResult Function(String value, Map<String, String>? arguments)
+        navigatorPushNamed,
+    required TResult Function(Object? value) navigatorPop,
+    required TResult Function(
+            String url, String? path, Map<String, String>? params)
+        launchUrl,
+    required TResult Function(String text, Callback? callback) copyClipboard,
+    required TResult Function(NetworkRequest request, Callback? callback)
+        networkRequest,
+    required TResult Function(SnackBar snackBar) showSnackBar,
+    required TResult Function(SnackBarClosedReason reason) hideCurrentSnackBar,
+    required TResult Function(SnackBarClosedReason reason)
+        removeCurrentSnackBar,
+    required TResult Function() clearMaterialBanners,
+    required TResult Function(MaterialBannerClosedReason reason)
+        hideCurrentMaterialBanner,
+    required TResult Function(MaterialBannerClosedReason reason)
+        removeCurrentMaterialBanner,
+    required TResult Function(MaterialBanner materialBanner) showMaterialBanner,
+    required TResult Function() empty,
+    required TResult Function() reload,
+  }) {
+    return boolSelection(trueCallback, falseCallback);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
+    TResult? Function(String value, Map<String, String>? arguments)?
+        navigatorPushNamed,
+    TResult? Function(Object? value)? navigatorPop,
+    TResult? Function(String url, String? path, Map<String, String>? params)?
+        launchUrl,
+    TResult? Function(String text, Callback? callback)? copyClipboard,
+    TResult? Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
+    TResult? Function(SnackBar snackBar)? showSnackBar,
+    TResult? Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
+    TResult? Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
+    TResult? Function()? clearMaterialBanners,
+    TResult? Function(MaterialBannerClosedReason reason)?
+        hideCurrentMaterialBanner,
+    TResult? Function(MaterialBannerClosedReason reason)?
+        removeCurrentMaterialBanner,
+    TResult? Function(MaterialBanner materialBanner)? showMaterialBanner,
+    TResult? Function()? empty,
+    TResult? Function()? reload,
+  }) {
+    return boolSelection?.call(trueCallback, falseCallback);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
+    TResult Function(String value, Map<String, String>? arguments)?
+        navigatorPushNamed,
+    TResult Function(Object? value)? navigatorPop,
+    TResult Function(String url, String? path, Map<String, String>? params)?
+        launchUrl,
+    TResult Function(String text, Callback? callback)? copyClipboard,
+    TResult Function(NetworkRequest request, Callback? callback)?
+        networkRequest,
+    TResult Function(SnackBar snackBar)? showSnackBar,
+    TResult Function(SnackBarClosedReason reason)? hideCurrentSnackBar,
+    TResult Function(SnackBarClosedReason reason)? removeCurrentSnackBar,
+    TResult Function()? clearMaterialBanners,
+    TResult Function(MaterialBannerClosedReason reason)?
+        hideCurrentMaterialBanner,
+    TResult Function(MaterialBannerClosedReason reason)?
+        removeCurrentMaterialBanner,
+    TResult Function(MaterialBanner materialBanner)? showMaterialBanner,
+    TResult Function()? empty,
+    TResult Function()? reload,
+    required TResult orElse(),
+  }) {
+    if (boolSelection != null) {
+      return boolSelection(trueCallback, falseCallback);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
+    required TResult Function(NavigationPushNamedCallback value)
+        navigatorPushNamed,
+    required TResult Function(NavigationPopCallback value) navigatorPop,
+    required TResult Function(UrlCallback value) launchUrl,
+    required TResult Function(CopyClipboardCallback value) copyClipboard,
+    required TResult Function(HttpRequestCallback value) networkRequest,
+    required TResult Function(ShowSnackBarCallback value) showSnackBar,
+    required TResult Function(HideCurrentSnackBarCallback value)
+        hideCurrentSnackBar,
+    required TResult Function(RemoveCurrentSnackBarCallback value)
+        removeCurrentSnackBar,
+    required TResult Function(ClearMaterialBannersCallback value)
+        clearMaterialBanners,
+    required TResult Function(HideCurrentMaterialBannerCallback value)
+        hideCurrentMaterialBanner,
+    required TResult Function(RemoveCurrentMaterialBannerCallback value)
+        removeCurrentMaterialBanner,
+    required TResult Function(ShowMaterialBannerCallback value)
+        showMaterialBanner,
+    required TResult Function(EmptyCallback value) empty,
+    required TResult Function(ReloadCallback value) reload,
+  }) {
+    return boolSelection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
+    TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
+    TResult? Function(NavigationPopCallback value)? navigatorPop,
+    TResult? Function(UrlCallback value)? launchUrl,
+    TResult? Function(CopyClipboardCallback value)? copyClipboard,
+    TResult? Function(HttpRequestCallback value)? networkRequest,
+    TResult? Function(ShowSnackBarCallback value)? showSnackBar,
+    TResult? Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
+    TResult? Function(RemoveCurrentSnackBarCallback value)?
+        removeCurrentSnackBar,
+    TResult? Function(ClearMaterialBannersCallback value)? clearMaterialBanners,
+    TResult? Function(HideCurrentMaterialBannerCallback value)?
+        hideCurrentMaterialBanner,
+    TResult? Function(RemoveCurrentMaterialBannerCallback value)?
+        removeCurrentMaterialBanner,
+    TResult? Function(ShowMaterialBannerCallback value)? showMaterialBanner,
+    TResult? Function(EmptyCallback value)? empty,
+    TResult? Function(ReloadCallback value)? reload,
+  }) {
+    return boolSelection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
+    TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
+    TResult Function(NavigationPopCallback value)? navigatorPop,
+    TResult Function(UrlCallback value)? launchUrl,
+    TResult Function(CopyClipboardCallback value)? copyClipboard,
+    TResult Function(HttpRequestCallback value)? networkRequest,
+    TResult Function(ShowSnackBarCallback value)? showSnackBar,
+    TResult Function(HideCurrentSnackBarCallback value)? hideCurrentSnackBar,
+    TResult Function(RemoveCurrentSnackBarCallback value)?
+        removeCurrentSnackBar,
+    TResult Function(ClearMaterialBannersCallback value)? clearMaterialBanners,
+    TResult Function(HideCurrentMaterialBannerCallback value)?
+        hideCurrentMaterialBanner,
+    TResult Function(RemoveCurrentMaterialBannerCallback value)?
+        removeCurrentMaterialBanner,
+    TResult Function(ShowMaterialBannerCallback value)? showMaterialBanner,
+    TResult Function(EmptyCallback value)? empty,
+    TResult Function(ReloadCallback value)? reload,
+    required TResult orElse(),
+  }) {
+    if (boolSelection != null) {
+      return boolSelection(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$BoolSelectionCallbackToJson(
+      this,
+    );
+  }
+}
+
+abstract class BoolSelectionCallback implements Callback {
+  const factory BoolSelectionCallback(
+      {required final Callback trueCallback,
+      required final Callback falseCallback}) = _$BoolSelectionCallback;
+
+  factory BoolSelectionCallback.fromJson(Map<String, dynamic> json) =
+      _$BoolSelectionCallback.fromJson;
+
+  Callback get trueCallback;
+  Callback get falseCallback;
+  @JsonKey(ignore: true)
+  _$$BoolSelectionCallbackCopyWith<_$BoolSelectionCallback> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -307,6 +908,9 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -335,6 +939,9 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -361,6 +968,9 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -391,6 +1001,8 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -419,6 +1031,8 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -443,6 +1057,8 @@ class _$NavigationPushNamedCallback implements NavigationPushNamedCallback {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -561,6 +1177,9 @@ class _$NavigationPopCallback implements NavigationPopCallback {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -589,6 +1208,9 @@ class _$NavigationPopCallback implements NavigationPopCallback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -615,6 +1237,9 @@ class _$NavigationPopCallback implements NavigationPopCallback {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -645,6 +1270,8 @@ class _$NavigationPopCallback implements NavigationPopCallback {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -673,6 +1300,8 @@ class _$NavigationPopCallback implements NavigationPopCallback {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -697,6 +1326,8 @@ class _$NavigationPopCallback implements NavigationPopCallback {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -841,6 +1472,9 @@ class _$UrlCallback implements UrlCallback {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -869,6 +1503,9 @@ class _$UrlCallback implements UrlCallback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -895,6 +1532,9 @@ class _$UrlCallback implements UrlCallback {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -925,6 +1565,8 @@ class _$UrlCallback implements UrlCallback {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -953,6 +1595,8 @@ class _$UrlCallback implements UrlCallback {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -977,6 +1621,8 @@ class _$UrlCallback implements UrlCallback {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -1121,6 +1767,9 @@ class _$CopyClipboardCallback implements CopyClipboardCallback {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -1149,6 +1798,9 @@ class _$CopyClipboardCallback implements CopyClipboardCallback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -1175,6 +1827,9 @@ class _$CopyClipboardCallback implements CopyClipboardCallback {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -1205,6 +1860,8 @@ class _$CopyClipboardCallback implements CopyClipboardCallback {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -1233,6 +1890,8 @@ class _$CopyClipboardCallback implements CopyClipboardCallback {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -1257,6 +1916,8 @@ class _$CopyClipboardCallback implements CopyClipboardCallback {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -1410,6 +2071,9 @@ class _$HttpRequestCallback implements HttpRequestCallback {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -1438,6 +2102,9 @@ class _$HttpRequestCallback implements HttpRequestCallback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -1464,6 +2131,9 @@ class _$HttpRequestCallback implements HttpRequestCallback {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -1494,6 +2164,8 @@ class _$HttpRequestCallback implements HttpRequestCallback {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -1522,6 +2194,8 @@ class _$HttpRequestCallback implements HttpRequestCallback {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -1546,6 +2220,8 @@ class _$HttpRequestCallback implements HttpRequestCallback {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -1677,6 +2353,9 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -1705,6 +2384,9 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -1731,6 +2413,9 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -1761,6 +2446,8 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -1789,6 +2476,8 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -1813,6 +2502,8 @@ class _$ShowSnackBarCallback implements ShowSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -1936,6 +2627,9 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -1964,6 +2658,9 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -1990,6 +2687,9 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -2020,6 +2720,8 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -2048,6 +2750,8 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -2072,6 +2776,8 @@ class _$HideCurrentSnackBarCallback implements HideCurrentSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -2195,6 +2901,9 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -2223,6 +2932,9 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -2249,6 +2961,9 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -2279,6 +2994,8 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -2307,6 +3024,8 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -2331,6 +3050,8 @@ class _$RemoveCurrentSnackBarCallback implements RemoveCurrentSnackBarCallback {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -2426,6 +3147,9 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -2454,6 +3178,9 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -2480,6 +3207,9 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -2510,6 +3240,8 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -2538,6 +3270,8 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -2562,6 +3296,8 @@ class _$ClearMaterialBannersCallback implements ClearMaterialBannersCallback {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -2682,6 +3418,9 @@ class _$HideCurrentMaterialBannerCallback
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -2710,6 +3449,9 @@ class _$HideCurrentMaterialBannerCallback
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -2736,6 +3478,9 @@ class _$HideCurrentMaterialBannerCallback
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -2766,6 +3511,8 @@ class _$HideCurrentMaterialBannerCallback
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -2794,6 +3541,8 @@ class _$HideCurrentMaterialBannerCallback
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -2818,6 +3567,8 @@ class _$HideCurrentMaterialBannerCallback
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -2946,6 +3697,9 @@ class _$RemoveCurrentMaterialBannerCallback
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -2974,6 +3728,9 @@ class _$RemoveCurrentMaterialBannerCallback
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -3000,6 +3757,9 @@ class _$RemoveCurrentMaterialBannerCallback
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -3030,6 +3790,8 @@ class _$RemoveCurrentMaterialBannerCallback
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -3058,6 +3820,8 @@ class _$RemoveCurrentMaterialBannerCallback
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -3082,6 +3846,8 @@ class _$RemoveCurrentMaterialBannerCallback
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -3217,6 +3983,9 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -3245,6 +4014,9 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -3271,6 +4043,9 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -3301,6 +4076,8 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -3329,6 +4106,8 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -3353,6 +4132,8 @@ class _$ShowMaterialBannerCallback implements ShowMaterialBannerCallback {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -3444,6 +4225,9 @@ class _$EmptyCallback implements EmptyCallback {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -3472,6 +4256,9 @@ class _$EmptyCallback implements EmptyCallback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -3498,6 +4285,9 @@ class _$EmptyCallback implements EmptyCallback {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -3528,6 +4318,8 @@ class _$EmptyCallback implements EmptyCallback {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -3556,6 +4348,8 @@ class _$EmptyCallback implements EmptyCallback {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -3580,6 +4374,8 @@ class _$EmptyCallback implements EmptyCallback {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
@@ -3665,6 +4461,9 @@ class _$ReloadCallback implements ReloadCallback {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, Callback> values) intSelection,
+    required TResult Function(Callback trueCallback, Callback falseCallback)
+        boolSelection,
     required TResult Function(String value, Map<String, String>? arguments)
         navigatorPushNamed,
     required TResult Function(Object? value) navigatorPop,
@@ -3693,6 +4492,9 @@ class _$ReloadCallback implements ReloadCallback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, Callback> values)? intSelection,
+    TResult? Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult? Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult? Function(Object? value)? navigatorPop,
@@ -3719,6 +4521,9 @@ class _$ReloadCallback implements ReloadCallback {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, Callback> values)? intSelection,
+    TResult Function(Callback trueCallback, Callback falseCallback)?
+        boolSelection,
     TResult Function(String value, Map<String, String>? arguments)?
         navigatorPushNamed,
     TResult Function(Object? value)? navigatorPop,
@@ -3749,6 +4554,8 @@ class _$ReloadCallback implements ReloadCallback {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(IntSelectionCallback value) intSelection,
+    required TResult Function(BoolSelectionCallback value) boolSelection,
     required TResult Function(NavigationPushNamedCallback value)
         navigatorPushNamed,
     required TResult Function(NavigationPopCallback value) navigatorPop,
@@ -3777,6 +4584,8 @@ class _$ReloadCallback implements ReloadCallback {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IntSelectionCallback value)? intSelection,
+    TResult? Function(BoolSelectionCallback value)? boolSelection,
     TResult? Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult? Function(NavigationPopCallback value)? navigatorPop,
     TResult? Function(UrlCallback value)? launchUrl,
@@ -3801,6 +4610,8 @@ class _$ReloadCallback implements ReloadCallback {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(IntSelectionCallback value)? intSelection,
+    TResult Function(BoolSelectionCallback value)? boolSelection,
     TResult Function(NavigationPushNamedCallback value)? navigatorPushNamed,
     TResult Function(NavigationPopCallback value)? navigatorPop,
     TResult Function(UrlCallback value)? launchUrl,
