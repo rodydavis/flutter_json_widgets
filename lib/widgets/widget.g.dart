@@ -4270,17 +4270,6 @@ _$ListTile _$$ListTileFromJson(Map<String, dynamic> json) => _$ListTile(
       textColor: json['textColor'] == null
           ? null
           : Color.fromJson(json['textColor'] as Map<String, dynamic>),
-      titleTextStyle: json['titleTextStyle'] == null
-          ? null
-          : TextStyle.fromJson(json['titleTextStyle'] as Map<String, dynamic>),
-      subtitleTextStyle: json['subtitleTextStyle'] == null
-          ? null
-          : TextStyle.fromJson(
-              json['subtitleTextStyle'] as Map<String, dynamic>),
-      leadingAndTrailingTextStyle: json['leadingAndTrailingTextStyle'] == null
-          ? null
-          : TextStyle.fromJson(
-              json['leadingAndTrailingTextStyle'] as Map<String, dynamic>),
       contentPadding: json['contentPadding'] == null
           ? null
           : EdgeInsets.fromJson(json['contentPadding'] as Map<String, dynamic>),
@@ -4331,9 +4320,6 @@ const _$$ListTileFieldMap = <String, String>{
   'selectedColor': 'selectedColor',
   'iconColor': 'iconColor',
   'textColor': 'textColor',
-  'titleTextStyle': 'titleTextStyle',
-  'subtitleTextStyle': 'subtitleTextStyle',
-  'leadingAndTrailingTextStyle': 'leadingAndTrailingTextStyle',
   'contentPadding': 'contentPadding',
   'enabled': 'enabled',
   'onTap': 'onTap',
@@ -4374,10 +4360,6 @@ Map<String, dynamic> _$$ListTileToJson(_$ListTile instance) {
   writeNotNull('selectedColor', instance.selectedColor);
   writeNotNull('iconColor', instance.iconColor);
   writeNotNull('textColor', instance.textColor);
-  writeNotNull('titleTextStyle', instance.titleTextStyle);
-  writeNotNull('subtitleTextStyle', instance.subtitleTextStyle);
-  writeNotNull(
-      'leadingAndTrailingTextStyle', instance.leadingAndTrailingTextStyle);
   writeNotNull('contentPadding', instance.contentPadding);
   val['enabled'] = instance.enabled;
   writeNotNull('onTap', instance.onTap);
