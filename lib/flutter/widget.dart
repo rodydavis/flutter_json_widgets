@@ -3923,10 +3923,6 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         selectedColor: $color(context, value.selectedColor),
         iconColor: $color(context, value.iconColor),
         textColor: $color(context, value.textColor),
-        // titleTextStyle: $textStyle(context, value.titleTextStyle),
-        // subtitleTextStyle: $textStyle(context, value.subtitleTextStyle),
-        // leadingAndTrailingTextStyle:
-        //     $textStyle(context, value.leadingAndTrailingTextStyle),
         contentPadding: $edgeInsets(value.contentPadding),
         enabled: value.enabled,
         onTap: $callback(context, value.onTap),
