@@ -62,6 +62,8 @@ Future main() async {
     final content = await request.readAsString();
     final map = jsonDecode(content) as Map<String, Object?>;
     _counter = map['counter'] as int;
+    // ignore: avoid_print
+    print('counter: $_counter');
     return Response.ok(
       jsonEncode({'counter': _counter}),
       headers: {

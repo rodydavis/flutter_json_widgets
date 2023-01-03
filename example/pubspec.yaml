@@ -28,3 +28,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+scripts:
+  server: dart bin/server.dart
+  client: flutter run -t lib/ssr_example.dart -d chrome
