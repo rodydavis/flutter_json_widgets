@@ -10,6 +10,15 @@ part 'callback.g.dart';
 
 @freezed
 class Callback with _$Callback {
+  const factory Callback.intSelection({
+    required Map<String, Callback> values,
+  }) = IntSelectionCallback;
+
+  const factory Callback.boolSelection({
+    required Callback trueCallback,
+    required Callback falseCallback,
+  }) = BoolSelectionCallback;
+
   const factory Callback.navigatorPushNamed(
     String value, {
     Map<String, String>? arguments,

@@ -15,18 +15,85 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 NetworkRequest _$NetworkRequestFromJson(Map<String, dynamic> json) {
-  return _NetworkRequest.fromJson(json);
+  switch (json['runtimeType']) {
+    case 'http':
+      return NetworkHttpRequest.fromJson(json);
+    case 'formSubmit':
+      return FormSubmitNetworkRequest.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'NetworkRequest',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
 }
 
 /// @nodoc
 mixin _$NetworkRequest {
   String get url => throw _privateConstructorUsedError;
   Map<String, String> get headers => throw _privateConstructorUsedError;
-  String? get method => throw _privateConstructorUsedError;
-  String? get bodyText => throw _privateConstructorUsedError;
-  List<int>? get bodyBytes => throw _privateConstructorUsedError;
-  Map<String, Object>? get bodyMap => throw _privateConstructorUsedError;
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String url,
+            Map<String, String> headers,
+            String? method,
+            String? bodyText,
+            List<int>? bodyBytes,
+            Map<String, Object>? bodyMap,
+            bool streamedResponse)
+        http,
+    required TResult Function(String url, Map<String, String> headers)
+        formSubmit,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String url,
+            Map<String, String> headers,
+            String? method,
+            String? bodyText,
+            List<int>? bodyBytes,
+            Map<String, Object>? bodyMap,
+            bool streamedResponse)?
+        http,
+    TResult? Function(String url, Map<String, String> headers)? formSubmit,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String url,
+            Map<String, String> headers,
+            String? method,
+            String? bodyText,
+            List<int>? bodyBytes,
+            Map<String, Object>? bodyMap,
+            bool streamedResponse)?
+        http,
+    TResult Function(String url, Map<String, String> headers)? formSubmit,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NetworkHttpRequest value) http,
+    required TResult Function(FormSubmitNetworkRequest value) formSubmit,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NetworkHttpRequest value)? http,
+    TResult? Function(FormSubmitNetworkRequest value)? formSubmit,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NetworkHttpRequest value)? http,
+    TResult Function(FormSubmitNetworkRequest value)? formSubmit,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NetworkRequestCopyWith<NetworkRequest> get copyWith =>
@@ -39,13 +106,7 @@ abstract class $NetworkRequestCopyWith<$Res> {
           NetworkRequest value, $Res Function(NetworkRequest) then) =
       _$NetworkRequestCopyWithImpl<$Res, NetworkRequest>;
   @useResult
-  $Res call(
-      {String url,
-      Map<String, String> headers,
-      String? method,
-      String? bodyText,
-      List<int>? bodyBytes,
-      Map<String, Object>? bodyMap});
+  $Res call({String url, Map<String, String> headers});
 }
 
 /// @nodoc
@@ -63,10 +124,6 @@ class _$NetworkRequestCopyWithImpl<$Res, $Val extends NetworkRequest>
   $Res call({
     Object? url = null,
     Object? headers = null,
-    Object? method = freezed,
-    Object? bodyText = freezed,
-    Object? bodyBytes = freezed,
-    Object? bodyMap = freezed,
   }) {
     return _then(_value.copyWith(
       url: null == url
@@ -77,32 +134,16 @@ class _$NetworkRequestCopyWithImpl<$Res, $Val extends NetworkRequest>
           ? _value.headers
           : headers // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
-      method: freezed == method
-          ? _value.method
-          : method // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bodyText: freezed == bodyText
-          ? _value.bodyText
-          : bodyText // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bodyBytes: freezed == bodyBytes
-          ? _value.bodyBytes
-          : bodyBytes // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
-      bodyMap: freezed == bodyMap
-          ? _value.bodyMap
-          : bodyMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Object>?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_NetworkRequestCopyWith<$Res>
+abstract class _$$NetworkHttpRequestCopyWith<$Res>
     implements $NetworkRequestCopyWith<$Res> {
-  factory _$$_NetworkRequestCopyWith(
-          _$_NetworkRequest value, $Res Function(_$_NetworkRequest) then) =
-      __$$_NetworkRequestCopyWithImpl<$Res>;
+  factory _$$NetworkHttpRequestCopyWith(_$NetworkHttpRequest value,
+          $Res Function(_$NetworkHttpRequest) then) =
+      __$$NetworkHttpRequestCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -111,15 +152,16 @@ abstract class _$$_NetworkRequestCopyWith<$Res>
       String? method,
       String? bodyText,
       List<int>? bodyBytes,
-      Map<String, Object>? bodyMap});
+      Map<String, Object>? bodyMap,
+      bool streamedResponse});
 }
 
 /// @nodoc
-class __$$_NetworkRequestCopyWithImpl<$Res>
-    extends _$NetworkRequestCopyWithImpl<$Res, _$_NetworkRequest>
-    implements _$$_NetworkRequestCopyWith<$Res> {
-  __$$_NetworkRequestCopyWithImpl(
-      _$_NetworkRequest _value, $Res Function(_$_NetworkRequest) _then)
+class __$$NetworkHttpRequestCopyWithImpl<$Res>
+    extends _$NetworkRequestCopyWithImpl<$Res, _$NetworkHttpRequest>
+    implements _$$NetworkHttpRequestCopyWith<$Res> {
+  __$$NetworkHttpRequestCopyWithImpl(
+      _$NetworkHttpRequest _value, $Res Function(_$NetworkHttpRequest) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -131,8 +173,9 @@ class __$$_NetworkRequestCopyWithImpl<$Res>
     Object? bodyText = freezed,
     Object? bodyBytes = freezed,
     Object? bodyMap = freezed,
+    Object? streamedResponse = null,
   }) {
-    return _then(_$_NetworkRequest(
+    return _then(_$NetworkHttpRequest(
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -157,26 +200,33 @@ class __$$_NetworkRequestCopyWithImpl<$Res>
           ? _value._bodyMap
           : bodyMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Object>?,
+      streamedResponse: null == streamedResponse
+          ? _value.streamedResponse
+          : streamedResponse // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_NetworkRequest implements _NetworkRequest {
-  const _$_NetworkRequest(
+class _$NetworkHttpRequest implements NetworkHttpRequest {
+  const _$NetworkHttpRequest(
       {required this.url,
       final Map<String, String> headers = const {},
       this.method,
       this.bodyText,
       final List<int>? bodyBytes,
-      final Map<String, Object>? bodyMap})
+      final Map<String, Object>? bodyMap,
+      this.streamedResponse = false,
+      final String? $type})
       : _headers = headers,
         _bodyBytes = bodyBytes,
-        _bodyMap = bodyMap;
+        _bodyMap = bodyMap,
+        $type = $type ?? 'http';
 
-  factory _$_NetworkRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_NetworkRequestFromJson(json);
+  factory _$NetworkHttpRequest.fromJson(Map<String, dynamic> json) =>
+      _$$NetworkHttpRequestFromJson(json);
 
   @override
   final String url;
@@ -214,15 +264,22 @@ class _$_NetworkRequest implements _NetworkRequest {
   }
 
   @override
+  @JsonKey()
+  final bool streamedResponse;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
   String toString() {
-    return 'NetworkRequest(url: $url, headers: $headers, method: $method, bodyText: $bodyText, bodyBytes: $bodyBytes, bodyMap: $bodyMap)';
+    return 'NetworkRequest.http(url: $url, headers: $headers, method: $method, bodyText: $bodyText, bodyBytes: $bodyBytes, bodyMap: $bodyMap, streamedResponse: $streamedResponse)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NetworkRequest &&
+            other is _$NetworkHttpRequest &&
             (identical(other.url, url) || other.url == url) &&
             const DeepCollectionEquality().equals(other._headers, _headers) &&
             (identical(other.method, method) || other.method == method) &&
@@ -230,7 +287,9 @@ class _$_NetworkRequest implements _NetworkRequest {
                 other.bodyText == bodyText) &&
             const DeepCollectionEquality()
                 .equals(other._bodyBytes, _bodyBytes) &&
-            const DeepCollectionEquality().equals(other._bodyMap, _bodyMap));
+            const DeepCollectionEquality().equals(other._bodyMap, _bodyMap) &&
+            (identical(other.streamedResponse, streamedResponse) ||
+                other.streamedResponse == streamedResponse));
   }
 
   @JsonKey(ignore: true)
@@ -242,48 +301,343 @@ class _$_NetworkRequest implements _NetworkRequest {
       method,
       bodyText,
       const DeepCollectionEquality().hash(_bodyBytes),
-      const DeepCollectionEquality().hash(_bodyMap));
+      const DeepCollectionEquality().hash(_bodyMap),
+      streamedResponse);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NetworkRequestCopyWith<_$_NetworkRequest> get copyWith =>
-      __$$_NetworkRequestCopyWithImpl<_$_NetworkRequest>(this, _$identity);
+  _$$NetworkHttpRequestCopyWith<_$NetworkHttpRequest> get copyWith =>
+      __$$NetworkHttpRequestCopyWithImpl<_$NetworkHttpRequest>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String url,
+            Map<String, String> headers,
+            String? method,
+            String? bodyText,
+            List<int>? bodyBytes,
+            Map<String, Object>? bodyMap,
+            bool streamedResponse)
+        http,
+    required TResult Function(String url, Map<String, String> headers)
+        formSubmit,
+  }) {
+    return http(
+        url, headers, method, bodyText, bodyBytes, bodyMap, streamedResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String url,
+            Map<String, String> headers,
+            String? method,
+            String? bodyText,
+            List<int>? bodyBytes,
+            Map<String, Object>? bodyMap,
+            bool streamedResponse)?
+        http,
+    TResult? Function(String url, Map<String, String> headers)? formSubmit,
+  }) {
+    return http?.call(
+        url, headers, method, bodyText, bodyBytes, bodyMap, streamedResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String url,
+            Map<String, String> headers,
+            String? method,
+            String? bodyText,
+            List<int>? bodyBytes,
+            Map<String, Object>? bodyMap,
+            bool streamedResponse)?
+        http,
+    TResult Function(String url, Map<String, String> headers)? formSubmit,
+    required TResult orElse(),
+  }) {
+    if (http != null) {
+      return http(
+          url, headers, method, bodyText, bodyBytes, bodyMap, streamedResponse);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NetworkHttpRequest value) http,
+    required TResult Function(FormSubmitNetworkRequest value) formSubmit,
+  }) {
+    return http(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NetworkHttpRequest value)? http,
+    TResult? Function(FormSubmitNetworkRequest value)? formSubmit,
+  }) {
+    return http?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NetworkHttpRequest value)? http,
+    TResult Function(FormSubmitNetworkRequest value)? formSubmit,
+    required TResult orElse(),
+  }) {
+    if (http != null) {
+      return http(this);
+    }
+    return orElse();
+  }
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NetworkRequestToJson(
+    return _$$NetworkHttpRequestToJson(
       this,
     );
   }
 }
 
-abstract class _NetworkRequest implements NetworkRequest {
-  const factory _NetworkRequest(
+abstract class NetworkHttpRequest implements NetworkRequest {
+  const factory NetworkHttpRequest(
       {required final String url,
       final Map<String, String> headers,
       final String? method,
       final String? bodyText,
       final List<int>? bodyBytes,
-      final Map<String, Object>? bodyMap}) = _$_NetworkRequest;
+      final Map<String, Object>? bodyMap,
+      final bool streamedResponse}) = _$NetworkHttpRequest;
 
-  factory _NetworkRequest.fromJson(Map<String, dynamic> json) =
-      _$_NetworkRequest.fromJson;
+  factory NetworkHttpRequest.fromJson(Map<String, dynamic> json) =
+      _$NetworkHttpRequest.fromJson;
+
+  @override
+  String get url;
+  @override
+  Map<String, String> get headers;
+  String? get method;
+  String? get bodyText;
+  List<int>? get bodyBytes;
+  Map<String, Object>? get bodyMap;
+  bool get streamedResponse;
+  @override
+  @JsonKey(ignore: true)
+  _$$NetworkHttpRequestCopyWith<_$NetworkHttpRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FormSubmitNetworkRequestCopyWith<$Res>
+    implements $NetworkRequestCopyWith<$Res> {
+  factory _$$FormSubmitNetworkRequestCopyWith(_$FormSubmitNetworkRequest value,
+          $Res Function(_$FormSubmitNetworkRequest) then) =
+      __$$FormSubmitNetworkRequestCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String url, Map<String, String> headers});
+}
+
+/// @nodoc
+class __$$FormSubmitNetworkRequestCopyWithImpl<$Res>
+    extends _$NetworkRequestCopyWithImpl<$Res, _$FormSubmitNetworkRequest>
+    implements _$$FormSubmitNetworkRequestCopyWith<$Res> {
+  __$$FormSubmitNetworkRequestCopyWithImpl(_$FormSubmitNetworkRequest _value,
+      $Res Function(_$FormSubmitNetworkRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? url = null,
+    Object? headers = null,
+  }) {
+    return _then(_$FormSubmitNetworkRequest(
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      headers: null == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$FormSubmitNetworkRequest implements FormSubmitNetworkRequest {
+  const _$FormSubmitNetworkRequest(
+      {required this.url,
+      final Map<String, String> headers = const {},
+      final String? $type})
+      : _headers = headers,
+        $type = $type ?? 'formSubmit';
+
+  factory _$FormSubmitNetworkRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FormSubmitNetworkRequestFromJson(json);
+
+  @override
+  final String url;
+  final Map<String, String> _headers;
+  @override
+  @JsonKey()
+  Map<String, String> get headers {
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_headers);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'NetworkRequest.formSubmit(url: $url, headers: $headers)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FormSubmitNetworkRequest &&
+            (identical(other.url, url) || other.url == url) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, url, const DeepCollectionEquality().hash(_headers));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FormSubmitNetworkRequestCopyWith<_$FormSubmitNetworkRequest>
+      get copyWith =>
+          __$$FormSubmitNetworkRequestCopyWithImpl<_$FormSubmitNetworkRequest>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String url,
+            Map<String, String> headers,
+            String? method,
+            String? bodyText,
+            List<int>? bodyBytes,
+            Map<String, Object>? bodyMap,
+            bool streamedResponse)
+        http,
+    required TResult Function(String url, Map<String, String> headers)
+        formSubmit,
+  }) {
+    return formSubmit(url, headers);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String url,
+            Map<String, String> headers,
+            String? method,
+            String? bodyText,
+            List<int>? bodyBytes,
+            Map<String, Object>? bodyMap,
+            bool streamedResponse)?
+        http,
+    TResult? Function(String url, Map<String, String> headers)? formSubmit,
+  }) {
+    return formSubmit?.call(url, headers);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String url,
+            Map<String, String> headers,
+            String? method,
+            String? bodyText,
+            List<int>? bodyBytes,
+            Map<String, Object>? bodyMap,
+            bool streamedResponse)?
+        http,
+    TResult Function(String url, Map<String, String> headers)? formSubmit,
+    required TResult orElse(),
+  }) {
+    if (formSubmit != null) {
+      return formSubmit(url, headers);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NetworkHttpRequest value) http,
+    required TResult Function(FormSubmitNetworkRequest value) formSubmit,
+  }) {
+    return formSubmit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NetworkHttpRequest value)? http,
+    TResult? Function(FormSubmitNetworkRequest value)? formSubmit,
+  }) {
+    return formSubmit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NetworkHttpRequest value)? http,
+    TResult Function(FormSubmitNetworkRequest value)? formSubmit,
+    required TResult orElse(),
+  }) {
+    if (formSubmit != null) {
+      return formSubmit(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FormSubmitNetworkRequestToJson(
+      this,
+    );
+  }
+}
+
+abstract class FormSubmitNetworkRequest implements NetworkRequest {
+  const factory FormSubmitNetworkRequest(
+      {required final String url,
+      final Map<String, String> headers}) = _$FormSubmitNetworkRequest;
+
+  factory FormSubmitNetworkRequest.fromJson(Map<String, dynamic> json) =
+      _$FormSubmitNetworkRequest.fromJson;
 
   @override
   String get url;
   @override
   Map<String, String> get headers;
   @override
-  String? get method;
-  @override
-  String? get bodyText;
-  @override
-  List<int>? get bodyBytes;
-  @override
-  Map<String, Object>? get bodyMap;
-  @override
   @JsonKey(ignore: true)
-  _$$_NetworkRequestCopyWith<_$_NetworkRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FormSubmitNetworkRequestCopyWith<_$FormSubmitNetworkRequest>
+      get copyWith => throw _privateConstructorUsedError;
 }

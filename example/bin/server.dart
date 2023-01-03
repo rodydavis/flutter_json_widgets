@@ -18,40 +18,13 @@ const url = 'http://$host:$port';
 Future main() async {
   final app = Router();
 
-  app.post('/api/counter', (Request request) async {
-    final content = await request.readAsString();
-    final map = jsonDecode(content) as Map<String, Object?>;
-    _counter = map['counter'] as int;
-    return Response.ok(
-      jsonEncode({'counter': _counter}),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    );
+  app.get('/', (Request request) {
+    // Redirect
+    return Response.seeOther('$url/form');
   });
 
   app.get(
-    '/',
-    (Request request) => _ui(const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/counter',
-      routes: {
-        '/counter': NetworkWidget(
-          request: NetworkRequest(
-            url: '$url/ui/widgets/counter',
-          ),
-        ),
-        '/long-list': NetworkWidget(
-          request: NetworkRequest(
-            url: '$url/ui/widgets/long-list',
-          ),
-        ),
-      },
-    )),
-  );
-
-  app.get(
-    '/ui/widgets/counter',
+    '/counter',
     (Request request) => _ui(Scaffold(
       appBar: const AppBar(
         title: Text('Flutter Demo Home Page'),
@@ -72,7 +45,7 @@ Future main() async {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: Callback.networkRequest(
-          NetworkRequest(
+          NetworkHttpRequest(
             url: '$url/api/counter',
             method: 'POST',
             bodyMap: {'counter': _counter + 1},
@@ -85,8 +58,20 @@ Future main() async {
     )),
   );
 
+  app.post('/api/counter', (Request request) async {
+    final content = await request.readAsString();
+    final map = jsonDecode(content) as Map<String, Object?>;
+    _counter = map['counter'] as int;
+    return Response.ok(
+      jsonEncode({'counter': _counter}),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    );
+  });
+
   app.get(
-    '/ui/widgets/long-list',
+    '/long-list',
     (Request request) => _ui(Scaffold(
       appBar: const AppBar(
         title: Text('Flutter Long List'),
@@ -96,6 +81,50 @@ Future main() async {
       ),
     )),
   );
+
+  app.get(
+    '/form',
+    (Request request) => _ui(const Scaffold(
+      appBar: AppBar(
+        title: Text('Flutter Form'),
+      ),
+      body: ListView(
+        children: [
+          ListTile(
+            title: Text('Checkbox'),
+            trailing: Checkbox(
+              value: false,
+              field: FormBooleanField(
+                key: 'checkbox',
+                description: 'Checkbox',
+              ),
+            ),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: Callback.networkRequest(
+          NetworkRequest.formSubmit(url: '$url/api/form'),
+          callback: Callback.reload(),
+        ),
+        tooltip: 'Save',
+        child: Icon(Icons.save),
+      ),
+    )),
+  );
+
+  app.post('/api/form', (Request request) async {
+    final content = await request.readAsString();
+    final map = jsonDecode(content) as Map<String, Object?>;
+    // ignore: avoid_print
+    print('form data: $map');
+    return Response.ok(
+      jsonEncode(map),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    );
+  });
 
   // Set CORS headers with every request
   final handler = const Pipeline().addMiddleware(corsHeaders()).addHandler(app);
@@ -115,3 +144,27 @@ Response _ui(Widget widget) {
     },
   );
 }
+
+// Response _root(String route) {
+//   return _ui(MaterialApp(
+//     debugShowCheckedModeBanner: false,
+//     initialRoute: route,
+//     routes: {
+//       '/counter': const NetworkWidget(
+//         request: NetworkHttpRequest(
+//           url: '$url/counter',
+//         ),
+//       ),
+//       '/form': const NetworkWidget(
+//         request: NetworkHttpRequest(
+//           url: '$url/form',
+//         ),
+//       ),
+//       '/long-list': const NetworkWidget(
+//         request: NetworkHttpRequest(
+//           url: '$url/long-list',
+//         ),
+//       ),
+//     },
+//   ));
+// }

@@ -278,15 +278,84 @@ enum PanAxis {
   free,
 }
 
-enum TableCellVerticalAlignment {
-  top,
-  middle,
-  bottom,
-  baseline,
-  fill
-}
+enum TableCellVerticalAlignment { top, middle, bottom, baseline, fill }
 
 enum DragStartBehavior {
   down,
   start,
+}
+
+enum ListTileControlAffinity {
+  leading,
+  trailing,
+  platform,
+}
+
+enum TabBarIndicatorSize {
+  tab,
+  label,
+}
+
+enum NavigationRailLabelType {
+  none,
+  selected,
+  all,
+}
+
+enum NavigationDestinationLabelBehavior {
+  alwaysShow,
+  alwaysHide,
+  onlyShowSelected,
+}
+
+enum AutovalidateMode {
+  disabled,
+  always,
+  onUserInteraction,
+}
+
+enum BoxHeightStyle {
+  tight,
+  max,
+  includeLineSpacingMiddle,
+  includeLineSpacingTop,
+  includeLineSpacingBottom,
+  strut,
+}
+
+enum BoxWidthStyle {
+  tight,
+  max,
+}
+
+enum PlaceholderAlignment {
+  baseline,
+  aboveBaseline,
+  belowBaseline,
+  top,
+  bottom,
+  middle,
+}
+
+enum HitTestBehavior {
+  deferToChild,
+  opaque,
+  translucent,
+}
+
+enum PointerDeviceKind {
+  touch,
+  mouse,
+  stylus,
+  invertedStylus,
+  trackpad,
+  unknown
+}
+
+enum PointerSignalKind {
+  none,
+  scroll,
+  scrollInertiaCancel,
+  scale,
+  unknown
 }

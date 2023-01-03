@@ -56,3 +56,7 @@ export 'widgets/data_cell.dart';
 export 'widgets/data_row.dart';
 export 'widgets/data_column.dart';
 export 'widgets/network_request.dart';
+export 'widgets/form_data.dart';
+export 'widgets/icon_theme_data.dart';
+export 'widgets/navigation_rail_destination.dart';
+export 'widgets/inline_span.dart';

@@ -19,13 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true),
       themeMode: ThemeMode.system,
-      initialRoute: '/',
-      routes: {
-        '/': (_) => const FlutterJsonEditor(),
-        // '/example': (_) => FlutterWidget.network(
-        //       url: Uri.parse('http://localhost:8080/'),
-        //     ),
-      },
+      home: const FlutterJsonEditor(),
     );
   }
 }

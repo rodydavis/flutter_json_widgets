@@ -4118,6 +4118,1712 @@ Map<String, dynamic> _$$ClipOvalToJson(_$ClipOval instance) {
   return val;
 }
 
+_$Checkbox _$$CheckboxFromJson(Map<String, dynamic> json) => _$Checkbox(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      value: json['value'] as bool?,
+      tristate: json['tristate'] as bool? ?? false,
+      field: json['field'] == null
+          ? null
+          : FormBooleanField.fromJson(json['field'] as Map<String, dynamic>),
+      mouseCursor: json['mouseCursor'] == null
+          ? null
+          : MouseCursor.fromJson(json['mouseCursor'] as Map<String, dynamic>),
+      activeColor: json['activeColor'] == null
+          ? null
+          : Color.fromJson(json['activeColor'] as Map<String, dynamic>),
+      fillColor: json['fillColor'] == null
+          ? null
+          : MaterialStateProperty.fromJson(
+              json['fillColor'] as Map<String, dynamic>),
+      checkColor: json['checkColor'] == null
+          ? null
+          : Color.fromJson(json['checkColor'] as Map<String, dynamic>),
+      focusColor: json['focusColor'] == null
+          ? null
+          : Color.fromJson(json['focusColor'] as Map<String, dynamic>),
+      hoverColor: json['hoverColor'] == null
+          ? null
+          : Color.fromJson(json['hoverColor'] as Map<String, dynamic>),
+      overlayColor: json['overlayColor'] == null
+          ? null
+          : MaterialStateProperty.fromJson(
+              json['overlayColor'] as Map<String, dynamic>),
+      splashRadius: (json['splashRadius'] as num?)?.toDouble(),
+      materialTapTargetSize: $enumDecodeNullable(
+          _$MaterialTapTargetSizeEnumMap, json['materialTapTargetSize']),
+      visualDensity: json['visualDensity'] == null
+          ? null
+          : VisualDensity.fromJson(
+              json['visualDensity'] as Map<String, dynamic>),
+      autofocus: json['autofocus'] as bool? ?? false,
+      shape: json['shape'] == null
+          ? null
+          : ShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+      side: json['side'] == null
+          ? null
+          : BorderSide.fromJson(json['side'] as Map<String, dynamic>),
+      isError: json['isError'] as bool? ?? false,
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$CheckboxFieldMap = <String, String>{
+  'key': 'key',
+  'value': 'value',
+  'tristate': 'tristate',
+  'field': 'field',
+  'mouseCursor': 'mouseCursor',
+  'activeColor': 'activeColor',
+  'fillColor': 'fillColor',
+  'checkColor': 'checkColor',
+  'focusColor': 'focusColor',
+  'hoverColor': 'hoverColor',
+  'overlayColor': 'overlayColor',
+  'splashRadius': 'splashRadius',
+  'materialTapTargetSize': 'materialTapTargetSize',
+  'visualDensity': 'visualDensity',
+  'autofocus': 'autofocus',
+  'shape': 'shape',
+  'side': 'side',
+  'isError': 'isError',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$CheckboxToJson(_$Checkbox instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('value', instance.value);
+  val['tristate'] = instance.tristate;
+  writeNotNull('field', instance.field);
+  writeNotNull('mouseCursor', instance.mouseCursor);
+  writeNotNull('activeColor', instance.activeColor);
+  writeNotNull('fillColor', instance.fillColor);
+  writeNotNull('checkColor', instance.checkColor);
+  writeNotNull('focusColor', instance.focusColor);
+  writeNotNull('hoverColor', instance.hoverColor);
+  writeNotNull('overlayColor', instance.overlayColor);
+  writeNotNull('splashRadius', instance.splashRadius);
+  writeNotNull('materialTapTargetSize',
+      _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize]);
+  writeNotNull('visualDensity', instance.visualDensity);
+  val['autofocus'] = instance.autofocus;
+  writeNotNull('shape', instance.shape);
+  writeNotNull('side', instance.side);
+  val['isError'] = instance.isError;
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$ListTile _$$ListTileFromJson(Map<String, dynamic> json) => _$ListTile(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      leading: json['leading'] == null
+          ? null
+          : Widget.fromJson(json['leading'] as Map<String, dynamic>),
+      title: json['title'] == null
+          ? null
+          : Widget.fromJson(json['title'] as Map<String, dynamic>),
+      subtitle: json['subtitle'] == null
+          ? null
+          : Widget.fromJson(json['subtitle'] as Map<String, dynamic>),
+      trailing: json['trailing'] == null
+          ? null
+          : Widget.fromJson(json['trailing'] as Map<String, dynamic>),
+      isThreeLine: json['isThreeLine'] as bool? ?? false,
+      dense: json['dense'] as bool?,
+      visualDensity: json['visualDensity'] == null
+          ? null
+          : VisualDensity.fromJson(
+              json['visualDensity'] as Map<String, dynamic>),
+      shape: json['shape'] == null
+          ? null
+          : ShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+      selectedColor: json['selectedColor'] == null
+          ? null
+          : Color.fromJson(json['selectedColor'] as Map<String, dynamic>),
+      iconColor: json['iconColor'] == null
+          ? null
+          : Color.fromJson(json['iconColor'] as Map<String, dynamic>),
+      textColor: json['textColor'] == null
+          ? null
+          : Color.fromJson(json['textColor'] as Map<String, dynamic>),
+      titleTextStyle: json['titleTextStyle'] == null
+          ? null
+          : TextStyle.fromJson(json['titleTextStyle'] as Map<String, dynamic>),
+      subtitleTextStyle: json['subtitleTextStyle'] == null
+          ? null
+          : TextStyle.fromJson(
+              json['subtitleTextStyle'] as Map<String, dynamic>),
+      leadingAndTrailingTextStyle: json['leadingAndTrailingTextStyle'] == null
+          ? null
+          : TextStyle.fromJson(
+              json['leadingAndTrailingTextStyle'] as Map<String, dynamic>),
+      contentPadding: json['contentPadding'] == null
+          ? null
+          : EdgeInsets.fromJson(json['contentPadding'] as Map<String, dynamic>),
+      enabled: json['enabled'] as bool? ?? true,
+      onTap: json['onTap'] == null
+          ? null
+          : Callback.fromJson(json['onTap'] as Map<String, dynamic>),
+      onLongPress: json['onLongPress'] == null
+          ? null
+          : Callback.fromJson(json['onLongPress'] as Map<String, dynamic>),
+      mouseCursor: json['mouseCursor'] == null
+          ? null
+          : MouseCursor.fromJson(json['mouseCursor'] as Map<String, dynamic>),
+      selected: json['selected'] as bool? ?? false,
+      focusColor: json['focusColor'] == null
+          ? null
+          : Color.fromJson(json['focusColor'] as Map<String, dynamic>),
+      hoverColor: json['hoverColor'] == null
+          ? null
+          : Color.fromJson(json['hoverColor'] as Map<String, dynamic>),
+      splashColor: json['splashColor'] == null
+          ? null
+          : Color.fromJson(json['splashColor'] as Map<String, dynamic>),
+      autofocus: json['autofocus'] as bool? ?? false,
+      tileColor: json['tileColor'] == null
+          ? null
+          : Color.fromJson(json['tileColor'] as Map<String, dynamic>),
+      selectedTileColor: json['selectedTileColor'] == null
+          ? null
+          : Color.fromJson(json['selectedTileColor'] as Map<String, dynamic>),
+      enableFeedback: json['enableFeedback'] as bool?,
+      horizontalTitleGap: (json['horizontalTitleGap'] as num?)?.toDouble(),
+      minVerticalPadding: (json['minVerticalPadding'] as num?)?.toDouble(),
+      minLeadingWidth: (json['minLeadingWidth'] as num?)?.toDouble(),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$ListTileFieldMap = <String, String>{
+  'key': 'key',
+  'leading': 'leading',
+  'title': 'title',
+  'subtitle': 'subtitle',
+  'trailing': 'trailing',
+  'isThreeLine': 'isThreeLine',
+  'dense': 'dense',
+  'visualDensity': 'visualDensity',
+  'shape': 'shape',
+  'selectedColor': 'selectedColor',
+  'iconColor': 'iconColor',
+  'textColor': 'textColor',
+  'titleTextStyle': 'titleTextStyle',
+  'subtitleTextStyle': 'subtitleTextStyle',
+  'leadingAndTrailingTextStyle': 'leadingAndTrailingTextStyle',
+  'contentPadding': 'contentPadding',
+  'enabled': 'enabled',
+  'onTap': 'onTap',
+  'onLongPress': 'onLongPress',
+  'mouseCursor': 'mouseCursor',
+  'selected': 'selected',
+  'focusColor': 'focusColor',
+  'hoverColor': 'hoverColor',
+  'splashColor': 'splashColor',
+  'autofocus': 'autofocus',
+  'tileColor': 'tileColor',
+  'selectedTileColor': 'selectedTileColor',
+  'enableFeedback': 'enableFeedback',
+  'horizontalTitleGap': 'horizontalTitleGap',
+  'minVerticalPadding': 'minVerticalPadding',
+  'minLeadingWidth': 'minLeadingWidth',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$ListTileToJson(_$ListTile instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('leading', instance.leading);
+  writeNotNull('title', instance.title);
+  writeNotNull('subtitle', instance.subtitle);
+  writeNotNull('trailing', instance.trailing);
+  val['isThreeLine'] = instance.isThreeLine;
+  writeNotNull('dense', instance.dense);
+  writeNotNull('visualDensity', instance.visualDensity);
+  writeNotNull('shape', instance.shape);
+  writeNotNull('selectedColor', instance.selectedColor);
+  writeNotNull('iconColor', instance.iconColor);
+  writeNotNull('textColor', instance.textColor);
+  writeNotNull('titleTextStyle', instance.titleTextStyle);
+  writeNotNull('subtitleTextStyle', instance.subtitleTextStyle);
+  writeNotNull(
+      'leadingAndTrailingTextStyle', instance.leadingAndTrailingTextStyle);
+  writeNotNull('contentPadding', instance.contentPadding);
+  val['enabled'] = instance.enabled;
+  writeNotNull('onTap', instance.onTap);
+  writeNotNull('onLongPress', instance.onLongPress);
+  writeNotNull('mouseCursor', instance.mouseCursor);
+  val['selected'] = instance.selected;
+  writeNotNull('focusColor', instance.focusColor);
+  writeNotNull('hoverColor', instance.hoverColor);
+  writeNotNull('splashColor', instance.splashColor);
+  val['autofocus'] = instance.autofocus;
+  writeNotNull('tileColor', instance.tileColor);
+  writeNotNull('selectedTileColor', instance.selectedTileColor);
+  writeNotNull('enableFeedback', instance.enableFeedback);
+  writeNotNull('horizontalTitleGap', instance.horizontalTitleGap);
+  writeNotNull('minVerticalPadding', instance.minVerticalPadding);
+  writeNotNull('minLeadingWidth', instance.minLeadingWidth);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$ExpansionTile _$$ExpansionTileFromJson(Map<String, dynamic> json) =>
+    _$ExpansionTile(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      leading: json['leading'] == null
+          ? null
+          : Widget.fromJson(json['leading'] as Map<String, dynamic>),
+      title: Widget.fromJson(json['title'] as Map<String, dynamic>),
+      subtitle: json['subtitle'] == null
+          ? null
+          : Widget.fromJson(json['subtitle'] as Map<String, dynamic>),
+      children: (json['children'] as List<dynamic>?)
+              ?.map((e) => Widget.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      trailing: json['trailing'] == null
+          ? null
+          : Widget.fromJson(json['trailing'] as Map<String, dynamic>),
+      initiallyExpanded: json['initiallyExpanded'] as bool? ?? false,
+      maintainState: json['maintainState'] as bool? ?? false,
+      tilePadding: json['tilePadding'] == null
+          ? null
+          : EdgeInsets.fromJson(json['tilePadding'] as Map<String, dynamic>),
+      expandedCrossAxisAlignment: $enumDecodeNullable(
+          _$CrossAxisAlignmentEnumMap, json['expandedCrossAxisAlignment']),
+      expandedAlignment: json['expandedAlignment'] == null
+          ? null
+          : Alignment.fromJson(
+              json['expandedAlignment'] as Map<String, dynamic>),
+      childrenPadding: json['childrenPadding'] == null
+          ? null
+          : EdgeInsets.fromJson(
+              json['childrenPadding'] as Map<String, dynamic>),
+      backgroundColor: json['backgroundColor'] == null
+          ? null
+          : Color.fromJson(json['backgroundColor'] as Map<String, dynamic>),
+      collapsedBackgroundColor: json['collapsedBackgroundColor'] == null
+          ? null
+          : Color.fromJson(
+              json['collapsedBackgroundColor'] as Map<String, dynamic>),
+      textColor: json['textColor'] == null
+          ? null
+          : Color.fromJson(json['textColor'] as Map<String, dynamic>),
+      collapsedTextColor: json['collapsedTextColor'] == null
+          ? null
+          : Color.fromJson(json['collapsedTextColor'] as Map<String, dynamic>),
+      iconColor: json['iconColor'] == null
+          ? null
+          : Color.fromJson(json['iconColor'] as Map<String, dynamic>),
+      collapsedIconColor: json['collapsedIconColor'] == null
+          ? null
+          : Color.fromJson(json['collapsedIconColor'] as Map<String, dynamic>),
+      shape: json['shape'] == null
+          ? null
+          : ShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+      collapsedShape: json['collapsedShape'] == null
+          ? null
+          : ShapeBorder.fromJson(
+              json['collapsedShape'] as Map<String, dynamic>),
+      clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']),
+      controlAffinity: $enumDecodeNullable(
+          _$ListTileControlAffinityEnumMap, json['controlAffinity']),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$ExpansionTileFieldMap = <String, String>{
+  'key': 'key',
+  'leading': 'leading',
+  'title': 'title',
+  'subtitle': 'subtitle',
+  'children': 'children',
+  'trailing': 'trailing',
+  'initiallyExpanded': 'initiallyExpanded',
+  'maintainState': 'maintainState',
+  'tilePadding': 'tilePadding',
+  'expandedCrossAxisAlignment': 'expandedCrossAxisAlignment',
+  'expandedAlignment': 'expandedAlignment',
+  'childrenPadding': 'childrenPadding',
+  'backgroundColor': 'backgroundColor',
+  'collapsedBackgroundColor': 'collapsedBackgroundColor',
+  'textColor': 'textColor',
+  'collapsedTextColor': 'collapsedTextColor',
+  'iconColor': 'iconColor',
+  'collapsedIconColor': 'collapsedIconColor',
+  'shape': 'shape',
+  'collapsedShape': 'collapsedShape',
+  'clipBehavior': 'clipBehavior',
+  'controlAffinity': 'controlAffinity',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$ExpansionTileToJson(_$ExpansionTile instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('leading', instance.leading);
+  val['title'] = instance.title;
+  writeNotNull('subtitle', instance.subtitle);
+  val['children'] = instance.children;
+  writeNotNull('trailing', instance.trailing);
+  val['initiallyExpanded'] = instance.initiallyExpanded;
+  val['maintainState'] = instance.maintainState;
+  writeNotNull('tilePadding', instance.tilePadding);
+  writeNotNull('expandedCrossAxisAlignment',
+      _$CrossAxisAlignmentEnumMap[instance.expandedCrossAxisAlignment]);
+  writeNotNull('expandedAlignment', instance.expandedAlignment);
+  writeNotNull('childrenPadding', instance.childrenPadding);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('collapsedBackgroundColor', instance.collapsedBackgroundColor);
+  writeNotNull('textColor', instance.textColor);
+  writeNotNull('collapsedTextColor', instance.collapsedTextColor);
+  writeNotNull('iconColor', instance.iconColor);
+  writeNotNull('collapsedIconColor', instance.collapsedIconColor);
+  writeNotNull('shape', instance.shape);
+  writeNotNull('collapsedShape', instance.collapsedShape);
+  writeNotNull('clipBehavior', _$ClipEnumMap[instance.clipBehavior]);
+  writeNotNull('controlAffinity',
+      _$ListTileControlAffinityEnumMap[instance.controlAffinity]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+const _$ListTileControlAffinityEnumMap = {
+  ListTileControlAffinity.leading: 'leading',
+  ListTileControlAffinity.trailing: 'trailing',
+  ListTileControlAffinity.platform: 'platform',
+};
+
+_$GridTile _$$GridTileFromJson(Map<String, dynamic> json) => _$GridTile(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      header: json['header'] == null
+          ? null
+          : Widget.fromJson(json['header'] as Map<String, dynamic>),
+      footer: json['footer'] == null
+          ? null
+          : Widget.fromJson(json['footer'] as Map<String, dynamic>),
+      child: Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$GridTileFieldMap = <String, String>{
+  'key': 'key',
+  'header': 'header',
+  'footer': 'footer',
+  'child': 'child',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$GridTileToJson(_$GridTile instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('header', instance.header);
+  writeNotNull('footer', instance.footer);
+  val['child'] = instance.child;
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$DefaultTabController _$$DefaultTabControllerFromJson(
+        Map<String, dynamic> json) =>
+    _$DefaultTabController(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      length: json['length'] as int,
+      initialIndex: json['initialIndex'] as int? ?? 0,
+      child: Widget.fromJson(json['child'] as Map<String, dynamic>),
+      animationDuration: json['animationDuration'] == null
+          ? null
+          : Duration(microseconds: json['animationDuration'] as int),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$DefaultTabControllerFieldMap = <String, String>{
+  'key': 'key',
+  'length': 'length',
+  'initialIndex': 'initialIndex',
+  'child': 'child',
+  'animationDuration': 'animationDuration',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$DefaultTabControllerToJson(
+    _$DefaultTabController instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  val['length'] = instance.length;
+  val['initialIndex'] = instance.initialIndex;
+  val['child'] = instance.child;
+  writeNotNull('animationDuration', instance.animationDuration?.inMicroseconds);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$DefaultTextStyle _$$DefaultTextStyleFromJson(Map<String, dynamic> json) =>
+    _$DefaultTextStyle(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      style: TextStyle.fromJson(json['style'] as Map<String, dynamic>),
+      textAlign: $enumDecodeNullable(_$TextAlignEnumMap, json['textAlign']),
+      softWrap: json['softWrap'] as bool? ?? true,
+      overflow: $enumDecodeNullable(_$TextOverflowEnumMap, json['overflow']) ??
+          TextOverflow.clip,
+      maxLines: json['maxLines'] as int?,
+      textWidthBasis: $enumDecodeNullable(
+              _$TextWidthBasisEnumMap, json['textWidthBasis']) ??
+          TextWidthBasis.parent,
+      textHeightBehavior: json['textHeightBehavior'] == null
+          ? null
+          : TextHeightBehavior.fromJson(
+              json['textHeightBehavior'] as Map<String, dynamic>),
+      child: Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$DefaultTextStyleFieldMap = <String, String>{
+  'key': 'key',
+  'style': 'style',
+  'textAlign': 'textAlign',
+  'softWrap': 'softWrap',
+  'overflow': 'overflow',
+  'maxLines': 'maxLines',
+  'textWidthBasis': 'textWidthBasis',
+  'textHeightBehavior': 'textHeightBehavior',
+  'child': 'child',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$DefaultTextStyleToJson(_$DefaultTextStyle instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  val['style'] = instance.style;
+  writeNotNull('textAlign', _$TextAlignEnumMap[instance.textAlign]);
+  val['softWrap'] = instance.softWrap;
+  val['overflow'] = _$TextOverflowEnumMap[instance.overflow]!;
+  writeNotNull('maxLines', instance.maxLines);
+  val['textWidthBasis'] = _$TextWidthBasisEnumMap[instance.textWidthBasis]!;
+  writeNotNull('textHeightBehavior', instance.textHeightBehavior);
+  val['child'] = instance.child;
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$Theme _$$ThemeFromJson(Map<String, dynamic> json) => _$Theme(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      data: ThemeData.fromJson(json['data'] as Map<String, dynamic>),
+      child: Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$ThemeFieldMap = <String, String>{
+  'key': 'key',
+  'data': 'data',
+  'child': 'child',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$ThemeToJson(_$Theme instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  val['data'] = instance.data;
+  val['child'] = instance.child;
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$TabBarView _$$TabBarViewFromJson(Map<String, dynamic> json) => _$TabBarView(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      children: (json['children'] as List<dynamic>)
+          .map((e) => Widget.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      physics: json['physics'] == null
+          ? null
+          : ScrollPhysics.fromJson(json['physics'] as Map<String, dynamic>),
+      dragStartBehavior: $enumDecodeNullable(
+              _$DragStartBehaviorEnumMap, json['dragStartBehavior']) ??
+          DragStartBehavior.start,
+      viewportFraction: (json['viewportFraction'] as num?)?.toDouble() ?? 1.0,
+      clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ??
+          Clip.hardEdge,
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$TabBarViewFieldMap = <String, String>{
+  'key': 'key',
+  'children': 'children',
+  'physics': 'physics',
+  'dragStartBehavior': 'dragStartBehavior',
+  'viewportFraction': 'viewportFraction',
+  'clipBehavior': 'clipBehavior',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$TabBarViewToJson(_$TabBarView instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  val['children'] = instance.children;
+  writeNotNull('physics', instance.physics);
+  val['dragStartBehavior'] =
+      _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!;
+  val['viewportFraction'] = instance.viewportFraction;
+  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+const _$DragStartBehaviorEnumMap = {
+  DragStartBehavior.down: 'down',
+  DragStartBehavior.start: 'start',
+};
+
+_$NavigationRail _$$NavigationRailFromJson(Map<String, dynamic> json) =>
+    _$NavigationRail(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      backgroundColor: json['backgroundColor'] == null
+          ? null
+          : Color.fromJson(json['backgroundColor'] as Map<String, dynamic>),
+      extended: json['extended'] as bool? ?? false,
+      leading: json['leading'] == null
+          ? null
+          : Widget.fromJson(json['leading'] as Map<String, dynamic>),
+      trailing: json['trailing'] == null
+          ? null
+          : Widget.fromJson(json['trailing'] as Map<String, dynamic>),
+      destinations: (json['destinations'] as List<dynamic>)
+          .map((e) =>
+              NavigationRailDestination.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      selectedIndex: json['selectedIndex'] as int?,
+      onDestinationSelected: json['onDestinationSelected'] == null
+          ? null
+          : IntSelectionCallback.fromJson(
+              json['onDestinationSelected'] as Map<String, dynamic>),
+      elevation: (json['elevation'] as num?)?.toDouble(),
+      groupAlignment: (json['groupAlignment'] as num?)?.toDouble(),
+      labelType: $enumDecodeNullable(
+          _$NavigationRailLabelTypeEnumMap, json['labelType']),
+      unselectedLabelTextStyle: json['unselectedLabelTextStyle'] == null
+          ? null
+          : TextStyle.fromJson(
+              json['unselectedLabelTextStyle'] as Map<String, dynamic>),
+      selectedLabelTextStyle: json['selectedLabelTextStyle'] == null
+          ? null
+          : TextStyle.fromJson(
+              json['selectedLabelTextStyle'] as Map<String, dynamic>),
+      unselectedIconTheme: json['unselectedIconTheme'] == null
+          ? null
+          : IconThemeData.fromJson(
+              json['unselectedIconTheme'] as Map<String, dynamic>),
+      selectedIconTheme: json['selectedIconTheme'] == null
+          ? null
+          : IconThemeData.fromJson(
+              json['selectedIconTheme'] as Map<String, dynamic>),
+      minWidth: (json['minWidth'] as num?)?.toDouble(),
+      minExtendedWidth: (json['minExtendedWidth'] as num?)?.toDouble(),
+      useIndicator: json['useIndicator'] as bool?,
+      indicatorColor: json['indicatorColor'] == null
+          ? null
+          : Color.fromJson(json['indicatorColor'] as Map<String, dynamic>),
+      indicatorShape: json['indicatorShape'] == null
+          ? null
+          : ShapeBorder.fromJson(
+              json['indicatorShape'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$NavigationRailFieldMap = <String, String>{
+  'key': 'key',
+  'backgroundColor': 'backgroundColor',
+  'extended': 'extended',
+  'leading': 'leading',
+  'trailing': 'trailing',
+  'destinations': 'destinations',
+  'selectedIndex': 'selectedIndex',
+  'onDestinationSelected': 'onDestinationSelected',
+  'elevation': 'elevation',
+  'groupAlignment': 'groupAlignment',
+  'labelType': 'labelType',
+  'unselectedLabelTextStyle': 'unselectedLabelTextStyle',
+  'selectedLabelTextStyle': 'selectedLabelTextStyle',
+  'unselectedIconTheme': 'unselectedIconTheme',
+  'selectedIconTheme': 'selectedIconTheme',
+  'minWidth': 'minWidth',
+  'minExtendedWidth': 'minExtendedWidth',
+  'useIndicator': 'useIndicator',
+  'indicatorColor': 'indicatorColor',
+  'indicatorShape': 'indicatorShape',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$NavigationRailToJson(_$NavigationRail instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  val['extended'] = instance.extended;
+  writeNotNull('leading', instance.leading);
+  writeNotNull('trailing', instance.trailing);
+  val['destinations'] = instance.destinations;
+  writeNotNull('selectedIndex', instance.selectedIndex);
+  writeNotNull('onDestinationSelected', instance.onDestinationSelected);
+  writeNotNull('elevation', instance.elevation);
+  writeNotNull('groupAlignment', instance.groupAlignment);
+  writeNotNull(
+      'labelType', _$NavigationRailLabelTypeEnumMap[instance.labelType]);
+  writeNotNull('unselectedLabelTextStyle', instance.unselectedLabelTextStyle);
+  writeNotNull('selectedLabelTextStyle', instance.selectedLabelTextStyle);
+  writeNotNull('unselectedIconTheme', instance.unselectedIconTheme);
+  writeNotNull('selectedIconTheme', instance.selectedIconTheme);
+  writeNotNull('minWidth', instance.minWidth);
+  writeNotNull('minExtendedWidth', instance.minExtendedWidth);
+  writeNotNull('useIndicator', instance.useIndicator);
+  writeNotNull('indicatorColor', instance.indicatorColor);
+  writeNotNull('indicatorShape', instance.indicatorShape);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+const _$NavigationRailLabelTypeEnumMap = {
+  NavigationRailLabelType.none: 'none',
+  NavigationRailLabelType.selected: 'selected',
+  NavigationRailLabelType.all: 'all',
+};
+
+_$NavigationBar _$$NavigationBarFromJson(Map<String, dynamic> json) =>
+    _$NavigationBar(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      animationDuration: json['animationDuration'] == null
+          ? null
+          : Duration(microseconds: json['animationDuration'] as int),
+      selectedIndex: json['selectedIndex'] as int? ?? 0,
+      destinations: (json['destinations'] as List<dynamic>)
+          .map((e) => Widget.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      onDestinationSelected: json['onDestinationSelected'] == null
+          ? null
+          : IntSelectionCallback.fromJson(
+              json['onDestinationSelected'] as Map<String, dynamic>),
+      backgroundColor: json['backgroundColor'] == null
+          ? null
+          : Color.fromJson(json['backgroundColor'] as Map<String, dynamic>),
+      elevation: (json['elevation'] as num?)?.toDouble(),
+      shadowColor: json['shadowColor'] == null
+          ? null
+          : Color.fromJson(json['shadowColor'] as Map<String, dynamic>),
+      surfaceTintColor: json['surfaceTintColor'] == null
+          ? null
+          : Color.fromJson(json['surfaceTintColor'] as Map<String, dynamic>),
+      indicatorColor: json['indicatorColor'] == null
+          ? null
+          : Color.fromJson(json['indicatorColor'] as Map<String, dynamic>),
+      indicatorShape: json['indicatorShape'] == null
+          ? null
+          : ShapeBorder.fromJson(
+              json['indicatorShape'] as Map<String, dynamic>),
+      height: (json['height'] as num?)?.toDouble(),
+      labelBehavior: $enumDecodeNullable(
+          _$NavigationDestinationLabelBehaviorEnumMap, json['labelBehavior']),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$NavigationBarFieldMap = <String, String>{
+  'key': 'key',
+  'animationDuration': 'animationDuration',
+  'selectedIndex': 'selectedIndex',
+  'destinations': 'destinations',
+  'onDestinationSelected': 'onDestinationSelected',
+  'backgroundColor': 'backgroundColor',
+  'elevation': 'elevation',
+  'shadowColor': 'shadowColor',
+  'surfaceTintColor': 'surfaceTintColor',
+  'indicatorColor': 'indicatorColor',
+  'indicatorShape': 'indicatorShape',
+  'height': 'height',
+  'labelBehavior': 'labelBehavior',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$NavigationBarToJson(_$NavigationBar instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('animationDuration', instance.animationDuration?.inMicroseconds);
+  val['selectedIndex'] = instance.selectedIndex;
+  val['destinations'] = instance.destinations;
+  writeNotNull('onDestinationSelected', instance.onDestinationSelected);
+  writeNotNull('backgroundColor', instance.backgroundColor);
+  writeNotNull('elevation', instance.elevation);
+  writeNotNull('shadowColor', instance.shadowColor);
+  writeNotNull('surfaceTintColor', instance.surfaceTintColor);
+  writeNotNull('indicatorColor', instance.indicatorColor);
+  writeNotNull('indicatorShape', instance.indicatorShape);
+  writeNotNull('height', instance.height);
+  writeNotNull('labelBehavior',
+      _$NavigationDestinationLabelBehaviorEnumMap[instance.labelBehavior]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+const _$NavigationDestinationLabelBehaviorEnumMap = {
+  NavigationDestinationLabelBehavior.alwaysShow: 'alwaysShow',
+  NavigationDestinationLabelBehavior.alwaysHide: 'alwaysHide',
+  NavigationDestinationLabelBehavior.onlyShowSelected: 'onlyShowSelected',
+};
+
+_$Tab _$$TabFromJson(Map<String, dynamic> json) => _$Tab(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      text: json['text'] as String?,
+      icon: json['icon'] == null
+          ? null
+          : Widget.fromJson(json['icon'] as Map<String, dynamic>),
+      iconMargin: json['iconMargin'] == null
+          ? const EdgeInsets.only(bottom: 10.0)
+          : EdgeInsets.fromJson(json['iconMargin'] as Map<String, dynamic>),
+      height: (json['height'] as num?)?.toDouble(),
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$TabFieldMap = <String, String>{
+  'key': 'key',
+  'text': 'text',
+  'icon': 'icon',
+  'iconMargin': 'iconMargin',
+  'height': 'height',
+  'child': 'child',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$TabToJson(_$Tab instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('text', instance.text);
+  writeNotNull('icon', instance.icon);
+  val['iconMargin'] = instance.iconMargin;
+  writeNotNull('height', instance.height);
+  writeNotNull('child', instance.child);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$Form _$$FormFromJson(Map<String, dynamic> json) => _$Form(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      child: Widget.fromJson(json['child'] as Map<String, dynamic>),
+      onChanged: json['onChanged'] == null
+          ? null
+          : Callback.fromJson(json['onChanged'] as Map<String, dynamic>),
+      autovalidateMode: $enumDecodeNullable(
+          _$AutovalidateModeEnumMap, json['autovalidateMode']),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$FormFieldMap = <String, String>{
+  'key': 'key',
+  'child': 'child',
+  'onChanged': 'onChanged',
+  'autovalidateMode': 'autovalidateMode',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$FormToJson(_$Form instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  val['child'] = instance.child;
+  writeNotNull('onChanged', instance.onChanged);
+  writeNotNull(
+      'autovalidateMode', _$AutovalidateModeEnumMap[instance.autovalidateMode]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+const _$AutovalidateModeEnumMap = {
+  AutovalidateMode.disabled: 'disabled',
+  AutovalidateMode.always: 'always',
+  AutovalidateMode.onUserInteraction: 'onUserInteraction',
+};
+
+_$RichText _$$RichTextFromJson(Map<String, dynamic> json) => _$RichText(
+      InlineSpan.fromJson(json['textSpan'] as Map<String, dynamic>),
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      style: json['style'] == null
+          ? null
+          : TextStyle.fromJson(json['style'] as Map<String, dynamic>),
+      strutStyle: json['strutStyle'] == null
+          ? null
+          : StrutStyle.fromJson(json['strutStyle'] as Map<String, dynamic>),
+      textAlign: $enumDecodeNullable(_$TextAlignEnumMap, json['textAlign']),
+      textDirection:
+          $enumDecodeNullable(_$TextDirectionEnumMap, json['textDirection']),
+      locale: json['locale'] == null
+          ? null
+          : Locale.fromJson(json['locale'] as Map<String, dynamic>),
+      softWrap: json['softWrap'] as bool?,
+      overflow: $enumDecodeNullable(_$TextOverflowEnumMap, json['overflow']),
+      textScaleFactor: (json['textScaleFactor'] as num?)?.toDouble(),
+      maxLines: json['maxLines'] as int?,
+      semanticsLabel: json['semanticsLabel'] as String?,
+      textWidthBasis:
+          $enumDecodeNullable(_$TextWidthBasisEnumMap, json['textWidthBasis']),
+      textHeightBehavior: json['textHeightBehavior'] == null
+          ? null
+          : TextHeightBehavior.fromJson(
+              json['textHeightBehavior'] as Map<String, dynamic>),
+      selectionColor: json['selectionColor'] == null
+          ? null
+          : Color.fromJson(json['selectionColor'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$RichTextFieldMap = <String, String>{
+  'textSpan': 'textSpan',
+  'key': 'key',
+  'style': 'style',
+  'strutStyle': 'strutStyle',
+  'textAlign': 'textAlign',
+  'textDirection': 'textDirection',
+  'locale': 'locale',
+  'softWrap': 'softWrap',
+  'overflow': 'overflow',
+  'textScaleFactor': 'textScaleFactor',
+  'maxLines': 'maxLines',
+  'semanticsLabel': 'semanticsLabel',
+  'textWidthBasis': 'textWidthBasis',
+  'textHeightBehavior': 'textHeightBehavior',
+  'selectionColor': 'selectionColor',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$RichTextToJson(_$RichText instance) {
+  final val = <String, dynamic>{
+    'textSpan': instance.textSpan,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('style', instance.style);
+  writeNotNull('strutStyle', instance.strutStyle);
+  writeNotNull('textAlign', _$TextAlignEnumMap[instance.textAlign]);
+  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
+  writeNotNull('locale', instance.locale);
+  writeNotNull('softWrap', instance.softWrap);
+  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
+  writeNotNull('textScaleFactor', instance.textScaleFactor);
+  writeNotNull('maxLines', instance.maxLines);
+  writeNotNull('semanticsLabel', instance.semanticsLabel);
+  writeNotNull(
+      'textWidthBasis', _$TextWidthBasisEnumMap[instance.textWidthBasis]);
+  writeNotNull('textHeightBehavior', instance.textHeightBehavior);
+  writeNotNull('selectionColor', instance.selectionColor);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$SelectableText _$$SelectableTextFromJson(Map<String, dynamic> json) =>
+    _$SelectableText(
+      json['data'] as String,
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      style: json['style'] == null
+          ? null
+          : TextStyle.fromJson(json['style'] as Map<String, dynamic>),
+      strutStyle: json['strutStyle'] == null
+          ? null
+          : StrutStyle.fromJson(json['strutStyle'] as Map<String, dynamic>),
+      textAlign: $enumDecodeNullable(_$TextAlignEnumMap, json['textAlign']),
+      textDirection:
+          $enumDecodeNullable(_$TextDirectionEnumMap, json['textDirection']),
+      textScaleFactor: (json['textScaleFactor'] as num?)?.toDouble(),
+      showCursor: json['showCursor'] as bool? ?? false,
+      autofocus: json['autofocus'] as bool? ?? false,
+      minLines: json['minLines'] as int?,
+      maxLines: json['maxLines'] as int?,
+      cursorWidth: (json['cursorWidth'] as num?)?.toDouble() ?? 2.0,
+      cursorHeight: (json['cursorHeight'] as num?)?.toDouble(),
+      cursorRadius: json['cursorRadius'] == null
+          ? null
+          : Radius.fromJson(json['cursorRadius'] as Map<String, dynamic>),
+      cursorColor: json['cursorColor'] == null
+          ? null
+          : Color.fromJson(json['cursorColor'] as Map<String, dynamic>),
+      selectionHeightStyle: $enumDecodeNullable(
+              _$BoxHeightStyleEnumMap, json['selectionHeightStyle']) ??
+          BoxHeightStyle.tight,
+      selectionWidthStyle: $enumDecodeNullable(
+              _$BoxWidthStyleEnumMap, json['selectionWidthStyle']) ??
+          BoxWidthStyle.tight,
+      dragStartBehavior: $enumDecodeNullable(
+              _$DragStartBehaviorEnumMap, json['dragStartBehavior']) ??
+          DragStartBehavior.start,
+      enableInteractiveSelection:
+          json['enableInteractiveSelection'] as bool? ?? true,
+      onTap: json['onTap'] == null
+          ? null
+          : Callback.fromJson(json['onTap'] as Map<String, dynamic>),
+      scrollPhysics: json['scrollPhysics'] == null
+          ? null
+          : ScrollPhysics.fromJson(
+              json['scrollPhysics'] as Map<String, dynamic>),
+      semanticsLabel: json['semanticsLabel'] as String?,
+      textHeightBehavior: json['textHeightBehavior'] == null
+          ? null
+          : TextHeightBehavior.fromJson(
+              json['textHeightBehavior'] as Map<String, dynamic>),
+      textWidthBasis:
+          $enumDecodeNullable(_$TextWidthBasisEnumMap, json['textWidthBasis']),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$SelectableTextFieldMap = <String, String>{
+  'data': 'data',
+  'key': 'key',
+  'style': 'style',
+  'strutStyle': 'strutStyle',
+  'textAlign': 'textAlign',
+  'textDirection': 'textDirection',
+  'textScaleFactor': 'textScaleFactor',
+  'showCursor': 'showCursor',
+  'autofocus': 'autofocus',
+  'minLines': 'minLines',
+  'maxLines': 'maxLines',
+  'cursorWidth': 'cursorWidth',
+  'cursorHeight': 'cursorHeight',
+  'cursorRadius': 'cursorRadius',
+  'cursorColor': 'cursorColor',
+  'selectionHeightStyle': 'selectionHeightStyle',
+  'selectionWidthStyle': 'selectionWidthStyle',
+  'dragStartBehavior': 'dragStartBehavior',
+  'enableInteractiveSelection': 'enableInteractiveSelection',
+  'onTap': 'onTap',
+  'scrollPhysics': 'scrollPhysics',
+  'semanticsLabel': 'semanticsLabel',
+  'textHeightBehavior': 'textHeightBehavior',
+  'textWidthBasis': 'textWidthBasis',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$SelectableTextToJson(_$SelectableText instance) {
+  final val = <String, dynamic>{
+    'data': instance.data,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('style', instance.style);
+  writeNotNull('strutStyle', instance.strutStyle);
+  writeNotNull('textAlign', _$TextAlignEnumMap[instance.textAlign]);
+  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
+  writeNotNull('textScaleFactor', instance.textScaleFactor);
+  val['showCursor'] = instance.showCursor;
+  val['autofocus'] = instance.autofocus;
+  writeNotNull('minLines', instance.minLines);
+  writeNotNull('maxLines', instance.maxLines);
+  val['cursorWidth'] = instance.cursorWidth;
+  writeNotNull('cursorHeight', instance.cursorHeight);
+  writeNotNull('cursorRadius', instance.cursorRadius);
+  writeNotNull('cursorColor', instance.cursorColor);
+  val['selectionHeightStyle'] =
+      _$BoxHeightStyleEnumMap[instance.selectionHeightStyle]!;
+  val['selectionWidthStyle'] =
+      _$BoxWidthStyleEnumMap[instance.selectionWidthStyle]!;
+  val['dragStartBehavior'] =
+      _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!;
+  val['enableInteractiveSelection'] = instance.enableInteractiveSelection;
+  writeNotNull('onTap', instance.onTap);
+  writeNotNull('scrollPhysics', instance.scrollPhysics);
+  writeNotNull('semanticsLabel', instance.semanticsLabel);
+  writeNotNull('textHeightBehavior', instance.textHeightBehavior);
+  writeNotNull(
+      'textWidthBasis', _$TextWidthBasisEnumMap[instance.textWidthBasis]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+const _$BoxHeightStyleEnumMap = {
+  BoxHeightStyle.tight: 'tight',
+  BoxHeightStyle.max: 'max',
+  BoxHeightStyle.includeLineSpacingMiddle: 'includeLineSpacingMiddle',
+  BoxHeightStyle.includeLineSpacingTop: 'includeLineSpacingTop',
+  BoxHeightStyle.includeLineSpacingBottom: 'includeLineSpacingBottom',
+  BoxHeightStyle.strut: 'strut',
+};
+
+const _$BoxWidthStyleEnumMap = {
+  BoxWidthStyle.tight: 'tight',
+  BoxWidthStyle.max: 'max',
+};
+
+_$RichSelectableText _$$RichSelectableTextFromJson(Map<String, dynamic> json) =>
+    _$RichSelectableText(
+      TextSpan.fromJson(json['textSpan'] as Map<String, dynamic>),
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      style: json['style'] == null
+          ? null
+          : TextStyle.fromJson(json['style'] as Map<String, dynamic>),
+      strutStyle: json['strutStyle'] == null
+          ? null
+          : StrutStyle.fromJson(json['strutStyle'] as Map<String, dynamic>),
+      textAlign: $enumDecodeNullable(_$TextAlignEnumMap, json['textAlign']),
+      textDirection:
+          $enumDecodeNullable(_$TextDirectionEnumMap, json['textDirection']),
+      textScaleFactor: (json['textScaleFactor'] as num?)?.toDouble(),
+      showCursor: json['showCursor'] as bool? ?? false,
+      autofocus: json['autofocus'] as bool? ?? false,
+      minLines: json['minLines'] as int?,
+      maxLines: json['maxLines'] as int?,
+      cursorWidth: (json['cursorWidth'] as num?)?.toDouble() ?? 2.0,
+      cursorHeight: (json['cursorHeight'] as num?)?.toDouble(),
+      cursorRadius: json['cursorRadius'] == null
+          ? null
+          : Radius.fromJson(json['cursorRadius'] as Map<String, dynamic>),
+      cursorColor: json['cursorColor'] == null
+          ? null
+          : Color.fromJson(json['cursorColor'] as Map<String, dynamic>),
+      selectionHeightStyle: $enumDecodeNullable(
+              _$BoxHeightStyleEnumMap, json['selectionHeightStyle']) ??
+          BoxHeightStyle.tight,
+      selectionWidthStyle: $enumDecodeNullable(
+              _$BoxWidthStyleEnumMap, json['selectionWidthStyle']) ??
+          BoxWidthStyle.tight,
+      dragStartBehavior: $enumDecodeNullable(
+              _$DragStartBehaviorEnumMap, json['dragStartBehavior']) ??
+          DragStartBehavior.start,
+      enableInteractiveSelection:
+          json['enableInteractiveSelection'] as bool? ?? true,
+      onTap: json['onTap'] == null
+          ? null
+          : Callback.fromJson(json['onTap'] as Map<String, dynamic>),
+      scrollPhysics: json['scrollPhysics'] == null
+          ? null
+          : ScrollPhysics.fromJson(
+              json['scrollPhysics'] as Map<String, dynamic>),
+      semanticsLabel: json['semanticsLabel'] as String?,
+      textHeightBehavior: json['textHeightBehavior'] == null
+          ? null
+          : TextHeightBehavior.fromJson(
+              json['textHeightBehavior'] as Map<String, dynamic>),
+      textWidthBasis:
+          $enumDecodeNullable(_$TextWidthBasisEnumMap, json['textWidthBasis']),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$RichSelectableTextFieldMap = <String, String>{
+  'textSpan': 'textSpan',
+  'key': 'key',
+  'style': 'style',
+  'strutStyle': 'strutStyle',
+  'textAlign': 'textAlign',
+  'textDirection': 'textDirection',
+  'textScaleFactor': 'textScaleFactor',
+  'showCursor': 'showCursor',
+  'autofocus': 'autofocus',
+  'minLines': 'minLines',
+  'maxLines': 'maxLines',
+  'cursorWidth': 'cursorWidth',
+  'cursorHeight': 'cursorHeight',
+  'cursorRadius': 'cursorRadius',
+  'cursorColor': 'cursorColor',
+  'selectionHeightStyle': 'selectionHeightStyle',
+  'selectionWidthStyle': 'selectionWidthStyle',
+  'dragStartBehavior': 'dragStartBehavior',
+  'enableInteractiveSelection': 'enableInteractiveSelection',
+  'onTap': 'onTap',
+  'scrollPhysics': 'scrollPhysics',
+  'semanticsLabel': 'semanticsLabel',
+  'textHeightBehavior': 'textHeightBehavior',
+  'textWidthBasis': 'textWidthBasis',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$RichSelectableTextToJson(
+    _$RichSelectableText instance) {
+  final val = <String, dynamic>{
+    'textSpan': instance.textSpan,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('style', instance.style);
+  writeNotNull('strutStyle', instance.strutStyle);
+  writeNotNull('textAlign', _$TextAlignEnumMap[instance.textAlign]);
+  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
+  writeNotNull('textScaleFactor', instance.textScaleFactor);
+  val['showCursor'] = instance.showCursor;
+  val['autofocus'] = instance.autofocus;
+  writeNotNull('minLines', instance.minLines);
+  writeNotNull('maxLines', instance.maxLines);
+  val['cursorWidth'] = instance.cursorWidth;
+  writeNotNull('cursorHeight', instance.cursorHeight);
+  writeNotNull('cursorRadius', instance.cursorRadius);
+  writeNotNull('cursorColor', instance.cursorColor);
+  val['selectionHeightStyle'] =
+      _$BoxHeightStyleEnumMap[instance.selectionHeightStyle]!;
+  val['selectionWidthStyle'] =
+      _$BoxWidthStyleEnumMap[instance.selectionWidthStyle]!;
+  val['dragStartBehavior'] =
+      _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!;
+  val['enableInteractiveSelection'] = instance.enableInteractiveSelection;
+  writeNotNull('onTap', instance.onTap);
+  writeNotNull('scrollPhysics', instance.scrollPhysics);
+  writeNotNull('semanticsLabel', instance.semanticsLabel);
+  writeNotNull('textHeightBehavior', instance.textHeightBehavior);
+  writeNotNull(
+      'textWidthBasis', _$TextWidthBasisEnumMap[instance.textWidthBasis]);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$InkWell _$$InkWellFromJson(Map<String, dynamic> json) => _$InkWell(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      onTap: json['onTap'] == null
+          ? null
+          : Callback.fromJson(json['onTap'] as Map<String, dynamic>),
+      onDoubleTap: json['onDoubleTap'] == null
+          ? null
+          : Callback.fromJson(json['onDoubleTap'] as Map<String, dynamic>),
+      onLongPress: json['onLongPress'] == null
+          ? null
+          : Callback.fromJson(json['onLongPress'] as Map<String, dynamic>),
+      onTapCancel: json['onTapCancel'] == null
+          ? null
+          : Callback.fromJson(json['onTapCancel'] as Map<String, dynamic>),
+      onHighlightChanged: json['onHighlightChanged'] == null
+          ? null
+          : BoolSelectionCallback.fromJson(
+              json['onHighlightChanged'] as Map<String, dynamic>),
+      onHover: json['onHover'] == null
+          ? null
+          : BoolSelectionCallback.fromJson(
+              json['onHover'] as Map<String, dynamic>),
+      mouseCursor: json['mouseCursor'] == null
+          ? null
+          : MouseCursor.fromJson(json['mouseCursor'] as Map<String, dynamic>),
+      focusColor: json['focusColor'] == null
+          ? null
+          : Color.fromJson(json['focusColor'] as Map<String, dynamic>),
+      hoverColor: json['hoverColor'] == null
+          ? null
+          : Color.fromJson(json['hoverColor'] as Map<String, dynamic>),
+      highlightColor: json['highlightColor'] == null
+          ? null
+          : Color.fromJson(json['highlightColor'] as Map<String, dynamic>),
+      overlayColor: json['overlayColor'] == null
+          ? null
+          : MaterialStateProperty.fromJson(
+              json['overlayColor'] as Map<String, dynamic>),
+      splashColor: json['splashColor'] == null
+          ? null
+          : Color.fromJson(json['splashColor'] as Map<String, dynamic>),
+      radius: (json['radius'] as num?)?.toDouble(),
+      borderRadius: json['borderRadius'] == null
+          ? null
+          : BorderRadius.fromJson(json['borderRadius'] as Map<String, dynamic>),
+      customBorder: json['customBorder'] == null
+          ? null
+          : ShapeBorder.fromJson(json['customBorder'] as Map<String, dynamic>),
+      enableFeedback: json['enableFeedback'] as bool? ?? true,
+      excludeFromSemantics: json['excludeFromSemantics'] as bool? ?? false,
+      canRequestFocus: json['canRequestFocus'] as bool? ?? true,
+      onFocusChange: json['onFocusChange'] == null
+          ? null
+          : BoolSelectionCallback.fromJson(
+              json['onFocusChange'] as Map<String, dynamic>),
+      autofocus: json['autofocus'] as bool? ?? false,
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$InkWellFieldMap = <String, String>{
+  'key': 'key',
+  'child': 'child',
+  'onTap': 'onTap',
+  'onDoubleTap': 'onDoubleTap',
+  'onLongPress': 'onLongPress',
+  'onTapCancel': 'onTapCancel',
+  'onHighlightChanged': 'onHighlightChanged',
+  'onHover': 'onHover',
+  'mouseCursor': 'mouseCursor',
+  'focusColor': 'focusColor',
+  'hoverColor': 'hoverColor',
+  'highlightColor': 'highlightColor',
+  'overlayColor': 'overlayColor',
+  'splashColor': 'splashColor',
+  'radius': 'radius',
+  'borderRadius': 'borderRadius',
+  'customBorder': 'customBorder',
+  'enableFeedback': 'enableFeedback',
+  'excludeFromSemantics': 'excludeFromSemantics',
+  'canRequestFocus': 'canRequestFocus',
+  'onFocusChange': 'onFocusChange',
+  'autofocus': 'autofocus',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$InkWellToJson(_$InkWell instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('child', instance.child);
+  writeNotNull('onTap', instance.onTap);
+  writeNotNull('onDoubleTap', instance.onDoubleTap);
+  writeNotNull('onLongPress', instance.onLongPress);
+  writeNotNull('onTapCancel', instance.onTapCancel);
+  writeNotNull('onHighlightChanged', instance.onHighlightChanged);
+  writeNotNull('onHover', instance.onHover);
+  writeNotNull('mouseCursor', instance.mouseCursor);
+  writeNotNull('focusColor', instance.focusColor);
+  writeNotNull('hoverColor', instance.hoverColor);
+  writeNotNull('highlightColor', instance.highlightColor);
+  writeNotNull('overlayColor', instance.overlayColor);
+  writeNotNull('splashColor', instance.splashColor);
+  writeNotNull('radius', instance.radius);
+  writeNotNull('borderRadius', instance.borderRadius);
+  writeNotNull('customBorder', instance.customBorder);
+  writeNotNull('enableFeedback', instance.enableFeedback);
+  val['excludeFromSemantics'] = instance.excludeFromSemantics;
+  val['canRequestFocus'] = instance.canRequestFocus;
+  writeNotNull('onFocusChange', instance.onFocusChange);
+  val['autofocus'] = instance.autofocus;
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$GestureDetector _$$GestureDetectorFromJson(Map<String, dynamic> json) =>
+    _$GestureDetector(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      onTap: json['onTap'] == null
+          ? null
+          : Callback.fromJson(json['onTap'] as Map<String, dynamic>),
+      onTapCancel: json['onTapCancel'] == null
+          ? null
+          : Callback.fromJson(json['onTapCancel'] as Map<String, dynamic>),
+      onSecondaryTap: json['onSecondaryTap'] == null
+          ? null
+          : Callback.fromJson(json['onSecondaryTap'] as Map<String, dynamic>),
+      onSecondaryTapCancel: json['onSecondaryTapCancel'] == null
+          ? null
+          : Callback.fromJson(
+              json['onSecondaryTapCancel'] as Map<String, dynamic>),
+      onTertiaryTapCancel: json['onTertiaryTapCancel'] == null
+          ? null
+          : Callback.fromJson(
+              json['onTertiaryTapCancel'] as Map<String, dynamic>),
+      onDoubleTap: json['onDoubleTap'] == null
+          ? null
+          : Callback.fromJson(json['onDoubleTap'] as Map<String, dynamic>),
+      onDoubleTapCancel: json['onDoubleTapCancel'] == null
+          ? null
+          : Callback.fromJson(
+              json['onDoubleTapCancel'] as Map<String, dynamic>),
+      onLongPressCancel: json['onLongPressCancel'] == null
+          ? null
+          : Callback.fromJson(
+              json['onLongPressCancel'] as Map<String, dynamic>),
+      onLongPress: json['onLongPress'] == null
+          ? null
+          : Callback.fromJson(json['onLongPress'] as Map<String, dynamic>),
+      onLongPressUp: json['onLongPressUp'] == null
+          ? null
+          : Callback.fromJson(json['onLongPressUp'] as Map<String, dynamic>),
+      onSecondaryLongPressCancel: json['onSecondaryLongPressCancel'] == null
+          ? null
+          : Callback.fromJson(
+              json['onSecondaryLongPressCancel'] as Map<String, dynamic>),
+      onSecondaryLongPress: json['onSecondaryLongPress'] == null
+          ? null
+          : Callback.fromJson(
+              json['onSecondaryLongPress'] as Map<String, dynamic>),
+      onSecondaryLongPressUp: json['onSecondaryLongPressUp'] == null
+          ? null
+          : Callback.fromJson(
+              json['onSecondaryLongPressUp'] as Map<String, dynamic>),
+      onTertiaryLongPressCancel: json['onTertiaryLongPressCancel'] == null
+          ? null
+          : Callback.fromJson(
+              json['onTertiaryLongPressCancel'] as Map<String, dynamic>),
+      onTertiaryLongPress: json['onTertiaryLongPress'] == null
+          ? null
+          : Callback.fromJson(
+              json['onTertiaryLongPress'] as Map<String, dynamic>),
+      onTertiaryLongPressUp: json['onTertiaryLongPressUp'] == null
+          ? null
+          : Callback.fromJson(
+              json['onTertiaryLongPressUp'] as Map<String, dynamic>),
+      onVerticalDragCancel: json['onVerticalDragCancel'] == null
+          ? null
+          : Callback.fromJson(
+              json['onVerticalDragCancel'] as Map<String, dynamic>),
+      onHorizontalDragCancel: json['onHorizontalDragCancel'] == null
+          ? null
+          : Callback.fromJson(
+              json['onHorizontalDragCancel'] as Map<String, dynamic>),
+      onPanCancel: json['onPanCancel'] == null
+          ? null
+          : Callback.fromJson(json['onPanCancel'] as Map<String, dynamic>),
+      behavior: $enumDecodeNullable(_$HitTestBehaviorEnumMap, json['behavior']),
+      excludeFromSemantics: json['excludeFromSemantics'] as bool? ?? false,
+      dragStartBehavior: $enumDecodeNullable(
+              _$DragStartBehaviorEnumMap, json['dragStartBehavior']) ??
+          DragStartBehavior.start,
+      supportedDevices: (json['supportedDevices'] as List<dynamic>?)
+          ?.map((e) => $enumDecode(_$PointerDeviceKindEnumMap, e))
+          .toSet(),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$GestureDetectorFieldMap = <String, String>{
+  'key': 'key',
+  'child': 'child',
+  'onTap': 'onTap',
+  'onTapCancel': 'onTapCancel',
+  'onSecondaryTap': 'onSecondaryTap',
+  'onSecondaryTapCancel': 'onSecondaryTapCancel',
+  'onTertiaryTapCancel': 'onTertiaryTapCancel',
+  'onDoubleTap': 'onDoubleTap',
+  'onDoubleTapCancel': 'onDoubleTapCancel',
+  'onLongPressCancel': 'onLongPressCancel',
+  'onLongPress': 'onLongPress',
+  'onLongPressUp': 'onLongPressUp',
+  'onSecondaryLongPressCancel': 'onSecondaryLongPressCancel',
+  'onSecondaryLongPress': 'onSecondaryLongPress',
+  'onSecondaryLongPressUp': 'onSecondaryLongPressUp',
+  'onTertiaryLongPressCancel': 'onTertiaryLongPressCancel',
+  'onTertiaryLongPress': 'onTertiaryLongPress',
+  'onTertiaryLongPressUp': 'onTertiaryLongPressUp',
+  'onVerticalDragCancel': 'onVerticalDragCancel',
+  'onHorizontalDragCancel': 'onHorizontalDragCancel',
+  'onPanCancel': 'onPanCancel',
+  'behavior': 'behavior',
+  'excludeFromSemantics': 'excludeFromSemantics',
+  'dragStartBehavior': 'dragStartBehavior',
+  'supportedDevices': 'supportedDevices',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$GestureDetectorToJson(_$GestureDetector instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('child', instance.child);
+  writeNotNull('onTap', instance.onTap);
+  writeNotNull('onTapCancel', instance.onTapCancel);
+  writeNotNull('onSecondaryTap', instance.onSecondaryTap);
+  writeNotNull('onSecondaryTapCancel', instance.onSecondaryTapCancel);
+  writeNotNull('onTertiaryTapCancel', instance.onTertiaryTapCancel);
+  writeNotNull('onDoubleTap', instance.onDoubleTap);
+  writeNotNull('onDoubleTapCancel', instance.onDoubleTapCancel);
+  writeNotNull('onLongPressCancel', instance.onLongPressCancel);
+  writeNotNull('onLongPress', instance.onLongPress);
+  writeNotNull('onLongPressUp', instance.onLongPressUp);
+  writeNotNull(
+      'onSecondaryLongPressCancel', instance.onSecondaryLongPressCancel);
+  writeNotNull('onSecondaryLongPress', instance.onSecondaryLongPress);
+  writeNotNull('onSecondaryLongPressUp', instance.onSecondaryLongPressUp);
+  writeNotNull('onTertiaryLongPressCancel', instance.onTertiaryLongPressCancel);
+  writeNotNull('onTertiaryLongPress', instance.onTertiaryLongPress);
+  writeNotNull('onTertiaryLongPressUp', instance.onTertiaryLongPressUp);
+  writeNotNull('onVerticalDragCancel', instance.onVerticalDragCancel);
+  writeNotNull('onHorizontalDragCancel', instance.onHorizontalDragCancel);
+  writeNotNull('onPanCancel', instance.onPanCancel);
+  writeNotNull('behavior', _$HitTestBehaviorEnumMap[instance.behavior]);
+  val['excludeFromSemantics'] = instance.excludeFromSemantics;
+  val['dragStartBehavior'] =
+      _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!;
+  writeNotNull(
+      'supportedDevices',
+      instance.supportedDevices
+          ?.map((e) => _$PointerDeviceKindEnumMap[e]!)
+          .toList());
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+const _$HitTestBehaviorEnumMap = {
+  HitTestBehavior.deferToChild: 'deferToChild',
+  HitTestBehavior.opaque: 'opaque',
+  HitTestBehavior.translucent: 'translucent',
+};
+
+const _$PointerDeviceKindEnumMap = {
+  PointerDeviceKind.touch: 'touch',
+  PointerDeviceKind.mouse: 'mouse',
+  PointerDeviceKind.stylus: 'stylus',
+  PointerDeviceKind.invertedStylus: 'invertedStylus',
+  PointerDeviceKind.trackpad: 'trackpad',
+  PointerDeviceKind.unknown: 'unknown',
+};
+
+_$IgnorePointer _$$IgnorePointerFromJson(Map<String, dynamic> json) =>
+    _$IgnorePointer(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      ignoring: json['ignoring'] as bool? ?? true,
+      ignoringSemantics: json['ignoringSemantics'] as bool?,
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$IgnorePointerFieldMap = <String, String>{
+  'key': 'key',
+  'ignoring': 'ignoring',
+  'ignoringSemantics': 'ignoringSemantics',
+  'child': 'child',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$IgnorePointerToJson(_$IgnorePointer instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  val['ignoring'] = instance.ignoring;
+  writeNotNull('ignoringSemantics', instance.ignoringSemantics);
+  writeNotNull('child', instance.child);
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$ResponsiveWidget _$$ResponsiveWidgetFromJson(Map<String, dynamic> json) =>
+    _$ResponsiveWidget(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      breakpoints: (json['breakpoints'] as Map<String, dynamic>?)?.map(
+            (k, e) => MapEntry(
+                int.parse(k), Widget.fromJson(e as Map<String, dynamic>)),
+          ) ??
+          const {},
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$ResponsiveWidgetFieldMap = <String, String>{
+  'key': 'key',
+  'child': 'child',
+  'breakpoints': 'breakpoints',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$ResponsiveWidgetToJson(_$ResponsiveWidget instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('child', instance.child);
+  val['breakpoints'] =
+      instance.breakpoints.map((k, e) => MapEntry(k.toString(), e));
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+_$PlatformWidget _$$PlatformWidgetFromJson(Map<String, dynamic> json) =>
+    _$PlatformWidget(
+      key: json['key'] == null
+          ? null
+          : Key.fromJson(json['key'] as Map<String, dynamic>),
+      child: json['child'] == null
+          ? null
+          : Widget.fromJson(json['child'] as Map<String, dynamic>),
+      targets: (json['targets'] as Map<String, dynamic>?)?.map(
+            (k, e) => MapEntry($enumDecode(_$TargetPlatformEnumMap, k),
+                Widget.fromJson(e as Map<String, dynamic>)),
+          ) ??
+          const {},
+      $type: json['runtimeType'] as String?,
+    );
+
+const _$$PlatformWidgetFieldMap = <String, String>{
+  'key': 'key',
+  'child': 'child',
+  'targets': 'targets',
+  r'$type': 'runtimeType',
+};
+
+Map<String, dynamic> _$$PlatformWidgetToJson(_$PlatformWidget instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('child', instance.child);
+  val['targets'] =
+      instance.targets.map((k, e) => MapEntry(_$TargetPlatformEnumMap[k]!, e));
+  val['runtimeType'] = instance.$type;
+  return val;
+}
+
+const _$TargetPlatformEnumMap = {
+  TargetPlatform.android: 'android',
+  TargetPlatform.fuchsia: 'fuchsia',
+  TargetPlatform.iOS: 'iOS',
+  TargetPlatform.linux: 'linux',
+  TargetPlatform.macOS: 'macOS',
+  TargetPlatform.windows: 'windows',
+};
+
 _$CustomWidget _$$CustomWidgetFromJson(Map<String, dynamic> json) =>
     _$CustomWidget(
       key: json['key'] == null
@@ -4156,7 +5862,8 @@ _$NetworkWidget _$$NetworkWidgetFromJson(Map<String, dynamic> json) =>
       key: json['key'] == null
           ? null
           : Key.fromJson(json['key'] as Map<String, dynamic>),
-      request: NetworkRequest.fromJson(json['request'] as Map<String, dynamic>),
+      request:
+          NetworkHttpRequest.fromJson(json['request'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 

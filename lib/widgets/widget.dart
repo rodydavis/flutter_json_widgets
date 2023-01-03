@@ -13,11 +13,14 @@ import 'edge_insets.dart';
 import 'enums.dart';
 import 'floating_action_button_location.dart';
 import 'icon_data.dart';
+import 'icon_theme_data.dart';
 import 'image_provider.dart';
+import 'inline_span.dart';
 import 'key.dart';
 import 'locale.dart';
 import 'matrix_4.dart';
 import 'mouse_cursor.dart';
+import 'navigation_rail_destination.dart';
 import 'network_request.dart';
 import 'offset.dart';
 import 'preferred_size_widget.dart';
@@ -40,6 +43,7 @@ import 'theme_data.dart';
 import 'visual_density.dart';
 import 'table_border.dart';
 import 'material_state_property.dart';
+import 'form_data.dart';
 
 part 'widget.freezed.dart';
 part 'widget.g.dart';
@@ -847,6 +851,327 @@ class Widget with _$Widget {
     Widget? child,
   }) = ClipOval;
 
+  const factory Widget.checkbox({
+    Key? key,
+    required bool? value,
+    @Default(false) bool tristate,
+    FormBooleanField? field,
+    MouseCursor? mouseCursor,
+    Color? activeColor,
+    MaterialStateProperty? fillColor,
+    Color? checkColor,
+    Color? focusColor,
+    Color? hoverColor,
+    MaterialStateProperty? overlayColor,
+    double? splashRadius,
+    MaterialTapTargetSize? materialTapTargetSize,
+    VisualDensity? visualDensity,
+    @Default(false) bool autofocus,
+    ShapeBorder? shape,
+    BorderSide? side,
+    @Default(false) bool isError,
+  }) = Checkbox;
+
+  const factory Widget.listTile({
+    Key? key,
+    Widget? leading,
+    Widget? title,
+    Widget? subtitle,
+    Widget? trailing,
+    @Default(false) bool isThreeLine,
+    bool? dense,
+    VisualDensity? visualDensity,
+    ShapeBorder? shape,
+    Color? selectedColor,
+    Color? iconColor,
+    Color? textColor,
+    TextStyle? titleTextStyle,
+    TextStyle? subtitleTextStyle,
+    TextStyle? leadingAndTrailingTextStyle,
+    EdgeInsets? contentPadding,
+    @Default(true) bool enabled,
+    Callback? onTap,
+    Callback? onLongPress,
+    MouseCursor? mouseCursor,
+    @Default(false) bool selected,
+    Color? focusColor,
+    Color? hoverColor,
+    Color? splashColor,
+    @Default(false) bool autofocus,
+    Color? tileColor,
+    Color? selectedTileColor,
+    bool? enableFeedback,
+    double? horizontalTitleGap,
+    double? minVerticalPadding,
+    double? minLeadingWidth,
+  }) = ListTile;
+
+  const factory Widget.expansionTile({
+    Key? key,
+    Widget? leading,
+    required Widget title,
+    Widget? subtitle,
+    @Default([]) List<Widget> children,
+    Widget? trailing,
+    @Default(false) bool initiallyExpanded,
+    @Default(false) bool maintainState,
+    EdgeInsets? tilePadding,
+    CrossAxisAlignment? expandedCrossAxisAlignment,
+    Alignment? expandedAlignment,
+    EdgeInsets? childrenPadding,
+    Color? backgroundColor,
+    Color? collapsedBackgroundColor,
+    Color? textColor,
+    Color? collapsedTextColor,
+    Color? iconColor,
+    Color? collapsedIconColor,
+    ShapeBorder? shape,
+    ShapeBorder? collapsedShape,
+    Clip? clipBehavior,
+    ListTileControlAffinity? controlAffinity,
+  }) = ExpansionTile;
+
+  const factory Widget.gridTile({
+    Key? key,
+    Widget? header,
+    Widget? footer,
+    required Widget child,
+  }) = GridTile;
+
+  const factory Widget.defaultTabController({
+    Key? key,
+    required int length,
+    @Default(0) int initialIndex,
+    required Widget child,
+    Duration? animationDuration,
+  }) = DefaultTabController;
+
+  const factory Widget.defaultTextStyle({
+    Key? key,
+    required TextStyle style,
+    TextAlign? textAlign,
+    @Default(true) bool softWrap,
+    @Default(TextOverflow.clip) TextOverflow overflow,
+    int? maxLines,
+    @Default(TextWidthBasis.parent) TextWidthBasis textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    required Widget child,
+  }) = DefaultTextStyle;
+
+  const factory Widget.theme({
+    Key? key,
+    required ThemeData data,
+    required Widget child,
+  }) = Theme;
+
+  const factory Widget.tabBarView({
+    Key? key,
+    required List<Widget> children,
+    ScrollPhysics? physics,
+    @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,
+    @Default(1.0) double viewportFraction,
+    @Default(Clip.hardEdge) Clip clipBehavior,
+  }) = TabBarView;
+
+  const factory Widget.navigationRail({
+    Key? key,
+    Color? backgroundColor,
+    @Default(false) bool extended,
+    Widget? leading,
+    Widget? trailing,
+    required List<NavigationRailDestination> destinations,
+    required int? selectedIndex,
+    IntSelectionCallback? onDestinationSelected,
+    double? elevation,
+    double? groupAlignment,
+    NavigationRailLabelType? labelType,
+    TextStyle? unselectedLabelTextStyle,
+    TextStyle? selectedLabelTextStyle,
+    IconThemeData? unselectedIconTheme,
+    IconThemeData? selectedIconTheme,
+    double? minWidth,
+    double? minExtendedWidth,
+    bool? useIndicator,
+    Color? indicatorColor,
+    ShapeBorder? indicatorShape,
+  }) = NavigationRail;
+
+  const factory Widget.navigationBar({
+    Key? key,
+    Duration? animationDuration,
+    @Default(0) int selectedIndex,
+    required List<Widget> destinations,
+    IntSelectionCallback? onDestinationSelected,
+    Color? backgroundColor,
+    double? elevation,
+    Color? shadowColor,
+    Color? surfaceTintColor,
+    Color? indicatorColor,
+    ShapeBorder? indicatorShape,
+    double? height,
+    NavigationDestinationLabelBehavior? labelBehavior,
+  }) = NavigationBar;
+
+  const factory Widget.tab({
+    Key? key,
+    String? text,
+    Widget? icon,
+    @Default(EdgeInsets.only(bottom: 10.0)) EdgeInsets iconMargin,
+    double? height,
+    Widget? child,
+  }) = Tab;
+
+  const factory Widget.form({
+    Key? key,
+    required Widget child,
+    Callback? onChanged,
+    AutovalidateMode? autovalidateMode,
+  }) = Form;
+
+  const factory Widget.textRich(
+    InlineSpan textSpan, {
+    Key? key,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    double? textScaleFactor,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
+  }) = RichText;
+
+  const factory Widget.selectableText(
+    String data, {
+    Key? key,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    double? textScaleFactor,
+    @Default(false) bool showCursor,
+    @Default(false) bool autofocus,
+    int? minLines,
+    int? maxLines,
+    @Default(2.0) double cursorWidth,
+    double? cursorHeight,
+    Radius? cursorRadius,
+    Color? cursorColor,
+    @Default(BoxHeightStyle.tight) BoxHeightStyle selectionHeightStyle,
+    @Default(BoxWidthStyle.tight) BoxWidthStyle selectionWidthStyle,
+    @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,
+    @Default(true) bool enableInteractiveSelection,
+    Callback? onTap,
+    ScrollPhysics? scrollPhysics,
+    String? semanticsLabel,
+    TextHeightBehavior? textHeightBehavior,
+    TextWidthBasis? textWidthBasis,
+  }) = SelectableText;
+
+  const factory Widget.selectableTextRich(
+    TextSpan textSpan, {
+    Key? key,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    double? textScaleFactor,
+    @Default(false) bool showCursor,
+    @Default(false) bool autofocus,
+    int? minLines,
+    int? maxLines,
+    @Default(2.0) double cursorWidth,
+    double? cursorHeight,
+    Radius? cursorRadius,
+    Color? cursorColor,
+    @Default(BoxHeightStyle.tight) BoxHeightStyle selectionHeightStyle,
+    @Default(BoxWidthStyle.tight) BoxWidthStyle selectionWidthStyle,
+    @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,
+    @Default(true) bool enableInteractiveSelection,
+    Callback? onTap,
+    ScrollPhysics? scrollPhysics,
+    String? semanticsLabel,
+    TextHeightBehavior? textHeightBehavior,
+    TextWidthBasis? textWidthBasis,
+  }) = RichSelectableText;
+
+  const factory Widget.inkWell({
+    Key? key,
+    Widget? child,
+    Callback? onTap,
+    Callback? onDoubleTap,
+    Callback? onLongPress,
+    Callback? onTapCancel,
+    BoolSelectionCallback? onHighlightChanged,
+    BoolSelectionCallback? onHover,
+    MouseCursor? mouseCursor,
+    Color? focusColor,
+    Color? hoverColor,
+    Color? highlightColor,
+    MaterialStateProperty? overlayColor,
+    Color? splashColor,
+    double? radius,
+    BorderRadius? borderRadius,
+    ShapeBorder? customBorder,
+    @Default(true) bool? enableFeedback,
+    @Default(false) bool excludeFromSemantics,
+    @Default(true) bool canRequestFocus,
+    BoolSelectionCallback? onFocusChange,
+    @Default(false) bool autofocus,
+  }) = InkWell;
+
+  const factory Widget.gestureDetector({
+    Key? key,
+    Widget? child,
+    Callback? onTap,
+    Callback? onTapCancel,
+    Callback? onSecondaryTap,
+    Callback? onSecondaryTapCancel,
+    Callback? onTertiaryTapCancel,
+    Callback? onDoubleTap,
+    Callback? onDoubleTapCancel,
+    Callback? onLongPressCancel,
+    Callback? onLongPress,
+    Callback? onLongPressUp,
+    Callback? onSecondaryLongPressCancel,
+    Callback? onSecondaryLongPress,
+    Callback? onSecondaryLongPressUp,
+    Callback? onTertiaryLongPressCancel,
+    Callback? onTertiaryLongPress,
+    Callback? onTertiaryLongPressUp,
+    Callback? onVerticalDragCancel,
+    Callback? onHorizontalDragCancel,
+    Callback? onPanCancel,
+    HitTestBehavior? behavior,
+    @Default(false) bool excludeFromSemantics,
+    @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,
+    Set<PointerDeviceKind>? supportedDevices,
+  }) = GestureDetector;
+
+  const factory Widget.ignorePointer({
+     Key? key,
+  @Default(true) bool ignoring ,
+  bool? ignoringSemantics,
+  Widget? child,
+  }) = IgnorePointer;
+
+  const factory Widget.responsive({
+    Key? key,
+    Widget? child,
+    @Default({}) Map<int, Widget> breakpoints,
+  }) = ResponsiveWidget;
+
+  const factory Widget.platform({
+    Key? key,
+    Widget? child,
+    @Default({}) Map<TargetPlatform, Widget> targets,
+  }) = PlatformWidget;
+
   const factory Widget.custom({
     Key? key,
     required String type,
@@ -855,7 +1180,7 @@ class Widget with _$Widget {
 
   const factory Widget.network({
     Key? key,
-    required NetworkRequest request,
+    required NetworkHttpRequest request,
   }) = NetworkWidget;
 
   factory Widget.fromJson(Map<String, Object?> json) => _$WidgetFromJson(json);

@@ -14,21 +14,19 @@ class EdgeInsets with _$EdgeInsets {
 
   static const EdgeInsets zero = EdgeInsets(0.0, 0.0, 0.0, 0.0);
 
-  static EdgeInsets all(double value) => EdgeInsets(value, value, value, value);
+  const factory EdgeInsets.only({
+    @Default(0.0) double left,
+    @Default(0.0) double top,
+    @Default(0.0) double right,
+    @Default(0.0) double bottom,
+  }) = EdgeInsetsOnly;
 
-  static EdgeInsets only({
-    double left = 0.0,
-    double top = 0.0,
-    double right = 0.0,
-    double bottom = 0.0,
-  }) =>
-      EdgeInsets(left, top, right, bottom);
+  const factory EdgeInsets.all(double value) = EdgeInsetsAll;
 
-  static EdgeInsets symmetric({
-    double vertical = 0.0,
-    double horizontal = 0.0,
-  }) =>
-      EdgeInsets(horizontal, vertical, horizontal, vertical);
+  const factory EdgeInsets.symmetric({
+    @Default(0.0) double vertical,
+    @Default(0.0) double horizontal,
+  }) = EdgeInsetsSymmetric;
 
   factory EdgeInsets.fromJson(Map<String, Object?> json) =>
       _$EdgeInsetsFromJson(json);
