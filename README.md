@@ -297,3 +297,7 @@ And the backing JSON:
   "runtimeType": "scaffold"
 }
 ```
+
+## Troubleshooting
+
+For web you need to pass the flag `--no-tree-shake-icons` to keep the icons.
