@@ -2,7 +2,7 @@
 ///
 /// Instead of using the class like an enum in the Flutter SDK we call the named constructors directly.
 ///
-/// ```dart
+/// ```diff
 /// - FloatingActionButtonLocation.startTop
 /// + FloatingActionButtonLocation.startTop()
 /// ```

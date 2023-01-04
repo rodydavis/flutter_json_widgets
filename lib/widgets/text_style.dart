@@ -2,7 +2,7 @@
 ///
 /// Since we can't look up the [ThemeData] class in the build method there are helpful methods to get the [design tokens](https://m3.material.io/foundations/design-tokens/overview) for Material 3 text styles and optional overrides.
 ///
-/// ```dart
+/// ```diff
 /// - Theme.of(context).textTheme.displayLarge.copyWith(fontSize: 24);
 /// + TextStyle.displayLarge(fontSize: 24);
 /// ```

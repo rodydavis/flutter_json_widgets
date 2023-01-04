@@ -2,7 +2,7 @@
 ///
 /// Since we can't look up the [ThemeData] class in the build method there are helpful methods to get the [design tokens](https://m3.material.io/foundations/design-tokens/overview) for Material 3 colors.
 ///
-/// ```dart
+/// ```diff
 /// - Theme.of(context).textTheme.colorScheme.primary;
 /// + Color.primary();
 /// ```
