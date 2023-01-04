@@ -51,7 +51,7 @@
 <section class="desc markdown">
   <p>Based on the <a href="https://api.flutter.dev/flutter/painting/TextStyle-class.html">TextStyle</a> class in the Flutter SDK.</p>
 <p>Since we can't look up the <a href="../theme_data/ThemeData-class.html">ThemeData</a> class in the build method there are helpful methods to get the <a href="https://m3.material.io/foundations/design-tokens/overview">design tokens</a> for Material 3 text styles and optional overrides.</p>
-<pre class="language-dart"><code class="language-dart">- Theme.of(context).textTheme.displayLarge.copyWith(fontSize: 24);
+<pre class="language-diff"><code class="language-diff">- Theme.of(context).textTheme.displayLarge.copyWith(fontSize: 24);
 + TextStyle.displayLarge(fontSize: 24);
 </code></pre>
 </section>
