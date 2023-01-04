@@ -36,7 +36,7 @@ Since there is no logic things like `LayoutBuilder` are difficult to achieve. Th
 
 ## Supported Widgets
 
-There are a lot, and more coming soon. List coming soon.
+There are a lot, and more coming soon. List of widgets [here](https://rodydavis.github.io/flutter_json_widgets/docs/widget/widget-library.html).
 
 ### SSR Example
 
