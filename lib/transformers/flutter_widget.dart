@@ -70,11 +70,13 @@ import 'package:flutter_json_widgets/flutter_json_widgets.dart' as widgets;
 import 'package:http/http.dart' as http;
 import 'package:vector_math/vector_math.dart';
 
-typedef WidgetBuilder = material.Widget Function(
+/// Custom widget builder.
+typedef CustomWidgetBuilder = material.Widget Function(
   material.BuildContext context,
   widgets.Widget widget,
 );
 
+/// Wrapping builder.
 typedef WidgetWrappingBuilder = material.Widget Function(
   material.BuildContext context,
   widgets.Widget widget,
@@ -86,6 +88,7 @@ class FlutterWidget extends material.StatefulWidget {
     super.key,
     required this.widget,
     this.wrappingBuilder,
+    this.emptyBuilder,
     this.customWidgets = const {},
   })  : request = null,
         json = null,
@@ -97,6 +100,7 @@ class FlutterWidget extends material.StatefulWidget {
     super.key,
     required this.json,
     this.wrappingBuilder,
+    this.emptyBuilder,
     this.customWidgets = const {},
   })  : assetPath = null,
         widget = null,
@@ -108,6 +112,7 @@ class FlutterWidget extends material.StatefulWidget {
     super.key,
     required this.request,
     this.wrappingBuilder,
+    this.emptyBuilder,
     this.customWidgets = const {},
     this.assetPath,
     this.httpClient,
@@ -119,6 +124,7 @@ class FlutterWidget extends material.StatefulWidget {
     super.key,
     required this.assetPath,
     this.wrappingBuilder,
+    this.emptyBuilder,
     this.customWidgets = const {},
   })  : widget = null,
         json = null,
@@ -129,11 +135,12 @@ class FlutterWidget extends material.StatefulWidget {
   final widgets.Widget? widget;
   final widgets.NetworkHttpRequest? request;
   final Map<String, Object?>? json;
-  final Map<String, WidgetBuilder> customWidgets;
+  final Map<String, CustomWidgetBuilder> customWidgets;
   final String? assetPath;
   final http.Client? httpClient;
   final widgets.FormData? formData;
   final WidgetWrappingBuilder? wrappingBuilder;
+  final material.WidgetBuilder? emptyBuilder;
 
   @override
   material.State<FlutterWidget> createState() => _FlutterWidgetState();
@@ -2984,7 +2991,13 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     final material.BuildContext context,
     final widgets.Widget? widget,
   ) {
-    if (widget == null) return null;
+    if (widget == null) {
+      if (this.widget.emptyBuilder != null) {
+        return this.widget.emptyBuilder!(context);
+      } else {
+        return null;
+      }
+    }
     final child = widget.map(
       aspectRatio: (value) => material.AspectRatio(
         key: $key(value.key),
