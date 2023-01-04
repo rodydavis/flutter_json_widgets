@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the map method from the Callback class, for the Dart programming language.">
+  <title>map method - Callback class - callback library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">flutter_json_widgets</a></li>
+    <li><a href="../../callback/callback-library.html">callback</a></li>
+    <li><a href="../../callback/Callback-class.html">Callback</a></li>
+    <li class="self-crumb">map&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt; method</li>
+  </ol>
+  <div class="self-name">map</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">map&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt;</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/widgets/optionalTypeArgs-constant.html">optionalTypeArgs</a></li>
+  </ol>
+</div>
+
+<span class="returntype">TResult</span>
+<span class="name ">map</span>&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt;(<wbr><ol class="parameter-list"><li><span class="parameter" id="map-param-intSelection">{<span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">intSelection</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/IntSelectionCallback-class.html">IntSelectionCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-boolSelection"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">boolSelection</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/BoolSelectionCallback-class.html">BoolSelectionCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-navigatorPushNamed"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">navigatorPushNamed</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/NavigationPushNamedCallback-class.html">NavigationPushNamedCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-navigatorPop"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">navigatorPop</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/NavigationPopCallback-class.html">NavigationPopCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-launchUrl"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">launchUrl</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/UrlCallback-class.html">UrlCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-copyClipboard"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">copyClipboard</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/CopyClipboardCallback-class.html">CopyClipboardCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-networkRequest"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">networkRequest</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/HttpRequestCallback-class.html">HttpRequestCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-showSnackBar"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">showSnackBar</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/ShowSnackBarCallback-class.html">ShowSnackBarCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-hideCurrentSnackBar"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">hideCurrentSnackBar</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/HideCurrentSnackBarCallback-class.html">HideCurrentSnackBarCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-removeCurrentSnackBar"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">removeCurrentSnackBar</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/RemoveCurrentSnackBarCallback-class.html">RemoveCurrentSnackBarCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-clearMaterialBanners"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">clearMaterialBanners</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/ClearMaterialBannersCallback-class.html">ClearMaterialBannersCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-hideCurrentMaterialBanner"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">hideCurrentMaterialBanner</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/HideCurrentMaterialBannerCallback-class.html">HideCurrentMaterialBannerCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-removeCurrentMaterialBanner"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">removeCurrentMaterialBanner</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/RemoveCurrentMaterialBannerCallback-class.html">RemoveCurrentMaterialBannerCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-showMaterialBanner"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">showMaterialBanner</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/ShowMaterialBannerCallback-class.html">ShowMaterialBannerCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-empty"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">empty</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/EmptyCallback-class.html">EmptyCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+), </span></li>
+<li><span class="parameter" id="map-param-reload"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">reload</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../callback/ReloadCallback-class.html">ReloadCallback</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)}</span></li>
+</ol>)
+
+      <div class="features">@<a href="https://api.flutter.dev/flutter/widgets/optionalTypeArgs-constant.html">optionalTypeArgs</a>, inherited</div>
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@optionalTypeArgs
+TResult map&lt;TResult extends Object?&gt;({
+  required TResult Function(IntSelectionCallback value) intSelection,
+  required TResult Function(BoolSelectionCallback value) boolSelection,
+  required TResult Function(NavigationPushNamedCallback value)
+      navigatorPushNamed,
+  required TResult Function(NavigationPopCallback value) navigatorPop,
+  required TResult Function(UrlCallback value) launchUrl,
+  required TResult Function(CopyClipboardCallback value) copyClipboard,
+  required TResult Function(HttpRequestCallback value) networkRequest,
+  required TResult Function(ShowSnackBarCallback value) showSnackBar,
+  required TResult Function(HideCurrentSnackBarCallback value)
+      hideCurrentSnackBar,
+  required TResult Function(RemoveCurrentSnackBarCallback value)
+      removeCurrentSnackBar,
+  required TResult Function(ClearMaterialBannersCallback value)
+      clearMaterialBanners,
+  required TResult Function(HideCurrentMaterialBannerCallback value)
+      hideCurrentMaterialBanner,
+  required TResult Function(RemoveCurrentMaterialBannerCallback value)
+      removeCurrentMaterialBanner,
+  required TResult Function(ShowMaterialBannerCallback value)
+      showMaterialBanner,
+  required TResult Function(EmptyCallback value) empty,
+  required TResult Function(ReloadCallback value) reload,
+}) =&gt;
+    throw _privateConstructorUsedError;</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">flutter_json_widgets</a></li>
+  <li><a href="../../callback/callback-library.html">callback</a></li>
+  <li><a href="../../callback/Callback-class.html">Callback</a></li>
+  <li class="self-crumb">map&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt; method</li>
+</ol>
+
+
+    <h5>Callback class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../callback/Callback-class.html#constructors">Constructors</a></li>
+          <li><a href="../../callback/Callback/Callback.boolSelection.html">boolSelection</a></li>
+          <li><a href="../../callback/Callback/Callback.clearMaterialBanners.html">clearMaterialBanners</a></li>
+          <li><a href="../../callback/Callback/Callback.copyClipboard.html">copyClipboard</a></li>
+          <li><a href="../../callback/Callback/Callback.empty.html">empty</a></li>
+          <li><a href="../../callback/Callback/Callback.fromJson.html">fromJson</a></li>
+          <li><a href="../../callback/Callback/Callback.hideCurrentMaterialBanner.html">hideCurrentMaterialBanner</a></li>
+          <li><a href="../../callback/Callback/Callback.hideCurrentSnackBar.html">hideCurrentSnackBar</a></li>
+          <li><a href="../../callback/Callback/Callback.intSelection.html">intSelection</a></li>
+          <li><a href="../../callback/Callback/Callback.launchUrl.html">launchUrl</a></li>
+          <li><a href="../../callback/Callback/Callback.navigatorPop.html">navigatorPop</a></li>
+          <li><a href="../../callback/Callback/Callback.navigatorPushNamed.html">navigatorPushNamed</a></li>
+          <li><a href="../../callback/Callback/Callback.networkRequest.html">networkRequest</a></li>
+          <li><a href="../../callback/Callback/Callback.reload.html">reload</a></li>
+          <li><a href="../../callback/Callback/Callback.removeCurrentMaterialBanner.html">removeCurrentMaterialBanner</a></li>
+          <li><a href="../../callback/Callback/Callback.removeCurrentSnackBar.html">removeCurrentSnackBar</a></li>
+          <li><a href="../../callback/Callback/Callback.showMaterialBanner.html">showMaterialBanner</a></li>
+          <li><a href="../../callback/Callback/Callback.showSnackBar.html">showSnackBar</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../callback/Callback-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title inherited"><a href="../../callback/Callback-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="../../callback/Callback/map.html">map</a></li>
+    <li class="inherited"><a href="../../callback/Callback/mapOrNull.html">mapOrNull</a></li>
+    <li class="inherited"><a href="../../callback/Callback/maybeMap.html">maybeMap</a></li>
+    <li class="inherited"><a href="../../callback/Callback/maybeWhen.html">maybeWhen</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="../../callback/Callback/toJson.html">toJson</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+    <li class="inherited"><a href="../../callback/Callback/when.html">when</a></li>
+    <li class="inherited"><a href="../../callback/Callback/whenOrNull.html">whenOrNull</a></li>
+
+    <li class="section-title inherited"><a href="../../callback/Callback-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    flutter_json_widgets
+      0.0.1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

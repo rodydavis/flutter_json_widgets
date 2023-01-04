@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the whenOrNull method from the Sliver class, for the Dart programming language.">
+  <title>whenOrNull method - Sliver class - sliver library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">flutter_json_widgets</a></li>
+    <li><a href="../../sliver/sliver-library.html">sliver</a></li>
+    <li><a href="../../sliver/Sliver-class.html">Sliver</a></li>
+    <li class="self-crumb">whenOrNull&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt; method</li>
+  </ol>
+  <div class="self-name">whenOrNull</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">whenOrNull&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt;</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/widgets/optionalTypeArgs-constant.html">optionalTypeArgs</a></li>
+  </ol>
+</div>
+
+<span class="returntype">TResult?</span>
+<span class="name ">whenOrNull</span>&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt;(<wbr><ol class="parameter-list"><li><span class="parameter" id="whenOrNull-param-appBar">{<span class="type-annotation">TResult?</span> <span class="parameter-name">appBar</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-leading"><span class="type-annotation"><a href="../../widget/Widget-class.html">Widget</a>?</span> <span class="parameter-name">leading</span>, </span></li>
+<li><span class="parameter" id="param-automaticallyImplyLeading"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">automaticallyImplyLeading</span>, </span></li>
+<li><span class="parameter" id="param-title"><span class="type-annotation"><a href="../../widget/Widget-class.html">Widget</a>?</span> <span class="parameter-name">title</span>, </span></li>
+<li><span class="parameter" id="param-actions"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../widget/Widget-class.html">Widget</a></span>&gt;</span>?</span> <span class="parameter-name">actions</span>, </span></li>
+<li><span class="parameter" id="param-flexibleSpace"><span class="type-annotation"><a href="../../widget/Widget-class.html">Widget</a>?</span> <span class="parameter-name">flexibleSpace</span>, </span></li>
+<li><span class="parameter" id="param-bottom"><span class="type-annotation"><a href="../../preferred_size_widget/PreferredSizeWidget-class.html">PreferredSizeWidget</a>?</span> <span class="parameter-name">bottom</span>, </span></li>
+<li><span class="parameter" id="param-elevation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">elevation</span>, </span></li>
+<li><span class="parameter" id="param-scrolledUnderElevation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">scrolledUnderElevation</span>, </span></li>
+<li><span class="parameter" id="param-shadowColor"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">shadowColor</span>, </span></li>
+<li><span class="parameter" id="param-surfaceTintColor"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">surfaceTintColor</span>, </span></li>
+<li><span class="parameter" id="param-forceElevated"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceElevated</span>, </span></li>
+<li><span class="parameter" id="param-backgroundColor"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">backgroundColor</span>, </span></li>
+<li><span class="parameter" id="param-foregroundColor"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">foregroundColor</span>, </span></li>
+<li><span class="parameter" id="param-primary"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">primary</span>, </span></li>
+<li><span class="parameter" id="param-centerTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">centerTitle</span>, </span></li>
+<li><span class="parameter" id="param-excludeHeaderSemantics"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">excludeHeaderSemantics</span>, </span></li>
+<li><span class="parameter" id="param-titleSpacing"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">titleSpacing</span>, </span></li>
+<li><span class="parameter" id="param-collapsedHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">collapsedHeight</span>, </span></li>
+<li><span class="parameter" id="param-expandedHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">expandedHeight</span>, </span></li>
+<li><span class="parameter" id="param-floating"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">floating</span>, </span></li>
+<li><span class="parameter" id="param-pinned"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">pinned</span>, </span></li>
+<li><span class="parameter" id="param-snap"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">snap</span>, </span></li>
+<li><span class="parameter" id="param-stretch"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">stretch</span>, </span></li>
+<li><span class="parameter" id="param-stretchTriggerOffset"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">stretchTriggerOffset</span>, </span></li>
+<li><span class="parameter" id="param-shape"><span class="type-annotation"><a href="../../shape_border/ShapeBorder-class.html">ShapeBorder</a>?</span> <span class="parameter-name">shape</span>, </span></li>
+<li><span class="parameter" id="param-toolbarHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">toolbarHeight</span>, </span></li>
+<li><span class="parameter" id="param-leadingWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">leadingWidth</span>, </span></li>
+<li><span class="parameter" id="param-toolbarTextStyle"><span class="type-annotation"><a href="../../text_style/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">toolbarTextStyle</span>, </span></li>
+<li><span class="parameter" id="param-titleTextStyle"><span class="type-annotation"><a href="../../text_style/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">titleTextStyle</span>, </span></li>
+<li><span class="parameter" id="param-forceMaterialTransparency"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceMaterialTransparency</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-appBarMedium"><span class="type-annotation">TResult?</span> <span class="parameter-name">appBarMedium</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-leading"><span class="type-annotation"><a href="../../widget/Widget-class.html">Widget</a>?</span> <span class="parameter-name">leading</span>, </span></li>
+<li><span class="parameter" id="param-automaticallyImplyLeading"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">automaticallyImplyLeading</span>, </span></li>
+<li><span class="parameter" id="param-title"><span class="type-annotation"><a href="../../widget/Widget-class.html">Widget</a>?</span> <span class="parameter-name">title</span>, </span></li>
+<li><span class="parameter" id="param-actions"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../widget/Widget-class.html">Widget</a></span>&gt;</span>?</span> <span class="parameter-name">actions</span>, </span></li>
+<li><span class="parameter" id="param-flexibleSpace"><span class="type-annotation"><a href="../../widget/Widget-class.html">Widget</a>?</span> <span class="parameter-name">flexibleSpace</span>, </span></li>
+<li><span class="parameter" id="param-bottom"><span class="type-annotation"><a href="../../preferred_size_widget/PreferredSizeWidget-class.html">PreferredSizeWidget</a>?</span> <span class="parameter-name">bottom</span>, </span></li>
+<li><span class="parameter" id="param-elevation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">elevation</span>, </span></li>
+<li><span class="parameter" id="param-scrolledUnderElevation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">scrolledUnderElevation</span>, </span></li>
+<li><span class="parameter" id="param-shadowColor"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">shadowColor</span>, </span></li>
+<li><span class="parameter" id="param-surfaceTintColor"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">surfaceTintColor</span>, </span></li>
+<li><span class="parameter" id="param-forceElevated"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceElevated</span>, </span></li>
+<li><span class="parameter" id="param-backgroundColor"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">backgroundColor</span>, </span></li>
+<li><span class="parameter" id="param-foregroundColor"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">foregroundColor</span>, </span></li>
+<li><span class="parameter" id="param-primary"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">primary</span>, </span></li>
+<li><span class="parameter" id="param-centerTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">centerTitle</span>, </span></li>
+<li><span class="parameter" id="param-excludeHeaderSemantics"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">excludeHeaderSemantics</span>, </span></li>
+<li><span class="parameter" id="param-titleSpacing"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">titleSpacing</span>, </span></li>
+<li><span class="parameter" id="param-collapsedHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">collapsedHeight</span>, </span></li>
+<li><span class="parameter" id="param-expandedHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">expandedHeight</span>, </span></li>
+<li><span class="parameter" id="param-floating"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">floating</span>, </span></li>
+<li><span class="parameter" id="param-pinned"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">pinned</span>, </span></li>
+<li><span class="parameter" id="param-snap"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">snap</span>, </span></li>
+<li><span class="parameter" id="param-stretch"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">stretch</span>, </span></li>
+<li><span class="parameter" id="param-stretchTriggerOffset"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">stretchTriggerOffset</span>, </span></li>
+<li><span class="parameter" id="param-shape"><span class="type-annotation"><a href="../../shape_border/ShapeBorder-class.html">ShapeBorder</a>?</span> <span class="parameter-name">shape</span>, </span></li>
+<li><span class="parameter" id="param-toolbarHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">toolbarHeight</span>, </span></li>
+<li><span class="parameter" id="param-leadingWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">leadingWidth</span>, </span></li>
+<li><span class="parameter" id="param-toolbarTextStyle"><span class="type-annotation"><a href="../../text_style/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">toolbarTextStyle</span>, </span></li>
+<li><span class="parameter" id="param-titleTextStyle"><span class="type-annotation"><a href="../../text_style/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">titleTextStyle</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-appBarLarge"><span class="type-annotation">TResult?</span> <span class="parameter-name">appBarLarge</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-leading"><span class="type-annotation"><a href="../../widget/Widget-class.html">Widget</a>?</span> <span class="parameter-name">leading</span>, </span></li>
+<li><span class="parameter" id="param-automaticallyImplyLeading"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">automaticallyImplyLeading</span>, </span></li>
+<li><span class="parameter" id="param-title"><span class="type-annotation"><a href="../../widget/Widget-class.html">Widget</a>?</span> <span class="parameter-name">title</span>, </span></li>
+<li><span class="parameter" id="param-actions"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../widget/Widget-class.html">Widget</a></span>&gt;</span>?</span> <span class="parameter-name">actions</span>, </span></li>
+<li><span class="parameter" id="param-flexibleSpace"><span class="type-annotation"><a href="../../widget/Widget-class.html">Widget</a>?</span> <span class="parameter-name">flexibleSpace</span>, </span></li>
+<li><span class="parameter" id="param-bottom"><span class="type-annotation"><a href="../../preferred_size_widget/PreferredSizeWidget-class.html">PreferredSizeWidget</a>?</span> <span class="parameter-name">bottom</span>, </span></li>
+<li><span class="parameter" id="param-elevation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">elevation</span>, </span></li>
+<li><span class="parameter" id="param-scrolledUnderElevation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">scrolledUnderElevation</span>, </span></li>
+<li><span class="parameter" id="param-shadowColor"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">shadowColor</span>, </span></li>
+<li><span class="parameter" id="param-surfaceTintColor"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">surfaceTintColor</span>, </span></li>
+<li><span class="parameter" id="param-forceElevated"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceElevated</span>, </span></li>
+<li><span class="parameter" id="param-backgroundColor"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">backgroundColor</span>, </span></li>
+<li><span class="parameter" id="param-foregroundColor"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">foregroundColor</span>, </span></li>
+<li><span class="parameter" id="param-primary"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">primary</span>, </span></li>
+<li><span class="parameter" id="param-centerTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">centerTitle</span>, </span></li>
+<li><span class="parameter" id="param-excludeHeaderSemantics"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">excludeHeaderSemantics</span>, </span></li>
+<li><span class="parameter" id="param-titleSpacing"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">titleSpacing</span>, </span></li>
+<li><span class="parameter" id="param-collapsedHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">collapsedHeight</span>, </span></li>
+<li><span class="parameter" id="param-expandedHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">expandedHeight</span>, </span></li>
+<li><span class="parameter" id="param-floating"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">floating</span>, </span></li>
+<li><span class="parameter" id="param-pinned"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">pinned</span>, </span></li>
+<li><span class="parameter" id="param-snap"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">snap</span>, </span></li>
+<li><span class="parameter" id="param-stretch"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">stretch</span>, </span></li>
+<li><span class="parameter" id="param-stretchTriggerOffset"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">stretchTriggerOffset</span>, </span></li>
+<li><span class="parameter" id="param-shape"><span class="type-annotation"><a href="../../shape_border/ShapeBorder-class.html">ShapeBorder</a>?</span> <span class="parameter-name">shape</span>, </span></li>
+<li><span class="parameter" id="param-toolbarHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">toolbarHeight</span>, </span></li>
+<li><span class="parameter" id="param-leadingWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">leadingWidth</span>, </span></li>
+<li><span class="parameter" id="param-toolbarTextStyle"><span class="type-annotation"><a href="../../text_style/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">toolbarTextStyle</span>, </span></li>
+<li><span class="parameter" id="param-titleTextStyle"><span class="type-annotation"><a href="../../text_style/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">titleTextStyle</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-toBoxAdapter"><span class="type-annotation">TResult?</span> <span class="parameter-name">toBoxAdapter</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-child"><span class="type-annotation"><a href="../../widget/Widget-class.html">Widget</a>?</span> <span class="parameter-name">child</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-fillRemaining"><span class="type-annotation">TResult?</span> <span class="parameter-name">fillRemaining</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-child"><span class="type-annotation"><a href="../../widget/Widget-class.html">Widget</a>?</span> <span class="parameter-name">child</span>, </span></li>
+<li><span class="parameter" id="param-hasScrollBody"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">hasScrollBody</span>, </span></li>
+<li><span class="parameter" id="param-fillOverscroll"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">fillOverscroll</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-fillViewport"><span class="type-annotation">TResult?</span> <span class="parameter-name">fillViewport</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-delegate"><span class="type-annotation"><a href="../../sliver_child_delegate/SliverChildDelegate-class.html">SliverChildDelegate</a></span> <span class="parameter-name">delegate</span>, </span></li>
+<li><span class="parameter" id="param-viewportFraction"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">viewportFraction</span>, </span></li>
+<li><span class="parameter" id="param-padEnds"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">padEnds</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-fixedExtentList"><span class="type-annotation">TResult?</span> <span class="parameter-name">fixedExtentList</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-delegate"><span class="type-annotation"><a href="../../sliver_child_delegate/SliverChildDelegate-class.html">SliverChildDelegate</a></span> <span class="parameter-name">delegate</span>, </span></li>
+<li><span class="parameter" id="param-itemExtent"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">itemExtent</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-offstage"><span class="type-annotation">TResult?</span> <span class="parameter-name">offstage</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-offstage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">offstage</span>, </span></li>
+<li><span class="parameter" id="param-sliver"><span class="type-annotation"><a href="../../sliver/Sliver-class.html">Sliver</a>?</span> <span class="parameter-name">sliver</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-list"><span class="type-annotation">TResult?</span> <span class="parameter-name">list</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-delegate"><span class="type-annotation"><a href="../../sliver_child_delegate/SliverChildDelegate-class.html">SliverChildDelegate</a></span> <span class="parameter-name">delegate</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-grid"><span class="type-annotation">TResult?</span> <span class="parameter-name">grid</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-delegate"><span class="type-annotation"><a href="../../sliver_child_delegate/SliverChildDelegate-class.html">SliverChildDelegate</a></span> <span class="parameter-name">delegate</span>, </span></li>
+<li><span class="parameter" id="param-gridDelegate"><span class="type-annotation"><a href="../../sliver_grid_delegate/SliverGridDelegate-class.html">SliverGridDelegate</a></span> <span class="parameter-name">gridDelegate</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-ignorePointer"><span class="type-annotation">TResult?</span> <span class="parameter-name">ignorePointer</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-ignoring"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">ignoring</span>, </span></li>
+<li><span class="parameter" id="param-ignoringSemantics"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">ignoringSemantics</span>, </span></li>
+<li><span class="parameter" id="param-sliver"><span class="type-annotation"><a href="../../sliver/Sliver-class.html">Sliver</a>?</span> <span class="parameter-name">sliver</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-opacity"><span class="type-annotation">TResult?</span> <span class="parameter-name">opacity</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-opacity"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">opacity</span>, </span></li>
+<li><span class="parameter" id="param-alwaysIncludeSemantics"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">alwaysIncludeSemantics</span>, </span></li>
+<li><span class="parameter" id="param-sliver"><span class="type-annotation"><a href="../../sliver/Sliver-class.html">Sliver</a>?</span> <span class="parameter-name">sliver</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-padding"><span class="type-annotation">TResult?</span> <span class="parameter-name">padding</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-padding"><span class="type-annotation"><a href="../../edge_insets/EdgeInsets-class.html">EdgeInsets</a></span> <span class="parameter-name">padding</span>, </span></li>
+<li><span class="parameter" id="param-sliver"><span class="type-annotation"><a href="../../sliver/Sliver-class.html">Sliver</a>?</span> <span class="parameter-name">sliver</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-prototypeExtendList"><span class="type-annotation">TResult?</span> <span class="parameter-name">prototypeExtendList</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-delegate"><span class="type-annotation"><a href="../../sliver_child_delegate/SliverChildDelegate-class.html">SliverChildDelegate</a></span> <span class="parameter-name">delegate</span>, </span></li>
+<li><span class="parameter" id="param-prototypeItem"><span class="type-annotation"><a href="../../widget/Widget-class.html">Widget</a></span> <span class="parameter-name">prototypeItem</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-safeArea"><span class="type-annotation">TResult?</span> <span class="parameter-name">safeArea</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-left"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">left</span>, </span></li>
+<li><span class="parameter" id="param-top"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">top</span>, </span></li>
+<li><span class="parameter" id="param-right"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">right</span>, </span></li>
+<li><span class="parameter" id="param-bottom"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">bottom</span>, </span></li>
+<li><span class="parameter" id="param-minimum"><span class="type-annotation"><a href="../../edge_insets/EdgeInsets-class.html">EdgeInsets</a></span> <span class="parameter-name">minimum</span>, </span></li>
+<li><span class="parameter" id="param-sliver"><span class="type-annotation"><a href="../../sliver/Sliver-class.html">Sliver</a></span> <span class="parameter-name">sliver</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-visibility"><span class="type-annotation">TResult?</span> <span class="parameter-name">visibility</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-sliver"><span class="type-annotation"><a href="../../sliver/Sliver-class.html">Sliver</a></span> <span class="parameter-name">sliver</span>, </span></li>
+<li><span class="parameter" id="param-replacementSliver"><span class="type-annotation"><a href="../../sliver/Sliver-class.html">Sliver</a></span> <span class="parameter-name">replacementSliver</span>, </span></li>
+<li><span class="parameter" id="param-visible"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">visible</span>, </span></li>
+<li><span class="parameter" id="param-maintainState"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">maintainState</span>, </span></li>
+<li><span class="parameter" id="param-maintainAnimation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">maintainAnimation</span>, </span></li>
+<li><span class="parameter" id="param-maintainSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">maintainSize</span>, </span></li>
+<li><span class="parameter" id="param-maintainSemantics"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">maintainSemantics</span>, </span></li>
+<li><span class="parameter" id="param-maintainInteractivity"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">maintainInteractivity</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="whenOrNull-param-visibilityMaintain"><span class="type-annotation">TResult?</span> <span class="parameter-name">visibilityMaintain</span>(<ol class="parameter-list"><li><span class="parameter" id="param-key"><span class="type-annotation"><a href="../../key/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="param-sliver"><span class="type-annotation"><a href="../../sliver/Sliver-class.html">Sliver</a></span> <span class="parameter-name">sliver</span>, </span></li>
+<li><span class="parameter" id="param-replacementSliver"><span class="type-annotation"><a href="../../sliver/Sliver-class.html">Sliver</a></span> <span class="parameter-name">replacementSliver</span>, </span></li>
+<li><span class="parameter" id="param-visible"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">visible</span></span></li>
+</ol>
+)?}</span></li>
+</ol>)
+
+      <div class="features">@<a href="https://api.flutter.dev/flutter/widgets/optionalTypeArgs-constant.html">optionalTypeArgs</a>, inherited</div>
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@optionalTypeArgs
+TResult? whenOrNull&lt;TResult extends Object?&gt;({
+  TResult? Function(
+          Key? key,
+          Widget? leading,
+          bool automaticallyImplyLeading,
+          Widget? title,
+          List&lt;Widget&gt;? actions,
+          Widget? flexibleSpace,
+          PreferredSizeWidget? bottom,
+          double? elevation,
+          double? scrolledUnderElevation,
+          Color? shadowColor,
+          Color? surfaceTintColor,
+          bool forceElevated,
+          Color? backgroundColor,
+          Color? foregroundColor,
+          bool primary,
+          bool? centerTitle,
+          bool excludeHeaderSemantics,
+          double? titleSpacing,
+          double? collapsedHeight,
+          double? expandedHeight,
+          bool floating,
+          bool pinned,
+          bool snap,
+          bool stretch,
+          double stretchTriggerOffset,
+          ShapeBorder? shape,
+          double toolbarHeight,
+          double? leadingWidth,
+          TextStyle? toolbarTextStyle,
+          TextStyle? titleTextStyle,
+          bool forceMaterialTransparency)?
+      appBar,
+  TResult? Function(
+          Key? key,
+          Widget? leading,
+          bool automaticallyImplyLeading,
+          Widget? title,
+          List&lt;Widget&gt;? actions,
+          Widget? flexibleSpace,
+          PreferredSizeWidget? bottom,
+          double? elevation,
+          double? scrolledUnderElevation,
+          Color? shadowColor,
+          Color? surfaceTintColor,
+          bool forceElevated,
+          Color? backgroundColor,
+          Color? foregroundColor,
+          bool primary,
+          bool? centerTitle,
+          bool excludeHeaderSemantics,
+          double? titleSpacing,
+          double? collapsedHeight,
+          double? expandedHeight,
+          bool floating,
+          bool pinned,
+          bool snap,
+          bool stretch,
+          double stretchTriggerOffset,
+          ShapeBorder? shape,
+          double toolbarHeight,
+          double? leadingWidth,
+          TextStyle? toolbarTextStyle,
+          TextStyle? titleTextStyle)?
+      appBarMedium,
+  TResult? Function(
+          Key? key,
+          Widget? leading,
+          bool automaticallyImplyLeading,
+          Widget? title,
+          List&lt;Widget&gt;? actions,
+          Widget? flexibleSpace,
+          PreferredSizeWidget? bottom,
+          double? elevation,
+          double? scrolledUnderElevation,
+          Color? shadowColor,
+          Color? surfaceTintColor,
+          bool forceElevated,
+          Color? backgroundColor,
+          Color? foregroundColor,
+          bool primary,
+          bool? centerTitle,
+          bool excludeHeaderSemantics,
+          double? titleSpacing,
+          double? collapsedHeight,
+          double? expandedHeight,
+          bool floating,
+          bool pinned,
+          bool snap,
+          bool stretch,
+          double stretchTriggerOffset,
+          ShapeBorder? shape,
+          double toolbarHeight,
+          double? leadingWidth,
+          TextStyle? toolbarTextStyle,
+          TextStyle? titleTextStyle)?
+      appBarLarge,
+  TResult? Function(Key? key, Widget? child)? toBoxAdapter,
+  TResult? Function(
+          Key? key, Widget? child, bool hasScrollBody, bool fillOverscroll)?
+      fillRemaining,
+  TResult? Function(Key? key, SliverChildDelegate delegate,
+          double viewportFraction, bool padEnds)?
+      fillViewport,
+  TResult? Function(
+          Key? key, SliverChildDelegate delegate, double itemExtent)?
+      fixedExtentList,
+  TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
+  TResult? Function(Key? key, SliverChildDelegate delegate)? list,
+  TResult? Function(Key? key, SliverChildDelegate delegate,
+          SliverGridDelegate gridDelegate)?
+      grid,
+  TResult? Function(
+          Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
+      ignorePointer,
+  TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
+          Sliver? sliver)?
+      opacity,
+  TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
+  TResult? Function(
+          Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
+      prototypeExtendList,
+  TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
+          EdgeInsets minimum, Sliver sliver)?
+      safeArea,
+  TResult? Function(
+          Key? key,
+          Sliver sliver,
+          Sliver replacementSliver,
+          bool visible,
+          bool maintainState,
+          bool maintainAnimation,
+          bool maintainSize,
+          bool maintainSemantics,
+          bool maintainInteractivity)?
+      visibility,
+  TResult? Function(
+          Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
+      visibilityMaintain,
+}) =&gt;
+    throw _privateConstructorUsedError;</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">flutter_json_widgets</a></li>
+  <li><a href="../../sliver/sliver-library.html">sliver</a></li>
+  <li><a href="../../sliver/Sliver-class.html">Sliver</a></li>
+  <li class="self-crumb">whenOrNull&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt; method</li>
+</ol>
+
+
+    <h5>Sliver class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../sliver/Sliver-class.html#constructors">Constructors</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.appBar.html">appBar</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.appBarLarge.html">appBarLarge</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.appBarMedium.html">appBarMedium</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.fillRemaining.html">fillRemaining</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.fillViewport.html">fillViewport</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.fixedExtentList.html">fixedExtentList</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.fromJson.html">fromJson</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.grid.html">grid</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.ignorePointer.html">ignorePointer</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.list.html">list</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.offstage.html">offstage</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.opacity.html">opacity</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.padding.html">padding</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.prototypeExtendList.html">prototypeExtendList</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.safeArea.html">safeArea</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.toBoxAdapter.html">toBoxAdapter</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.visibility.html">visibility</a></li>
+          <li><a href="../../sliver/Sliver/Sliver.visibilityMaintain.html">visibilityMaintain</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../sliver/Sliver-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="../../sliver/Sliver/copyWith.html">copyWith</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="../../sliver/Sliver/key.html">key</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title inherited"><a href="../../sliver/Sliver-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="../../sliver/Sliver/map.html">map</a></li>
+    <li class="inherited"><a href="../../sliver/Sliver/mapOrNull.html">mapOrNull</a></li>
+    <li class="inherited"><a href="../../sliver/Sliver/maybeMap.html">maybeMap</a></li>
+    <li class="inherited"><a href="../../sliver/Sliver/maybeWhen.html">maybeWhen</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="../../sliver/Sliver/toJson.html">toJson</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+    <li class="inherited"><a href="../../sliver/Sliver/when.html">when</a></li>
+    <li class="inherited"><a href="../../sliver/Sliver/whenOrNull.html">whenOrNull</a></li>
+
+    <li class="section-title inherited"><a href="../../sliver/Sliver-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    flutter_json_widgets
+      0.0.1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

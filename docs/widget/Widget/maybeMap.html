@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the maybeMap method from the Widget class, for the Dart programming language.">
+  <title>maybeMap method - Widget class - widget library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">flutter_json_widgets</a></li>
+    <li><a href="../../widget/widget-library.html">widget</a></li>
+    <li><a href="../../widget/Widget-class.html">Widget</a></li>
+    <li class="self-crumb">maybeMap&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt; method</li>
+  </ol>
+  <div class="self-name">maybeMap</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">maybeMap&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt;</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/widgets/optionalTypeArgs-constant.html">optionalTypeArgs</a></li>
+  </ol>
+</div>
+
+<span class="returntype">TResult</span>
+<span class="name ">maybeMap</span>&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt;(<wbr><ol class="parameter-list"><li><span class="parameter" id="maybeMap-param-text">{<span class="type-annotation">TResult</span> <span class="parameter-name">text</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Text-class.html">Text</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-sizedBox"><span class="type-annotation">TResult</span> <span class="parameter-name">sizedBox</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/SizedBox-class.html">SizedBox</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-sizedBoxExpanded"><span class="type-annotation">TResult</span> <span class="parameter-name">sizedBoxExpanded</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/SizedBoxExpanded-class.html">SizedBoxExpanded</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-sizedBoxShrink"><span class="type-annotation">TResult</span> <span class="parameter-name">sizedBoxShrink</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/SizedBoxShrink-class.html">SizedBoxShrink</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-container"><span class="type-annotation">TResult</span> <span class="parameter-name">container</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Container-class.html">Container</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-constrainedBox"><span class="type-annotation">TResult</span> <span class="parameter-name">constrainedBox</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/ConstrainedBox-class.html">ConstrainedBox</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-flex"><span class="type-annotation">TResult</span> <span class="parameter-name">flex</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Flex-class.html">Flex</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-wrap"><span class="type-annotation">TResult</span> <span class="parameter-name">wrap</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Wrap-class.html">Wrap</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-row"><span class="type-annotation">TResult</span> <span class="parameter-name">row</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Row-class.html">Row</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-column"><span class="type-annotation">TResult</span> <span class="parameter-name">column</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Column-class.html">Column</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-stack"><span class="type-annotation">TResult</span> <span class="parameter-name">stack</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Stack-class.html">Stack</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-positioned"><span class="type-annotation">TResult</span> <span class="parameter-name">positioned</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Positioned-class.html">Positioned</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-image"><span class="type-annotation">TResult</span> <span class="parameter-name">image</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Image-class.html">Image</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-flexible"><span class="type-annotation">TResult</span> <span class="parameter-name">flexible</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Flexible-class.html">Flexible</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-expanded"><span class="type-annotation">TResult</span> <span class="parameter-name">expanded</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Expanded-class.html">Expanded</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-center"><span class="type-annotation">TResult</span> <span class="parameter-name">center</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Center-class.html">Center</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-padding"><span class="type-annotation">TResult</span> <span class="parameter-name">padding</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Padding-class.html">Padding</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-spacer"><span class="type-annotation">TResult</span> <span class="parameter-name">spacer</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Spacer-class.html">Spacer</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-scrollBar"><span class="type-annotation">TResult</span> <span class="parameter-name">scrollBar</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/ScrollBar-class.html">ScrollBar</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-singleChildScrollView"><span class="type-annotation">TResult</span> <span class="parameter-name">singleChildScrollView</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/SingleChildScrollView-class.html">SingleChildScrollView</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-listView"><span class="type-annotation">TResult</span> <span class="parameter-name">listView</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/ListView-class.html">ListView</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-icon"><span class="type-annotation">TResult</span> <span class="parameter-name">icon</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Icon-class.html">Icon</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-iconButton"><span class="type-annotation">TResult</span> <span class="parameter-name">iconButton</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/IconButton-class.html">IconButton</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-scaffold"><span class="type-annotation">TResult</span> <span class="parameter-name">scaffold</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Scaffold-class.html">Scaffold</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-floatingActionButton"><span class="type-annotation">TResult</span> <span class="parameter-name">floatingActionButton</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/FloatingActionButton-class.html">FloatingActionButton</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-floatingActionButtonExtended"><span class="type-annotation">TResult</span> <span class="parameter-name">floatingActionButtonExtended</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/FloatingActionButtonExtended-class.html">FloatingActionButtonExtended</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-card"><span class="type-annotation">TResult</span> <span class="parameter-name">card</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Card-class.html">Card</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-divider"><span class="type-annotation">TResult</span> <span class="parameter-name">divider</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Divider-class.html">Divider</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-verticalDivider"><span class="type-annotation">TResult</span> <span class="parameter-name">verticalDivider</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/VerticalDivider-class.html">VerticalDivider</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-material"><span class="type-annotation">TResult</span> <span class="parameter-name">material</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Material-class.html">Material</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-materialButton"><span class="type-annotation">TResult</span> <span class="parameter-name">materialButton</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/MaterialButton-class.html">MaterialButton</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-outlinedButton"><span class="type-annotation">TResult</span> <span class="parameter-name">outlinedButton</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/OutlinedButton-class.html">OutlinedButton</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-outlinedButtonIcon"><span class="type-annotation">TResult</span> <span class="parameter-name">outlinedButtonIcon</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/OutlinedButtonIcon-class.html">OutlinedButtonIcon</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-textButton"><span class="type-annotation">TResult</span> <span class="parameter-name">textButton</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/TextButton-class.html">TextButton</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-textButtonIcon"><span class="type-annotation">TResult</span> <span class="parameter-name">textButtonIcon</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/TextButtonIcon-class.html">TextButtonIcon</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-filledButton"><span class="type-annotation">TResult</span> <span class="parameter-name">filledButton</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/FilledButton-class.html">FilledButton</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-filledButtonIcon"><span class="type-annotation">TResult</span> <span class="parameter-name">filledButtonIcon</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/FilledButtonIcon-class.html">FilledButtonIcon</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-filledTonalButton"><span class="type-annotation">TResult</span> <span class="parameter-name">filledTonalButton</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/FilledTonalButton-class.html">FilledTonalButton</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-filledTonalButtonIcon"><span class="type-annotation">TResult</span> <span class="parameter-name">filledTonalButtonIcon</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/FilledTonalButtonIcon-class.html">FilledTonalButtonIcon</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-elevatedButton"><span class="type-annotation">TResult</span> <span class="parameter-name">elevatedButton</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/ElevatedButton-class.html">ElevatedButton</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-elevatedButtonIcon"><span class="type-annotation">TResult</span> <span class="parameter-name">elevatedButtonIcon</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/ElevatedButtonIcon-class.html">ElevatedButtonIcon</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-fractionallySizedBox"><span class="type-annotation">TResult</span> <span class="parameter-name">fractionallySizedBox</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/FractionallySizedBox-class.html">FractionallySizedBox</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-fittedBox"><span class="type-annotation">TResult</span> <span class="parameter-name">fittedBox</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/FittedBox-class.html">FittedBox</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-gridView"><span class="type-annotation">TResult</span> <span class="parameter-name">gridView</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/GridView-class.html">GridView</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-placeholder"><span class="type-annotation">TResult</span> <span class="parameter-name">placeholder</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Placeholder-class.html">Placeholder</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-circularProgressIndicator"><span class="type-annotation">TResult</span> <span class="parameter-name">circularProgressIndicator</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/CircularProgressIndicator-class.html">CircularProgressIndicator</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-linearProgressIndicator"><span class="type-annotation">TResult</span> <span class="parameter-name">linearProgressIndicator</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/LinearProgressIndicator-class.html">LinearProgressIndicator</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-materialApp"><span class="type-annotation">TResult</span> <span class="parameter-name">materialApp</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/MaterialApp-class.html">MaterialApp</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-interactiveViewer"><span class="type-annotation">TResult</span> <span class="parameter-name">interactiveViewer</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/InteractiveViewer-class.html">InteractiveViewer</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-customScrollView"><span class="type-annotation">TResult</span> <span class="parameter-name">customScrollView</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/CustomScrollView-class.html">CustomScrollView</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-listViewCustom"><span class="type-annotation">TResult</span> <span class="parameter-name">listViewCustom</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/ListViewCustom-class.html">ListViewCustom</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-safeArea"><span class="type-annotation">TResult</span> <span class="parameter-name">safeArea</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/SafeArea-class.html">SafeArea</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-offstage"><span class="type-annotation">TResult</span> <span class="parameter-name">offstage</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Offstage-class.html">Offstage</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-opacity"><span class="type-annotation">TResult</span> <span class="parameter-name">opacity</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Opacity-class.html">Opacity</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-nestedScrollView"><span class="type-annotation">TResult</span> <span class="parameter-name">nestedScrollView</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/NestedScrollView-class.html">NestedScrollView</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-aspectRatio"><span class="type-annotation">TResult</span> <span class="parameter-name">aspectRatio</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/AspectRatio-class.html">AspectRatio</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-chip"><span class="type-annotation">TResult</span> <span class="parameter-name">chip</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Chip-class.html">Chip</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-magnifier"><span class="type-annotation">TResult</span> <span class="parameter-name">magnifier</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Magnifier-class.html">Magnifier</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-table"><span class="type-annotation">TResult</span> <span class="parameter-name">table</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Table-class.html">Table</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-dataTable"><span class="type-annotation">TResult</span> <span class="parameter-name">dataTable</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/DataTable-class.html">DataTable</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-repaintBoundary"><span class="type-annotation">TResult</span> <span class="parameter-name">repaintBoundary</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/RepaintBoundary-class.html">RepaintBoundary</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-clipRect"><span class="type-annotation">TResult</span> <span class="parameter-name">clipRect</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/ClipRect-class.html">ClipRect</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-clipRRect"><span class="type-annotation">TResult</span> <span class="parameter-name">clipRRect</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/ClipRRect-class.html">ClipRRect</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-clipOval"><span class="type-annotation">TResult</span> <span class="parameter-name">clipOval</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/ClipOval-class.html">ClipOval</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-checkbox"><span class="type-annotation">TResult</span> <span class="parameter-name">checkbox</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Checkbox-class.html">Checkbox</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-listTile"><span class="type-annotation">TResult</span> <span class="parameter-name">listTile</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/ListTile-class.html">ListTile</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-expansionTile"><span class="type-annotation">TResult</span> <span class="parameter-name">expansionTile</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/ExpansionTile-class.html">ExpansionTile</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-gridTile"><span class="type-annotation">TResult</span> <span class="parameter-name">gridTile</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/GridTile-class.html">GridTile</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-defaultTabController"><span class="type-annotation">TResult</span> <span class="parameter-name">defaultTabController</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/DefaultTabController-class.html">DefaultTabController</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-defaultTextStyle"><span class="type-annotation">TResult</span> <span class="parameter-name">defaultTextStyle</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/DefaultTextStyle-class.html">DefaultTextStyle</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-theme"><span class="type-annotation">TResult</span> <span class="parameter-name">theme</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Theme-class.html">Theme</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-tabBarView"><span class="type-annotation">TResult</span> <span class="parameter-name">tabBarView</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/TabBarView-class.html">TabBarView</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-navigationRail"><span class="type-annotation">TResult</span> <span class="parameter-name">navigationRail</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/NavigationRail-class.html">NavigationRail</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-navigationBar"><span class="type-annotation">TResult</span> <span class="parameter-name">navigationBar</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/NavigationBar-class.html">NavigationBar</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-tab"><span class="type-annotation">TResult</span> <span class="parameter-name">tab</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Tab-class.html">Tab</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-form"><span class="type-annotation">TResult</span> <span class="parameter-name">form</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Form-class.html">Form</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-textRich"><span class="type-annotation">TResult</span> <span class="parameter-name">textRich</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/RichText-class.html">RichText</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-selectableText"><span class="type-annotation">TResult</span> <span class="parameter-name">selectableText</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/SelectableText-class.html">SelectableText</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-selectableTextRich"><span class="type-annotation">TResult</span> <span class="parameter-name">selectableTextRich</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/RichSelectableText-class.html">RichSelectableText</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-inkWell"><span class="type-annotation">TResult</span> <span class="parameter-name">inkWell</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/InkWell-class.html">InkWell</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-gestureDetector"><span class="type-annotation">TResult</span> <span class="parameter-name">gestureDetector</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/GestureDetector-class.html">GestureDetector</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-textFormField"><span class="type-annotation">TResult</span> <span class="parameter-name">textFormField</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/TextFormField-class.html">TextFormField</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-materialSwitch"><span class="type-annotation">TResult</span> <span class="parameter-name">materialSwitch</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/Switch-class.html">Switch</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-inputDatePickerFormField"><span class="type-annotation">TResult</span> <span class="parameter-name">inputDatePickerFormField</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/InputDatePickerFormField-class.html">InputDatePickerFormField</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-dropdownButtonFormField"><span class="type-annotation">TResult</span> <span class="parameter-name">dropdownButtonFormField</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/DropdownButtonFormField-class.html">DropdownButtonFormField</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-popupMenuButton"><span class="type-annotation">TResult</span> <span class="parameter-name">popupMenuButton</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/PopupMenuButton-class.html">PopupMenuButton</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-ignorePointer"><span class="type-annotation">TResult</span> <span class="parameter-name">ignorePointer</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/IgnorePointer-class.html">IgnorePointer</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-responsive"><span class="type-annotation">TResult</span> <span class="parameter-name">responsive</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/ResponsiveWidget-class.html">ResponsiveWidget</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-platform"><span class="type-annotation">TResult</span> <span class="parameter-name">platform</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/PlatformWidget-class.html">PlatformWidget</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-custom"><span class="type-annotation">TResult</span> <span class="parameter-name">custom</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/CustomWidget-class.html">CustomWidget</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-network"><span class="type-annotation">TResult</span> <span class="parameter-name">network</span>(<ol class="parameter-list"><li><span class="parameter" id="param-value"><span class="type-annotation"><a href="../../widget/NetworkWidget-class.html">NetworkWidget</a></span> <span class="parameter-name">value</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeMap-param-orElse"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">orElse</span>(<ol class="parameter-list"></ol>
+)}</span></li>
+</ol>)
+
+      <div class="features">@<a href="https://api.flutter.dev/flutter/widgets/optionalTypeArgs-constant.html">optionalTypeArgs</a>, inherited</div>
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@optionalTypeArgs
+TResult maybeMap&lt;TResult extends Object?&gt;({
+  TResult Function(Text value)? text,
+  TResult Function(SizedBox value)? sizedBox,
+  TResult Function(SizedBoxExpanded value)? sizedBoxExpanded,
+  TResult Function(SizedBoxShrink value)? sizedBoxShrink,
+  TResult Function(Container value)? container,
+  TResult Function(ConstrainedBox value)? constrainedBox,
+  TResult Function(Flex value)? flex,
+  TResult Function(Wrap value)? wrap,
+  TResult Function(Row value)? row,
+  TResult Function(Column value)? column,
+  TResult Function(Stack value)? stack,
+  TResult Function(Positioned value)? positioned,
+  TResult Function(Image value)? image,
+  TResult Function(Flexible value)? flexible,
+  TResult Function(Expanded value)? expanded,
+  TResult Function(Center value)? center,
+  TResult Function(Padding value)? padding,
+  TResult Function(Spacer value)? spacer,
+  TResult Function(ScrollBar value)? scrollBar,
+  TResult Function(SingleChildScrollView value)? singleChildScrollView,
+  TResult Function(ListView value)? listView,
+  TResult Function(Icon value)? icon,
+  TResult Function(IconButton value)? iconButton,
+  TResult Function(Scaffold value)? scaffold,
+  TResult Function(FloatingActionButton value)? floatingActionButton,
+  TResult Function(FloatingActionButtonExtended value)?
+      floatingActionButtonExtended,
+  TResult Function(Card value)? card,
+  TResult Function(Divider value)? divider,
+  TResult Function(VerticalDivider value)? verticalDivider,
+  TResult Function(Material value)? material,
+  TResult Function(MaterialButton value)? materialButton,
+  TResult Function(OutlinedButton value)? outlinedButton,
+  TResult Function(OutlinedButtonIcon value)? outlinedButtonIcon,
+  TResult Function(TextButton value)? textButton,
+  TResult Function(TextButtonIcon value)? textButtonIcon,
+  TResult Function(FilledButton value)? filledButton,
+  TResult Function(FilledButtonIcon value)? filledButtonIcon,
+  TResult Function(FilledTonalButton value)? filledTonalButton,
+  TResult Function(FilledTonalButtonIcon value)? filledTonalButtonIcon,
+  TResult Function(ElevatedButton value)? elevatedButton,
+  TResult Function(ElevatedButtonIcon value)? elevatedButtonIcon,
+  TResult Function(FractionallySizedBox value)? fractionallySizedBox,
+  TResult Function(FittedBox value)? fittedBox,
+  TResult Function(GridView value)? gridView,
+  TResult Function(Placeholder value)? placeholder,
+  TResult Function(CircularProgressIndicator value)?
+      circularProgressIndicator,
+  TResult Function(LinearProgressIndicator value)? linearProgressIndicator,
+  TResult Function(MaterialApp value)? materialApp,
+  TResult Function(InteractiveViewer value)? interactiveViewer,
+  TResult Function(CustomScrollView value)? customScrollView,
+  TResult Function(ListViewCustom value)? listViewCustom,
+  TResult Function(SafeArea value)? safeArea,
+  TResult Function(Offstage value)? offstage,
+  TResult Function(Opacity value)? opacity,
+  TResult Function(NestedScrollView value)? nestedScrollView,
+  TResult Function(AspectRatio value)? aspectRatio,
+  TResult Function(Chip value)? chip,
+  TResult Function(Magnifier value)? magnifier,
+  TResult Function(Table value)? table,
+  TResult Function(DataTable value)? dataTable,
+  TResult Function(RepaintBoundary value)? repaintBoundary,
+  TResult Function(ClipRect value)? clipRect,
+  TResult Function(ClipRRect value)? clipRRect,
+  TResult Function(ClipOval value)? clipOval,
+  TResult Function(Checkbox value)? checkbox,
+  TResult Function(ListTile value)? listTile,
+  TResult Function(ExpansionTile value)? expansionTile,
+  TResult Function(GridTile value)? gridTile,
+  TResult Function(DefaultTabController value)? defaultTabController,
+  TResult Function(DefaultTextStyle value)? defaultTextStyle,
+  TResult Function(Theme value)? theme,
+  TResult Function(TabBarView value)? tabBarView,
+  TResult Function(NavigationRail value)? navigationRail,
+  TResult Function(NavigationBar value)? navigationBar,
+  TResult Function(Tab value)? tab,
+  TResult Function(Form value)? form,
+  TResult Function(RichText value)? textRich,
+  TResult Function(SelectableText value)? selectableText,
+  TResult Function(RichSelectableText value)? selectableTextRich,
+  TResult Function(InkWell value)? inkWell,
+  TResult Function(GestureDetector value)? gestureDetector,
+  TResult Function(TextFormField value)? textFormField,
+  TResult Function(Switch value)? materialSwitch,
+  TResult Function(InputDatePickerFormField value)? inputDatePickerFormField,
+  TResult Function(DropdownButtonFormField value)? dropdownButtonFormField,
+  TResult Function(PopupMenuButton value)? popupMenuButton,
+  TResult Function(IgnorePointer value)? ignorePointer,
+  TResult Function(ResponsiveWidget value)? responsive,
+  TResult Function(PlatformWidget value)? platform,
+  TResult Function(CustomWidget value)? custom,
+  TResult Function(NetworkWidget value)? network,
+  required TResult orElse(),
+}) =&gt;
+    throw _privateConstructorUsedError;</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">flutter_json_widgets</a></li>
+  <li><a href="../../widget/widget-library.html">widget</a></li>
+  <li><a href="../../widget/Widget-class.html">Widget</a></li>
+  <li class="self-crumb">maybeMap&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt; method</li>
+</ol>
+
+
+    <h5>Widget class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../widget/Widget-class.html#constructors">Constructors</a></li>
+          <li><a href="../../widget/Widget/Widget.aspectRatio.html">aspectRatio</a></li>
+          <li><a href="../../widget/Widget/Widget.card.html">card</a></li>
+          <li><a href="../../widget/Widget/Widget.center.html">center</a></li>
+          <li><a href="../../widget/Widget/Widget.checkbox.html">checkbox</a></li>
+          <li><a href="../../widget/Widget/Widget.chip.html">chip</a></li>
+          <li><a href="../../widget/Widget/Widget.circularProgressIndicator.html">circularProgressIndicator</a></li>
+          <li><a href="../../widget/Widget/Widget.clipOval.html">clipOval</a></li>
+          <li><a href="../../widget/Widget/Widget.clipRect.html">clipRect</a></li>
+          <li><a href="../../widget/Widget/Widget.clipRRect.html">clipRRect</a></li>
+          <li><a href="../../widget/Widget/Widget.column.html">column</a></li>
+          <li><a href="../../widget/Widget/Widget.constrainedBox.html">constrainedBox</a></li>
+          <li><a href="../../widget/Widget/Widget.container.html">container</a></li>
+          <li><a href="../../widget/Widget/Widget.custom.html">custom</a></li>
+          <li><a href="../../widget/Widget/Widget.customScrollView.html">customScrollView</a></li>
+          <li><a href="../../widget/Widget/Widget.dataTable.html">dataTable</a></li>
+          <li><a href="../../widget/Widget/Widget.defaultTabController.html">defaultTabController</a></li>
+          <li><a href="../../widget/Widget/Widget.defaultTextStyle.html">defaultTextStyle</a></li>
+          <li><a href="../../widget/Widget/Widget.divider.html">divider</a></li>
+          <li><a href="../../widget/Widget/Widget.dropdownButtonFormField.html">dropdownButtonFormField</a></li>
+          <li><a href="../../widget/Widget/Widget.elevatedButton.html">elevatedButton</a></li>
+          <li><a href="../../widget/Widget/Widget.elevatedButtonIcon.html">elevatedButtonIcon</a></li>
+          <li><a href="../../widget/Widget/Widget.expanded.html">expanded</a></li>
+          <li><a href="../../widget/Widget/Widget.expansionTile.html">expansionTile</a></li>
+          <li><a href="../../widget/Widget/Widget.filledButton.html">filledButton</a></li>
+          <li><a href="../../widget/Widget/Widget.filledButtonIcon.html">filledButtonIcon</a></li>
+          <li><a href="../../widget/Widget/Widget.filledTonalButton.html">filledTonalButton</a></li>
+          <li><a href="../../widget/Widget/Widget.filledTonalButtonIcon.html">filledTonalButtonIcon</a></li>
+          <li><a href="../../widget/Widget/Widget.fittedBox.html">fittedBox</a></li>
+          <li><a href="../../widget/Widget/Widget.flex.html">flex</a></li>
+          <li><a href="../../widget/Widget/Widget.flexible.html">flexible</a></li>
+          <li><a href="../../widget/Widget/Widget.floatingActionButton.html">floatingActionButton</a></li>
+          <li><a href="../../widget/Widget/Widget.floatingActionButtonExtended.html">floatingActionButtonExtended</a></li>
+          <li><a href="../../widget/Widget/Widget.form.html">form</a></li>
+          <li><a href="../../widget/Widget/Widget.fractionallySizedBox.html">fractionallySizedBox</a></li>
+          <li><a href="../../widget/Widget/Widget.fromJson.html">fromJson</a></li>
+          <li><a href="../../widget/Widget/Widget.gestureDetector.html">gestureDetector</a></li>
+          <li><a href="../../widget/Widget/Widget.gridTile.html">gridTile</a></li>
+          <li><a href="../../widget/Widget/Widget.gridView.html">gridView</a></li>
+          <li><a href="../../widget/Widget/Widget.icon.html">icon</a></li>
+          <li><a href="../../widget/Widget/Widget.iconButton.html">iconButton</a></li>
+          <li><a href="../../widget/Widget/Widget.ignorePointer.html">ignorePointer</a></li>
+          <li><a href="../../widget/Widget/Widget.image.html">image</a></li>
+          <li><a href="../../widget/Widget/Widget.inkWell.html">inkWell</a></li>
+          <li><a href="../../widget/Widget/Widget.inputDatePickerFormField.html">inputDatePickerFormField</a></li>
+          <li><a href="../../widget/Widget/Widget.interactiveViewer.html">interactiveViewer</a></li>
+          <li><a href="../../widget/Widget/Widget.linearProgressIndicator.html">linearProgressIndicator</a></li>
+          <li><a href="../../widget/Widget/Widget.listTile.html">listTile</a></li>
+          <li><a href="../../widget/Widget/Widget.listView.html">listView</a></li>
+          <li><a href="../../widget/Widget/Widget.listViewCustom.html">listViewCustom</a></li>
+          <li><a href="../../widget/Widget/Widget.magnifier.html">magnifier</a></li>
+          <li><a href="../../widget/Widget/Widget.material.html">material</a></li>
+          <li><a href="../../widget/Widget/Widget.materialApp.html">materialApp</a></li>
+          <li><a href="../../widget/Widget/Widget.materialButton.html">materialButton</a></li>
+          <li><a href="../../widget/Widget/Widget.materialSwitch.html">materialSwitch</a></li>
+          <li><a href="../../widget/Widget/Widget.navigationBar.html">navigationBar</a></li>
+          <li><a href="../../widget/Widget/Widget.navigationRail.html">navigationRail</a></li>
+          <li><a href="../../widget/Widget/Widget.nestedScrollView.html">nestedScrollView</a></li>
+          <li><a href="../../widget/Widget/Widget.network.html">network</a></li>
+          <li><a href="../../widget/Widget/Widget.offstage.html">offstage</a></li>
+          <li><a href="../../widget/Widget/Widget.opacity.html">opacity</a></li>
+          <li><a href="../../widget/Widget/Widget.outlinedButton.html">outlinedButton</a></li>
+          <li><a href="../../widget/Widget/Widget.outlinedButtonIcon.html">outlinedButtonIcon</a></li>
+          <li><a href="../../widget/Widget/Widget.padding.html">padding</a></li>
+          <li><a href="../../widget/Widget/Widget.placeholder.html">placeholder</a></li>
+          <li><a href="../../widget/Widget/Widget.platform.html">platform</a></li>
+          <li><a href="../../widget/Widget/Widget.popupMenuButton.html">popupMenuButton</a></li>
+          <li><a href="../../widget/Widget/Widget.positioned.html">positioned</a></li>
+          <li><a href="../../widget/Widget/Widget.repaintBoundary.html">repaintBoundary</a></li>
+          <li><a href="../../widget/Widget/Widget.responsive.html">responsive</a></li>
+          <li><a href="../../widget/Widget/Widget.row.html">row</a></li>
+          <li><a href="../../widget/Widget/Widget.safeArea.html">safeArea</a></li>
+          <li><a href="../../widget/Widget/Widget.scaffold.html">scaffold</a></li>
+          <li><a href="../../widget/Widget/Widget.scrollBar.html">scrollBar</a></li>
+          <li><a href="../../widget/Widget/Widget.selectableText.html">selectableText</a></li>
+          <li><a href="../../widget/Widget/Widget.selectableTextRich.html">selectableTextRich</a></li>
+          <li><a href="../../widget/Widget/Widget.singleChildScrollView.html">singleChildScrollView</a></li>
+          <li><a href="../../widget/Widget/Widget.sizedBox.html">sizedBox</a></li>
+          <li><a href="../../widget/Widget/Widget.sizedBoxExpanded.html">sizedBoxExpanded</a></li>
+          <li><a href="../../widget/Widget/Widget.sizedBoxShrink.html">sizedBoxShrink</a></li>
+          <li><a href="../../widget/Widget/Widget.spacer.html">spacer</a></li>
+          <li><a href="../../widget/Widget/Widget.stack.html">stack</a></li>
+          <li><a href="../../widget/Widget/Widget.tab.html">tab</a></li>
+          <li><a href="../../widget/Widget/Widget.tabBarView.html">tabBarView</a></li>
+          <li><a href="../../widget/Widget/Widget.table.html">table</a></li>
+          <li><a href="../../widget/Widget/Widget.text.html">text</a></li>
+          <li><a href="../../widget/Widget/Widget.textButton.html">textButton</a></li>
+          <li><a href="../../widget/Widget/Widget.textButtonIcon.html">textButtonIcon</a></li>
+          <li><a href="../../widget/Widget/Widget.textFormField.html">textFormField</a></li>
+          <li><a href="../../widget/Widget/Widget.textRich.html">textRich</a></li>
+          <li><a href="../../widget/Widget/Widget.theme.html">theme</a></li>
+          <li><a href="../../widget/Widget/Widget.verticalDivider.html">verticalDivider</a></li>
+          <li><a href="../../widget/Widget/Widget.wrap.html">wrap</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../widget/Widget-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="../../widget/Widget/copyWith.html">copyWith</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="../../widget/Widget/key.html">key</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title inherited"><a href="../../widget/Widget-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="../../widget/Widget/map.html">map</a></li>
+    <li class="inherited"><a href="../../widget/Widget/mapOrNull.html">mapOrNull</a></li>
+    <li class="inherited"><a href="../../widget/Widget/maybeMap.html">maybeMap</a></li>
+    <li class="inherited"><a href="../../widget/Widget/maybeWhen.html">maybeWhen</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="../../widget/Widget/toJson.html">toJson</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+    <li class="inherited"><a href="../../widget/Widget/when.html">when</a></li>
+    <li class="inherited"><a href="../../widget/Widget/whenOrNull.html">whenOrNull</a></li>
+
+    <li class="section-title inherited"><a href="../../widget/Widget-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    flutter_json_widgets
+      0.0.1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

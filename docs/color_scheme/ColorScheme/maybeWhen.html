@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the maybeWhen method from the ColorScheme class, for the Dart programming language.">
+  <title>maybeWhen method - ColorScheme class - color_scheme library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">flutter_json_widgets</a></li>
+    <li><a href="../../color_scheme/color_scheme-library.html">color_scheme</a></li>
+    <li><a href="../../color_scheme/ColorScheme-class.html">ColorScheme</a></li>
+    <li class="self-crumb">maybeWhen&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt; method</li>
+  </ol>
+  <div class="self-name">maybeWhen</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">maybeWhen&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt;</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/widgets/optionalTypeArgs-constant.html">optionalTypeArgs</a></li>
+  </ol>
+</div>
+
+<span class="returntype">TResult</span>
+<span class="name ">maybeWhen</span>&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt;(<wbr><ol class="parameter-list"><li><span class="parameter" id="maybeWhen-param-$default"><span class="type-annotation">TResult</span> <span class="parameter-name">$default</span>(<ol class="parameter-list"><li><span class="parameter" id="param-brightness"><span class="type-annotation"><a href="../../widgets_enums/Brightness.html">Brightness</a></span> <span class="parameter-name">brightness</span>, </span></li>
+<li><span class="parameter" id="param-primary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a></span> <span class="parameter-name">primary</span>, </span></li>
+<li><span class="parameter" id="param-onPrimary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a></span> <span class="parameter-name">onPrimary</span>, </span></li>
+<li><span class="parameter" id="param-primaryContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">primaryContainer</span>, </span></li>
+<li><span class="parameter" id="param-onPrimaryContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onPrimaryContainer</span>, </span></li>
+<li><span class="parameter" id="param-secondary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a></span> <span class="parameter-name">secondary</span>, </span></li>
+<li><span class="parameter" id="param-onSecondary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a></span> <span class="parameter-name">onSecondary</span>, </span></li>
+<li><span class="parameter" id="param-secondaryContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">secondaryContainer</span>, </span></li>
+<li><span class="parameter" id="param-onSecondaryContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onSecondaryContainer</span>, </span></li>
+<li><span class="parameter" id="param-tertiary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">tertiary</span>, </span></li>
+<li><span class="parameter" id="param-onTertiary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onTertiary</span>, </span></li>
+<li><span class="parameter" id="param-tertiaryContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">tertiaryContainer</span>, </span></li>
+<li><span class="parameter" id="param-onTertiaryContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onTertiaryContainer</span>, </span></li>
+<li><span class="parameter" id="param-error"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a></span> <span class="parameter-name">error</span>, </span></li>
+<li><span class="parameter" id="param-onError"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a></span> <span class="parameter-name">onError</span>, </span></li>
+<li><span class="parameter" id="param-errorContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">errorContainer</span>, </span></li>
+<li><span class="parameter" id="param-onErrorContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onErrorContainer</span>, </span></li>
+<li><span class="parameter" id="param-background"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a></span> <span class="parameter-name">background</span>, </span></li>
+<li><span class="parameter" id="param-onBackground"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a></span> <span class="parameter-name">onBackground</span>, </span></li>
+<li><span class="parameter" id="param-surface"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a></span> <span class="parameter-name">surface</span>, </span></li>
+<li><span class="parameter" id="param-onSurface"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a></span> <span class="parameter-name">onSurface</span>, </span></li>
+<li><span class="parameter" id="param-surfaceVariant"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">surfaceVariant</span>, </span></li>
+<li><span class="parameter" id="param-onSurfaceVariant"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onSurfaceVariant</span>, </span></li>
+<li><span class="parameter" id="param-outline"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">outline</span>, </span></li>
+<li><span class="parameter" id="param-outlineVariant"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">outlineVariant</span>, </span></li>
+<li><span class="parameter" id="param-shadow"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">shadow</span>, </span></li>
+<li><span class="parameter" id="param-scrim"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">scrim</span>, </span></li>
+<li><span class="parameter" id="param-inverseSurface"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">inverseSurface</span>, </span></li>
+<li><span class="parameter" id="param-onInverseSurface"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onInverseSurface</span>, </span></li>
+<li><span class="parameter" id="param-inversePrimary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">inversePrimary</span>, </span></li>
+<li><span class="parameter" id="param-surfaceTint"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">surfaceTint</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeWhen-param-fromSeed">{<span class="type-annotation">TResult</span> <span class="parameter-name">fromSeed</span>(<ol class="parameter-list"><li><span class="parameter" id="param-seedColor"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a></span> <span class="parameter-name">seedColor</span>, </span></li>
+<li><span class="parameter" id="param-brightness"><span class="type-annotation"><a href="../../widgets_enums/Brightness.html">Brightness</a></span> <span class="parameter-name">brightness</span>, </span></li>
+<li><span class="parameter" id="param-primary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">primary</span>, </span></li>
+<li><span class="parameter" id="param-onPrimary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onPrimary</span>, </span></li>
+<li><span class="parameter" id="param-primaryContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">primaryContainer</span>, </span></li>
+<li><span class="parameter" id="param-onPrimaryContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onPrimaryContainer</span>, </span></li>
+<li><span class="parameter" id="param-secondary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">secondary</span>, </span></li>
+<li><span class="parameter" id="param-onSecondary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onSecondary</span>, </span></li>
+<li><span class="parameter" id="param-secondaryContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">secondaryContainer</span>, </span></li>
+<li><span class="parameter" id="param-onSecondaryContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onSecondaryContainer</span>, </span></li>
+<li><span class="parameter" id="param-tertiary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">tertiary</span>, </span></li>
+<li><span class="parameter" id="param-onTertiary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onTertiary</span>, </span></li>
+<li><span class="parameter" id="param-tertiaryContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">tertiaryContainer</span>, </span></li>
+<li><span class="parameter" id="param-onTertiaryContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onTertiaryContainer</span>, </span></li>
+<li><span class="parameter" id="param-error"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">error</span>, </span></li>
+<li><span class="parameter" id="param-onError"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onError</span>, </span></li>
+<li><span class="parameter" id="param-errorContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">errorContainer</span>, </span></li>
+<li><span class="parameter" id="param-onErrorContainer"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onErrorContainer</span>, </span></li>
+<li><span class="parameter" id="param-outline"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">outline</span>, </span></li>
+<li><span class="parameter" id="param-outlineVariant"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">outlineVariant</span>, </span></li>
+<li><span class="parameter" id="param-background"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">background</span>, </span></li>
+<li><span class="parameter" id="param-onBackground"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onBackground</span>, </span></li>
+<li><span class="parameter" id="param-surface"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">surface</span>, </span></li>
+<li><span class="parameter" id="param-onSurface"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onSurface</span>, </span></li>
+<li><span class="parameter" id="param-surfaceVariant"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">surfaceVariant</span>, </span></li>
+<li><span class="parameter" id="param-onSurfaceVariant"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onSurfaceVariant</span>, </span></li>
+<li><span class="parameter" id="param-inverseSurface"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">inverseSurface</span>, </span></li>
+<li><span class="parameter" id="param-onInverseSurface"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">onInverseSurface</span>, </span></li>
+<li><span class="parameter" id="param-inversePrimary"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">inversePrimary</span>, </span></li>
+<li><span class="parameter" id="param-shadow"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">shadow</span>, </span></li>
+<li><span class="parameter" id="param-scrim"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">scrim</span>, </span></li>
+<li><span class="parameter" id="param-surfaceTint"><span class="type-annotation"><a href="../../color/Color-class.html">Color</a>?</span> <span class="parameter-name">surfaceTint</span></span></li>
+</ol>
+)?, </span></li>
+<li><span class="parameter" id="maybeWhen-param-orElse"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">orElse</span>(<ol class="parameter-list"></ol>
+)}</span></li>
+</ol>)
+
+      <div class="features">@<a href="https://api.flutter.dev/flutter/widgets/optionalTypeArgs-constant.html">optionalTypeArgs</a>, inherited</div>
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@optionalTypeArgs
+TResult maybeWhen&lt;TResult extends Object?&gt;(
+  TResult Function(
+          Brightness brightness,
+          Color primary,
+          Color onPrimary,
+          Color? primaryContainer,
+          Color? onPrimaryContainer,
+          Color secondary,
+          Color onSecondary,
+          Color? secondaryContainer,
+          Color? onSecondaryContainer,
+          Color? tertiary,
+          Color? onTertiary,
+          Color? tertiaryContainer,
+          Color? onTertiaryContainer,
+          Color error,
+          Color onError,
+          Color? errorContainer,
+          Color? onErrorContainer,
+          Color background,
+          Color onBackground,
+          Color surface,
+          Color onSurface,
+          Color? surfaceVariant,
+          Color? onSurfaceVariant,
+          Color? outline,
+          Color? outlineVariant,
+          Color? shadow,
+          Color? scrim,
+          Color? inverseSurface,
+          Color? onInverseSurface,
+          Color? inversePrimary,
+          Color? surfaceTint)?
+      $default, {
+  TResult Function(
+          Color seedColor,
+          Brightness brightness,
+          Color? primary,
+          Color? onPrimary,
+          Color? primaryContainer,
+          Color? onPrimaryContainer,
+          Color? secondary,
+          Color? onSecondary,
+          Color? secondaryContainer,
+          Color? onSecondaryContainer,
+          Color? tertiary,
+          Color? onTertiary,
+          Color? tertiaryContainer,
+          Color? onTertiaryContainer,
+          Color? error,
+          Color? onError,
+          Color? errorContainer,
+          Color? onErrorContainer,
+          Color? outline,
+          Color? outlineVariant,
+          Color? background,
+          Color? onBackground,
+          Color? surface,
+          Color? onSurface,
+          Color? surfaceVariant,
+          Color? onSurfaceVariant,
+          Color? inverseSurface,
+          Color? onInverseSurface,
+          Color? inversePrimary,
+          Color? shadow,
+          Color? scrim,
+          Color? surfaceTint)?
+      fromSeed,
+  required TResult orElse(),
+}) =&gt;
+    throw _privateConstructorUsedError;</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">flutter_json_widgets</a></li>
+  <li><a href="../../color_scheme/color_scheme-library.html">color_scheme</a></li>
+  <li><a href="../../color_scheme/ColorScheme-class.html">ColorScheme</a></li>
+  <li class="self-crumb">maybeWhen&lt;<wbr><span class="type-parameter">TResult extends Object?</span>&gt; method</li>
+</ol>
+
+
+    <h5>ColorScheme class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../color_scheme/ColorScheme-class.html#constructors">Constructors</a></li>
+          <li><a href="../../color_scheme/ColorScheme/ColorScheme.html">ColorScheme</a></li>
+          <li><a href="../../color_scheme/ColorScheme/ColorScheme.fromJson.html">fromJson</a></li>
+          <li><a href="../../color_scheme/ColorScheme/ColorScheme.fromSeed.html">fromSeed</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../color_scheme/ColorScheme-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/background.html">background</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/brightness.html">brightness</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/copyWith.html">copyWith</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/error.html">error</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/errorContainer.html">errorContainer</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/inversePrimary.html">inversePrimary</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/inverseSurface.html">inverseSurface</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/onBackground.html">onBackground</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/onError.html">onError</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/onErrorContainer.html">onErrorContainer</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/onInverseSurface.html">onInverseSurface</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/onPrimary.html">onPrimary</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/onPrimaryContainer.html">onPrimaryContainer</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/onSecondary.html">onSecondary</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/onSecondaryContainer.html">onSecondaryContainer</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/onSurface.html">onSurface</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/onSurfaceVariant.html">onSurfaceVariant</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/onTertiary.html">onTertiary</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/onTertiaryContainer.html">onTertiaryContainer</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/outline.html">outline</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/outlineVariant.html">outlineVariant</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/primary.html">primary</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/primaryContainer.html">primaryContainer</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/scrim.html">scrim</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/secondary.html">secondary</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/secondaryContainer.html">secondaryContainer</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/shadow.html">shadow</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/surface.html">surface</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/surfaceTint.html">surfaceTint</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/surfaceVariant.html">surfaceVariant</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/tertiary.html">tertiary</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/tertiaryContainer.html">tertiaryContainer</a></li>
+
+    <li class="section-title inherited"><a href="../../color_scheme/ColorScheme-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/map.html">map</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/mapOrNull.html">mapOrNull</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/maybeMap.html">maybeMap</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/maybeWhen.html">maybeWhen</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/toJson.html">toJson</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/when.html">when</a></li>
+    <li class="inherited"><a href="../../color_scheme/ColorScheme/whenOrNull.html">whenOrNull</a></li>
+
+    <li class="section-title inherited"><a href="../../color_scheme/ColorScheme-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    flutter_json_widgets
+      0.0.1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

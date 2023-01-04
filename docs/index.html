@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 6.0.0">
+  <meta name="description" content="flutter_json_widgets API docs, for the Dart programming language.">
+  <title>flutter_json_widgets - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li class="self-crumb">flutter_json_widgets package</li>
+  </ol>
+  <div class="self-name">flutter_json_widgets</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h1 id="flutter-json-widgets">Flutter Json Widgets</h1>
+<p><a href="https://github.com/rodydavis/flutter_json_widgets/actions/workflows/main.yml"><img src="https://github.com/rodydavis/flutter_json_widgets/actions/workflows/main.yml/badge.svg" alt="github pages"></a></p>
+<p>This goal of this project is to provide a way to create Flutter widgets with JSON.</p>
+<blockquote>
+<p>This includes reading and writing to JSON from classes that represent widgets or other helper classes and enums.</p>
+</blockquote>
+<p>This does not depend on the flutter sdk for the core classes and can be used in places like the server, command line and dart2js.</p>
+<p><a href="https://rodydavis.github.io/flutter_json_widgets/">Online Editor</a></p>
+<p><a href="https://rodydavis.github.io/flutter_json_widgets/docs/">Documentation</a></p>
+<h2 id="implementation">Implementation</h2>
+<p>This package relies on another package called <a href="https://pub.dev/packages/freezed">freezed</a> to generate the classes, enums and especially the unions that make it very helpful for parsing.</p>
+<p>While it is possible to match the Flutter SDK api for widget creation in most cases, there are times where this will differ.</p>
+<h3 id="named-constructors">Named Constructors</h3>
+<p>Since the widget class is a sealed union things like <code>ElevatedButton.icon</code> will be <code>ElevatedButtonIcon</code> instead.</p>
+<p>The class will still map to the correct widget at runtime.</p>
+<h3 id="functions">Functions</h3>
+<p>Since this is JSON ultimatly, then logic will not work here. However, there are multiple types of intents that can be used with a class <code>Callback</code> and various actions (navigation, messages, empty, ...).</p>
+<p>Also planning on expanding it to include form submission and http requests too.</p>
+<h3 id="builder-methods">Builder Methods</h3>
+<p>Since there is no logic things like <code>LayoutBuilder</code> are difficult to achieve. The <code>MaterialApp</code> has a routes property that you can provide a static map to without depending on context.</p>
+<h2 id="supported-widgets">Supported Widgets</h2>
+<p>There are a lot, and more coming soon. List coming soon.</p>
+<h3 id="ssr-example">SSR Example</h3>
+<h4 id="server-dart">Server (dart)</h4>
+<pre class="language-dart"><code class="language-dart">// ignore_for_file: depend_on_referenced_packages
+
+import 'dart:convert';
+import 'dart:async';
+
+import 'package:flutter_json_widgets/flutter_json_widgets.dart';
+
+import 'package:shelf_router/shelf_router.dart';
+import 'package:shelf/shelf.dart';
+import 'package:shelf/shelf_io.dart' as io;
+import 'package:shelf_cors_headers/shelf_cors_headers.dart';
+
+int _counter = 0;
+
+Future main() async {
+  final app = Router();
+
+  const host = 'localhost';
+  const port = 8080;
+  const url = 'http://$host:$port';
+
+  app.post('/api/counter', (Request request) async {
+    final content = await request.readAsString();
+    final map = jsonDecode(content) as Map&lt;String, Object?&gt;;
+    _counter = map['counter'] as int;
+    return Response.ok(
+      jsonEncode({'counter': _counter}),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    );
+  });
+
+  app.get(
+    '/',
+    (Request request) =&gt; _ui(const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/counter',
+      routes: {
+        '/counter': NetworkWidget(
+          request: NetworkHttpRequest(
+            url: '$url/counter',
+          ),
+        ),
+      },
+    )),
+  );
+
+  app.get(
+    '/counter',
+    (Request request) =&gt; _ui(Scaffold(
+      appBar: const AppBar(
+        title: Text('Flutter Demo Home Page'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: const TextStyle.headlineMedium(),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: Callback.networkRequest(
+          NetworkHttpRequest(
+            url: '$url/api/counter',
+            method: 'POST',
+            bodyMap: {'counter': _counter + 1},
+          ),
+          callback: const Callback.reload(),
+        ),
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+    )),
+  );
+
+  // Set CORS headers with every request
+  final handler = const Pipeline().addMiddleware(corsHeaders()).addHandler(app);
+
+  // ignore: avoid_print
+  print('Starting server on $url');
+  await io.serve(handler, host, port);
+}
+
+Response _ui(Widget widget) {
+  const encoder = JsonEncoder.withIndent('  ');
+  final jsonString = encoder.convert(widget.toJson());
+  return Response.ok(
+    jsonString,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  );
+}
+
+</code></pre>
+<h4 id="client-flutter">Client (flutter)</h4>
+<pre class="language-dart"><code class="language-dart">import 'package:flutter/material.dart';
+import 'package:flutter_json_widgets/flutter.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+   return FlutterWidget.network(
+     url: Uri.parse('http://localhost:8080/'),
+    );
+  }
+}
+
+</code></pre>
+<h3 id="json">JSON</h3>
+<p>Here is an example for the dart API:</p>
+<pre class="language-dart"><code class="language-dart">import 'package:flutter_json_widgets/material.dart';
+
+class Example {
+  int _counter = 0;
+
+  Widget build() {
+    return Scaffold(
+      appBar: const AppBar(
+        title: Text('Flutter Demo Home Page'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: const TextStyle.headlineMedium(),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: Callback.networkRequest(
+          NetworkHttpRequest(
+            url: '$url/api/counter',
+            method: 'POST',
+            bodyMap: {'counter': _counter + 1},
+          ),
+          callback: const Callback.reload(),
+        ),
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+</code></pre>
+<p>And the backing JSON:</p>
+<pre class="language-json"><code class="language-json">{
+  "appBar": {
+    "automaticallyImplyLeading": true,
+    "title": {
+      "data": "Flutter Demo Home Page",
+      "runtimeType": "text"
+    },
+    "primary": true,
+    "excludeHeaderSemantics": false,
+    "toolbarOpacity": 1.0,
+    "bottomOpacity": 1.0,
+    "forceMaterialTransparency": false,
+    "runtimeType": "appBar"
+  },
+  "body": {
+    "child": {
+      "mainAxisAlignment": "center",
+      "mainAxisSize": "max",
+      "crossAxisAlignment": "center",
+      "verticalDirection": "down",
+      "children": [
+        {
+          "data": "You have pushed the button this many times:",
+          "runtimeType": "text"
+        },
+        {
+          "data": "0",
+          "style": {
+            "runtimeType": "headlineMedium"
+          },
+          "runtimeType": "text"
+        }
+      ],
+      "runtimeType": "column"
+    },
+    "runtimeType": "center"
+  },
+  "floatingActionButton": {
+    "child": {
+      "icon": {
+        "codePoint": 57415,
+        "fontFamily": "MaterialIcons",
+        "matchTextDirection": false
+      },
+      "runtimeType": "icon"
+    },
+    "tooltip": "Increment",
+    "onPressed": {
+      "request": {
+        "url": "http://localhost:8080/api/counter",
+        "headers": {},
+        "method": "POST",
+        "bodyMap": {
+          "counter": 1
+        }
+      },
+      "callback": {
+        "runtimeType": "reload"
+      },
+      "runtimeType": "networkRequest"
+    },
+    "mini": false,
+    "clipBehavior": "none",
+    "autofocus": false,
+    "isExtended": false,
+    "runtimeType": "floatingActionButton"
+  },
+  "persistentFooterAlignment": {
+    "x": 1.0,
+    "y": 0.0
+  },
+  "primary": true,
+  "extendBody": false,
+  "extendBodyBehindAppBar": false,
+  "drawerEnableOpenDragGesture": true,
+  "endDrawerEnableOpenDragGesture": true,
+  "runtimeType": "scaffold"
+}
+</code></pre>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>For web you need to pass the flag <code>--no-tree-shake-icons</code> to keep the icons.</p>
+<h2 id="related-projects">Related projects</h2>
+<ul>
+<li><a href="https://github.com/flutter/flutter/issues/90218">rfw</a></li>
+</ul>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="alignment">
+  <span class="name"><a href="alignment/alignment-library.html">alignment</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/Alignment-class.html">Alignment</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="border_radius">
+  <span class="name"><a href="border_radius/border_radius-library.html">border_radius</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/BorderRadius-class.html">BorderRadius</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="border_side">
+  <span class="name"><a href="border_side/border_side-library.html">border_side</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/BorderSide-class.html">BorderSide</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="box_constraints">
+  <span class="name"><a href="box_constraints/box_constraints-library.html">box_constraints</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/rendering/BoxConstraints-class.html">BoxConstraints</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="callback">
+  <span class="name"><a href="callback/callback-library.html">callback</a></span> 
+
+</dt>
+<dd>Since JSON does not support functions, we need to use a custom class to map intents to callbacks.
+</dd>
+
+          <dt id="color">
+  <span class="name"><a href="color/color-library.html">color</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="color_filter">
+  <span class="name"><a href="color_filter/color_filter-library.html">color_filter</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/ColorFilter-class.html">ColorFilter</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="color_scheme">
+  <span class="name"><a href="color_scheme/color_scheme-library.html">color_scheme</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/ColorScheme-class.html">ColorScheme</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="colors">
+  <span class="name"><a href="colors/colors-library.html">colors</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/Colors-class.html">Colors</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="curves">
+  <span class="name"><a href="curves/curves-library.html">curves</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/animation/Curve-class.html">Curve</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="data_cell">
+  <span class="name"><a href="data_cell/data_cell-library.html">data_cell</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/DataCell-class.html">DataCell</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="data_column">
+  <span class="name"><a href="data_column/data_column-library.html">data_column</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/DataColumn-class.html">DataColumn</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="data_row">
+  <span class="name"><a href="data_row/data_row-library.html">data_row</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/DataRow-class.html">DataRow</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="decoration">
+  <span class="name"><a href="decoration/decoration-library.html">decoration</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/Decoration-class.html">Decoration</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="decoration_image">
+  <span class="name"><a href="decoration_image/decoration_image-library.html">decoration_image</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/DecorationImage-class.html">DecorationImage</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="dropdown_menu_item">
+  <span class="name"><a href="dropdown_menu_item/dropdown_menu_item-library.html">dropdown_menu_item</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/DropdownMenuItem-class.html">DropdownMenuItem</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="edge_insets">
+  <span class="name"><a href="edge_insets/edge_insets-library.html">edge_insets</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/EdgeInsets-class.html">EdgeInsets</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="enums">
+  <span class="name"><a href="widgets_enums/widgets_enums-library.html">enums</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="floating_action_button_location">
+  <span class="name"><a href="floating_action_button_location/floating_action_button_location-library.html">floating_action_button_location</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/FloatingActionButtonLocation-class.html">FloatingActionButtonLocation</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="floating_label_alignment">
+  <span class="name"><a href="floating_label_alignment/floating_label_alignment-library.html">floating_label_alignment</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/FloatingLabelAlignment-class.html">FloatingLabelAlignment</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="flutter">
+  <span class="name"><a href="flutter/flutter-library.html">flutter</a></span> 
+
+</dt>
+<dd>Flutter compatible import.
+</dd>
+
+          <dt id="flutter_json_widgets">
+  <span class="name"><a href="flutter_json_widgets/flutter_json_widgets-library.html">flutter_json_widgets</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="flutter_widget">
+  <span class="name"><a href="flutter_widget/flutter_widget-library.html">flutter_widget</a></span> 
+
+</dt>
+<dd>A transformer that converts a JSON string into a Flutter widget.
+</dd>
+
+          <dt id="font_feature">
+  <span class="name"><a href="font_feature/font_feature-library.html">font_feature</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/FontFeature-class.html">FontFeature</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="font_variation">
+  <span class="name"><a href="font_variation/font_variation-library.html">font_variation</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/FontVariation-class.html">FontVariation</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="font_weight">
+  <span class="name"><a href="font_weight/font_weight-library.html">font_weight</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/FontWeight-class.html">FontWeight</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="form_data">
+  <span class="name"><a href="form_data/form_data-library.html">form_data</a></span> 
+
+</dt>
+<dd>Since this is JSON we need to store an abstract type for form data.
+</dd>
+
+          <dt id="gradient">
+  <span class="name"><a href="gradient/gradient-library.html">gradient</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/Gradient-class.html">Gradient</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="gradient_transform">
+  <span class="name"><a href="gradient_transform/gradient_transform-library.html">gradient_transform</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/GradientTransform-class.html">GradientTransform</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="icon_data">
+  <span class="name"><a href="icon_data/icon_data-library.html">icon_data</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/widgets/IconData-class.html">IconData</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="icon_theme_data">
+  <span class="name"><a href="icon_theme_data/icon_theme_data-library.html">icon_theme_data</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/widgets/IconThemeData-class.html">IconThemeData</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="icons">
+  <span class="name"><a href="icons/icons-library.html">icons</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/Icons-class.html">Icons</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="image_provider">
+  <span class="name"><a href="image_provider/image_provider-library.html">image_provider</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/ImageProvider-class.html">ImageProvider</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="inline_span">
+  <span class="name"><a href="inline_span/inline_span-library.html">inline_span</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/InlineSpan-class.html">InlineSpan</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="input_decoration">
+  <span class="name"><a href="input_decoration/input_decoration-library.html">input_decoration</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/InputDecoration-class.html">InputDecoration</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="key">
+  <span class="name"><a href="key/key-library.html">key</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="locale">
+  <span class="name"><a href="locale/locale-library.html">locale</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/Locale-class.html">Locale</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="material_banner">
+  <span class="name"><a href="material_banner/material_banner-library.html">material_banner</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/MaterialBanner-class.html">MaterialBanner</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="material_state_property">
+  <span class="name"><a href="material_state_property/material_state_property-library.html">material_state_property</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/MaterialStateProperty-class.html">MaterialStateProperty</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="matrix_4">
+  <span class="name"><a href="matrix_4/matrix_4-library.html">matrix_4</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/vector_math/Matrix4-class.html">Matrix4</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="mouse_cursor">
+  <span class="name"><a href="mouse_cursor/mouse_cursor-library.html">mouse_cursor</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/services/MouseCursor-class.html">MouseCursor</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="navigation_rail_destination">
+  <span class="name"><a href="navigation_rail_destination/navigation_rail_destination-library.html">navigation_rail_destination</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/NavigationRailDestination-class.html">NavigationRailDestination</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="network_request">
+  <span class="name"><a href="network_request/network_request-library.html">network_request</a></span> 
+
+</dt>
+<dd>Since this is JSON we need to describe the network requests that will be made.
+</dd>
+
+          <dt id="offset">
+  <span class="name"><a href="offset/offset-library.html">offset</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/Offset-class.html">Offset</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="paint">
+  <span class="name"><a href="paint/paint-library.html">paint</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/Paint-class.html">Paint</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="popup_menu_entry">
+  <span class="name"><a href="popup_menu_entry/popup_menu_entry-library.html">popup_menu_entry</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/PopupMenuEntry-class.html">PopupMenuEntry</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="preferred_size_widget">
+  <span class="name"><a href="preferred_size_widget/preferred_size_widget-library.html">preferred_size_widget</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/widgets/PreferredSizeWidget-class.html">PreferredSizeWidget</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="radius">
+  <span class="name"><a href="radius/radius-library.html">radius</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/Radius-class.html">Radius</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="rect">
+  <span class="name"><a href="rect/rect-library.html">rect</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/Rect-class.html">Rect</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="scroll_physics">
+  <span class="name"><a href="scroll_physics/scroll_physics-library.html">scroll_physics</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html">ScrollPhysics</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="shadow">
+  <span class="name"><a href="shadow/shadow-library.html">shadow</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/Shadow-class.html">Shadow</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="shape_border">
+  <span class="name"><a href="shape_border/shape_border-library.html">shape_border</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/ShapeBorder-class.html">ShapeBorder</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="size">
+  <span class="name"><a href="size/size-library.html">size</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/Size-class.html">Size</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="sliver">
+  <span class="name"><a href="sliver/sliver-library.html">sliver</a></span> 
+
+</dt>
+<dd>Class for creating <a href="sliver/Sliver-class.html">Sliver</a> widgets. The Flutter SDK uses the <a href="widget/Widget-class.html">Widget</a> class but can lead to improper usage.
+</dd>
+
+          <dt id="sliver_child_delegate">
+  <span class="name"><a href="sliver_child_delegate/sliver_child_delegate-library.html">sliver_child_delegate</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/widgets/SliverChildDelegate-class.html">SliverChildDelegate</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="sliver_grid_delegate">
+  <span class="name"><a href="sliver_grid_delegate/sliver_grid_delegate-library.html">sliver_grid_delegate</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/rendering/SliverGridDelegate-class.html">SliverGridDelegate</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="snack_bar">
+  <span class="name"><a href="snack_bar/snack_bar-library.html">snack_bar</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/SnackBar-class.html">SnackBar</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="snack_bar_action">
+  <span class="name"><a href="snack_bar_action/snack_bar_action-library.html">snack_bar_action</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/SnackBarAction-class.html">SnackBarAction</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="strut_style">
+  <span class="name"><a href="strut_style/strut_style-library.html">strut_style</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/StrutStyle-class.html">StrutStyle</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="table_border">
+  <span class="name"><a href="table_border/table_border-library.html">table_border</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/rendering/TableBorder-class.html">TableBorder</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="table_column_width">
+  <span class="name"><a href="table_column_width/table_column_width-library.html">table_column_width</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/rendering/TableColumnWidth-class.html">TableColumnWidth</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="table_row">
+  <span class="name"><a href="table_row/table_row-library.html">table_row</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/widgets/TableRow-class.html">TableRow</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="text_align_vertical">
+  <span class="name"><a href="text_align_vertical/text_align_vertical-library.html">text_align_vertical</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/TextAlignVertical-class.html">TextAlignVertical</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="text_decoration">
+  <span class="name"><a href="text_decoration/text_decoration-library.html">text_decoration</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/TextDecoration-class.html">TextDecoration</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="text_height_behavior">
+  <span class="name"><a href="text_height_behavior/text_height_behavior-library.html">text_height_behavior</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/dart-ui/TextHeightBehavior-class.html">TextHeightBehavior</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="text_input_formatter">
+  <span class="name"><a href="text_input_formatter/text_input_formatter-library.html">text_input_formatter</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/services/TextInputFormatter-class.html">TextInputFormatter</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="text_input_type">
+  <span class="name"><a href="text_input_type/text_input_type-library.html">text_input_type</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/services/TextInputType-class.html">TextInputType</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="text_style">
+  <span class="name"><a href="text_style/text_style-library.html">text_style</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/painting/TextStyle-class.html">TextStyle</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="text_theme">
+  <span class="name"><a href="text_theme/text_theme-library.html">text_theme</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/TextTheme-class.html">TextTheme</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="theme_data">
+  <span class="name"><a href="theme_data/theme_data-library.html">theme_data</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/ThemeData-class.html">ThemeData</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="visual_density">
+  <span class="name"><a href="visual_density/visual_density-library.html">visual_density</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/material/VisualDensity-class.html">VisualDensity</a> class in the Flutter SDK.
+</dd>
+
+          <dt id="widget">
+  <span class="name"><a href="widget/widget-library.html">widget</a></span> 
+
+</dt>
+<dd>Based on the <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a> library in the Flutter SDK.
+</dd>
+
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li class="self-crumb">flutter_json_widgets package</li>
+</ol>
+
+
+    <h5 class="hidden-xs"><span class="package-name">flutter_json_widgets</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="alignment/alignment-library.html">alignment</a></li>
+      <li><a href="border_radius/border_radius-library.html">border_radius</a></li>
+      <li><a href="border_side/border_side-library.html">border_side</a></li>
+      <li><a href="box_constraints/box_constraints-library.html">box_constraints</a></li>
+      <li><a href="callback/callback-library.html">callback</a></li>
+      <li><a href="color/color-library.html">color</a></li>
+      <li><a href="color_filter/color_filter-library.html">color_filter</a></li>
+      <li><a href="color_scheme/color_scheme-library.html">color_scheme</a></li>
+      <li><a href="colors/colors-library.html">colors</a></li>
+      <li><a href="curves/curves-library.html">curves</a></li>
+      <li><a href="data_cell/data_cell-library.html">data_cell</a></li>
+      <li><a href="data_column/data_column-library.html">data_column</a></li>
+      <li><a href="data_row/data_row-library.html">data_row</a></li>
+      <li><a href="decoration/decoration-library.html">decoration</a></li>
+      <li><a href="decoration_image/decoration_image-library.html">decoration_image</a></li>
+      <li><a href="dropdown_menu_item/dropdown_menu_item-library.html">dropdown_menu_item</a></li>
+      <li><a href="edge_insets/edge_insets-library.html">edge_insets</a></li>
+      <li><a href="widgets_enums/widgets_enums-library.html">enums</a></li>
+      <li><a href="floating_action_button_location/floating_action_button_location-library.html">floating_action_button_location</a></li>
+      <li><a href="floating_label_alignment/floating_label_alignment-library.html">floating_label_alignment</a></li>
+      <li><a href="flutter/flutter-library.html">flutter</a></li>
+      <li><a href="flutter_json_widgets/flutter_json_widgets-library.html">flutter_json_widgets</a></li>
+      <li><a href="flutter_widget/flutter_widget-library.html">flutter_widget</a></li>
+      <li><a href="font_feature/font_feature-library.html">font_feature</a></li>
+      <li><a href="font_variation/font_variation-library.html">font_variation</a></li>
+      <li><a href="font_weight/font_weight-library.html">font_weight</a></li>
+      <li><a href="form_data/form_data-library.html">form_data</a></li>
+      <li><a href="gradient/gradient-library.html">gradient</a></li>
+      <li><a href="gradient_transform/gradient_transform-library.html">gradient_transform</a></li>
+      <li><a href="icon_data/icon_data-library.html">icon_data</a></li>
+      <li><a href="icon_theme_data/icon_theme_data-library.html">icon_theme_data</a></li>
+      <li><a href="icons/icons-library.html">icons</a></li>
+      <li><a href="image_provider/image_provider-library.html">image_provider</a></li>
+      <li><a href="inline_span/inline_span-library.html">inline_span</a></li>
+      <li><a href="input_decoration/input_decoration-library.html">input_decoration</a></li>
+      <li><a href="key/key-library.html">key</a></li>
+      <li><a href="locale/locale-library.html">locale</a></li>
+      <li><a href="material_banner/material_banner-library.html">material_banner</a></li>
+      <li><a href="material_state_property/material_state_property-library.html">material_state_property</a></li>
+      <li><a href="matrix_4/matrix_4-library.html">matrix_4</a></li>
+      <li><a href="mouse_cursor/mouse_cursor-library.html">mouse_cursor</a></li>
+      <li><a href="navigation_rail_destination/navigation_rail_destination-library.html">navigation_rail_destination</a></li>
+      <li><a href="network_request/network_request-library.html">network_request</a></li>
+      <li><a href="offset/offset-library.html">offset</a></li>
+      <li><a href="paint/paint-library.html">paint</a></li>
+      <li><a href="popup_menu_entry/popup_menu_entry-library.html">popup_menu_entry</a></li>
+      <li><a href="preferred_size_widget/preferred_size_widget-library.html">preferred_size_widget</a></li>
+      <li><a href="radius/radius-library.html">radius</a></li>
+      <li><a href="rect/rect-library.html">rect</a></li>
+      <li><a href="scroll_physics/scroll_physics-library.html">scroll_physics</a></li>
+      <li><a href="shadow/shadow-library.html">shadow</a></li>
+      <li><a href="shape_border/shape_border-library.html">shape_border</a></li>
+      <li><a href="size/size-library.html">size</a></li>
+      <li><a href="sliver/sliver-library.html">sliver</a></li>
+      <li><a href="sliver_child_delegate/sliver_child_delegate-library.html">sliver_child_delegate</a></li>
+      <li><a href="sliver_grid_delegate/sliver_grid_delegate-library.html">sliver_grid_delegate</a></li>
+      <li><a href="snack_bar/snack_bar-library.html">snack_bar</a></li>
+      <li><a href="snack_bar_action/snack_bar_action-library.html">snack_bar_action</a></li>
+      <li><a href="strut_style/strut_style-library.html">strut_style</a></li>
+      <li><a href="table_border/table_border-library.html">table_border</a></li>
+      <li><a href="table_column_width/table_column_width-library.html">table_column_width</a></li>
+      <li><a href="table_row/table_row-library.html">table_row</a></li>
+      <li><a href="text_align_vertical/text_align_vertical-library.html">text_align_vertical</a></li>
+      <li><a href="text_decoration/text_decoration-library.html">text_decoration</a></li>
+      <li><a href="text_height_behavior/text_height_behavior-library.html">text_height_behavior</a></li>
+      <li><a href="text_input_formatter/text_input_formatter-library.html">text_input_formatter</a></li>
+      <li><a href="text_input_type/text_input_type-library.html">text_input_type</a></li>
+      <li><a href="text_style/text_style-library.html">text_style</a></li>
+      <li><a href="text_theme/text_theme-library.html">text_theme</a></li>
+      <li><a href="theme_data/theme_data-library.html">theme_data</a></li>
+      <li><a href="visual_density/visual_density-library.html">visual_density</a></li>
+      <li><a href="widget/widget-library.html">widget</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    flutter_json_widgets
+      0.0.1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
