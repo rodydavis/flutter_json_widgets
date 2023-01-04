@@ -72,13 +72,20 @@ import 'package:vector_math/vector_math.dart';
 
 typedef WidgetBuilder = material.Widget Function(
   material.BuildContext context,
-  widgets.CustomWidget widget,
+  widgets.Widget widget,
+);
+
+typedef WidgetWrappingBuilder = material.Widget Function(
+  material.BuildContext context,
+  widgets.Widget widget,
+  material.Widget child,
 );
 
 class FlutterWidget extends material.StatefulWidget {
   const FlutterWidget({
     super.key,
     required this.widget,
+    this.wrappingBuilder,
     this.customWidgets = const {},
   })  : request = null,
         json = null,
@@ -89,6 +96,7 @@ class FlutterWidget extends material.StatefulWidget {
   const FlutterWidget.json({
     super.key,
     required this.json,
+    this.wrappingBuilder,
     this.customWidgets = const {},
   })  : assetPath = null,
         widget = null,
@@ -99,6 +107,7 @@ class FlutterWidget extends material.StatefulWidget {
   const FlutterWidget.network({
     super.key,
     required this.request,
+    this.wrappingBuilder,
     this.customWidgets = const {},
     this.assetPath,
     this.httpClient,
@@ -109,6 +118,7 @@ class FlutterWidget extends material.StatefulWidget {
   const FlutterWidget.asset({
     super.key,
     required this.assetPath,
+    this.wrappingBuilder,
     this.customWidgets = const {},
   })  : widget = null,
         json = null,
@@ -123,6 +133,7 @@ class FlutterWidget extends material.StatefulWidget {
   final String? assetPath;
   final http.Client? httpClient;
   final widgets.FormData? formData;
+  final WidgetWrappingBuilder? wrappingBuilder;
 
   @override
   material.State<FlutterWidget> createState() => _FlutterWidgetState();
@@ -2974,7 +2985,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     final widgets.Widget? widget,
   ) {
     if (widget == null) return null;
-    return widget.map(
+    final child = widget.map(
       aspectRatio: (value) => material.AspectRatio(
         key: $key(value.key),
         aspectRatio: value.aspectRatio,
@@ -4636,5 +4647,10 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         },
       ),
     );
+    if (this.widget.wrappingBuilder != null) {
+      return this.widget.wrappingBuilder!(context, widget, child);
+    } else {
+      return child;
+    }
   }
 }
