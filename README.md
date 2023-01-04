@@ -303,3 +303,7 @@ And the backing JSON:
 ## Troubleshooting
 
 For web you need to pass the flag `--no-tree-shake-icons` to keep the icons.
+
+## Related projects
+
+- [rfw](https://github.com/flutter/flutter/issues/90218)
