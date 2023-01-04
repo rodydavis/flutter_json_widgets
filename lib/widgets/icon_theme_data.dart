@@ -1,3 +1,6 @@
+/// Based on the [IconThemeData](https://api.flutter.dev/flutter/widgets/IconThemeData-class.html) class in the Flutter SDK.
+library icon_theme_data;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'color.dart';

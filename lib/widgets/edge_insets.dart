@@ -1,3 +1,6 @@
+/// Based on the [EdgeInsets](https://api.flutter.dev/flutter/painting/EdgeInsets-class.html) class in the Flutter SDK.
+library edge_insets;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'edge_insets.freezed.dart';

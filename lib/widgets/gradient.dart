@@ -1,3 +1,6 @@
+/// Based on the [Gradient](https://api.flutter.dev/flutter/painting/Gradient-class.html) class in the Flutter SDK.
+library gradient;
+
 import 'dart:math';
 
 import 'package:freezed_annotation/freezed_annotation.dart';

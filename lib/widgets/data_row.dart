@@ -1,3 +1,6 @@
+/// Based on the [DataRow](https://api.flutter.dev/flutter/material/DataRow-class.html) class in the Flutter SDK.
+library data_row;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'callback.dart';

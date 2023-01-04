@@ -1,3 +1,6 @@
+/// Based on the [Rect](https://api.flutter.dev/flutter/dart-ui/Rect-class.html) class in the Flutter SDK.
+library rect;
+
 import 'dart:math';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

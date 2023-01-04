@@ -1,3 +1,8 @@
+/// Based on the [Widget](https://api.flutter.dev/flutter/widgets/Widget-class.html) library in the Flutter SDK.
+/// 
+/// This library contains widgets part of the Flutter SDK.
+library widget;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:vector_math/vector_math.dart';
 

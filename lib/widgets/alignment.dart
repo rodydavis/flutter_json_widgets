@@ -1,3 +1,10 @@
+/// Based on the [Alignment](https://api.flutter.dev/flutter/painting/Alignment-class.html) class in the Flutter SDK.
+///
+/// This will map to the [AlignmentDirectional](https://api.flutter.dev/flutter/painting/AlignmentDirectional-class.html) class in some widgets.
+///
+/// This is based on the [AlignmentGeometry](https://api.flutter.dev/flutter/painting/AlignmentGeometry-class.html) class and simplifies the API.
+library alignment;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'alignment.freezed.dart';

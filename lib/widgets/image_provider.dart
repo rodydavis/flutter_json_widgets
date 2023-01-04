@@ -1,3 +1,6 @@
+/// Based on the [ImageProvider](https://api.flutter.dev/flutter/painting/ImageProvider-class.html) class in the Flutter SDK.
+library image_provider;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'image_provider.freezed.dart';

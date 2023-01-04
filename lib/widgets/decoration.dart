@@ -1,3 +1,6 @@
+/// Based on the [Decoration](https://api.flutter.dev/flutter/painting/Decoration-class.html) class in the Flutter SDK.
+library decoration;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'border_radius.dart';

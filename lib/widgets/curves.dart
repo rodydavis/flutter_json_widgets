@@ -1,3 +1,6 @@
+/// Based on the [Curve](https://api.flutter.dev/flutter/animation/Curve-class.html) class in the Flutter SDK.
+library curves;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'curves.freezed.dart';

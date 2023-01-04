@@ -1,3 +1,6 @@
+/// Based on the [MaterialBanner](https://api.flutter.dev/flutter/material/MaterialBanner-class.html) class in the Flutter SDK.
+library material_banner;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'color.dart';

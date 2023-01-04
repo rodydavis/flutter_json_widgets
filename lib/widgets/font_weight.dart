@@ -1,3 +1,6 @@
+/// Based on the [FontWeight](https://api.flutter.dev/flutter/dart-ui/FontWeight-class.html) class in the Flutter SDK.
+library font_weight;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'font_weight.freezed.dart';

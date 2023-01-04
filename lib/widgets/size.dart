@@ -1,3 +1,6 @@
+/// Based on the [Size](https://api.flutter.dev/flutter/dart-ui/Size-class.html) class in the Flutter SDK.
+library size;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'size.freezed.dart';

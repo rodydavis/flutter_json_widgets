@@ -1,3 +1,6 @@
+/// Based on the [Paint](https://api.flutter.dev/flutter/dart-ui/Paint-class.html) class in the Flutter SDK.
+library paint;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'paint.freezed.dart';

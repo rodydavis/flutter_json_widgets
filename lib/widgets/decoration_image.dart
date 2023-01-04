@@ -1,3 +1,6 @@
+/// Based on the [DecorationImage](https://api.flutter.dev/flutter/painting/DecorationImage-class.html) class in the Flutter SDK.
+library decoration_image;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'alignment.dart';

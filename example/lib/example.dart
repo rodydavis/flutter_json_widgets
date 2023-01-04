@@ -1,4 +1,4 @@
-import 'package:flutter_json_widgets/material.dart';
+import 'package:flutter_json_widgets/flutter_json_widgets.dart';
 
 class Example {
   Widget buildApp() {

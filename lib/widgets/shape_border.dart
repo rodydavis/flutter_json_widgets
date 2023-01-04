@@ -1,3 +1,6 @@
+/// Based on the [ShapeBorder](https://api.flutter.dev/flutter/painting/ShapeBorder-class.html) class in the Flutter SDK.
+library shape_border;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'border_radius.dart';
@@ -7,10 +10,13 @@ import 'radius.dart';
 part 'shape_border.freezed.dart';
 part 'shape_border.g.dart';
 
+/// Based on the [InputBorder](https://api.flutter.dev/flutter/material/InputBorder-class.html) class in the Flutter SDK.
 abstract class InputBorder {}
 
+/// Based on the [OutlinedBorder](https://api.flutter.dev/flutter/painting/OutlinedBorder-class.html) class in the Flutter SDK.
 abstract class OutlinedBorder {}
 
+/// Based on the [BoxBorder](https://api.flutter.dev/flutter/painting/BoxBorder-class.html) class in the Flutter SDK.
 abstract class BoxBorder {}
 
 @freezed

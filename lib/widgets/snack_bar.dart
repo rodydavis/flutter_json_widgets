@@ -1,3 +1,6 @@
+/// Based on the [SnackBar](https://api.flutter.dev/flutter/material/SnackBar-class.html) class in the Flutter SDK.
+library snack_bar;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'callback.dart';

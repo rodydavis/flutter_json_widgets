@@ -1,3 +1,62 @@
+/// A transformer that converts a JSON string into a Flutter widget.
+///
+/// This can render a widget at runtime based on a JSON string, widget class, or URL.
+///
+/// ## Widget Class
+///
+/// To generate a widget from a dart class included in this package simple pass it to the default constructor.
+///
+/// ```dart
+/// final customWidget = Container(child: Text('Hello World!'));
+///
+/// FlutterWidget(
+///   widget: customWidget,
+/// );
+/// ```
+///
+/// ## JSON String
+///
+/// To generate a widget from a JSON string pass it to the json constructor.
+///
+/// ```dart
+/// final json = {
+///   "runtimeType": "Container",
+///   "child": {
+///    "runtimeType": "Text",
+///      "data": "Hello World!"
+///   }
+/// };
+///
+/// FlutterWidget.json(
+///  json: json,
+/// );
+/// ```
+///
+/// ## URL
+///
+/// To generate a widget from a URL pass it to the network constructor (the request can have a [StreamedResponse](https://pub.dev/documentation/http/latest/http/StreamedResponse-class.html) or a [String]).
+///
+/// ```dart
+/// final url = 'localhost:8080/widget.json';
+///
+/// FlutterWidget.network(
+///   request: NetworkHttpRequest(url: url),
+/// );
+/// ```
+///
+/// ## Asset
+///
+/// To generate a widget from an asset path it to the asset constructor.
+///
+/// ```dart
+/// final asset = 'assets/widget.json';
+///
+/// FlutterWidget.asset(
+///   assetPath: asset,
+/// );
+/// ```
+library flutter_widget;
+
 import 'dart:convert';
 import 'dart:typed_data';
 

@@ -1,3 +1,6 @@
+/// Based on the [ThemeData](https://api.flutter.dev/flutter/material/ThemeData-class.html) class in the Flutter SDK.
+library theme_data;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'color.dart';

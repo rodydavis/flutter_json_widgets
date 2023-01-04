@@ -1,15 +1,20 @@
+/// Class for creating [Sliver] widgets. The Flutter SDK uses the [Widget] class but can lead to improper usage.
+///
+/// https://docs.flutter.dev/development/ui/advanced/slivers
+///
+/// This contains Slivers that are part of the Flutter SDK.
+library sliver;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'color.dart';
 import 'edge_insets.dart';
-import 'enums.dart';
 import 'key.dart';
 import 'preferred_size_widget.dart';
 import 'shape_border.dart';
 import 'sliver_child_delegate.dart';
 import 'sliver_grid_delegate.dart';
 import 'text_style.dart';
-import 'text_theme.dart';
 import 'widget.dart';
 
 part 'sliver.freezed.dart';

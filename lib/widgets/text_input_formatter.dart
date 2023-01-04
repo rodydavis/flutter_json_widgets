@@ -1,3 +1,6 @@
+/// Based on the [TextInputFormatter](https://api.flutter.dev/flutter/services/TextInputFormatter-class.html) class in the Flutter SDK.
+library text_input_formatter;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'enums.dart';

@@ -1,3 +1,6 @@
+/// Based on the [ColorScheme](https://api.flutter.dev/flutter/material/ColorScheme-class.html) class in the Flutter SDK.
+library color_scheme;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'color.dart';

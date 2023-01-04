@@ -1,3 +1,6 @@
+/// Based on the [InlineSpan](https://api.flutter.dev/flutter/painting/InlineSpan-class.html) class in the Flutter SDK.
+library inline_span;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'callback.dart';

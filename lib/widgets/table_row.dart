@@ -1,3 +1,6 @@
+/// Based on the [TableRow](https://api.flutter.dev/flutter/widgets/TableRow-class.html) class in the Flutter SDK.
+library table_row;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'decoration.dart';

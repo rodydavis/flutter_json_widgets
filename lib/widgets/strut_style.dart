@@ -1,3 +1,6 @@
+/// Based on the [StrutStyle](https://api.flutter.dev/flutter/painting/StrutStyle-class.html) class in the Flutter SDK.
+library strut_style;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'enums.dart';

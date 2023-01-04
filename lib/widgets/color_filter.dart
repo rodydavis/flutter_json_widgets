@@ -1,3 +1,6 @@
+/// Based on the [ColorFilter](https://api.flutter.dev/flutter/dart-ui/ColorFilter-class.html) class in the Flutter SDK.
+library color_filter;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'color.dart';

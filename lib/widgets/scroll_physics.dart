@@ -1,3 +1,6 @@
+/// Based on the [ScrollPhysics](https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html) class in the Flutter SDK.
+library scroll_physics;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'enums.dart';
@@ -10,11 +13,10 @@ class ScrollPhysics with _$ScrollPhysics {
   const factory ScrollPhysics({ScrollPhysics? parent}) = _ScrollPhysics;
   const factory ScrollPhysics.rangeMaintaining({ScrollPhysics? parent}) =
       RangeMaintainingScrollPhysics;
-  const factory ScrollPhysics.bouncingScroll({
-    @Default(ScrollDecelerationRate.normal)
-        ScrollDecelerationRate decelerationRate,
-    ScrollPhysics? parent,
-  }) = BouncingScrollScrollPhysics;
+  const factory ScrollPhysics.bouncingScroll(
+      {@Default(ScrollDecelerationRate.normal)
+          ScrollDecelerationRate decelerationRate,
+      ScrollPhysics? parent}) = BouncingScrollScrollPhysics;
   const factory ScrollPhysics.clamping({ScrollPhysics? parent}) =
       ClampingScrollPhysics;
   const factory ScrollPhysics.alwaysScrollable({ScrollPhysics? parent}) =

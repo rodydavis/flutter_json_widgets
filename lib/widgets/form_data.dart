@@ -1,3 +1,8 @@
+/// Since this is JSON we need to store an abstract type for form data.
+///
+/// These classes is used by both form controls and the form submit event.
+library form_data;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'color.dart';

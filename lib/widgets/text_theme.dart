@@ -1,3 +1,6 @@
+/// Based on the [TextTheme](https://api.flutter.dev/flutter/material/TextTheme-class.html) class in the Flutter SDK.
+library text_theme;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'text_style.dart';

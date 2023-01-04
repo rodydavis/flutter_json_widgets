@@ -1,3 +1,6 @@
+/// Based on the [VisualDensity](https://api.flutter.dev/flutter/material/VisualDensity-class.html) class in the Flutter SDK.
+library visual_density;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'visual_density.freezed.dart';
@@ -10,7 +13,8 @@ class VisualDensity with _$VisualDensity {
     @Default(0.0) double vertical,
   }) = _VisualDensity;
 
-  const factory VisualDensity.adaptivePlatformDensity() = AdaptivePlatformDensity;
+  const factory VisualDensity.adaptivePlatformDensity() =
+      AdaptivePlatformDensity;
 
   static const VisualDensity standard = VisualDensity();
 

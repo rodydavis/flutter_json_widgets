@@ -10,6 +10,8 @@ This does not depend on the flutter sdk for the core classes and can be used in 
 
 [Online Editor](https://rodydavis.github.io/flutter_json_widgets/)
 
+[Documentation](https://rodydavis.github.io/flutter_json_widgets/docs/)
+
 ## Implementation
 
 This package relies on another package called [freezed](https://pub.dev/packages/freezed) to generate the classes, enums and especially the unions that make it very helpful for parsing.

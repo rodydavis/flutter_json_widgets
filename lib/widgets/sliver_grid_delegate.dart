@@ -1,3 +1,6 @@
+/// Based on the [SliverGridDelegate](https://api.flutter.dev/flutter/rendering/SliverGridDelegate-class.html) class in the Flutter SDK.
+library sliver_grid_delegate;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'sliver_grid_delegate.freezed.dart';

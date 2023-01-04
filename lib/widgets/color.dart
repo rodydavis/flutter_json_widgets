@@ -1,3 +1,13 @@
+/// Based on the [Color](https://api.flutter.dev/flutter/dart-ui/Color-class.html) class in the Flutter SDK.
+///
+/// Since we can't look up the [ThemeData] class in the build method there are helpful methods to get the [design tokens](https://m3.material.io/foundations/design-tokens/overview) for Material 3 colors.
+///
+/// ```dart
+/// - Theme.of(context).textTheme.colorScheme.primary;
+/// + Color.primary();
+/// ```
+library color;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'color.freezed.dart';

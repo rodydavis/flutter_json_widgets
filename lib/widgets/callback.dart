@@ -1,3 +1,8 @@
+/// Since JSON does not support functions, we need to use a custom class to map intents to callbacks.
+///
+/// These classes do not depend on Flutter and can be extended to work with whichever runtime you are using.
+library callback;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'enums.dart';

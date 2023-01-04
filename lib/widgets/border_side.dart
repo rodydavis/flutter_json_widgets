@@ -1,3 +1,6 @@
+/// Based on the [BorderSide](https://api.flutter.dev/flutter/painting/BorderSide-class.html) class in the Flutter SDK.
+library border_side;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'color.dart';

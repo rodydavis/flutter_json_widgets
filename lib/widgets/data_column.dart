@@ -1,3 +1,6 @@
+/// Based on the [DataColumn](https://api.flutter.dev/flutter/material/DataColumn-class.html) class in the Flutter SDK.
+library data_column;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'widget.dart';

@@ -1,3 +1,6 @@
+/// Based on the [FontFeature](https://api.flutter.dev/flutter/dart-ui/FontFeature-class.html) class in the Flutter SDK.
+library font_feature;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'font_feature.freezed.dart';

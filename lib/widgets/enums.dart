@@ -352,13 +352,7 @@ enum PointerDeviceKind {
   unknown
 }
 
-enum PointerSignalKind {
-  none,
-  scroll,
-  scrollInertiaCancel,
-  scale,
-  unknown
-}
+enum PointerSignalKind { none, scroll, scrollInertiaCancel, scale, unknown }
 
 enum MaxLengthEnforcement {
   none,

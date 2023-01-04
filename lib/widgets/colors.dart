@@ -1,4 +1,7 @@
-import '../material.dart';
+/// Based on the [Colors](https://api.flutter.dev/flutter/material/Colors-class.html) class in the Flutter SDK.
+library colors;
+
+import '../flutter_json_widgets.dart';
 
 class Colors {
   static const Color transparent = Color(0x00000000);

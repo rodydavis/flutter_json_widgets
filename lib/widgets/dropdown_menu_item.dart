@@ -1,3 +1,6 @@
+/// Based on the [DropdownMenuItem](https://api.flutter.dev/flutter/material/DropdownMenuItem-class.html) class in the Flutter SDK.
+library dropdown_menu_item;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'alignment.dart';

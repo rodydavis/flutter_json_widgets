@@ -1,3 +1,6 @@
+/// Based on the [MaterialStateProperty](https://api.flutter.dev/flutter/material/MaterialStateProperty-class.html) class in the Flutter SDK.
+library material_state_property;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'color.dart';

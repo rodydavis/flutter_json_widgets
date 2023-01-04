@@ -1,3 +1,6 @@
+/// Based on the [PreferredSizeWidget](https://api.flutter.dev/flutter/widgets/PreferredSizeWidget-class.html) class in the Flutter SDK.
+library preferred_size_widget;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'border_radius.dart';

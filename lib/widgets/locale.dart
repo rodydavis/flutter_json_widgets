@@ -1,3 +1,6 @@
+/// Based on the [Locale](https://api.flutter.dev/flutter/dart-ui/Locale-class.html) class in the Flutter SDK.
+library locale;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'locale.freezed.dart';

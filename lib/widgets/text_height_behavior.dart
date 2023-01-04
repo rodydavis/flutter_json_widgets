@@ -1,3 +1,6 @@
+/// Based on the [TextHeightBehavior](https://api.flutter.dev/flutter/dart-ui/TextHeightBehavior-class.html) class in the Flutter SDK.
+library text_height_behavior;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'enums.dart';

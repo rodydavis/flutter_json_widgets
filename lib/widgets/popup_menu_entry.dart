@@ -1,3 +1,6 @@
+/// Based on the [PopupMenuEntry](https://api.flutter.dev/flutter/material/PopupMenuEntry-class.html) class in the Flutter SDK.
+library popup_menu_entry;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'callback.dart';

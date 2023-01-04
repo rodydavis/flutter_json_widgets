@@ -1,3 +1,13 @@
+/// Based on the [TextStyle](https://api.flutter.dev/flutter/painting/TextStyle-class.html) class in the Flutter SDK.
+///
+/// Since we can't look up the [ThemeData] class in the build method there are helpful methods to get the [design tokens](https://m3.material.io/foundations/design-tokens/overview) for Material 3 text styles and optional overrides.
+///
+/// ```dart
+/// - Theme.of(context).textTheme.displayLarge.copyWith(fontSize: 24);
+/// + TextStyle.displayLarge(fontSize: 24);
+/// ```
+library text_style;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'color.dart';

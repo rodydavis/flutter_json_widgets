@@ -1,3 +1,6 @@
+/// Based on the [InputDecoration](https://api.flutter.dev/flutter/material/InputDecoration-class.html) class in the Flutter SDK.
+library input_decoration;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'box_constraints.dart';

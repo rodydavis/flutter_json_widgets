@@ -1,3 +1,8 @@
+/// Since this is JSON we need to describe the network requests that will be made.
+///
+/// For the form submit event it will be a POST request with the form data.
+library network_request;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'network_request.freezed.dart';

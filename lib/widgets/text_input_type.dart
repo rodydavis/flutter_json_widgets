@@ -1,3 +1,6 @@
+/// Based on the [TextInputType](https://api.flutter.dev/flutter/services/TextInputType-class.html) class in the Flutter SDK.
+library text_input_type;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'text_input_type.freezed.dart';

@@ -1,3 +1,6 @@
+/// Based on the [Offset](https://api.flutter.dev/flutter/dart-ui/Offset-class.html) class in the Flutter SDK.
+library offset;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'offset.freezed.dart';

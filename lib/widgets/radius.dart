@@ -1,3 +1,6 @@
+/// Based on the [Radius](https://api.flutter.dev/flutter/dart-ui/Radius-class.html) class in the Flutter SDK.
+library radius;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'radius.freezed.dart';

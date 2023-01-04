@@ -1,3 +1,6 @@
+/// Based on the [SliverChildDelegate](https://api.flutter.dev/flutter/widgets/SliverChildDelegate-class.html) class in the Flutter SDK.
+library sliver_child_delegate;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'widget.dart';

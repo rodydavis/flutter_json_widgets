@@ -1,3 +1,6 @@
+/// Based on the [NavigationRailDestination](https://api.flutter.dev/flutter/material/NavigationRailDestination-class.html) class in the Flutter SDK.
+library navigation_rail_destination;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'color.dart';

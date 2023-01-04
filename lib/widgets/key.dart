@@ -1,3 +1,6 @@
+/// Based on the [Key](https://api.flutter.dev/flutter/foundation/Key-class.html) class in the Flutter SDK.
+library key;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'key.freezed.dart';

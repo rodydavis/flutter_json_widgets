@@ -1,3 +1,6 @@
+/// Based on the [BorderRadius](https://api.flutter.dev/flutter/painting/BorderRadius-class.html) class in the Flutter SDK.
+library border_radius;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'radius.dart';

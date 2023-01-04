@@ -1,3 +1,13 @@
+/// Based on the [FloatingActionButtonLocation](https://api.flutter.dev/flutter/material/FloatingActionButtonLocation-class.html) class in the Flutter SDK.
+///
+/// Instead of using the class like an enum in the Flutter SDK we call the named constructors directly.
+///
+/// ```dart
+/// - FloatingActionButtonLocation.startTop
+/// + FloatingActionButtonLocation.startTop()
+/// ```
+library floating_action_button_location;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'floating_action_button_location.freezed.dart';

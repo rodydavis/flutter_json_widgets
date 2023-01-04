@@ -1,3 +1,6 @@
+/// Based on the [MouseCursor](https://api.flutter.dev/flutter/services/MouseCursor-class.html) class in the Flutter SDK.
+library mouse_cursor;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'mouse_cursor.freezed.dart';

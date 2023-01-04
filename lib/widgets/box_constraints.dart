@@ -1,3 +1,6 @@
+/// Based on the [BoxConstraints](https://api.flutter.dev/flutter/rendering/BoxConstraints-class.html) class in the Flutter SDK.
+library box_constraints;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'box_constraints.freezed.dart';

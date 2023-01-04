@@ -1,3 +1,6 @@
+/// Based on the [TableBorder](https://api.flutter.dev/flutter/rendering/TableBorder-class.html) class in the Flutter SDK.
+library table_border;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'border_radius.dart';

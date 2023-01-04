@@ -1,3 +1,6 @@
+/// Based on the [DataCell](https://api.flutter.dev/flutter/material/DataCell-class.html) class in the Flutter SDK.
+library data_cell;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'callback.dart';

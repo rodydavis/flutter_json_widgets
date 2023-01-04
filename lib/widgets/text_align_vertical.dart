@@ -1,3 +1,6 @@
+/// Based on the [TextAlignVertical](https://api.flutter.dev/flutter/painting/TextAlignVertical-class.html) class in the Flutter SDK.
+library text_align_vertical;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'text_align_vertical.freezed.dart';
