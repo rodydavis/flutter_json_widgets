@@ -52,7 +52,8 @@
       <span class="name ">FlutterWidget.asset</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="asset-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
 <li><span class="parameter" id="asset-param-assetPath"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">assetPath</span>, </span></li>
 <li><span class="parameter" id="asset-param-wrappingBuilder"><span class="type-annotation"><a href="../../flutter_widget/WidgetWrappingBuilder.html">WidgetWrappingBuilder</a>?</span> <span class="parameter-name">wrappingBuilder</span>, </span></li>
-<li><span class="parameter" id="asset-param-customWidgets"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="../../flutter_widget/WidgetBuilder.html">WidgetBuilder</a></span>&gt;</span></span> <span class="parameter-name">customWidgets</span> = <span class="default-value">const {}</span>}</span></li>
+<li><span class="parameter" id="asset-param-emptyBuilder"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/WidgetBuilder.html">WidgetBuilder</a>?</span> <span class="parameter-name">emptyBuilder</span>, </span></li>
+<li><span class="parameter" id="asset-param-customWidgets"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="../../flutter_widget/CustomWidgetBuilder.html">CustomWidgetBuilder</a></span>&gt;</span></span> <span class="parameter-name">customWidgets</span> = <span class="default-value">const {}</span>}</span></li>
 </ol>)
     </section>
 
@@ -66,6 +67,7 @@
   super.key,
   required this.assetPath,
   this.wrappingBuilder,
+  this.emptyBuilder,
   this.customWidgets = const {},
 })  : widget = null,
       json = null,
@@ -107,6 +109,7 @@
     </li>
     <li><a href="../../flutter_widget/FlutterWidget/assetPath.html">assetPath</a></li>
     <li><a href="../../flutter_widget/FlutterWidget/customWidgets.html">customWidgets</a></li>
+    <li><a href="../../flutter_widget/FlutterWidget/emptyBuilder.html">emptyBuilder</a></li>
     <li><a href="../../flutter_widget/FlutterWidget/formData.html">formData</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
     <li><a href="../../flutter_widget/FlutterWidget/httpClient.html">httpClient</a></li>
