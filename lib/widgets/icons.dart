@@ -11,7 +11,7 @@ import '../flutter_json_widgets.dart';
 class Icons {
   /// Get an icon by name.
   static IconData? material(String name) {
-    final info = _iconMetadata(name);
+    final info = _iconMetadata(name: name);
     if (info != null) {
       const family = 'MaterialIcons';
       const matchTextDirection = true;
@@ -21,6 +21,14 @@ class Icons {
         fontFamily: family,
         matchTextDirection: matchTextDirection,
       );
+    }
+    return null;
+  }
+
+  static String? iconName(int codepoint) {
+    final info = _iconMetadata(codepoint: codepoint);
+    if (info != null) {
+      return info['name'] as String;
     }
     return null;
   }
@@ -46323,9 +46331,19 @@ class Icons {
     return icons.map((icon) => icon['name'] as String).toList();
   }
 
-  static Map<String, Object?>? _iconMetadata(String name) {
+  static Map<String, Object?>? _iconMetadata({
+    String? name,
+    int? codepoint,
+  }) {
     final icons = _metadata['icons'] as List<Map<String, Object?>>;
-    return icons.firstWhereOrNull((icon) => icon['name'] == name);
+    return icons.firstWhereOrNull((icon) {
+      if (name != null) {
+        return icon['name'] == name;
+      } else if (codepoint != null) {
+        return icon['codepoint'] == codepoint;
+      }
+      return false;
+    });
   }
 
   // Static icons for popular material icons
