@@ -3208,6 +3208,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
       icon: (value) => material.Icon(
         $iconData(value.icon),
         key: $key(value.key),
+        size: value.size,
         fill: value.fill,
         weight: value.weight,
         grade: value.grade,
