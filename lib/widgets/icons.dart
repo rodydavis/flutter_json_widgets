@@ -52958,7 +52958,7 @@ class Icons {  /// <i class="material-icons md-36">ten_k</i> ten_k - e000
     fontFamily: 'MaterialIcons',
     matchTextDirection: false,
   );
-  final _metadata = <String, IconData>{
+  static const _metadata = <String, IconData>{
     'ten_k': ten_k,
     'ten_k_sharp': ten_k_sharp,
     'ten_k_rounded': ten_k_rounded,
@@ -61788,4 +61788,7 @@ class Icons {  /// <i class="material-icons md-36">ten_k</i> ten_k - e000
 
   /// List of all the icon names
   List<String> get values => _metadata.keys.toList();
+
+  /// Get the icon data for the given name
+  static IconData? getIconByName(String name) => _metadata[name];
 }

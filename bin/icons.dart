@@ -55,7 +55,7 @@ void main() {
       '',
     ], '\n');
   }
-  sb.writeln('  final _metadata = <String, IconData>{');
+  sb.writeln('  static const _metadata = <String, IconData>{');
   for (var icon in icons) {
     sb.writeln('    \'${icon.name}\': ${icon.name},');
   }
@@ -63,6 +63,10 @@ void main() {
   sb.writeln('');
   sb.writeln('  /// List of all the icon names');
   sb.writeln('  List<String> get values => _metadata.keys.toList();');
+  sb.writeln('');
+  sb.writeln('  /// Get the icon data for the given name');
+  sb.writeln(
+      '  static IconData? getIconByName(String name) => _metadata[name];');
   sb.writeAll([
     '}',
     '',
