@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sliver_child_delegate.dart';
+part of sliver_child_delegate;
 
 // **************************************************************************
 // JsonSerializableGenerator

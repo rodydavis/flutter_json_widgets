@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'scroll_physics.dart';
+part of scroll_physics;
 
 // **************************************************************************
 // JsonSerializableGenerator

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'image_provider.dart';
+part of image_provider;
 
 // **************************************************************************
 // JsonSerializableGenerator

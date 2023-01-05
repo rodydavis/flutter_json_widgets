@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'navigation_rail_destination.dart';
+part of navigation_rail_destination;
 
 // **************************************************************************
 // JsonSerializableGenerator

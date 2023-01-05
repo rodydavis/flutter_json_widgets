@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'shadow.dart';
+part of shadow;
 
 // **************************************************************************
 // JsonSerializableGenerator

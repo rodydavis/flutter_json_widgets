@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'curves.dart';
+part of curves;
 
 // **************************************************************************
 // JsonSerializableGenerator

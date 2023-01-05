@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'font_weight.dart';
+part of font_weight;
 
 // **************************************************************************
 // JsonSerializableGenerator

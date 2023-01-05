@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'floating_label_alignment.dart';
+part of floating_label_alignment;
 
 // **************************************************************************
 // JsonSerializableGenerator

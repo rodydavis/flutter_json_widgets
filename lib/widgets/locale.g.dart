@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'locale.dart';
+part of locale;
 
 // **************************************************************************
 // JsonSerializableGenerator

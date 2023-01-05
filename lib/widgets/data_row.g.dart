@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'data_row.dart';
+part of data_row;
 
 // **************************************************************************
 // JsonSerializableGenerator

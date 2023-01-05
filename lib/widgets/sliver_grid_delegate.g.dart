@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sliver_grid_delegate.dart';
+part of sliver_grid_delegate;
 
 // **************************************************************************
 // JsonSerializableGenerator

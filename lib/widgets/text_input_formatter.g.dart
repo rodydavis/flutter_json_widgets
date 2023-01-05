@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'text_input_formatter.dart';
+part of text_input_formatter;
 
 // **************************************************************************
 // JsonSerializableGenerator

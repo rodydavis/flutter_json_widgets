@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'snack_bar.dart';
+part of snack_bar;
 
 // **************************************************************************
 // JsonSerializableGenerator

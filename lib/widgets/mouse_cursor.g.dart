@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'mouse_cursor.dart';
+part of mouse_cursor;
 
 // **************************************************************************
 // JsonSerializableGenerator

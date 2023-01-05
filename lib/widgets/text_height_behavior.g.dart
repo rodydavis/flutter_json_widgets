@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'text_height_behavior.dart';
+part of text_height_behavior;
 
 // **************************************************************************
 // JsonSerializableGenerator

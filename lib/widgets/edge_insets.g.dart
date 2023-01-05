@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'edge_insets.dart';
+part of edge_insets;
 
 // **************************************************************************
 // JsonSerializableGenerator

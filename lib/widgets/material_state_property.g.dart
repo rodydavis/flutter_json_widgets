@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'material_state_property.dart';
+part of material_state_property;
 
 // **************************************************************************
 // JsonSerializableGenerator

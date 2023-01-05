@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'font_variation.dart';
+part of font_variation;
 
 // **************************************************************************
 // JsonSerializableGenerator

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'visual_density.dart';
+part of visual_density;
 
 // **************************************************************************
 // JsonSerializableGenerator

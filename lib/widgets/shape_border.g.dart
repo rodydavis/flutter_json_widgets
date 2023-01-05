@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'shape_border.dart';
+part of shape_border;
 
 // **************************************************************************
 // JsonSerializableGenerator

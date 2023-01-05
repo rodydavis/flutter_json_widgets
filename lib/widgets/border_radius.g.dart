@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'border_radius.dart';
+part of border_radius;
 
 // **************************************************************************
 // JsonSerializableGenerator

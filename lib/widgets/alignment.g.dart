@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'alignment.dart';
+part of alignment;
 
 // **************************************************************************
 // JsonSerializableGenerator

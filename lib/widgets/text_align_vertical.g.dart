@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'text_align_vertical.dart';
+part of text_align_vertical;
 
 // **************************************************************************
 // JsonSerializableGenerator

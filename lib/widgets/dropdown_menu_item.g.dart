@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'dropdown_menu_item.dart';
+part of dropdown_menu_item;
 
 // **************************************************************************
 // JsonSerializableGenerator

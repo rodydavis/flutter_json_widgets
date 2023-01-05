@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'inline_span.dart';
+part of inline_span;
 
 // **************************************************************************
 // JsonSerializableGenerator

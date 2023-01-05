@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'border_side.dart';
+part of border_side;
 
 // **************************************************************************
 // JsonSerializableGenerator

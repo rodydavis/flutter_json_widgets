@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'offset.dart';
+part of offset;
 
 // **************************************************************************
 // JsonSerializableGenerator

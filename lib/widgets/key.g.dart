@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'key.dart';
+part of key;
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
 _$ValueKey _$$ValueKeyFromJson(Map<String, dynamic> json) => _$ValueKey(
-      value: json['value'] as String,
+      json['value'] as String,
       $type: json['runtimeType'] as String?,
     );
 

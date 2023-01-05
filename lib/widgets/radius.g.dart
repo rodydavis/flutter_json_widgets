@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'radius.dart';
+part of radius;
 
 // **************************************************************************
 // JsonSerializableGenerator

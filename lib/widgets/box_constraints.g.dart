@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'box_constraints.dart';
+part of box_constraints;
 
 // **************************************************************************
 // JsonSerializableGenerator

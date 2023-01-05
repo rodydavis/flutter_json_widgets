@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'popup_menu_entry.dart';
+part of popup_menu_entry;
 
 // **************************************************************************
 // JsonSerializableGenerator

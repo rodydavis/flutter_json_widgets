@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'strut_style.dart';
+part of strut_style;
 
 // **************************************************************************
 // JsonSerializableGenerator

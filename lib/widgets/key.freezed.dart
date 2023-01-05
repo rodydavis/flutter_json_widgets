@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'key.dart';
+part of key;
 
 // **************************************************************************
 // FreezedGenerator
@@ -107,7 +107,7 @@ class __$$ValueKeyCopyWithImpl<$Res> extends _$KeyCopyWithImpl<$Res, _$ValueKey>
     Object? value = null,
   }) {
     return _then(_$ValueKey(
-      value: null == value
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -118,7 +118,7 @@ class __$$ValueKeyCopyWithImpl<$Res> extends _$KeyCopyWithImpl<$Res, _$ValueKey>
 /// @nodoc
 @JsonSerializable()
 class _$ValueKey implements ValueKey {
-  const _$ValueKey({required this.value, final String? $type})
+  const _$ValueKey(this.value, {final String? $type})
       : $type = $type ?? 'value';
 
   factory _$ValueKey.fromJson(Map<String, dynamic> json) =>
@@ -224,7 +224,7 @@ class _$ValueKey implements ValueKey {
 }
 
 abstract class ValueKey implements Key, LocalKey {
-  const factory ValueKey({required final String value}) = _$ValueKey;
+  const factory ValueKey(final String value) = _$ValueKey;
 
   factory ValueKey.fromJson(Map<String, dynamic> json) = _$ValueKey.fromJson;
 

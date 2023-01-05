@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'callback.dart';
+part of callback;
 
 // **************************************************************************
 // JsonSerializableGenerator

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'gradient.dart';
+part of gradient;
 
 // **************************************************************************
 // JsonSerializableGenerator

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'floating_action_button_location.dart';
+part of floating_action_button_location;
 
 // **************************************************************************
 // JsonSerializableGenerator

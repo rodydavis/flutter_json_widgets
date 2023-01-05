@@ -11,7 +11,7 @@ abstract class LocalKey {}
 @freezed
 class Key with _$Key {
   @Implements<LocalKey>()
-  const factory Key.value({required String value}) = ValueKey;
+  const factory Key.value(String value) = ValueKey;
 
   @Implements<LocalKey>()
   const factory Key.unique() = UniqueKey;

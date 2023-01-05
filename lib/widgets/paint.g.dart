@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'paint.dart';
+part of paint;
 
 // **************************************************************************
 // JsonSerializableGenerator

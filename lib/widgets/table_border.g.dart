@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'table_border.dart';
+part of table_border;
 
 // **************************************************************************
 // JsonSerializableGenerator

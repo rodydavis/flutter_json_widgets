@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'preferred_size_widget.dart';
+part of preferred_size_widget;
 
 // **************************************************************************
 // JsonSerializableGenerator

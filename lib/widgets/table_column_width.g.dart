@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'table_column_width.dart';
+part of table_column_width;
 
 // **************************************************************************
 // JsonSerializableGenerator
