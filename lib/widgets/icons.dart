@@ -5,6 +5,8 @@
 /// When building in [release] mode you need to pass the argument `--no-tree-shake-icons` to the build command.
 library icons;
 
+import 'package:collection/collection.dart';
+
 import '../flutter_json_widgets.dart';
 
 /// Helper class for material icons
@@ -61791,4 +61793,7 @@ class Icons {  /// <i class="material-icons md-36">ten_k</i> ten_k - e000
 
   /// Get the icon data for the given name
   static IconData? getIconByName(String name) => _metadata[name];
+
+  /// Get name for the given icon data
+  static String? getNameByIcon(IconData icon) => _metadata.entries.firstWhereOrNull((e) => e.value == icon)?.key;
 }

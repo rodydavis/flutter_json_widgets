@@ -39,6 +39,8 @@ void main() {
     "/// When building in [release] mode you need to pass the argument `--no-tree-shake-icons` to the build command.",
     "library icons;",
     "",
+    "import 'package:collection/collection.dart';",
+    "",
     "import '../flutter_json_widgets.dart';",
     "",
     "/// Helper class for material icons",
@@ -67,6 +69,10 @@ void main() {
   sb.writeln('  /// Get the icon data for the given name');
   sb.writeln(
       '  static IconData? getIconByName(String name) => _metadata[name];');
+  sb.writeln('');
+  sb.writeln('  /// Get name for the given icon data');
+  sb.writeln(
+      '  static String? getNameByIcon(IconData icon) => _metadata.entries.firstWhereOrNull((e) => e.value == icon)?.key;');
   sb.writeAll([
     '}',
     '',
