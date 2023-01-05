@@ -61789,7 +61789,7 @@ class Icons {  /// <i class="material-icons md-36">ten_k</i> ten_k - e000
   };
 
   /// List of all the icon names
-  List<String> get values => _metadata.keys.toList();
+  static List<String> get values => _metadata.keys.toList();
 
   /// Get the icon data for the given name
   static IconData? getIconByName(String name) => _metadata[name];

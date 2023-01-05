@@ -64,7 +64,7 @@ void main() {
   sb.writeln('  };');
   sb.writeln('');
   sb.writeln('  /// List of all the icon names');
-  sb.writeln('  List<String> get values => _metadata.keys.toList();');
+  sb.writeln('  static List<String> get values => _metadata.keys.toList();');
   sb.writeln('');
   sb.writeln('  /// Get the icon data for the given name');
   sb.writeln(
