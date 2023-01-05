@@ -418,14 +418,11 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     final widgets.IconData? iconData,
   ) {
     if (iconData == null) return null;
-    return iconData.map(
-      (value) => material.IconData(
-        value.codePoint,
-        fontFamily: value.fontFamily,
-        fontPackage: value.fontPackage,
-        matchTextDirection: value.matchTextDirection,
-      ),
-      material: (value) => $iconData(widgets.Icons.material(value.name)),
+    return material.IconData(
+      iconData.codePoint,
+      fontFamily: iconData.fontFamily,
+      fontPackage: iconData.fontPackage,
+      matchTextDirection: iconData.matchTextDirection,
     );
   }
 
