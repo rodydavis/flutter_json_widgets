@@ -15,6 +15,8 @@ class IconData with _$IconData {
     @Default(false) bool matchTextDirection,
   }) = _IconData;
 
+  const factory IconData.material(String name) = MaterialIcon;
+
   factory IconData.fromJson(Map<String, Object?> json) =>
       _$IconDataFromJson(json);
 }

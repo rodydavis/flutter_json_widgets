@@ -1,6 +1,6 @@
 name: flutter_json_widgets
 description: A package for creating flutter widgets from json or dart classes
-version: 0.0.1
+version: 0.1.0
 
 environment:
   sdk: ">=3.0.0-46.0.dev <4.0.0"
