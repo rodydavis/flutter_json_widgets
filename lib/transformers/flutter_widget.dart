@@ -64,7 +64,7 @@ import 'package:flutter/material.dart' as material;
 import 'package:flutter/foundation.dart' as foundation;
 import 'package:flutter/services.dart' as services;
 import 'package:flutter/gestures.dart' as gestures;
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 import 'dart:ui' as ui;
 import 'package:flutter_json_widgets/flutter_json_widgets.dart' as widgets;
 import 'package:http/http.dart' as http;
@@ -89,6 +89,7 @@ class FlutterWidget extends material.StatefulWidget {
     required this.widget,
     this.wrappingBuilder,
     this.emptyBuilder,
+    this.onLinkTap,
     this.customWidgets = const {},
   })  : request = null,
         json = null,
@@ -101,6 +102,7 @@ class FlutterWidget extends material.StatefulWidget {
     required this.json,
     this.wrappingBuilder,
     this.emptyBuilder,
+    this.onLinkTap,
     this.customWidgets = const {},
   })  : assetPath = null,
         widget = null,
@@ -113,6 +115,7 @@ class FlutterWidget extends material.StatefulWidget {
     required this.request,
     this.wrappingBuilder,
     this.emptyBuilder,
+    this.onLinkTap,
     this.customWidgets = const {},
     this.assetPath,
     this.httpClient,
@@ -125,6 +128,7 @@ class FlutterWidget extends material.StatefulWidget {
     required this.assetPath,
     this.wrappingBuilder,
     this.emptyBuilder,
+    this.onLinkTap,
     this.customWidgets = const {},
   })  : widget = null,
         json = null,
@@ -141,6 +145,7 @@ class FlutterWidget extends material.StatefulWidget {
   final widgets.FormData? formData;
   final WidgetWrappingBuilder? wrappingBuilder;
   final material.WidgetBuilder? emptyBuilder;
+  final void Function(Uri)? onLinkTap;
 
   @override
   material.State<FlutterWidget> createState() => _FlutterWidgetState();
@@ -1676,10 +1681,11 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         );
       },
       launchUrl: (value) => () {
-        launchUrl(
-          $uri(value.url),
-          mode: LaunchMode.externalApplication,
-        );
+        // launchUrl(
+        //   $uri(value.url),
+        //   mode: LaunchMode.externalApplication,
+        // );
+        widget.onLinkTap?.call($uri(value.url));
       },
       copyClipboard: (value) => () async {
         final data = services.ClipboardData(text: value.text);
