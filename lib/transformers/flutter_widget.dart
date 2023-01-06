@@ -64,10 +64,10 @@ import 'package:flutter/material.dart' as material;
 import 'package:flutter/foundation.dart' as foundation;
 import 'package:flutter/services.dart' as services;
 import 'package:flutter/gestures.dart' as gestures;
-// import 'package:url_launcher/url_launcher.dart';
 import 'dart:ui' as ui;
 import 'package:flutter_json_widgets/flutter_json_widgets.dart' as widgets;
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 import 'package:vector_math/vector_math.dart';
 
 /// Custom widget builder.
@@ -1681,11 +1681,14 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         );
       },
       launchUrl: (value) => () {
-        // launchUrl(
-        //   $uri(value.url),
-        //   mode: LaunchMode.externalApplication,
-        // );
-        widget.onLinkTap?.call($uri(value.url));
+        if (widget.onLinkTap != null) {
+          widget.onLinkTap?.call($uri(value.url));
+        } else {
+          launchUrl(
+            $uri(value.url),
+            mode: LaunchMode.externalApplication,
+          );
+        }
       },
       copyClipboard: (value) => () async {
         final data = services.ClipboardData(text: value.text);
