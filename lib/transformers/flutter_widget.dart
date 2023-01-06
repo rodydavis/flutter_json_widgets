@@ -77,9 +77,9 @@ typedef CustomWidgetBuilder = material.Widget Function(
 );
 
 /// Wrapping builder.
-typedef WidgetWrappingBuilder = material.Widget Function(
+typedef WrappingBuilder<T> = T Function(
   material.BuildContext context,
-  widgets.Widget widget,
+  T item,
   material.Widget child,
 );
 
@@ -143,7 +143,7 @@ class FlutterWidget extends material.StatefulWidget {
   final String? assetPath;
   final http.Client? httpClient;
   final widgets.FormData? formData;
-  final WidgetWrappingBuilder? wrappingBuilder;
+  final WrappingBuilder<Object>? wrappingBuilder;
   final material.WidgetBuilder? emptyBuilder;
   final void Function(Uri)? onLinkTap;
 
@@ -1995,7 +1995,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     final widgets.PreferredSizeWidget? preferredSizeWidget,
   ) {
     if (preferredSizeWidget == null) return null;
-    return preferredSizeWidget.map(
+    final child = preferredSizeWidget.map(
       (value) => material.PreferredSize(
         key: $key(value.key),
         child: $widget(context, value.child)!,
@@ -2057,6 +2057,11 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         splashBorderRadius: $borderRadius(value.splashBorderRadius),
       ),
     );
+    if (widget.wrappingBuilder != null) {
+      final wrap = widget.wrappingBuilder!(context, widget, child);
+      if (wrap is material.PreferredSizeWidget) return wrap;
+    }
+    return child;
   }
 
   material.FloatingActionButtonLocation? $floatingActionButtonLocation(
@@ -2530,7 +2535,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     final widgets.Sliver? sliver,
   ) {
     if (sliver == null) return null;
-    return sliver.map(
+    final child = sliver.map(
       appBar: (value) => material.SliverAppBar(
         key: $key(value.key),
         leading: $widget(context, value.leading),
@@ -2712,6 +2717,11 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         visible: value.visible,
       ),
     );
+    if (widget.wrappingBuilder != null) {
+      final wrap = widget.wrappingBuilder!(context, widget, child);
+      if (wrap is material.Widget) return wrap;
+    }
+    return child;
   }
 
   List<material.Widget>? $slivers(
@@ -4671,9 +4681,9 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
       ),
     );
     if (this.widget.wrappingBuilder != null) {
-      return this.widget.wrappingBuilder!(context, widget, child);
-    } else {
-      return child;
+      final wrap = this.widget.wrappingBuilder!(context, widget, child);
+      if (wrap is material.Widget) return wrap;
     }
+    return child;
   }
 }
